@@ -1,0 +1,4963 @@
+\documentclass[12pt]{book}
+%\usepackage{pdf14}
+%Paper saving
+%\documentclass[12pt,openany]{book}
+%\documentclass[10pt,openany]{book}
+%\documentclass[8pt,openany]{extbook}
+
+\usepackage[T1]{fontenc}
+
+% Footnotes should use symbols, not numbers.  Numbered footnotes are
+% evil
+\usepackage[perpage,symbol*]{footmisc}
+
+%\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{ifpdf}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[pdftex]{graphicx}
+%\usepackage{color}
+%\usepackage{graphics}
+\usepackage[headings]{fullpage}
+\usepackage{url}
+\usepackage{varioref}
+%\usepackage{floatflt}
+%\usepackage{wrapfig}
+\usepackage{makeidx}
+\usepackage[pdftex]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage[shortalphabetic]{amsrefs}
+\usepackage[all]{xy}
+\usepackage{nicefrac}
+\usepackage{microtype}
+
+\usepackage{tikz}
+\usepackage{rotating}
+
+
+
+% Times
+%\usepackage{txfonts}
+% Times, but symbol/cm/ams math fonts
+\usepackage{mathptmx}
+% But we do want helvetica for sans
+\usepackage{helvet}
+
+%enumitem global options
+\setlist{leftmargin=*,itemsep=0.5\itemsep,parsep=0.5\parsep,topsep=0.5\topsep,partopsep=0.5\partopsep}
+
+
+% useful
+\newcommand{\ignore}[1]{}
+
+% analysis/geometry stuff
+\newcommand{\ann}{\operatorname{ann}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\aut}{\operatorname{aut}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\sing}{\operatorname{sing}}
+
+% reals
+\newcommand{\esssup}{\operatorname{ess~sup}}
+\newcommand{\essran}{\operatorname{essran}}
+\newcommand{\innprod}[2]{\langle #1 | #2 \rangle}
+\newcommand{\linnprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Nul}{\operatorname{Nul}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\sabs}[1]{\lvert {#1} \rvert}
+\newcommand{\snorm}[1]{\lVert {#1} \rVert}
+\newcommand{\abs}[1]{\left\lvert {#1} \right\rvert}
+\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
+
+% sets (some)
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathbb{F}}}
+
+% consistent
+\newcommand{\bB}{{\mathbb{B}}}
+\newcommand{\bC}{{\mathbb{C}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\newcommand{\bZ}{{\mathbb{Z}}}
+\newcommand{\bN}{{\mathbb{N}}}
+\newcommand{\bQ}{{\mathbb{Q}}}
+\newcommand{\bD}{{\mathbb{D}}}
+\newcommand{\bF}{{\mathbb{F}}}
+\newcommand{\bH}{{\mathbb{H}}}
+\newcommand{\bO}{{\mathbb{O}}}
+\newcommand{\bP}{{\mathbb{P}}}
+\newcommand{\bK}{{\mathbb{K}}}
+\newcommand{\bV}{{\mathbb{V}}}
+\newcommand{\CP}{{\mathbb{CP}}}
+\newcommand{\RP}{{\mathbb{RP}}}
+\newcommand{\HP}{{\mathbb{HP}}}
+\newcommand{\OP}{{\mathbb{OP}}}
+\newcommand{\sA}{{\mathcal{A}}}
+\newcommand{\sB}{{\mathcal{B}}}
+\newcommand{\sC}{{\mathcal{C}}}
+\newcommand{\sF}{{\mathcal{F}}}
+\newcommand{\sG}{{\mathcal{G}}}
+\newcommand{\sH}{{\mathcal{H}}}
+\newcommand{\sM}{{\mathcal{M}}}
+\newcommand{\sO}{{\mathcal{O}}}
+\newcommand{\sP}{{\mathcal{P}}}
+\newcommand{\sQ}{{\mathcal{Q}}}
+\newcommand{\sR}{{\mathcal{R}}}
+\newcommand{\sS}{{\mathcal{S}}}
+\newcommand{\sI}{{\mathcal{I}}}
+\newcommand{\sL}{{\mathcal{L}}}
+\newcommand{\sK}{{\mathcal{K}}}
+\newcommand{\sU}{{\mathcal{U}}}
+\newcommand{\sV}{{\mathcal{V}}}
+\newcommand{\sX}{{\mathcal{X}}}
+\newcommand{\sY}{{\mathcal{Y}}}
+\newcommand{\sZ}{{\mathcal{Z}}}
+\newcommand{\fS}{{\mathfrak{S}}}
+
+\newcommand{\interior}{\operatorname{int}}
+
+% Topo stuff
+\newcommand{\id}{\textit{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Torsion}{\operatorname{Torsion}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+
+%extra thingies
+\newcommand{\mapsfrom}{\ensuremath{\text{\reflectbox{$\mapsto$}}}}
+\newcommand{\from}{\ensuremath{\leftarrow}}
+\newcommand{\dhat}[1]{\hat{\hat{#1}}}
+\newcommand{\spn}{\operatorname{span}}
+
+% San Serif fonts
+%\renewcommand{\familydefault}{\sfdefault}
+
+% To allow skrinking to 5.5 x 8.5 inches without whitespaces
+% Make sure to rerun makeindex as well
+% Useful for printing on lilu.com and saving on paper
+%\addtolength{\textheight}{2.13in}
+%\addtolength{\paperheight}{2.13in}
+
+\hypersetup{
+    %colorlinks,
+    pdfborderstyle={/S/U/W 1},
+    %citecolor=black,
+    %filecolor=black,
+    %linkcolor=black,
+    %urlcolor=black,
+    pdfkeywords={real analysis, Riemann integral, derivative, limit, sequence},
+    pdfsubject={Real Analysis},
+    pdftitle={Basic Analysis: Introduction to Real Analysis},
+    pdfauthor={Jiri Lebl}
+}
+
+% Set up our index
+\makeindex
+
+% Very simple indexing
+\newcommand{\myindex}[1]{#1\index{#1}}
+
+% define this to be empty to kill notes
+\newcommand{\sectionnotes}[1]{\noindent \emph{Note: #1} \medskip \par}
+
+% Define this to be empty to not skip page before the sections to
+% save some paper
+\newcommand{\sectionnewpage}{\clearpage}
+%\newcommand{\sectionnewpage}{}
+
+\author{Ji\v{r}\'i Lebl}
+
+\title{Basic Analysis: Introduction to Real Analysis}
+
+% Don't include subsections
+\setcounter{tocdepth}{1}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\newtheoremstyle{exercise}% name
+  {}% Space above
+  {}% Space below
+  {\itshape \small}% Body font
+  {}% Indent amount 1
+  {\bfseries \itshape \small}% Theorem head font
+  {:}% Punctuation after theorem head
+  {.5em}% Space after theorem head 2
+  {}% Theorem head spec (can be left empty, meaning "normal")
+
+\newenvironment{exnote}{\small}{}
+
+\theoremstyle{exercise}
+\newtheorem{exercise}{Exercise}[section]
+
+\newtheoremstyle{example}% name
+  {}% Space above
+  {}% Space below
+  {}% Body font
+  {}% Indent amount 1
+  {\bfseries}% Theorem head font
+  {:}% Punctuation after theorem head
+  {.5em}% Space after theorem head 2
+  {}% Theorem head spec (can be left empty, meaning "normal")
+
+\theoremstyle{example}
+\newtheorem{example}[thm]{Example}
+
+% referencing
+\newcommand{\figureref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
+\newcommand{\tableref}[1]{\hyperref[#1]{Table~\ref*{#1}}}
+\newcommand{\chapterref}[1]{\hyperref[#1]{chapter~\ref*{#1}}}
+\newcommand{\Chapterref}[1]{\hyperref[#1]{Chapter~\ref*{#1}}}
+\newcommand{\sectionref}[1]{\hyperref[#1]{\S\ref*{#1}}}
+\newcommand{\exerciseref}[1]{\hyperref[#1]{Exercise~\ref*{#1}}}
+\newcommand{\exampleref}[1]{\hyperref[#1]{Example~\ref*{#1}}}
+\newcommand{\thmref}[1]{\hyperref[#1]{Theorem~\ref*{#1}}}
+\newcommand{\propref}[1]{\hyperref[#1]{Proposition~\ref*{#1}}}
+\newcommand{\lemmaref}[1]{\hyperref[#1]{Lemma~\ref*{#1}}}
+\newcommand{\corref}[1]{\hyperref[#1]{Corollary~\ref*{#1}}}
+\newcommand{\defnref}[1]{\hyperref[#1]{Definition~\ref*{#1}}}
+
+\begin{document}
+
+\setcounter{chapter}{0}
+\refstepcounter{chapter}
+\label{rn:chapter}
+\refstepcounter{chapter}
+\label{seq:chapter}
+\refstepcounter{chapter}
+\label{lim:chapter}
+
+\setcounter{chapter}{5}
+\refstepcounter{chapter}
+\label{fs:chapter}
+\refstepcounter{chapter}
+\label{ms:chapter}
+
+%\let\oldchapter\chapter
+%\renewcommand*{\chapter}[1]{\oldchapter[#1]{#1 \hspace{\fill} {\rm \normalsize \today}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Several variables and partial derivatives} \label{pd:chapter}
+
+\vspace*{-3in}
+{\large DRAFT~~~~DRAFT~~~~DRAFT~~~~DRAFT~~~~\today}
+\vspace*{2.508in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Vector spaces, linear mappings, and convexity}
+\label{sec:vectorspaces}
+
+\sectionnotes{FIXME lectures}
+
+\subsection{Vector spaces}
+
+The euclidean space $\R^n$ has already made an appearance in the metric
+space chapter.  In this chapter, we will extend the differential calculus
+we created for one variable to several variables.  The key idea in
+differential calculus is to approximate functions by lines and linear
+functions.  In several variables we must introduce a little bit of linear
+algebra before we can move on.  So
+let us start with vector spaces and linear functions on vector spaces.
+
+While it is common to use $\vec{x}$ or the bold
+$\mathbf{x}$ for elements of $\R^n$,
+especially in the applied sciences,
+we use just plain $x$, which is common in mathematics.
+That is $x \in \R^n$ is a \emph{\myindex{vector}}, which means that
+$x = (x^1,x^2,\ldots,x^n)$ is an $n$-tuple of real numbers.  We use
+upper indices for identifying components, leaving us the lower
+index for sequences of vectors.  For example, we can have vectors $x_1$ and $x_2$
+in $\R^n$ and then $x_1 = (x_1^1,x_1^2,\ldots,x_1^n)$ and
+$x_2 = (x_2^1,x_2^2,\ldots,x_2^n)$.  It is common to write vectors as
+\emph{\myindex{column vectors}}, that is, $n \times 1$ matrices:
+\begin{equation*}
+x =
+(x^1,x^2,\ldots,x^n) =
+\mbox{ \scriptsize
+$\begin{bmatrix}
+x^1 \\ x^2 \\ \vdots \\ x^n
+\end{bmatrix}$ }.
+\end{equation*}
+We will do so when convenient.
+%We will use this notation with square
+%brackets and use round brackets for just an $n$-tuple of numbers.
+We call real numbers
+\emph{\myindex{scalars}} to distinguish them from vectors.
+
+\begin{defn}
+Let $X$ be a set together with
+operations of addition, $+ \colon X \times X \to X$,
+and multiplication, $\cdot \colon \R \times X \to X$, (we write $ax$ instead of $a
+\cdot x$).  $X$ is called a \emph{\myindex{vector space}} (or a
+\emph{\myindex{real vector space}})
+if the following conditions are satisfied:
+\begin{enumerate}[(i)]
+\item (Addition is associative) \quad If $u, v, w \in X$, then $u+(v+w) = (u+v)+w$.
+\item (Addition is commutative) \quad If $u, v \in X$, then $u+v = v+u$.
+\item (Additive identity) \quad There is a $0 \in X$ such that $v+0=v$ for all $v \in X$.
+\item (Additive inverse) \quad For every $v \in X$, there is a $-v \in X$,
+such that $v+(-v)=0$.
+\item (Distributive law) \quad If $a \in \R$, $u,v \in X$, then
+$a(u+v) = au+av$.
+\item (Distributive law) \quad If $a,b \in \R$, $v \in X$, then
+$(a+b)v = av+bv$.
+\item (Multiplication is associative) \quad If $a,b \in \R$, $v \in X$, then
+$(ab)v = a(bv)$.
+\item (Multiplicative identity) \quad $1v = v$ for all $v \in X$.
+\end{enumerate}
+Elements of a vector space are usually called \emph{vectors}\index{vector},
+even if they
+are not elements of $\R^n$ (vectors in the ``traditional'' sense).
+\end{defn}
+
+%In short $X$ is an Abelian group with respect to the addition, and equipped
+%with multiplication by scalars.
+
+An example vector space is $\R^n$, where addition
+and multiplication by a constant is done componentwise:
+if $\alpha \in \R$ and $x,y \in \R^n$, then
+\begin{align*}
+& x+y :=
+(x^1,x^2,\ldots,x^n) +
+(y^1,y^2,\ldots,y^n) 
+=
+(x^1+y^1,x^2+y^2,\ldots,x^n+y^n) , \\
+& \alpha x :=
+\alpha (x^1,x^2,\ldots,x^n) =
+(\alpha x^1, \alpha x^2,\ldots, \alpha x^n) .
+\end{align*}
+In this book we mostly deal with vector spaces that can be regarded as subsets of $\R^n$,
+but there are
+other vector spaces that are useful in analysis.  For example,
+the space $C([0,1],\R)$ of continuous functions on the interval $[0,1]$
+is a vector space.  %The functions $L^1(X,\mu)$ is also a vector space.
+
+A trivial example of a vector space (the smallest one in fact) is just
+$X = \{ 0 \}$.  The operations are defined in the obvious way.  You always
+need a zero vector to exist, so all vector spaces are nonempty sets.
+
+It is also possible to use other fields than $\R$ in the definition (for
+example it is common to use the complex numbers $\C$), but let us stick with
+the real numbers\footnote{If you want a funky vector space over a different field,
+$\R$ is an infinite dimensional vector space over the rational numbers.}.
+
+A function $f \colon X \to Y$, when $Y$ is not $\R$ is often called a
+\emph{\myindex{mapping}} or a \emph{\myindex{map}}
+rather than a \emph{function}.
+%  The word
+%function is then usually reserved for the case $Y=\R$.
+
+\subsection{Linear combinations and dimension}
+
+\begin{defn}
+If we have vectors $x_1, \ldots, x_k \in \R^n$ and scalars
+$a^1, \ldots, a^k \in \R$, then
+\begin{equation*}
+a^1 x_1 + 
+a^2 x_2 +  \cdots
++ a^k x_k
+\end{equation*}
+is called a \emph{\myindex{linear combination}} of the vectors $x_1, \ldots, x_k$.
+
+%Note that if $x_1, \ldots, x_k$ are in a vector space $X$, then
+%any linear combination of $x_1, \ldots, x_k$ is also in $X$.
+
+If $Y \subset \R^n$ is a set then the \emph{\myindex{span}} of $Y$, or in notation
+$\spn(Y)$, is the set of all linear combinations
+of some finite number of elements of $Y$.  We also
+say $Y$ \emph{\myindex{spans}} $\spn(Y)$.
+\end{defn}
+
+\begin{example}
+Let $Y := \{ (1,1) \} \subset \R^2$.  Then
+\begin{equation*}
+\spn(Y)
+=
+\{ (x,x) \in \R^2 : x \in \R \} .
+\end{equation*}
+That is, $\spn(Y)$ is the line through the origin and the point $(1,1)$.
+\end{example}
+
+\begin{example} \label{example:vecspr2span}
+Let $Y := \{ (1,1), (0,1) \} \subset \R^2$.  Then
+\begin{equation*}
+\spn(Y)
+=
+\R^2 ,
+\end{equation*}
+as any point $(x,y) \in \R^2$ can be written as
+a linear combination
+\begin{equation*}
+(x,y) = x (1,1) + (y-x) (0,1) .
+\end{equation*}
+\end{example}
+
+A sum of two linear combinations is again a linear combination, and
+a scalar multiple of a linear combination is a linear combination,
+which proves the following proposition.
+
+\begin{prop}
+Let $X$ be a vector space.  For any $Y \subset X$,
+the set $\spn(Y)$ is a vector space itself.
+\end{prop}
+
+If $Y$ is already a vector space then $\spn(Y) = Y$.
+
+\begin{defn}
+A set of vectors $\{ x_1, x_2, \ldots, x_k \}$ is 
+\emph{\myindex{linearly independent}}, if the only solution to
+\begin{equation*}
+a^1 x_1 + a^2 x_2 + \cdots + a^k x_k = 0
+\end{equation*}
+is the trivial solution $a^1 = a^2 = \cdots = a^k = 0$.
+%Here 0 is the vector of all zeros.
+A set that is not linearly independent, is
+\emph{\myindex{linearly dependent}}.
+
+A linearly independent set $B$ of vectors such that
+$\spn(B) = X$ 
+is called a \emph{\myindex{basis}} of $X$.  For example the
+set $Y$ of the two vectors in
+\exampleref{example:vecspr2span} is a basis of $\R^2$.
+
+If a vector space $X$ contains a linearly independent set of $d$ vectors,
+but no linearly independent set of $d+1$ vectors then we say
+the \emph{\myindex{dimension}} or $\dim \, X := d$.  If for all $d \in \N$ the vector space
+$X$ contains a set of $d$ linearly independent vectors, we say
+$X$ is infinite dimensional and write $\dim \, X := \infty$.
+\end{defn}
+
+Clearly for the trivial vector space, $\dim \, \{ 0 \} = 0$.
+%So far we have not shown that any other vector space has a finite dimension.
+We will see in a moment that any vector space that is a subset of $\R^n$
+has a finite dimension, and that dimension is less than or equal to $n$.
+
+If a set is linearly dependent, then one of the
+vectors is a linear combination of the others.  In other words,
+if $a^j \not= 0$, then we can solve for $x_j$
+\begin{equation*}
+x_j = \frac{a^1}{a^j} x_1 + \cdots + 
+\frac{a^{j-1}}{a^j} x_{j-1} +
+\frac{a^{j+1}}{a^j} x_{j+1} +
+\cdots + 
+\frac{a^k}{a^k} x_k .
+\end{equation*}
+Clearly then the vector $x_j$ has at least two different representations
+as linear combinations of $\{ x_1,x_2,\ldots,x_k \}$.  
+
+\begin{prop}
+If $B = \{ x_1, x_2, \ldots, x_k \}$ is a basis of a vector space $X$, then
+every point $y \in X$ has a unique representation of the form
+\begin{equation*}
+y = \sum_{j=1}^k \alpha^j x_j
+\end{equation*}
+for some numbers $\alpha^1, \alpha^2, \ldots, \alpha^k$.
+\end{prop}
+
+\begin{proof}
+Every $y \in X$ is a linear combination of elements of $B$
+since $X$ is the span of $B$.  For uniqueness
+suppose
+\begin{equation*}
+y = \sum_{j=1}^k \alpha^j x_j = \sum_{j=1}^k \beta^j x_j ,
+\end{equation*}
+then
+\begin{equation*}
+\sum_{j=1}^k (\alpha^j-\beta^j) x_j = 0 .
+\end{equation*}
+By linear independence of the basis $\alpha^j = \beta^j$ for all $j$.
+\end{proof}
+
+For $\R^n$
+we define
+\begin{equation*}
+e_1 := (1,0,0,\ldots,0) , \quad
+e_2 := (0,1,0,\ldots,0) , \quad \ldots, \quad
+e_n := (0,0,0,\ldots,1) ,
+\end{equation*}
+and call this the \emph{\myindex{standard basis}} of $\R^n$.
+We use the same letters $e_j$ for any $\R^n$, and
+which space $\R^n$ we are working in is understood from context.
+A direct computation shows that $\{ e_1, e_2, \ldots, e_n \}$ is really
+a basis of $\R^n$; it is easy to show that it spans $\R^n$ and is
+linearly independent.  In fact,
+\begin{equation*}
+x = (x^1,x^2,\ldots,x^n) = \sum_{j=1}^n x^j e_j .
+\end{equation*}
+
+\begin{prop}
+%(\textbf{(Theorems 9.2 and 9.3 in Rudin):})
+Let $X$ be a vector space.
+\begin{enumerate}[(i)]
+\item
+If $X$ is spanned by $d$ vectors, then $\dim \, X \leq d$.
+\item $\dim \, X = d$ if and only if $X$ has a basis of $d$
+vectors (and so every basis has $d$ vectors).
+\item In particular, $\dim \, \R^n = n$.
+\item If $Y \subset X$ is a vector space and $\dim \, X = d$,
+then $\dim \, Y \leq d$.
+\item If $\dim \, X = d$ and a set $T$ of $d$ vectors spans $X$,
+then $T$ is linearly independent.
+\item If $\dim \, X = d$ and a set $T$ of $m$ vectors is
+linearly independent, then there is a set $S$ of $d-m$
+vectors such that $T \cup S$ is a basis of $X$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Let us start with (i).
+Suppose $S = \{ x_1 , x_2, \ldots, x_d \}$ spans $X$, and
+$T = \{ y_1, y_2, \ldots, y_m \}$ is a set of linearly independent
+vectors of $X$.  We wish to show that $m \leq d$.
+Write
+\begin{equation*}
+y_1 = \sum_{k=1}^d \alpha_1^k x_k ,
+\end{equation*}
+which we can do as $S$ spans $X$.  One of the
+$\alpha_1^k$ is nonzero (otherwise $y_1$ would be zero),
+so suppose without loss of generality that this
+is $\alpha_1^1$.  Then we can solve
+\begin{equation*}
+x_1 = \frac{1}{\alpha_1^1} y_1 - \sum_{k=2}^d \frac{\alpha_1^k}{\alpha_1^1} x_k .
+\end{equation*}
+In particular $\{ y_1 , x_2, \ldots, x_d \}$ span $X$, since $x_1$ can be
+obtained from $\{ y_1 , x_2, \ldots, x_d \}$.  Next,
+\begin{equation*}
+y_2 = \alpha_2^1 y_1 + \sum_{k=2}^d \alpha_2^k x_k .
+\end{equation*}
+As $T$ is linearly independent, we must have that one of the $\alpha_2^k$
+for $k \geq 2$ must be nonzero.  Without loss of generality suppose 
+$\alpha_2^2 \not= 0$.  Proceed to solve for 
+\begin{equation*}
+x_2 = \frac{1}{\alpha_2^2} y_2 - \frac{\alpha_2^1}{\alpha_2^2} y_1 - \sum_{k=3}^d \frac{\alpha_2^k}{\alpha_2^2} x_k .
+\end{equation*}
+In particular 
+$\{ y_1 , y_2, x_3, \ldots, x_d \}$ spans $X$.
+The astute reader will think back to linear algebra and notice that we are
+row-reducing a matrix.
+
+We continue this procedure.  If $m < d$, then we are done.  So suppose
+$m \geq d$.
+After $d$ steps we obtain that 
+$\{ y_1 , y_2, \ldots, y_d \}$ spans $X$.  Any
+other vector $v$ in $X$ is a linear combination of
+$\{ y_1 , y_2, \ldots, y_d \}$, and hence cannot be in $T$ as $T$ is
+linearly independent.  So $m = d$.
+
+Let us look at (ii).
+First notice that if we have a set $T$ of $k$ linearly independent vectors
+that do not span $X$, then we can always choose a vector $v \in X \setminus
+\spn (T)$.  The set $T \cup \{ v \}$ is linearly independent (exercise).
+If $\dim \, X = d$,
+then there must exist some linearly independent set of $d$ vectors $T$,
+and it must span $X$, otherwise we could choose a larger set of linearly
+independent vectors.  So we have a basis of $d$ vectors.
+On the other hand if we have a basis of $d$ vectors,
+it is linearly independent and spans $X$.  By (i) we know
+there is no set of $d+1$ linearly independent vectors, so dimension must be $d$.
+
+For (iii) notice that $\{ e_1, e_2, \ldots, e_n \}$ is a basis of $\R^n$.
+
+To see (iv),
+suppose $Y$ is a vector space and $Y \subset X$,
+where $\dim \, X = d$.  As $X$ cannot contain $d+1$ linearly independent
+vectors, neither can $Y$.
+
+For (v) suppose $T$ is a set of $m$ vectors that is linearly dependent
+and spans $X$.  Then one of the
+vectors is a linear combination of the others.  Therefore if we remove it
+from $T$ we obtain a set of $m-1$ vectors that still span $X$ and hence
+$\dim \, X \leq m-1$.
+
+For (vi) suppose $T = \{ x_1, \ldots, x_m \}$ is
+a linearly independent set.  We follow the procedure above in the proof of
+(ii) to keep adding vectors while keeping the set linearly independent.
+As the dimension is $d$ we can add a vector exactly $d-m$ times.
+\end{proof}
+
+\subsection{Linear mappings}
+
+\begin{defn}
+A mapping $A \colon X \to Y$ of vector spaces $X$ and $Y$
+is \emph{\myindex{linear}} (or a
+\emph{\myindex{linear transformation}})
+if for every $a \in \R$ and $x,y \in X$
+we have
+\begin{equation*}
+A(a x) = a A(x) \qquad A(x+y) = A(x)+A(y) .
+\end{equation*}
+We usually write $Ax$ instead of $A(x)$ if $A$ is linear.
+
+If $A$ is one-to-one an onto then we say $A$ is
+\emph{invertible}\index{invertible linear transformation}
+and we denote the inverse by $A^{-1}$.
+
+If $A \colon X \to X$ is linear then we say $A$ is a
+\emph{\myindex{linear operator}} on $X$.
+
+We write $L(X,Y)$ for the set of all linear transformations from $X$ to
+$Y$, and just $L(X)$ for the set of linear operators on $X$.
+If $a,b \in \R$ and $A, B \in L(X,Y)$, define
+the transformation $aA+bB$
+\begin{equation*}
+(aA+bB)(x) = 
+aAx+bBx .
+\end{equation*}
+
+If $A \in L(Y,Z)$ and $B \in L(X,Y)$, define the
+transformation $AB$ as
+\begin{equation*}
+ABx := A(Bx) .
+\end{equation*}
+
+Finally denote by $I \in L(X)$ the \emph{\myindex{identity}}: 
+the linear operator such that $Ix = x$ for all $x$.
+\end{defn}
+
+It is not hard to see that $aA+bB \in L(X,Y)$, and that $AB \in L(X,Z)$.
+In particular, $L(X,Y)$ is a vector space.
+%The set $L(X)$ also
+%admits a product (usually such a set is called an \emph{\myindex{algebra}}.
+%
+It is obvious that if $A$ is linear then $A0 = 0$.
+
+\begin{prop}
+If $A \colon X \to Y$ is invertible, then $A^{-1}$ is linear.
+\end{prop}
+
+\begin{proof}
+Let $a \in \R$ and $y \in Y$.  As $A$ is onto, then there is an 
+$x$ such that $y = Ax$, and further as it is also one-to-one
+$A^{-1}(Az) = z$ for all $z \in X$.  So
+\begin{equation*}
+A^{-1}(ay)
+=
+A^{-1}(aAx)
+=
+A^{-1}\bigl(A(ax)\bigr)
+= ax
+= aA^{-1}(y).
+\end{equation*}
+Similarly let $y_1,y_2 \in Y$, and $x_1, x_2 \in X$ such that
+$Ax_1 = y_1$ and 
+$Ax_2 = y_2$, then
+\begin{equation*}
+A^{-1}(y_1+y_2)
+=
+A^{-1}(Ax_1+Ax_2)
+=
+A^{-1}\bigl(A(x_1+x_2)\bigr)
+= x_1+x_2
+= A^{-1}(y_1) + A^{-1}(y_2). \qedhere
+\end{equation*}
+\end{proof}
+
+\begin{prop}
+If $A \colon X \to Y$ is linear then it is completely determined
+by its values on a basis of $X$.  Furthermore, if $B$ is a basis,
+then any function $\tilde{A} \colon B \to Y$ extends to a linear
+function on $X$.
+\end{prop}
+
+\begin{proof}
+For infinite dimensional spaces, the proof is essentially the same, but a
+little trickier to write, so let us stick with finitely many dimensions.
+We leave the infinite dimensional case to the reader.
+Let $\{ x_1, x_2, \ldots, x_n \}$ be a basis and suppose 
+$A(x_j) = y_j$.  Then every $x \in X$ has a unique representation
+\begin{equation*}
+x = \sum_{j=1}^n b^j x_j
+\end{equation*}
+for some numbers $b^1,b^2,\ldots,b^n$.  Then by linearity
+\begin{equation*}
+Ax = 
+A\sum_{j=1}^n b^j x_j
+=
+\sum_{j=1}^n b^j Ax_j
+=
+\sum_{j=1}^n b^j y_j .
+\end{equation*}
+The ``furthermore'' follows by
+defining the extension
+$Ax = \sum_{j=1}^n b^j y_j$, and noting that this is well defined by
+uniqueness of the representation of $x$.
+\end{proof}
+
+%\textbf{Theorem 9.5:}
+\begin{prop}
+If $X$ is a finite dimensional vector space and $A \colon X \to X$
+is linear, then $A$ is one-to-one if and only if it is onto.
+\end{prop}
+
+\begin{proof}
+Let $\{ x_1,x_2,\ldots,x_n \}$ be a basis for $X$.
+Suppose $A$ is one-to-one.  Now suppose
+\begin{equation*}
+\sum_{j=1}^n c^j Ax_j =
+A\sum_{j=1}^n c^j x_j =
+0 .
+\end{equation*}
+As $A$ is one-to-one,
+the only vector that is taken to 0 is 0 itself.  
+Hence,
+\begin{equation*}
+0 =
+\sum_{j=1}^n c^j x_j
+\end{equation*}
+and so $c^j = 0$ for all $j$.
+Therefore, $\{ Ax_1, Ax_2, \ldots, Ax_n \}$ is linearly independent.  By an
+above proposition and the fact that the dimension is $n$, we have that
+$\{ Ax_1, Ax_2, \ldots, Ax_n \}$ span $X$.  As any point $x \in X$
+can be written as
+\begin{equation*}
+x = \sum_{j=1}^n a^j Ax_j =
+A\sum_{j=1}^n a^j x_j ,
+\end{equation*}
+so $A$ is onto.
+
+Now suppose $A$ is onto.  As $A$ is determined by the action on
+the basis we see that every element of $X$ has to be in the span of
+$\{ Ax_1, \ldots, Ax_n \}$.  Suppose 
+\begin{equation*}
+A\sum_{j=1}^n c^j x_j =
+\sum_{j=1}^n c^j Ax_j = 0 .
+\end{equation*}
+By the same proposition as 
+$\{ Ax_1, Ax_2, \ldots, Ax_n \}$ span $X$, the set is independent,
+and hence $c^j = 0$ for all $j$.  This means that
+$A$ is one-to-one.  If $Ax = Ay$, then $A(x-y) = 0$ and so
+$x=y$.
+\end{proof}
+
+\subsection{Convexity}
+
+A subset $U$ of a vector space is \emph{\myindex{convex}}
+if whenever $x,y \in U$, the line segment from
+$x$ to $y$ lies in $U$.  That is, if the \emph{\myindex{convex combination}}
+$(1-t)x+ty$ is in $U$ for all $t \in [0,1]$.  See \figureref{mv:convexcomb}.
+
+\begin{figure}[h!t]
+\begin{center}
+\input convexset.pdf_t
+\caption{Convexity.\label{mv:convexcomb}}
+\end{center}
+\end{figure}
+
+Note that in $\R$, every connected interval is convex.  In $\R^2$ (or higher
+dimensions) there are lots of nonconvex connected sets.  For example
+the set $\R^2 \setminus \{0\}$ is not convex but it is connected.  To see
+this simply take any $x \in \R^2 \setminus \{0\}$ and let $y:=-x$.
+Then $(\nicefrac{1}{2})x + (\nicefrac{1}{2})y = 0$, which is not in the set.
+On the other hand, the ball $B(x,r) \subset \R^n$ (using the standard metric
+on $\R^n$)
+is always convex by the triangle inequality.
+
+\begin{exercise}
+Show that in $\R^n$ any ball $B(x,r)$ for $x \in \R^n$ and $r > 0$ is
+convex.
+\end{exercise}
+
+\begin{example}
+Any subspace $V$ of a vector space $X$ is convex.
+\end{example}
+
+\begin{example}
+A somewhat more complicated example is given by the following.  Let
+$C([0,1],\R)$ be the vector space of continuous real valued functions on $\R$.
+Let $X \subset C([0,1],\R)$ be the set of those $f$ such  
+\begin{equation*}
+\int_0^1 f(x)~dx \leq 1 \qquad \text{and} \qquad
+f(x) \geq 0 \text{ for all $x \in [0,1]$} .
+\end{equation*}
+Then $X$ is convex.  Take $t \in [0,1]$ and note that if $f,g \in X$
+then $t f(x) + (1-t) g(x) \geq 0$ for all $x$.  Furthermore
+\begin{equation*}
+\int_0^1 \bigl(tf(x) + (1-t)g(x)\bigr) ~dx
+=
+t \int_0^1 f(x) ~dx
++ (1-t)\int_0^1 g(x) ~dx \leq 1 .
+\end{equation*}
+Note that $X$ is not a subspace of $C([0,1],\R)$.
+\end{example}
+
+\begin{prop}
+The intersection two closed sets is convex.  In fact,
+If $\{ C_\lambda \}_{\lambda \in I}$ is
+an arbitrary collection of convex sets, then
+\begin{equation*}
+C := \bigcap_{\lambda \in I} C_\lambda
+\end{equation*}
+is convex.
+\end{prop}
+
+\begin{proof}
+The proof is easy.  If $x, y \in C$, then $x,y \in C_\lambda$ for all
+$\lambda \in I$, and hence if $t \in [0,1]$, then $tx + (1-t)y \in
+C_\lambda$ for all $\lambda \in I$.  Therefore $tx + (1-t)y \in C$ and $C$
+is convex.
+\end{proof}
+
+\begin{prop}
+Let $T \colon V \to W$ be a linear mapping between two vector spaces and
+let $C \subset V$ be a convex set.  Then $T(C)$ is convex.
+\end{prop}
+
+\begin{proof}
+Take any two points $p,q \in T(C)$.  Then pick $x,y \in C$ such that
+$T(x) = p$ and $T(y)=q$.  As $C$ is convex then for all $t \in [0,1]$
+we have $tx+(1-t)y \in C$, so
+\begin{equation*}
+T\bigl(tx+(1-t)y\bigr)
+=
+tT(x)+(1-t)T(y)
+=
+tp+(1-t)q 
+\end{equation*}
+is in $T(C)$.
+\end{proof}
+
+For completeness, let us A very useful construction is the
+\emph{\myindex{convex hull}}.  Given any set $S \subset V$ of a vector
+space, define the convex hull of $S$, by
+\begin{equation*}
+\operatorname{co}(S) :=
+\bigcap \{ C \subset V : S \subset C, \text{ and $C$ is convex} \} .
+\end{equation*}
+That is, the convex hull is the smallest convex set containing $S$.  Note
+that by a proposition above, the intersection of convex sets is convex and
+hence, the convex hull is convex.
+
+\begin{example}
+The convex hull of 0 and 1 in $\R$ is $[0,1]$.  Proof:
+Any convex set containing 0 and 1 must contain $[0,1]$.  The set $[0,1]$
+is convex, therefore it must be the convex hull.
+\end{example}
+
+\subsection{Exercises}
+
+\begin{exercise}
+Verify that $\R^n$ is a vector space.
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be a vector space.
+Prove that a finite set of vectors $\{ x_1,\ldots,x_n \} \subset X$ 
+is linearly independent if and only if for every $j=1,2,\ldots,n$
+\begin{equation*}
+\spn( \{ x_1,\ldots,x_{j-1},x_{j+1},\ldots,x_n \}) \subsetneq
+\spn( \{ x_1,\ldots,x_n \}) .
+\end{equation*}
+That is, the span of the set with one vector removed is strictly smaller.
+\end{exercise}
+
+\begin{exercise}[Challenging]
+Prove that $C([0,1],\R)$ is an infinite dimensional vector space
+where the operations are defined in the obvious way:
+$s=f+g$ and $m=fg$ are defined as
+$s(x) := f(x)+g(x)$ and
+$m(x) := f(x)g(x)$.
+Hint: for the dimension, think of functions that are only nonzero
+on the interval $(\nicefrac{1}{n+1},\nicefrac{1}{n})$.
+\end{exercise}
+
+\begin{exercise}
+Let $k \colon [0,1]^2 \to \R$ be continuous.  Show that
+$L \colon C([0,1],\R) \to C([0,1],\R)$ defined by
+\begin{equation*}
+Lf(y) := \int_0^1 k(x,y)f(x)~dx
+\end{equation*}
+is a linear operator.  That is, show that $L$ is well defined (that
+$Lf$ is continuous), and that $L$ is linear.
+\end{exercise}
+
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+%\section{Norms, matrices, and determinants}
+\section{Analysis with vector spaces}
+\label{sec:normsmatsdets}
+
+\sectionnotes{FIXME lectures}
+
+\subsection{Norms}
+
+Let us start measuring distance.
+
+\begin{defn}
+If $X$ is a vector space, then we say
+a real valued function $\norm{\cdot}$ is a \emph{\myindex{norm}} if:
+\begin{enumerate}[(i)]
+\item $\norm{x} \geq 0$, with $\norm{x}=0$ if and only if $x=0$.
+\item $\norm{cx} = \abs{c}\norm{x}$ for all $c \in \R$ and $x \in X$.
+\item $\norm{x+y} \leq \norm{x}+\norm{y}$ for all $x,y \in X$
+\qquad (Triangle inequality)\index{triangle inequality for norms}.
+\end{enumerate}
+\end{defn}
+
+Before defining the standard norm on $\R^n$, let us
+define the standard 
+scalar \emph{\myindex{dot product}} on $\R^n$.  For two vectors
+if $x=(x^1,x^2,\ldots,x^n) \in \R^n$
+and $y=(y^1,y^2,\ldots,y^n) \in \R^n$, define
+\begin{equation*}
+x \cdot y := \sum_{j=1}^n x^j y^j .
+\end{equation*}
+It is easy to see that the dot product is linear in each variable
+separately, that is, it is a linear mapping when you keep one of the
+variables constant.
+The \emph{\myindex{Euclidean norm}} is then defined as
+%Let $x=(x^1,x^2,\ldots,x^n) \in \R^n$.  Define
+\begin{equation*}
+\norm{x} := \sqrt{x \cdot x} = \sqrt{(x^1)^2+(x^2)^2 + \cdots + (x^n)^2}.
+\end{equation*}
+It is easy to see that the Euclidean norm satisfies (i) and (ii).  To prove
+that (iii) holds, the key
+key inequality in the so-called Cauchy-Schwarz inequality that
+we have seen before.  As this inequality is so important let us restate and
+reprove it using the notation of this chapter.
+
+\begin{thm}[\myindex{Cauchy-Schwarz inequality}]
+Let $x, y \in \R^n$, then
+\begin{equation*}
+\abs{x \cdot y} \leq \norm{x}\norm{y} = \sqrt{x\cdot x}\, \sqrt{y\cdot y},
+\end{equation*}
+with equality if and only if the vectors are scalar multiples of each other.
+\end{thm}
+
+\begin{proof}
+If $x=0$ or $y = 0$, then the theorem holds trivially.
+So assume $x\not= 0$ and $y \not= 0$.
+
+If $x$ is a scalar multiple of $y$, that is $x = \lambda y$ for some
+$\lambda \in \R$, then the theorem holds with equality:
+\begin{equation*}
+\abs{\lambda y \cdot y} = \abs{\lambda} \, \abs{y\cdot y} =
+\abs{\lambda} \, \norm{y}^2 = \norm{\lambda y} \norm{y} .
+\end{equation*}
+
+Next take $x+ty$,
+\begin{equation*}
+\norm{x+ty}^2 =
+(x+ty) \cdot (x+ty) =
+x \cdot x + x \cdot ty + ty \cdot x + ty \cdot ty
+=
+\norm{x}^2 + 2t(x \cdot y) + t^2 \norm{y}^2 .
+\end{equation*}
+If $x$ is not a scalar multiple of $y$, then 
+$\norm{x+ty}^2 > 0$ for all $t$.  So the above polynomial in $t$
+is never zero.
+From elementary algebra it follows that the discriminant must be negative:
+\begin{equation*}
+4 {(x \cdot y)}^2 - 4 \norm{x}^2\norm{y}^2 < 0,
+\end{equation*}
+or in other words ${(x \cdot y)}^2 < \norm{x}^2\norm{y}^2$.
+\end{proof}
+
+Item (iii), the triangle inequality, follows via a simple computation:
+\begin{equation*}
+\norm{x+y}^2 
+=
+x \cdot x + y \cdot y + 2 (x \cdot y)
+\leq
+\norm{x}^2 + \norm{y}^2 + 2 (\norm{x}+\norm{y})
+=
+{(\norm{x} + \norm{y})}^2 .
+\end{equation*}
+
+The distance
+$d(x,y) := \norm{x-y}$ is the standard
+distance function on $\R^n$ that we used when we talked about metric spaces.
+
+In fact, on any vector space $X$, once we
+have a norm (any norm),
+we define a distance $d(x,y) := \norm{x-y}$ that makes $X$ into
+a metric space (an easy exercise).
+
+%Let $A \in L(\R^n,\R^m)$.  Define
+Let $A \in L(X,Y)$.  Define
+\begin{equation*}
+\norm{A} :=
+\sup \{ \norm{Ax} : x \in X ~ \text{with} ~ \norm{x} = 1 \} .
+\end{equation*}
+The number $\norm{A}$ is called the \emph{\myindex{operator norm}}.  We will see below
+that indeed it is a norm (at least for finite dimensional spaces).
+By linearity we get
+\begin{equation*}
+\norm{A} =
+\sup \{ \norm{Ax} : x \in X ~ \text{with} ~ \norm{x} = 1 \}
+=
+\sup_{\substack{x \in X\\x\neq 0}} \frac{\norm{Ax}}{\norm{x}} .
+\end{equation*}
+This implies that
+\begin{equation*}
+\norm{Ax} \leq \norm{A}  \norm{x} .
+\end{equation*}
+%although the inequality may be strict.  For example,
+%Suppose that on $\R^2$, $A(1,0) = (0,0)$ and
+%$A(0,1) = (0,1)$.  Then it is not hard to FIXME?
+
+It is not hard to see from the definition that $\norm{A} = 0$ if and
+only if $A = 0$, that is, if $A$ takes every vector to the zero vector.
+
+For finite dimensional spaces $\norm{A}$ is always finite as we prove
+below.  This also implies that $A$ is continuous.
+For infinite dimensional spaces neither statement needs to be true.  For a simple
+example,
+take the vector space of continuously differentiable functions on $[0,1]$
+and as the norm use the uniform norm.  The functions
+$\sin(nx)$ have norm 1, but the derivatives have norm $n$.  So
+differentiation (which is a linear operator) has unbounded norm on this
+space.  But let us stick to finite dimensional spaces now.
+
+\begin{prop}
+{\ }
+%\textbf{Proposition (Theorem 9.7 in Rudin):}
+\begin{enumerate}[(i)]
+\item If $A \in L(\R^n,\R^m)$, then $\norm{A} < \infty$ and
+$A$ is uniformly continuous (Lipschitz with constant $\norm{A}$).
+\item If $A,B \in L(\R^n,\R^m)$ and $c \in \R$, then
+\begin{equation*}
+\norm{A+B} \leq \norm{A}+\norm{B}, \qquad \norm{cA} = \abs{c}\norm{A} .
+\end{equation*}
+In particular $L(\R^n,\R^m)$ is a metric space with distance $\norm{A-B}$.
+\item 
+If $A \in L(\R^n,\R^m)$ and $B \in L(\R^m,\R^k)$, then
+\begin{equation*}
+\norm{BA} \leq \norm{B} \norm{A} .
+\end{equation*}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+For (i), let $x \in \R^n$.  We know that $A$ is defined by its action on a
+basis.  Write
+\begin{equation*}
+x = \sum_{j=1}^n c^j e_j .
+\end{equation*}
+Then
+\begin{equation*}
+\norm{Ax} =
+\norm{\sum_{j=1}^n c^j Ae_j}
+\leq
+\sum_{j=1}^n \abs{c^j} \norm{Ae_j} .
+\end{equation*}
+If $\norm{x} = 1$, then it is easy to see that $\abs{c^j} \leq 1$ for
+all $j$, so
+\begin{equation*}
+\norm{Ax}
+\leq
+\sum_{j=1}^n \abs{c^j} \norm{Ae_j} 
+\leq
+\sum_{j=1}^n \norm{Ae_j} .
+\end{equation*}
+The right hand side does not depend on $x$ and so we are done, we have found
+a finite upper bound.  Next,
+\begin{equation*}
+\norm{A(x-y)} \leq \norm{A} \norm{x-y}
+\end{equation*}
+as we mentioned above.  So if $\norm{A} < \infty$, then this says that
+$A$ is Lipschitz with constant $\norm{A}$.
+
+For (ii), let us note that
+\begin{equation*}
+\norm{(A+B)x} =
+\norm{Ax+Bx} \leq
+\norm{Ax}+\norm{Bx} \leq
+\norm{A} \norm{x}+\norm{B}\norm{x} =
+(\norm{A}+\norm{B}) \norm{x} .
+\end{equation*}
+So $\norm{A+B} \leq \norm{A}+\norm{B}$.
+
+Similarly
+\begin{equation*}
+\norm{(cA)x} =
+\abs{c} \norm{Ax} \leq (\abs{c}\norm{A}) \norm{x} .
+\end{equation*}
+Thus $\norm{cA} \leq \abs{c}\norm{A}$.  Next note 
+\begin{equation*}
+\abs{c} \norm{Ax}
+=
+\norm{cAx} \leq \norm{cA} \norm{x} .
+\end{equation*}
+Hence $\abs{c}\norm{A} \leq \norm{cA}$.
+
+That we have a metric space follows pretty easily, and is left to student.
+
+For (iii) write
+\begin{equation*}
+\norm{BAx} \leq \norm{B} \norm{Ax} \leq \norm{B} \norm{A} \norm{x} .
+\qedhere
+\end{equation*}
+\end{proof}
+
+As a norm defines a metric,
+we have defined a metric space topology on $L(\R^n,\R^m)$ so we can talk
+about open/closed sets, continuity, and convergence.  Note that we have
+defined a norm only on $\R^n$ and not on an arbitrary finite dimensional
+vector space.  However, after picking bases, we can define a norm on any
+vector space in the same way.  So we really have a topology on any $L(X,Y)$,
+although the precise metric would depend on the basis picked.
+
+%\textbf{Theorem 9.8:}
+\begin{prop}
+Let $U \subset L(\R^n)$ be the set of invertible linear operators.
+\begin{enumerate}[(i)]
+\item If $A \in U$ and $B \in L(\R^n)$, and
+\begin{equation} \label{eqcontineq}
+\norm{A-B} <  \frac{1}{\norm{A^{-1}}},
+\end{equation}
+then $B$ is invertible.
+\item $U$ is open and $A \mapsto A^{-1}$ is a continuous
+function on $U$.
+\end{enumerate}
+\end{prop}
+
+The proposition says that $U$ is an open set and $A \mapsto A^{-1}$ is
+continuous on $U$.
+
+You should always think back to $\R^1$, where linear operators are just
+numbers $a$.  The operator $a$ is invertible ($a^{-1} = \nicefrac{1}{a}$)
+whenever $a \not=0$.  Of course $a \mapsto \nicefrac{1}{a}$ is continuous.
+When $n > 1$, then there are other noninvertible operators, and in general
+things are a bit more difficult.
+
+\begin{proof}
+Let us prove (i).  First a straight forward computation
+\begin{equation*}
+\norm{x} =
+\norm{A^{-1}Ax}
+\leq
+\norm{A^{-1}} \norm{Ax}
+\leq
+\norm{A^{-1}} ( \norm{(A-B)x} + \norm{Bx} )
+\leq
+\norm{A^{-1}}\norm{A-B} \norm{x} + \norm{A^{-1}}\norm{Bx} .
+\end{equation*}
+Now assume $x \neq 0$ and so $\norm{x} \neq 0$.
+Using \eqref{eqcontineq} we obtain
+\begin{equation*}
+\norm{x} < \norm{x} + \norm{A^{-1}}\norm{Bx} ,
+\end{equation*}
+or in other words $\norm{Bx} \not= 0$ for all nonzero $x$, and hence
+$Bx \not= 0$ for all nonzero $x$.  This is enough to see that
+$B$ is one-to-one (if $Bx = By$, then $B(x-y) = 0$, so $x=y$).
+As $B$ is one-to-one operator from $\R^n$ to $\R^n$ it is onto
+and hence invertible.
+
+Let us look at (ii).  Let $B$ be invertible and near $A^{-1}$,
+that is \eqref{eqcontineq} is satisfied.  In fact, 
+suppose $\norm{A-B} \norm{A^{-1}} <  \nicefrac{1}{2}$.
+Then we have shown above (using $B^{-1}y$ instead of $x$)
+\begin{equation*}
+\norm{B^{-1}y} \leq 
+\norm{A^{-1}}\norm{A-B} \norm{B^{-1}y} + \norm{A^{-1}}\norm{y}
+\leq
+\nicefrac{1}{2} \norm{B^{-1}y} + \norm{A^{-1}}\norm{y} ,
+\end{equation*}
+or
+\begin{equation*}
+\norm{B^{-1}y} \leq 
+%\frac{1}{1- \norm{A^{-1}}\norm{A-B}) \norm{A^{-1}}\norm{y} .
+2\norm{A^{-1}}\norm{y} .
+\end{equation*}
+So
+$
+\norm{B^{-1}} \leq 2 \norm{A^{-1}}
+%\frac{\norm{A^{-1}}}{1- \norm{A^{-1}}\norm{A-B})} .
+$.
+
+Now note that
+\begin{equation*}
+A^{-1}(A-B)B^{-1} = 
+A^{-1}(AB^{-1}-I) = 
+B^{-1}-A^{-1} ,
+\end{equation*}
+and
+\begin{equation*}
+\norm{B^{-1}-A^{-1}} =
+\norm{A^{-1}(A-B)B^{-1}} \leq
+\norm{A^{-1}}\norm{A-B}\norm{B^{-1}}
+\leq
+%\frac{\norm{A^{-1}}^2}{1- \norm{A^{-1}}\norm{A-B})}
+%\norm{A-B}
+%\leq
+2\norm{A^{-1}}^2
+\norm{A-B} . \qedhere
+\end{equation*}
+\end{proof}
+
+FIXME: continuity of vector space 
+
+\subsection{Matrices}
+
+Finally let us get to matrices, which are a convenient way to represent
+finite-dimensional operators.
+If we have bases $\{ x_1, x_2, \ldots, x_n \}$ and $\{ y_1, y_2, \ldots, y_m \}$
+for vector spaces $X$ and $Y$, then we know that a linear operator is 
+determined by its values on the basis.  Given $A \in L(X,Y)$,
+define the numbers
+$\{ a_i^j \}$ as follows
+\begin{equation*}
+A x_j = \sum_{i=1}^m a_j^i y_i ,
+\end{equation*}
+and write them as a \emph{\myindex{matrix}}
+\begin{equation*}
+A =
+\begin{bmatrix}
+a_1^1 & a_2^1 & \cdots & a_n^1 \\
+a_1^2 & a_2^2 & \cdots & a_n^2 \\
+\vdots & \vdots & \ddots & \vdots \\
+a_1^m & a_2^m & \cdots & a_n^m
+\end{bmatrix} .
+\end{equation*}
+Note that the \emph{\myindex{columns}} of the matrix are precisely the coefficients
+that represent $A x_j$.
+Let us derive the familiar rule for matrix multiplication.
+%If we represent the basis vector $x_j$ as 
+%a column vector of $n$ numbers (an $n \times 1$ matrix)
+%with 1 in the $j$th position and zero elsewhere, then
+%\begin{equation*}
+%Ax_j ``=''
+%\begin{bmatrix}
+%a_1^1 & a_2^1 & \cdots & a_n^1 \\
+%a_1^2 & a_2^2 & \cdots & a_n^2 \\
+%\vdots & \vdots & \ddots & \vdots \\
+%a_1^m & a_2^m & \cdots & a_n^m
+%\end{bmatrix}
+%\begin{bmatrix}
+%0 \\ \vdots \\ 1 \\ \vdots \\ 0
+%\end{bmatrix}
+%=
+%\begin{bmatrix}
+%a_j^1 \\
+%a_j^2 \\
+%\vdots \\
+%a_j^m
+%\end{bmatrix} .
+%\end{equation*}
+%That is, we obtain a vector representing $Ax_j$ in 
+%terms of the basis $\{ y_1,y_2,\ldots,y_m \}$.
+
+%In general when
+When
+\begin{equation*}
+x = \sum_{j=1}^n \gamma^j x_j ,
+\end{equation*}
+then
+\begin{equation*}
+A x =
+\sum_{j=1}^n \sum_{i=1}^m \gamma^j a_j^i y_i ,
+=
+\sum_{i=1}^m \left(\sum_{j=1}^n  \gamma^j a_j^i \right) y_i ,
+\end{equation*}
+which gives rise to the familiar rule for matrix multiplication.
+
+There is a one-to-one correspondence between matrices and linear operators in
+$L(X,Y)$.  That is, once we fix a basis in $X$ and in $Y$.  If we would
+choose a different basis, we would get different matrices.  This is
+important, the operator $A$ acts on elements of $X$, the matrix
+is something that works with $n$-tuples of numbers.
+
+If $B$ is an $r$-by-$m$ matrix with entries $b_k^j$, then 
+the matrix for $BA$ has the $i,k$th entry $c_k^i$ being
+\begin{equation*}
+c_k^i =
+\sum_{j=1}^m b_k^ja_j^i .
+\end{equation*}
+Note how upper and lower indices line up.
+
+A linear mapping changing one basis to another is then just a
+square matrix in which the columns represent basis elements
+of the second basis in terms of the first basis.  We call such a linear
+mapping an \emph{\myindex{change of basis}}.
+
+%\sum_{i=1}^m \left( \sum_{k=1}^r \sum_{j=1}^n  \gamma^k b_k^i a_j^k \right) y_i ,
+
+%that
+%$$
+%BAx
+%=
+%\sum_{i=1}^m \left( \sum_{k=1}^r \sum_{j=1}^n  \gamma^k b_k^i a_j^k \right) y_i ,
+%$$
+
+Now suppose all the bases are just the standard bases and
+$X=\R^n$ and $Y=\R^m$. 
+If we recall the Cauchy-Schwarz inequality we note
+that
+\begin{equation*}
+\norm{Ax}^2
+=
+\sum_{i=1}^m { \left(\sum_{j=1}^n \gamma^j a_j^i \right)}^2
+\leq
+\sum_{i=1}^m { \left(\sum_{j=1}^n {(\gamma^j)}^2 \right) \left(\sum_{j=1}^n
+{(a_j^i)}^2 \right) }
+=
+\sum_{i=1}^m \left(\sum_{j=1}^n {(a_j^i)}^2 \right)
+\norm{x}^2 .
+\end{equation*}
+In other words, we have a bound on the operator norm
+\begin{equation*}
+\norm{A} \leq
+\sqrt{\sum_{i=1}^m \sum_{j=1}^n {(a_j^i)}^2} .
+\end{equation*}
+If the entries go to zero, then $\norm{A}$ goes to zero.  In
+particular, if $A$ if fixed and $B$ is changing such
+that the entries of $A-B$ go to zero then $B$ goes to $A$
+in operator norm.  That is $B$ goes to $A$
+in the metric space topology induced by the
+operator norm.  We have proved the first part of:
+
+\begin{prop}
+If $f \colon S \to \R^{nm}$ is a continuous function
+for a metric space $S$,
+then taking the components of $f$ as the entries of a matrix,
+$f$ is a continuous mapping from $S$
+to $L(\R^n,\R^m)$.
+Conversely if $f \colon S \to L(\R^n,\R^m)$ is a continuous
+function then the entries of the matrix are continuous functions.
+\end{prop}
+
+The proof of the second part is rather easy.  Take $f(x) e_j$ and note 
+that is a continuous function to $\R^m$ with standard Euclidean norm (Note
+$\norm{(A-B)e_j} \leq \norm{A-B}$).  Such a
+function recall from last semester that such a function
+is continuous if and only if its components are continuous
+and these are the components of the $j$th column of the matrix $f(x)$.
+
+\subsection{Determinants}
+
+It would be nice to have an easy test for when is a matrix invertible.
+This is where determinants come in.  First define
+the symbol
+$\operatorname{sgn}(x)$ for a number is defined by
+\begin{equation*}
+\operatorname{sgn}(x)
+:=
+\begin{cases}
+-1 & \text{ if $x < 0$} , \\
+0 & \text{ if $x = 0$} , \\
+1 & \text{ if $x > 0$} .
+\end{cases}
+\end{equation*}
+Suppose 
+$\sigma = (\sigma_1,\ldots,\sigma_n)$ is a \emph{\myindex{permutation}}
+of the integers $(1,\ldots,n)$. 
+It is not hard to see that any permutation can be obtained by
+a sequence of transpositions (switchings of two elements). Call
+a permutation \emph{even}\index{even permutation}
+(resp.\ \emph{odd})\index{odd permutation}
+if it takes an even (resp.\ odd) number of
+transpositions to get from $\sigma$ to $(1,\ldots,n)$.
+It can be shown
+that this is well defined, in fact it is not hard to show that 
+\begin{equation*}
+\operatorname{sgn}(\sigma) := \operatorname{sgn}(\sigma_1,\ldots,\sigma_n) = 
+\prod_{p < q} \operatorname{sgn}(\sigma_q-\sigma_p)
+\end{equation*}
+is $1$ if $\sigma$ is even and $-1$ if $\sigma$ is odd.
+This fact can be proved by noting that applying a transposition changes the
+sign, which is not hard to prove by induction on $n$.
+Then note that the sign of $(1,2,\ldots,n)$ is 1.
+
+Let $S_n$  be the set of all permutations on $n$ elements (the
+\emph{\myindex{symmetric group}}).
+Let $A= [a_j^i]$ be a matrix.  Define the \emph{\myindex{determinant}} of $A$
+\begin{equation*}
+\det(A) := 
+\sum_{\sigma \in S_n}
+\operatorname{sgn} (\sigma) \prod_{i=1}^n a_{\sigma_i}^i .
+\end{equation*}
+
+%\textbf{Proposition (Theorem 9.34 and other observations):}
+\begin{prop}
+{\ }
+\begin{enumerate}[(i)]
+\item $\det(I) = 1$.
+\item $\det([x_1 x_2 \ldots x_n ])$ as a function of column vectors $x_j$
+is linear in each variable $x_j$ separately.
+\item If two columns of a matrix are interchanged, then the determinant changes
+sign.
+\item If two columns of $A$ are equal, then $\det(A) = 0$.
+\item If a column is zero, then $\det(A) = 0$.
+\item $A \mapsto \det(A)$ is a continuous function.
+\item $\det\left[\begin{smallmatrix} a & b \\ c &d \end{smallmatrix}\right]
+= ad-bc$ and $\det [a] = a$.
+\end{enumerate}
+\end{prop}
+
+In fact, the determinant is the unique function that satisfies (i), (ii), and
+(iii).
+But we digress.
+
+\begin{proof}
+We go through the proof quickly, as you have likely seen this before.
+
+(i) is trivial.  For (ii) Notice that each term in the definition of the
+determinant contains exactly one factor from each column.
+
+Part (iii) follows by noting that switching two columns is like switching the
+two corresponding numbers in every element in $S_n$.  Hence all the signs
+are changed.
+Part (iv) follows because if two columns are equal and we switch them we get
+the same matrix back and so part (iii) says the determinant must have been
+0.
+
+Part (v) follows because the product in each term in the definition includes
+one element from the zero column.
+Part (vi) follows as $\det$ is a polynomial in the entries of the matrix
+and hence continuous.  We have seen that a function defined on
+matrices is continuous in the operator norm if it is 
+continuous in the entries.
+Finally, part (vii) is a direct computation.
+\end{proof}
+
+%\textbf{Theorem 9.35+9.36:}
+\begin{prop}
+If $A$ and $B$ are $n\times n$ matrices, then $\det(AB) = \det(A)\det(B)$.
+In particular, $A$ is invertible if and only if $\det(A) \not= 0$ and in
+this case, $\det(A^{-1}) = \frac{1}{\det(A)}$.
+\end{prop}
+
+\begin{proof}
+Let $b_1,b_2,\ldots,b_n$ be the columns of $B$.  Then
+\begin{equation*}
+AB = [ Ab_1 \quad Ab_2 \quad  \cdots \quad  Ab_n ] .
+\end{equation*}
+That is, the columns of $AB$ are
+$Ab_1,Ab_2,\ldots,Ab_n$.
+
+Let $b_j^i$ denote the elements of $B$ and
+$a_j$ the columns of $A$.  Note that $Ae_j = a_j$.
+By linearity of the determinant as proved above we have
+\begin{equation*}
+\begin{split}
+\det(AB) & =  
+\det ([ Ab_1 \quad Ab_2 \quad  \cdots \quad  Ab_n ]) =
+\det \left(\left[ \sum_{j=1}^n b_1^ja_j \quad Ab_2 \quad  \cdots \quad  Ab_n \right]\right) \\
+& =
+\sum_{j=1}^n
+b_1^j
+\det ([ a_j \quad Ab_2 \quad  \cdots \quad  Ab_n ]) \\
+& =
+\sum_{1 \leq j_1,j_2,\ldots,j_n \leq n}
+b_1^{j_1}
+b_2^{j_2}
+\cdots
+b_n^{j_n}
+\det ([ a_{j_1} \quad a_{j_2} \quad  \cdots \quad  a_{j_n} ]) \\
+& =
+\left(
+\sum_{(j_1,j_2,\ldots,j_n) \in S_n}
+b_1^{j_1}
+b_2^{j_2}
+\cdots
+b_n^{j_n}
+\operatorname{sgn}(j_1,j_2,\ldots,j_n)
+\right)
+\det ([ a_{1} \quad a_{2} \quad  \cdots \quad  a_{n} ]) .
+\end{split}
+\end{equation*}
+In the above, go from all integers between 1 and $n$,
+to just elements of $S_n$ by noting that
+when two columns in the determinant are the same then the
+determinant is zero.  We then reorder the columns to the
+original ordering and obtain the sgn.
+
+The conclusion follows by recognizing the determinant of $B$.  
+The rows and columns are swapped, but a moment's reflection reveals
+it does not matter.  We could also just plug in $A=I$ above.
+
+For the second part of the theorem note that if $A$ is invertible,
+then $A^{-1}A = I$ and so $\det(A^{-1})\det(A) = 1$.
+If $A$ is not invertible, then the columns are linearly dependent.
+That is,
+suppose 
+\begin{equation*}
+\sum_{j=1}^n c^j a_j = 0 .
+\end{equation*}
+Without loss of generality suppose $c^1\neq 1$.
+Take
+\begin{equation*}
+B := 
+\begin{bmatrix}
+c^1 & 0 & 0 & \cdots & 0 \\
+c^2 & 1 & 0 & \cdots & 0 \\
+c^3 & 0 & 1 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+c^n & 0 & 0 & \cdots & 1
+\end{bmatrix} .
+\end{equation*}
+It is not hard to see from the definition that $\det(B) = c^1 \not= 0$.
+Then
+$\det(AB) = \det(A)\det(B) = c^1\det(A)$.
+Note that the first column of $AB$ is zero, and hence $\det(AB) = 0$.  Thus
+$\det(A) = 0$.
+\end{proof}
+
+There are tree types of so-called
+\emph{elementary matrices}\index{elementary matrix}.  First for some $j =
+1,2,\ldots,n$ and
+some $\lambda \in \R$, $\lambda \neq 0$, an
+$n \times n$ matrix $E$ defined by
+\begin{equation*}
+Ee_i = 
+\begin{cases}
+e_i & \text{if $i \neq j$} , \\
+\lambda e_i & \text{if $i = j$} .
+\end{cases}
+\end{equation*}
+Given any $n \times m$ matrix $M$ the matrix $EM$ is the same matrix as $M$
+except with the $k$th row multiplied by $\lambda$.
+It is an easy computation (exercise) that $\det(E) = \lambda$.
+
+Second, for some $j$ and $k$ with $j\neq k$, and $\lambda \in \R$ an
+$n \times n$ matrix $E$ defined by
+\begin{equation*}
+Ee_i = 
+\begin{cases}
+e_i & \text{if $i \neq j$} , \\
+e_i + \lambda e_k & \text{if $i = j$} .
+\end{cases}
+\end{equation*}
+Given any $n \times m$ matrix $M$ the matrix $EM$ is the same matrix as $M$
+except with $\lambda$ times the $k$th row added to the $j$th row.
+It is an easy computation (exercise) that $\det(E) = 1$.
+
+Finally for some $j$ and $k$ with $j\neq k$ an
+$n \times n$ matrix $E$ defined by
+\begin{equation*}
+Ee_i = 
+\begin{cases}
+e_i & \text{if $i \neq j$ and $i \neq k$} , \\
+e_k & \text{if $i = j$} , \\
+e_j & \text{if $i = k$} .
+\end{cases}
+\end{equation*}
+Given any $n \times m$ matrix $M$ the matrix $EM$ is the same matrix with
+$j$th and $k$th rows swapped.
+It is an easy computation (exercise) that $\det(E) = -1$.
+
+Elementary matrices are useful for computing the determinant.
+The proof of the following proposition is left as an exercise.
+
+\begin{prop} \label{prop:elemmatrixdecomp}
+Let $T$ be an $n \times n$ invertible matrix.  Then there exists a finite
+sequence of elementary matrices $E_1, E_2, \ldots, E_k$ such that
+\begin{equation*}
+T = E_1 E_2 \cdots E_k ,
+\end{equation*}
+and
+\begin{equation*}
+\det(T) = \det(E_1)\det(E_2)\cdots \det(E_k) .
+\end{equation*}
+\end{prop}
+
+\begin{prop}
+Determinant is independent of the basis.  In other words, if $B$ is invertible
+then,
+\begin{equation*}
+\det(A) = \det(B^{-1}AB) .
+\end{equation*}
+\end{prop}
+
+The proof is immediate.  If in one basis $A$ is the matrix representing a
+linear operator, then for another basis we can find a matrix $B$ such
+that the matrix $B^{-1}AB$ takes us to the first basis, applies $A$ in the
+first basis, and takes us back to the basis we started with.
+Therefore, the determinant can be defined as a function on the
+space $L(X)$ for some finite dimensional metric space $X$, 
+not just on matrices.
+We choose a basis on $X$, and we can represent a linear mapping using
+a matrix with respect to this basis.  We obtain the
+same determinant as if we had used any other basis.
+It follows from the two propositions that
+\begin{equation*}
+\det \colon L(X) \to \R
+\end{equation*}
+is a well-defined and continuous function.
+
+
+\subsection{Exercises}
+
+\begin{exercise}
+If $X$ is a vector space with a norm $\norm{\cdot}$, then show that
+$d(x,y) := \norm{x-y}$ makes $X$ a metric space.
+\end{exercise}
+
+\begin{exercise}
+Verify the computation of the determinant for the three types of 
+elementary matrices.
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:elemmatrixdecomp}.
+\end{exercise}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{The derivative}
+\label{sec:svtheder}
+
+\sectionnotes{FIXME lectures}
+
+\subsection{The derivative}
+
+Recall that when we had a function $f \colon \R \to \R$, we defined
+the derivative at $x$ as
+\begin{equation*}
+\lim_{h \to 0} \frac{f(x+h)-f(x)}{h} .
+\end{equation*}
+In other words, there was a number $a$ (the derivative of $f$ at $x$) such that
+\begin{equation*}
+\lim_{h \to 0} \abs{\frac{f(x+h)-f(x)}{h} - a} =
+\lim_{h \to 0} \abs{\frac{f(x+h)-f(x) - ah}{h}}
+=
+\lim_{h \to 0} \frac{\abs{f(x+h)-f(x) - ah}}{\abs{h}}
+= 0.
+\end{equation*}
+
+Multiplying by $a$ is a linear map in one dimension.  That is,
+we think of $a \in L(\R^1,\R^1)$.  We use this definition
+to extend differentiation to more variables.
+
+\begin{defn}
+Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$.  We
+say $f$ is \emph{\myindex{differentiable}} at $x \in U$ if there exists
+an $A \in L(\R^n,\R^m)$ such that
+\begin{equation*}
+\lim_{\substack{h \to 0\\h\in \R^n}}
+\frac{\norm{f(x+h)-f(x) - Ah}}{\norm{h}} = 0 .
+\end{equation*}
+We define $Df(x) := A$, or $f'(x) := A$, and
+we say $A$ is the \emph{\myindex{derivative}} of $f$ at $x$.
+When $f$ is \emph{differentiable} at
+all $x \in U$, we say simply that $f$ is differentiable.
+\end{defn}
+
+For a differentiable function,
+the derivative of $f$ is a function from $U$ to $L(\R^n,\R^m)$.  Compare
+to the one dimensional case, where the derivative is a function
+from $U$ to $\R$, but we really want to think of $\R$ here as
+$L(\R^1,\R^1)$.
+
+The norms above must be in the right spaces of course.  The norm in the
+numerator is in $\R^m$, and the norm in the denominator is $\R^n$ where $h$
+lives.
+Normally it is 
+understood that $h \in \R^n$ from context.
+We will not explicitly say so from now on.
+
+We have again cheated somewhat and said that $A$
+is \emph{the} derivative.  We have not shown yet that there
+is only one, let us do that now.
+
+\begin{prop}
+Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$.  Suppose
+$x \in U$ and there exist 
+$A,B \in L(\R^n,\R^m)$ such that
+\begin{equation*}
+\lim_{h \to 0}
+\frac{\norm{f(x+h)-f(x) - Ah}}{\norm{h}} = 0
+\qquad \text{and} \qquad
+\lim_{h \to 0}
+\frac{\norm{f(x+h)-f(x) - Bh}}{\norm{h}} = 0 .
+\end{equation*}
+Then $A=B$.
+\end{prop}
+
+\begin{proof}
+\begin{equation*}
+\begin{split}
+\frac{\norm{(A-B)h}}{\norm{h}} & =
+\frac{\norm{f(x+h)-f(x) - Ah - (f(x+h)-f(x) - Bh)}}{\norm{h}} \\
+& \leq
+\frac{\norm{f(x+h)-f(x) - Ah}}{\norm{h}} + \frac{\norm{f(x+h)-f(x) -
+Bh}}{\norm{h}} .
+\end{split}
+\end{equation*}
+So 
+$\frac{\norm{(A-B)h}}{\norm{h}} \to 0$ as $h \to 0$.  That is, given
+$\epsilon > 0$, then for all $h$ in some $\delta$-ball around
+the origin
+\begin{equation*}
+\epsilon > 
+\frac{\norm{(A-B)h}}{\norm{h}}
+=
+\norm{(A-B)\frac{h}{\norm{h}}} .
+\end{equation*}
+%But $\frac{h}{\norm{h}}$ is of norm 1.  
+For any $x$ with $\norm{x}=1$
+let $h = (\nicefrac{\delta}{2}) \, x$, then $\norm{h} < \delta$
+and $\frac{h}{\norm{h}} = x$ and so $\norm{A-B} \leq \epsilon$.  So
+$A = B$.
+\end{proof}
+
+\begin{example}
+If $f(x) = Ax$ for a linear mapping $A$, then
+$f'(x) = A$.  This is easily seen:
+\begin{equation*}
+\frac{\norm{f(x+h)-f(x) - Ah}}{\norm{h}}
+=
+\frac{\norm{A(x+h)-Ax - Ah}}{\norm{h}}
+=
+\frac{0}{\norm{h}} = 0 .
+\end{equation*}
+\end{example}
+
+\begin{prop}
+Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ be
+differentiable at $x_0$.  Then $f$ is continuous at $x_0$.
+\end{prop}
+
+\begin{proof}
+Another way to write the differentiability is to write
+\begin{equation*}
+r(h) := f(x_0+h)-f(x_0) - f'(x_0) h .
+\end{equation*}
+As $\frac{\norm{r(h)}}{\norm{h}}$ must go to zero as $h \to 0$, 
+then
+$r(h)$ itself must go to zero.  The mapping $h \mapsto f'(x_0) h$
+is linear mapping between finite dimensional spaces.  Therefore it
+is continuous
+and goes to zero.  Thereforem
+$f(x_0+h)$ must go to $f(x_0)$ as $h \to 0$.  That is, $f$ is continuous at $x_0$.
+\end{proof}
+
+%\textbf{Theorem 9.15 (Chain rule):}
+\begin{thm}[Chain rule]
+Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
+differentiable at $x_0 \in U$.  Let $V \subset \R^m$ be open,
+$f(U) \subset V$ and let $g \colon V \to \R^\ell$ be differentiable
+at $f(x_0)$.  Then
+\begin{equation*}
+F(x) = g\bigl(f(x)\bigr)
+\end{equation*}
+is differentiable at $x_0$ and
+\begin{equation*}
+F'(x_0) = g'\bigl(f(x_0)\bigr) f'(x_0) .
+\end{equation*}
+\end{thm}
+
+Without the points this is sometimes written as $F' = {(f \circ g)}' = g' f'$.  The way to
+understand it is that the derivative of the composition $g \circ f$
+is the composition of the derivatives of $g$ and $f$.  That is, if $A :=
+f'(x_0)$ and $B := g'\bigl(f(x_0)\bigr)$, then $F'(x_0) = BA$.
+
+\begin{proof}
+Let $A := f'(x_0)$ and $B := g'\bigl(f(x_0)\bigr)$.  Take $h \in \R^n$
+and write $y_0 = f(x_0)$, $k = f(x_0+h)-f(x_0)$.  Let
+\begin{equation*}
+r(h) := f(x_0+h)-f(x_0) - A h = k - Ah.
+\end{equation*}
+Then
+\begin{equation*}
+\begin{split}
+\frac{\norm{F(x_0+h)-F(x_0) - BAh}}{\norm{h}}
+& =
+\frac{\norm{g\bigl(f(x_0+h)\bigr)-g\bigl(f(x_0)\bigr) - BAh}}{\norm{h}}
+\\
+& =
+\frac{\norm{g(y_0+k)-g(y_0) - B\bigl(k-r(h)\bigr)}}{\norm{h}}
+\\
+%& =
+%\frac
+%{\norm{g(y_0+k)-g(y_0) - B\bigl(k-r(h)\bigr)}}
+%{\norm{k}}
+%\frac
+%{\norm{f(x_0+h)-f(x_0)}}
+%{\norm{h}}
+%\\
+& \leq
+\frac
+{\norm{g(y_0+k)-g(y_0) - Bk}}
+{\norm{h}}
++
+\norm{B}
+\frac
+{\norm{r(h)}}
+{\norm{h}}
+\\
+& =
+\frac
+{\norm{g(y_0+k)-g(y_0) - Bk}}
+{\norm{k}}
+\frac
+{\norm{f(x_0+h)-f(x_0)}}
+{\norm{h}}
++
+\norm{B}
+\frac
+{\norm{r(h)}}
+{\norm{h}} .
+\end{split}
+\end{equation*}
+First, $\norm{B}$ is constant and $f$ is differentiable at $x_0$,
+so
+the term $\norm{B}\frac{\norm{r(h)}}{\norm{h}}$ goes to 0.
+Next as $f$ is continuous at $x_0$, we have that as 
+$h$ goes to 0, then $k$ goes to 0.  Therefore
+$\frac
+{\norm{g(y_0+k)-g(y_0) - Bk}}
+{\norm{k}}$ goes to 0 because $g$ is differentiable at $y_0$.
+Finally 
+\begin{equation*}
+\frac
+{\norm{f(x_0+h)-f(x_0)}}
+{\norm{h}}
+\leq
+\frac
+{\norm{f(x_0+h)-f(x_0)-Ah}}
+{\norm{h}}
++
+\frac
+{\norm{Ah}}
+{\norm{h}}
+\leq
+\frac
+{\norm{f(x_0+h)-f(x_0)-Ah}}
+{\norm{h}}
++
+\norm{A} .
+\end{equation*}
+As $f$ is differentiable at $x_0$,
+the term
+$
+\frac
+{\norm{f(x_0+h)-f(x_0)}}
+{\norm{h}}
+$
+stays bounded as $h$ goes to 0.  Therefore, 
+$\frac{\norm{F(x_0+h)-F(x_0) - BAh}}{\norm{h}}$ goes to zero, and
+$F'(x_0) = BA$, which is what was claimed.
+\end{proof}
+
+\subsection{Partial derivatives}
+
+There is another way to generalize the derivative from one dimension.
+We can hold all but one variables constant and take the regular
+derivative.
+
+\begin{defn}
+Let
+$f \colon U \to \R$ be a function on an open set $U \subset \R^n$.
+If the following limit exists we write
+\begin{equation*}
+\frac{\partial f}{\partial x^j} (x) := 
+\lim_{h\to 0}\frac{f(x^1,\ldots,x^{j-1},x^j+h,x^{j+1},\ldots,x^n)-f(x)}{h}
+=
+\lim_{h\to 0}\frac{f(x+h e_j)-f(x)}{h} .
+\end{equation*}
+We call 
+$\frac{\partial f}{\partial x^j} (x)$ the \emph{\myindex{partial derivative}}
+of $f$
+with respect to $x^j$.  Sometimes we write $D_j f$ instead.
+
+For a mapping $f \colon U \to \R^m$ we write
+$f = (f^1,f^2,\ldots,f^m)$, where $f^k$ are real-valued
+functions.  Then we define
+$\frac{\partial f^k}{\partial x^j}$ (or write it as $D_j f^k$).
+\end{defn}
+
+Partial derivatives are easier to compute with all the machinery of
+calculus, and they provide a way to compute the total derivative of a
+function.
+
+%\textbf{Theorem 9.17:}
+\begin{prop}
+Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
+differentiable at $x_0 \in U$.  Then all the partial derivatives at $x_0$
+exist and in terms of the standard basis of $\R^n$ and $\R^m$,
+$f'(x_0)$ is represented by the matrix
+\begin{equation*}
+\begin{bmatrix}
+\frac{\partial f^1}{\partial x^1}(x_0)
+&
+\frac{\partial f^1}{\partial x^2}(x_0)
+& \ldots &
+\frac{\partial f^1}{\partial x^n}(x_0)
+\\
+\frac{\partial f^2}{\partial x^1}(x_0)
+&
+\frac{\partial f^2}{\partial x^2}(x_0)
+& \ldots &
+\frac{\partial f^2}{\partial x^n}(x_0)
+\\
+\vdots & \vdots & \ddots & \vdots
+\\
+\frac{\partial f^m}{\partial x^1}(x_0)
+&
+\frac{\partial f^m}{\partial x^2}(x_0)
+& \ldots &
+\frac{\partial f^m}{\partial x^n}(x_0)
+\end{bmatrix} .
+\end{equation*}
+\end{prop}
+
+
+In other words
+\begin{equation*}
+f'(x_0) \, e_j =
+\sum_{k=1}^m
+\frac{\partial f^k}{\partial x^j}(x_0) \,e_k .
+\end{equation*}
+If $h = \sum_{j=1}^n c^j e_j$, then
+\begin{equation*}
+f'(x_0) \, h =
+\sum_{j=1}^n
+\sum_{k=1}^m
+ c^j
+\frac{\partial f^k}{\partial x^j}(x_0) \,e_k .
+\end{equation*}
+Again note the up-down pattern with the indices being summed over.
+That is on purpose.
+
+\begin{proof}
+Fix a $j$ and note that
+\begin{equation*}
+\begin{split}
+\norm{\frac{f(x_0+h e_j)-f(x_0)}{h} - f'(x_0) e_j} & = 
+\norm{\frac{f(x_0+h e_j)-f(x_0) - f'(x_0) h e_j}{h}} \\
+& =
+\frac{\norm{f(x_0+h e_j)-f(x_0) - f'(x_0) h e_j}}{\norm{h e_j}} .
+\end{split}
+\end{equation*}
+As $h$ goes to 0, the right hand side goes to zero by
+differentiability of $f$, and hence
+\begin{equation*}
+\lim_{h \to 0}
+\frac{f(x_0+h e_j)-f(x_0)}{h} = f'(x_0) e_j  .
+\end{equation*}
+Note that $f$ is vector valued.  So represent $f$ by components
+$f = (f^1,f^2,\ldots,f^m)$, and note that taking a limit in $\R^m$
+is the same as taking the limit in each component separately.  Therefore
+for any $k$
+the partial derivative
+\begin{equation*}
+\frac{\partial f^k}{\partial x^j} (x_0)
+=
+\lim_{h \to 0}
+\frac{f^k(x_0+h e_j)-f^k(x_0)}{h}
+\end{equation*}
+exists and 
+is equal to the $k$th component of $f'(x_0) e_j$, and we are done.
+\end{proof}
+
+One of the consequences of the theorem is that if $f$
+is differentiable on $U$, then $f' \colon U \to
+L(\R^n,\R^m)$ is a continuous function if and only if
+all the $\frac{\partial f^k}{\partial x^j}$ are continuous functions.
+
+\subsection{Gradient and directional derivatives}
+
+Let $U \subset \R^n$ be open and $f \colon U \to \R$ is a differentiable
+function.  We define
+the \emph{\myindex{gradient}} as
+\begin{equation*}
+\nabla f (x) := \sum_{j=1}^n \frac{\partial f}{\partial x^j} (x)\, e_j .
+\end{equation*}
+Here
+the upper-lower indices do not really match up.
+%  As a preview of
+%Math 621, we note that we write
+%\begin{equation*}
+%df = \sum_{j=1}^n \frac{\partial f}{\partial x^j} dx^j
+%\end{equation*}
+%where $dx^j$ is really the standard bases (though we're thinking of $dx^j$ to
+%be in $L(\R^n,\R)$ which is really equivalent to $\R^n$).  But we digress.
+
+Suppose $\gamma \colon (a,b) \subset \R \to \R^n$ is a differentiable
+function and the image $\gamma\bigl((a,b)\bigr) \subset U$.  Write $\gamma =
+(\gamma^1,\gamma^2,\ldots,\gamma^n)$.  Let
+\begin{equation*}
+g(t) := f\bigl(\gamma(t)\bigr) .
+\end{equation*}
+The function
+$g$ is differentiable and the derivative is
+\begin{equation*}
+g'(t) =
+\sum_{j=1}^n
+\frac{\partial f}{\partial x^j} \bigl(\gamma(t)\bigr)
+\frac{d\gamma^j}{dt} (t)
+=
+\sum_{j=1}^n
+\frac{\partial f}{\partial x^j}
+\frac{d\gamma^j}{dt} .
+\end{equation*}
+For convenience,
+we sometimes 
+leave out the points where we are evaluating as on the right hand side above.
+Notice
+\begin{equation*}
+g'(t) = (\nabla f) \bigl(\gamma(t)\bigr) \cdot \gamma'(t)
+= \nabla f \cdot \gamma' ,
+\end{equation*}
+where the dot is the standard scalar dot product.
+
+We use this idea to define derivatives in a specific direction.  A direction
+is simply a vector pointing in that direction.  So pick a vector $u \in \R^n$
+such that $\norm{u} = 1$.  Fix $x \in U$.
+Then define
+\begin{equation*}
+\gamma(t) := x + tu .
+\end{equation*}
+It is easy to compute that $\gamma'(t) = u$ for all $t$.  
+By chain rule
+\begin{equation*}
+\frac{d}{dt}\Big|_{t=0} \bigl[ f(x+tu) \bigr] =
+(\nabla f) (x) \cdot u ,
+\end{equation*}
+where the notation
+$\frac{d}{dt}\big|_{t=0}$ represents the derivative evaluated at $t=0$.
+We also compute directly
+\begin{equation*}
+\frac{d}{dt}\Big|_{t=0} \bigl[ f(x+tu) \bigr] =
+\lim_{h\to 0}
+\frac{f(x+hu)-f(x)}{h} .
+\end{equation*}
+We obtain the \emph{\myindex{directional derivative}},
+denoted by
+\begin{equation*}
+D_u f (x) := \frac{d}{dt}\Big|_{t=0} \bigl[ f(x+tu) \bigr] ,
+\end{equation*}
+which can be computed by one of the methods above.
+
+Let us suppose $(\nabla f)(x) \neq 0$.
+By Cauchy-Schwarz inequality we have
+\begin{equation*}
+\abs{D_u f(x)} \leq \norm{(\nabla f)(x)} .
+\end{equation*}
+Equality is achieved when $u$ is a scalar multiple of
+$(\nabla f)(x)$.  That is, when
+\begin{equation*}
+u = 
+\frac{(\nabla f)(x)}{\norm{(\nabla f)(x)}} ,
+\end{equation*}
+we get $D_u f(x) = \norm{(\nabla f)(x)}$.
+The gradient points in the direction in which the
+function grows fastest, in other words, in the direction in which $D_u f(x)$ is maximal.
+
+\subsection{Bounding the derivative}
+
+Let us prove a ``mean value theorem'' for vector valued functions.
+
+%\textbf{Theorem 5.19:}
+\begin{lemma}
+If $\varphi \colon [a,b] \to \R^n$ is differentiable on $(a,b)$ and
+continuous on $[a,b]$, then there exists a $t$ such that
+\begin{equation*}
+\norm{\varphi(b)-\varphi(a)} \leq (b-a) \norm{\varphi'(t)} .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+By mean value theorem on the function
+$\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi(t)$
+(the dot is the scalar dot product again) we obtain
+there is a $t$ such that
+\begin{equation*}
+\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi(b) - 
+\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi(a)  = 
+\norm{\varphi(b)-\varphi(a)}^2
+=
+\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi'(t)
+\end{equation*}
+where we treat $\varphi'$ as a simply a column vector of numbers by abuse of
+notation.  Note that
+in this case, it is not hard to see that
+$\norm{\varphi'(t)}_{L(\R,\R^n)} = \norm{\varphi'(t)}_{\R^n}$ (FIXME exercise).
+
+By Cauchy-Schwarz inequality
+\begin{equation*}
+\norm{\varphi(b)-\varphi(a)}^2
+=
+\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi'(t)
+\leq
+\norm{\varphi(b)-\varphi(a)} \norm{\varphi'(t)} . \qedhere
+\end{equation*}
+\end{proof}
+
+Recall that a set $U$ is convex
+if whenever $x,y \in U$, the line segment from
+$x$ to $y$ lies in $U$.
+
+\begin{prop} \label{mv:prop:convexlip}
+%\textbf{Theorem 9.19:}
+Let $U \subset \R^n$ be a convex open set, $f \colon U \to \R^m$
+a differentiable function, and an $M$ such that
+\begin{equation*}
+\norm{f'(x)} \leq M
+\end{equation*}
+for all $x \in U$.  Then $f$ is Lipschitz with constant $M$, that is
+\begin{equation*}
+\norm{f(x)-f(y)} \leq M \norm{x-y}
+\end{equation*}
+for all $x,y \in U$.
+\end{prop}
+
+\begin{proof}
+Fix $x$ and $y$ in $U$ and note that
+$(1-t)x+ty \in U$ for all $t \in [0,1]$
+by convexity.
+Next
+\begin{equation*}
+\frac{d}{dt} \Bigl[f\bigl((1-t)x+ty\bigr)\Bigr]
+=
+f'\bigl((1-t)x+ty\bigr) (y-x) .
+\end{equation*}
+By mean value theorem above we get
+\begin{equation*}
+\norm{f(x)-f(y)} \leq
+\norm{\frac{d}{dt} \Bigl[ f\bigl((1-t)x+ty\bigr) \Bigr] } \leq
+\norm{f'\bigl((1-t)x+ty\bigr)} \norm{y-x} \leq
+M \norm{y-x} . \qedhere
+\end{equation*}
+\end{proof}
+
+\begin{example}
+If $U$ is not convex the proposition is not true.  To see this fact, take
+the set
+\begin{equation*}
+U = \{ (x,y) : 0.9 < x^2+y^2 < 1.1 \} \setminus \{ (x,0) : x < 0 \} .
+\end{equation*}
+Let $f(x,y)$ be the angle that the line from the origin to $(x,y)$
+makes with the positive $x$ axis.  You can even write the formula for $f$:
+\begin{equation*}
+f(x,y) = 2 \operatorname{arctan}\left( \frac{y}{x+\sqrt{x^2+y^2}}\right) .
+\end{equation*}
+Think spiral staircase with room in the middle.  See
+\figureref{mv:fignonlip}.
+
+\begin{figure}[h!t]
+\begin{center}
+\input example-nonlip.pdf_t
+\caption{A non-Lipschitz function with uniformly bounded
+derivative.\label{mv:fignonlip}}
+\end{center}
+\end{figure}
+
+The function is differentiable,
+and the derivative is bounded on $U$, which is not hard to see.   Thinking of
+what happens near where the negative $x$-axis cuts the annulus in half,
+we see that the conclusion cannot hold.
+%To see that the derivative is
+%bounded, we note that it is not hard to see that the derivative will not
+%depend on the rotation, so we can just do it at $y=0$, and we 
+\end{example}
+
+Let us solve the differential equation $f' = 0$.
+
+\begin{cor}
+If $U \subset \R^n$ is connected and $f \colon U \to \R^m$ is differentiable
+and $f'(x) = 0$, for all $x \in U$, then $f$ is constant.
+\end{cor}
+
+\begin{proof}
+For any $x \in U$, there is a ball $B(x,\delta) \subset U$.  The ball
+$B(x,\delta)$ is convex.  Since
+$\norm{f'(y)} \leq 0$ for all $y \in B(x,\delta)$ then by the theorem,
+$\norm{f(x)-f(y)} \leq 0 \norm{x-y} = 0$, so $f(x) = f(y)$ for all $y \in
+B(x,\delta)$.
+
+This means that $f^{-1}(c)$ is open for any $c \in \R^m$.  Suppose
+$f^{-1}(c)$ is nonempty.  
+The two sets
+\begin{equation*}
+U' = f^{-1}(c), \qquad U'' = f^{-1}(\R^m\setminus\{c\}) =
+\bigcup_{\substack{a \in \R^m\\a\neq c}} f^{-1}(a)
+\end{equation*}
+are open disjoint, and further $U = U' \cup U''$.  So as $U'$ is nonempty,
+and $U$ is connected,
+we have that $U'' = \emptyset$.  So $f(x) = c$ for all $x \in U$.
+\end{proof}
+
+\subsection{Continuously differentiable functions}
+
+\begin{defn}
+We say $f \colon U \subset \R^n \to \R^m$ is
+\emph{\myindex{continuously differentiable}},
+or $C^1(U)$ if $f$ is differentiable and $f' \colon U \to L(\R^n,\R^m)$
+is continuous.
+\end{defn}
+
+%\textbf{Theorem 9.21:}
+\begin{prop}
+Let $U \subset \R^n$ be open and
+$f \colon U \to \R^m$.  The function
+$f$ is continuously differentiable if and only if all
+the partial derivatives exist and are continuous.
+\end{prop}
+
+Without continuity the theorem does not hold.  Just because
+partial derivatives exist does not mean that $f$ is differentiable,
+in fact, $f$ may not even be continuous.  See the exercises FIXME.
+
+\begin{proof}
+We have seen that if $f$ is differentiable, then
+the partial derivatives exist.  Furthermore, the partial
+derivatives are the entries of the matrix of $f'(x)$.  So if
+$f' \colon U \to L(\R^n,\R^m)$ is continuous, then the entries are
+continuous, hence the partial derivatives are continuous.
+
+To prove the opposite direction,
+suppose the partial derivatives exist and are continuous.
+Fix $x \in U$.  If we can show that $f'(x)$ exists we are done, because
+the entries of the matrix $f'(x)$ are then the partial derivatives and if
+the entries are continuous functions, the matrix valued function $f'$ is
+continuous.
+
+Let us do induction on dimension.  First let us note that
+the conclusion is true when $n=1$.  In this case the derivative
+is just the regular derivative (exercise: you should check that the fact
+that the function is vector valued is not a problem).
+
+Suppose the conclusion is true for $\R^{n-1}$,
+that is,
+if we restrict to the first $n-1$ variables, the conclusion is true.
+It is easy to see that the first $n-1$
+partial derivatives of $f$ restricted to the set where the last coordinate is
+fixed are the same as those for $f$.
+In the following
+we think of $\R^{n-1}$ as a subset of $\R^n$, that is the set in $\R^n$ where $x^n = 0$.
+Let
+\begin{equation*}
+A = 
+\begin{bmatrix}
+\frac{\partial f^1}{\partial x^1}(x)
+& \ldots &
+\frac{\partial f^1}{\partial x^n}(x)
+\\
+\vdots & \ddots & \vdots
+\\
+\frac{\partial f^m}{\partial x^1}(x)
+& \ldots &
+\frac{\partial f^m}{\partial x^n}(x)
+\end{bmatrix} ,
+\qquad
+A_1 = 
+\begin{bmatrix}
+\frac{\partial f^1}{\partial x^1}(x)
+& \ldots &
+\frac{\partial f^1}{\partial x^{n-1}}(x)
+\\
+\vdots & \ddots & \vdots
+\\
+\frac{\partial f^m}{\partial x^1}(x)
+& \ldots &
+\frac{\partial f^m}{\partial x^{n-1}}(x)
+\end{bmatrix} ,
+\qquad
+v = 
+%\frac{\partial f}{\partial x^n}(x) =
+\begin{bmatrix}
+\frac{\partial f^1}{\partial x^n}(x)
+\\
+\vdots
+\\
+\frac{\partial f^m}{\partial x^n}(x)
+\end{bmatrix} .
+\end{equation*}
+Let $\epsilon > 0$ be given.  Let $\delta > 0$ be such that
+for any $k \in \R^{n-1}$ with $\norm{k} < \delta$ we have
+\begin{equation*}
+\frac{\norm{f(x+k) - f(x) - A_1k}}{\norm{k}} < \epsilon .
+\end{equation*}
+By continuity of the partial derivatives, suppose $\delta$ is small
+enough so that
+\begin{equation*}
+\abs{\frac{\partial f^j}{\partial x^n}(x+h)
+      - \frac{\partial f^j}{\partial x^n}(x)} < \epsilon ,
+\end{equation*}
+for all $j$ and all $h$ with $\norm{h} < \delta$.
+
+Let $h = h_1 + t e_n$ be a vector in $\R^n$ where $h_1 \in \R^{n-1}$ such that
+$\norm{h} < \delta$.  Then $\norm{h_1} \leq \norm{h} < \delta$.
+Note that $Ah = A_1h_1 + tv$.
+\begin{equation*}
+\begin{split}
+\norm{f(x+h) - f(x) - Ah}
+& = \norm{f(x+h_1 + t e_n) - f(x+h_1) - tv + f(x+h_1) - f(x) - A_1h_1}
+\\
+& \leq \norm{f(x+h_1 + t e_n) - f(x+h_1) -tv} + \norm{f(x+h_1) - f(x) -
+A_1h_1}
+\\
+& \leq \norm{f(x+h_1 + t e_n) - f(x+h_1) -tv} + \epsilon \norm{h_1} .
+\end{split}
+\end{equation*}
+As all the partial derivatives exist then by the mean value theorem
+for each $j$ there is some $\theta_j \in [0,t]$ (or $[t,0]$ if $t < 0$), such that
+\begin{equation*}
+f^j(x+h_1 + t e_n) - f^j(x+h_1) =
+t \frac{\partial f^j}{\partial x^n}(x+h_1+\theta_j e_n).
+\end{equation*}
+Note that if $\norm{h} < \delta$ then $\norm{h_1+\theta_j e_n} \leq \norm{h}
+< \delta$.
+So to finish the estimate
+\begin{equation*}
+\begin{split}
+\norm{f(x+h) - f(x) - Ah}
+& \leq \norm{f(x+h_1 + t e_n) - f(x+h_1) -tv} + \epsilon \norm{h_1}
+\\
+& \leq \sqrt{\sum_{j=1}^m {\left(t\frac{\partial f^j}{\partial
+x^n}(x+h_1+\theta_j e_n) -
+t \frac{\partial f^j}{\partial x^n}(x)\right)}^2} + \epsilon \norm{h_1}
+\\
+& \leq \sqrt{m}\, \epsilon \abs{t} + \epsilon \norm{h_1}
+\\
+& \leq (\sqrt{m}+1)\epsilon \norm{h} .
+\end{split}
+\end{equation*}
+%Where the last estimate follows from 
+%$\abs{t} \leq \norm{h}$ and $\norm{h_1} \leq \norm{h}$.
+\end{proof}
+
+\subsection{The Jacobian}
+
+\begin{defn}
+Let $U \subset \R^n$ and
+$f \colon U \to \R^n$ be a differentiable mapping.  Then define the
+\emph{\myindex{Jacobian}} of $f$ at $x$ as
+\begin{equation*}
+J_f(x) := \det\bigl( f'(x) \bigr) .
+\end{equation*}
+Sometimes this is written as
+\begin{equation*}
+\frac{\partial(f^1,\ldots,f^n)}{\partial(x^1,\ldots,x^n)} .
+\end{equation*}
+\end{defn}
+
+This last piece of notation may seem somewhat confusing,
+but it is useful when you need to specify
+the exact variables and function components used.
+
+The Jacobian $J_f$ is a real valued function, and when $n=1$ it is simply the
+derivative.
+When $f$ is $C^1$, then $J_f$ is a continuous function.
+From the chain rule it follows that:
+\begin{equation*}
+J_{f \circ g} (x) = J_f\bigl(g(x)\bigr) J_g(x) .
+\end{equation*}
+
+It can be computed directly that the determinant tells us what happens to
+area/volume.  Suppose we are in $\R^2$.  Then if $A$ is a linear
+transformation, it follows by direct computation that the
+direct image of the unit square $A([0,1]^2)$ has area 
+$\abs{\det(A)}$.  Note that the sign of the determinant determines
+``orientation''.  If the determinant is negative, then the two sides of the
+unit square will be flipped in the image.  We claim without proof that
+this follows for arbitrary figures, not just the square.
+
+Similarly, the Jacobian measures how much a differentiable mapping stretches
+things locally, and if it flips orientation.
+
+\subsection{Exercises}
+
+\begin{exercise}
+Let $f \colon \R^2 \to \R$ be given by
+%\begin{equation}
+$f(x,y)
+=
+\sqrt{x^2+y^2}$.
+%\end{equation}
+Show that $f$ is not differentiable at the origin.
+\end{exercise}
+
+\begin{exercise}
+Define a function $f \colon \R^2 \to \R$ by
+\begin{equation*}
+f(x,y)
+:=
+\begin{cases}
+\frac{xy}{x^2+y^2} & \text{ if $(x,y) \not= (0,0)$}, \\
+0 & \text{ if $(x,y) = (0,0)$}.
+\end{cases}
+\end{equation*}
+a)~Show that partial derivatives 
+$\frac{\partial f}{\partial x}$ and
+$\frac{\partial f}{\partial y}$ exist at all points (including the origin).\\
+b)~Show that $f$ is not continuous at the origin (and hence not
+differentiable).
+\end{exercise}
+
+\begin{exercise}
+Define a function $f \colon \R^2 \to \R$ by
+\begin{equation*}
+f(x,y)
+:=
+\begin{cases}
+\frac{x^2y}{x^2+y^2} & \text{ if $(x,y) \not= (0,0)$}, \\
+0 & \text{ if $(x,y) = (0,0)$}.
+\end{cases}
+\end{equation*}
+a)~Show that partial derivatives 
+$\frac{\partial f}{\partial x}$ and
+$\frac{\partial f}{\partial y}$ exist at all points.\\
+b)~Show that $f$ is continuous at the origin.\\
+c)~Show that $f$ is not differentiable at the origin.
+\end{exercise}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Inverse and implicit function theorem}
+\label{sec:svinvfuncthm}
+
+\sectionnotes{FIXME lectures}
+
+To prove the inverse function theorem we use the contraction mapping
+principle we have seen in FIXME and that we have used
+to prove Picard's theorem.
+Recall that a mapping $f \colon X \to X'$ between two metric
+spaces $(X,d)$ and $(X',d')$ is called a contraction 
+if there exists a $k < 1$ such that
+\begin{equation*}
+d'\bigl(f(x),f(y)\bigr) \leq k d(x,y)
+\ \ \ \ \text{for all } x,y \in X.
+\end{equation*}
+The contraction mapping principle says that if $f \colon X \to X$
+is a contraction and $X$ is a complete metric space,
+then there exists a fixed point, that is,
+there exists an $x \in X$ such that $f(x) = x$.
+
+Intuitively if a function is differentiable, then it
+locally ``behaves like'' the derivative (which is a linear function).
+The idea of the inverse function theorem is that if a function is
+differentiable and the derivative is invertible, the function is
+(locally) invertible.
+
+
+\begin{thm}[Inverse function theorem]\index{inverse function theorem}
+%(\textbf{Theorem 9.24:})
+Let $U \subset \R^n$ be a set and let
+$f \colon U \to \R^n$ be a continuously differentiable function.
+Also suppose $x_0 \in U$, $f(x_0) = y_0$, and $f'(x_0)$ is invertible
+(that is, $J_f(x_0) \not=0$).
+Then there exist open sets $V, W \subset \R^n$ such that
+$x_0 \in V \subset U$, $f(V) = W$ and $f|_V$ is one-to-one and onto.  
+Furthermore, the inverse $g(y) = (f|_V)^{-1}(y)$ is continuously differentiable
+and 
+\begin{equation*}
+g'(y) = {\bigl(f'(x)\bigr)}^{-1}, \qquad \text{ for all $x \in V$, $y = f(x)$.}
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Write $A = f'(x_0)$.  As $f'$ is continuous, there exists an open ball
+$V$ around $x_0$ such that
+\begin{equation*}
+\norm{A-f'(x)} < \frac{1}{2\norm{A^{-1}}}
+\qquad \text{for all $x \in V$.}
+\end{equation*}
+Note that $f'(x)$ is invertible for all $x \in V$.
+
+Given $y \in \R^n$ we define $\varphi_y \colon C \to \R^n$
+\begin{equation*}
+\varphi_y (x) = x + A^{-1}\bigl(y-f(x)\bigr) .
+\end{equation*}
+As $A^{-1}$ is one-to-one,
+then $\varphi_y(x) = x$ ($x$ is a fixed point) if only if
+$y-f(x) = 0$, or in other words $f(x)=y$.  Using chain rule we obtain
+\begin{equation*}
+\varphi_y'(x) = I - A^{-1} f'(x) = A^{-1} \bigl( A-f'(x) \bigr) .
+\end{equation*}
+So for $x \in V$ we have
+\begin{equation*}
+\norm{\varphi_y'(x)} \leq \norm{A^{-1}} \norm{A-f'(x)} < \nicefrac{1}{2} .
+\end{equation*}
+As $V$ is a ball it is convex, and hence
+\begin{equation*}
+\norm{\varphi_y(x_1)-\varphi_y(x_2)} \leq \frac{1}{2} \norm{x_1-x_2} 
+\qquad
+\text{for all $x_1,x_2 \in V$}.
+\end{equation*}
+In other words $\varphi_y$ is a contraction defined on $V$, though we so far
+do not know what is the range of $\varphi_y$.  We cannot apply the fixed
+point theorem, but we can say that $\varphi_y$ 
+has at most one fixed point (note proof of uniqueness in the contraction
+mapping principle).  That is, there exists at most one $x \in V$
+such that $f(x) = y$, and so $f|_V$ is one-to-one.
+
+Let $W = f(V)$.  We need to show that $W$ is open.  Take a $y_1 \in W$,
+then there is a unique $x_1 \in V$ such that $f(x_1) = y_1$.
+Let $r > 0$ be small enough such that the closed ball $C(x_1,r) \subset V$
+(such $r > 0$ exists as $V$ is open).
+
+Suppose $y$ is such that
+\begin{equation*}
+\norm{y-y_1} <
+\frac{r}{2\norm{A^{-1}}} .
+\end{equation*}
+If we can show that $y \in W$, then we have shown that $W$ is open.
+Define $\varphi_y(x) = x+A^{-1}\bigl(y-f(x)\bigr)$ as before.  If $x \in
+C(x_1,r)$, then
+\begin{equation*}
+\begin{split}
+\norm{\varphi_y(x)-x_1}
+& \leq
+\norm{\varphi_y(x)-\varphi_y(x_1)} +
+\norm{\varphi_y(x_1)-x_1} \\
+& \leq
+\frac{1}{2}\norm{x-x_1} +
+\norm{A^{-1}(y-y_1)} \\
+& \leq
+\frac{1}{2}r +
+\norm{A^{-1}}\norm{y-y_1} \\
+& <
+\frac{1}{2}r +
+\norm{A^{-1}}
+\frac{r}{2\norm{A^{-1}}} = r .
+\end{split}
+\end{equation*}
+So $\varphi_y$ takes $C(x_1,r)$ into $B(x_1,r) \subset C(x_1,r)$.  It is a
+contraction on $C(x_1,r)$ and $C(x_1,r)$ is complete (closed subset of $\R^n$
+is complete).
+Apply the contraction mapping principle to obtain a fixed point $x$,
+i.e.\ $\varphi_y(x) = x$.  That is $f(x) = y$.  So $y \in
+f\bigl(C(x_1,r)\bigr) \subset f(V) = W$.  Therefore $W$ is open.
+
+Next we need to show that $g$ is continuously differentiable and compute
+its derivative.  First let us show that it is differentiable.
+Let $y \in W$ and $k \in \R^n$, $k\not= 0$, such that $y+k \in W$.  Then
+there are unique
+$x \in V$ and $h \in \R^n$, $h \not= 0$ and $x+h \in V$, such that
+$f(x) = y$ and $f(x+h) = y+k$ as $f|_V$ is a one-to-one and onto mapping of $V$
+onto $W$.  In other words, $g(y) = x$ and $g(y+k) = x+h$.  We can still
+squeeze some information from the fact that $\varphi_y$ is a contraction.
+\begin{equation*}
+\varphi_y(x+h)-\varphi_y(x) = h + A^{-1} \bigl( f(x)-f(x+h) \bigr) = h - A^{-1} k .
+\end{equation*}
+So
+\begin{equation*}
+\norm{h-A^{-1}k} = \norm{\varphi_y(x+h)-\varphi_y(x)} \leq
+\frac{1}{2}\norm{x+h-x} = \frac{\norm{h}}{2}.
+\end{equation*}
+By the inverse triangle inequality $\norm{h} - \norm{A^{-1}k} \leq
+\frac{1}{2}\norm{h}$ so
+\begin{equation*}
+\norm{h} \leq 2 \norm{A^{-1}k} \leq 2 \norm{A^{-1}} \norm{k}.
+\end{equation*}
+In particular as $k$ goes to 0, so does $h$.
+
+As $x \in V$, then $f'(x)$ is invertible.
+Let $B = \bigl(f'(x)\bigr)^{-1}$, which is what we think the derivative of
+$g$ at $y$ is.  Then
+\begin{equation*}
+\begin{split}
+\frac{\norm{g(y+k)-g(y)-Bk}}{\norm{k}}
+& =
+\frac{\norm{h-Bk}}{\norm{k}}
+\\
+& =
+\frac{\norm{h-B\bigl(f(x+h)-f(x)\bigr)}}{\norm{k}}
+\\
+& =
+\frac{\norm{B\bigl(f(x+h)-f(x)-f'(x)h\bigr)}}{\norm{k}}
+\\
+& \leq
+\norm{B}
+\frac{\norm{h}}{\norm{k}}\,
+\frac{\norm{f(x+h)-f(x)-f'(x)h}}{\norm{h}}
+\\
+& \leq
+2\norm{B}\norm{A^{-1}}
+\frac{\norm{f(x+h)-f(x)-f'(x)h}}{\norm{h}} .
+\end{split}
+\end{equation*}
+As $k$ goes to 0, so does $h$.  So the right hand side goes to 0 as $f$ is
+differentiable, and hence
+the left hand side also goes to 0.  And
+$B$ is precisely what we wanted $g'(y)$ to be.
+
+We have $g$ is differentiable, let us show it is $C^1(W)$.
+Now, $g \colon W \to V$ is continuous (it is differentiable),
+$f'$ is a continuous function from $V$
+to $L(\R^n)$, and $X \to X^{-1}$ is a continuous function.  
+$g'(y) = {\bigl( f'\bigl(g(y)\bigr)\bigr)}^{-1}$ is the composition
+of these three
+continuous functions and hence is continuous.
+\end{proof}
+
+\begin{cor}
+Suppose $U \subset \R^n$ is open and $f \colon U \to \R^n$ is a continuously
+differentiable mapping such that $f'(x)$ is invertible for all $x \in U$.  Then
+given any open set $V \subset U$, $f(V)$ is open.  ($f$ is an open mapping).
+\end{cor}
+
+\begin{proof}
+Without loss of generality, suppose $U=V$.
+For each point $y \in f(V)$, we pick $x \in f^{-1}(y)$ (there could be more
+than one such point), then by the inverse function theorem there is a
+neighbourhood of $x$ in $V$ that maps onto an neighbourhood of $y$.  Hence
+$f(V)$ is open.
+\end{proof}
+
+\begin{example}
+The theorem, and the corollary, is not true if $f'(x)$ is not invertible for
+some $x$.  For example,
+the map $f(x,y) = (x,xy)$, maps $\R^2$ onto the set
+$\R^2 \setminus \{ (0,y) : y \neq 0 \}$, which is neither open nor closed.
+In fact $f^{-1}(0,0) = \{ (0,y) : y \in \R \}$.  Note that this bad behaviour
+only occurs on the $y$-axis, everywhere else the function is locally
+invertible.  In fact if we avoid the $y$-axis it is even one to one.
+\end{example}
+
+\begin{example}
+Also note that just because $f'(x)$ is invertible everywhere does not
+mean that $f$ is
+one-to-one globally.  It is ``locally'' one-to-one but perhaps not
+``globally.''  For an
+example, take the map $f \colon \R^2 \setminus \{ 0 \} \to \R^2$ defined
+by $f(x,y) = (x^2-y^2,2xy)$.
+  %Here we treat the map as if it went from $\R^2 \setminus
+%\{ 0 \}$ to $\R^2$.  For any nonzero complex number, there are always two square roots, so the map
+%is actually 2-to-1.
+It is left to student to show that $f$ is
+differentiable and the derivative is invertible
+
+On the other hand, the mapping is 2-to-1 globally.  For every
+$(a,b)$ that is not the origin, there are exactly two
+solutions to $x^2-y^2=a$ and $2xy=b$.  We leave it to the student
+to show that there is at least one solution, and then notice
+that replacing $x$ and $y$ with $-x$ and $-y$ we obtain another solution.
+%(Hint: let $z = x+iy$ and write down what the real an
+%imaginary part of $f$ is in terms if $x$ and $y$).
+\end{example}
+
+Also note that the invertibility of the derivative is not a necessary
+condition, just sufficient for having a continuous inverse and being an open
+mapping.  For example the function $f(x) = x^3$ is an open mapping from $\R$
+to $\R$ and is globally one-to-one with a continuous inverse.
+
+\subsection{Implicit function theorem}
+
+The inverse function theorem is really a special case of the implicit
+function theorem which we prove next.  Although somewhat ironically we 
+prove the implicit function theorem using the inverse function theorem.
+What we were showing in the inverse function theorem was that
+the equation $x-f(y) = 0$ was solvable for $y$ in terms of $x$ if the derivative
+in terms of $y$ was invertible, that is if $f'(y)$ was invertible.
+That is there was locally a
+function $g$ such that $x-f\bigl(g(x)\bigr) = 0$.
+
+OK, so how about we look at the equation $f(x,y) = 0$.  Obviously this is
+not solvable for $y$ in terms of $x$ in every case.  For example,
+when $f(x,y)$ does not actually depend on $y$.  For a slightly more
+complicated example, notice that $x^2+y^2-1 = 0$ defines the unit circle, and
+we can locally solve for $y$ in terms of $x$ when 1) we are near
+a point which lies on the unit circle and 2) when we are not at a point
+where the circle has a vertical tangency, or in other words where
+$\frac{\partial f}{\partial y} = 0$.
+
+To make things simple we fix some notation.  We let $(x,y) \in
+\R^{n+m}$ denote the coordinates $(x^1,\ldots,x^n,y^1,\ldots,y^m)$.  A
+linear transformation $A \in L(\R^{n+m},\R^m)$ can then always
+be written as
+$A = [ A_x ~ A_y ]$ so that $A(x,y) = A_x x + A_y y$,
+where $A_x \in L(\R^n,\R^m)$ and
+$A_y \in L(\R^m)$.
+
+\begin{prop}
+%\textbf{Proposition (Theorem 9.27):}
+Let $A = [A_x~A_y] \in L(\R^{n+m},\R^m)$ and suppose 
+$A_y$ is invertible, then let $B = - {(A_y)}^{-1} A_x$ and note that
+\begin{equation*}
+0 = A ( x, Bx) = A_x x + A_y Bx .
+\end{equation*}
+\end{prop}
+
+The proof is obvious.  We simply solve and obtain $y = Bx$.  Let us
+therefore show that the same can be done for $C^1$ functions.
+
+\begin{thm}[Implicit function theorem]\index{implicit function theorem}
+\label{thm:implicit}
+%(\textbf{Theorem 9.28 (Implicit function theorem):})
+Let $U \subset \R^{n+m}$ be an open set and let $f \colon U \to \R^m$
+be a $C^1(U)$ mapping.  Let $(x_0,y_0) \in U$ be a point such that
+$f(x_0,y_0) = 0$ and such that
+\begin{equation*}
+\frac{\partial(f^1,\ldots,f^m)}{\partial(y^1,\ldots,y^m)} (x_0,y_0)  \neq 0 .
+\end{equation*}
+Then there exists an
+open set $W \subset \R^n$ with $x_0 \in W$,
+an open set $W' \subset \R^m$ with $y_0 \in W'$,
+with $W \times W' \subset U$,
+and
+a $C^1(W)$ mapping $g \colon W \to W'$, with $g(x_0) = y_0$, and
+for all $x \in W$, the point $g(x)$ is the unique point in $W'$
+such that 
+\begin{equation*}
+f\bigl(x,g(x)\bigr) = 0 .
+\end{equation*}
+Furthermore, if $[ A_x ~ A_y ] = f'(x_0,y_0)$, then
+\begin{equation*}
+g'(x_0) = -{(A_y)}^{-1}A_x .
+\end{equation*}
+\end{thm}
+
+FIXME: and these are ALL the points where $f$ vanishes near $x_0,y_0$.
+
+The condition
+$\frac{\partial(f^1,\ldots,f^m)}{\partial(y^1,\ldots,y^m)} (x_0,y_0) =
+\det(A_y)  \neq 0$
+simply means that $A_y$ is invertible.
+
+\begin{proof}
+Define $F \colon U \to \R^{n+m}$ by $F(x,y) := \bigl(x,f(x,y)\bigr)$.
+It is clear that $F$ is $C^1$, and we want to show that the derivative
+at $(x_0,y_0)$ is invertible.
+
+Let us compute the derivative.  We know that
+\begin{equation*}
+\frac{\norm{f(x_0+h,y_0+k) - f(x_0,y_0) - A_x h - A_y k}}{\norm{(h,k)}}
+\end{equation*}
+goes to zero as $\norm{(h,k)} = \sqrt{\norm{h}^2+\norm{k}^2}$ goes to zero.
+But then so does
+\begin{equation*}
+\frac{\norm{\bigl(h,f(x_0+h,y_0+k)-f(x_0,y_0)\bigr) - (h,A_x h+A_y
+k)}}{\norm{(h,k)}}
+=
+\frac{\norm{f(x_0+h,y_0+k) - f(x_0,y_0) - A_x h - A_y k}}{\norm{(h,k)}} .
+\end{equation*}
+So the derivative of $F$ at $(x_0,y_0)$ takes $(h,k)$ to $(h,A_x h+A_y k)$.  If 
+$(h,A_x h+A_y k) = (0,0)$, then $h=0$, and so $A_y k = 0$.  As $A_y$ is
+one-to-one, then $k=0$.  Therefore $F'(x_0,y_0)$ is one-to-one or in other
+words invertible and we can apply the inverse function theorem.
+
+That is, there exists some open set $V \subset \R^{n+m}$ with $(x_0,0) \in V$, and an inverse
+mapping $G \colon V \to \R^{n+m}$, that is $F\bigl(G(x,s)\bigr) = (x,s)$ for
+all $(x,s) \in V$ (where
+$x \in \R^n$ and $s \in \R^m$).
+Write $G = (G_1,G_2)$ (the first $n$ and the second $m$ components of $G$).
+Then
+\begin{equation*}
+F\bigl(G_1(x,s),G_2(x,s)\bigr) = \bigl(G_1(x,s),f(G_1(x,s),G_2(x,s))\bigr)
+= (x,s) .
+\end{equation*}
+So $x = G_1(x,s)$ and $f\bigl(G_1(x,s),G_2(x,s)) = f\bigl(x,G_2(x,s)\bigr) = s$.
+Plugging in $s=0$ we obtain
+\begin{equation*}
+f\bigl(x,G_2(x,0)\bigr) = 0 .
+\end{equation*}
+The set $G(V)$ contains a whole neighbourhood of the point $(x_0,y_0)$
+and therefore there are some open
+The set $V$ is open and hence there exist some open sets
+$\tilde{W}$ and $W'$ such that $\tilde{W} \times W' \subset G(V)$ with $x_0
+\in \tilde{W}$ and
+$y_0 \in W'$.
+Then take $W = \{ x \in \tilde{W} : G_2(x,0) \in W' \}$.
+The function that takes $x$ to $G_2(x,0)$ is continuous and therefore $W$
+is open.
+We define
+$g \colon W \to \R^m$ by $g(x) := G_2(x,0)$ which is the $g$ in the theorem.
+The fact that $g(x)$ is the unique point in $W'$ follows because $W \times
+W' \subset G(V)$ and $G$ is one-to-one and onto $G(V)$.
+
+Next differentiate
+\begin{equation*}
+x\mapsto f\bigl(x,g(x)\bigr) ,
+\end{equation*}
+at $x_0$,
+which should be the zero map.  The derivative is done in the same way as
+above.  We get that for all $h \in \R^{n}$
+\begin{equation*}
+0 = A\bigl(h,g'(x_0)h\bigr) = A_xh + A_yg'(x_0)h ,
+\end{equation*}
+and we obtain the desired derivative for $g$ as well.
+\end{proof}
+
+In other words, in the context of the theorem we have
+$m$ equations in $n+m$ unknowns.
+\begin{align*}
+& f^1 (x_1,\ldots,x_n,y_1,\ldots,y_m) = 0 \\
+& \qquad \qquad \qquad  \vdots \\
+& f^m (x_1,\ldots,x_n,y_1,\ldots,y_m) = 0
+\end{align*}
+And the condition guaranteeing a solution is that this is a $C^1$ mapping (that all the components are
+$C^1$, or in other words all the partial derivatives exist
+and are continuous), and the matrix
+\begin{equation*}
+\begin{bmatrix}
+\frac{\partial f^1}{\partial y^1}
+& \ldots &
+\frac{\partial f^1}{\partial y^m}
+\\
+\vdots & \ddots & \vdots
+\\
+\frac{\partial f^m}{\partial y^1}
+& \ldots &
+\frac{\partial f^m}{\partial y^m}
+\end{bmatrix}
+\end{equation*}
+is invertible at $(x_0,y_0)$.
+
+\begin{example}
+Consider the set $x^2+y^2-{(z+1)}^3 = -1$, $e^x+e^y+e^z = 3$
+near the point $(0,0,0)$.
+The function we are looking at is
+\begin{equation*}
+f(x,y,z) = (x^2+y^2-{(z+1)}^3+1,e^x+e^y+e^z-3) .
+\end{equation*}
+We find that
+\begin{equation*}
+Df =
+\begin{bmatrix}
+2x & 2y & -3{(z+1)}^2 \\
+e^x & e^y & e^z
+\end{bmatrix} .
+\end{equation*}
+The matrix
+\begin{equation*}
+\begin{bmatrix}
+2(0) & -3{(0+1)}^2 \\
+e^0 & e^0
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & -3 \\
+1 & 1
+\end{bmatrix}
+\end{equation*}
+is invertible.  Hence near $(0,0,0)$ we can find $y$ and $z$
+as $C^1$ functions of $x$ such that for $x$ near 0 we have
+\begin{equation*}
+x^2+y(x)^2-{(z(x)+1)}^3 = -1,
+\qquad
+e^x+e^{y(x)}+e^{z(x)} = 3 .
+\end{equation*}
+The theorem does not tell us how to find $y(x)$ and $z(x)$ explicitly,
+it just tells us they exist.
+In other words, near the origin the set of solutions is a
+smooth curve inn $\R^3$ that goes through the origin.
+\end{example}
+
+Note that there are versions of the theorem for arbitrarily many derivatives.
+If $f$ has $k$ continuous derivatives, then the solution also has $k$
+derivatives.
+
+
+\subsection{Exercises}
+
+FIXME
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Multivariable integral} \label{mi:chapter}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Riemann integral over rectangles}
+\label{sec:rirect}
+
+\sectionnotes{FIXME1 lectures}
+
+As in chapter FIXME, we define the Riemann integral using the Darboux
+upper and lower integrals.  The ideas in this section are very similar to
+integration in one dimension.  The complication is mostly notational.
+
+\subsection{Rectangles and partitions}
+
+\begin{defn}
+Let $(a^1,a^2,\ldots,a^n)$ and
+$(b^1,b^2,\ldots,b^n)$ be such that $a^k \leq b^k$ for all $k$.
+A set of the form
+$[a^1,b^1] \times
+[a^2,b^2] \times \cdots \times
+[a^n,b^n]$ is called a \emph{\myindex{closed rectangle}}\index{rectangle}.
+If $a^k < b^k$, then a set of the form
+$(a^1,b^1) \times
+(a^2,b^2) \times \cdots \times
+(a^n,b^n)$ is called an \emph{\myindex{open rectangle}}.
+
+For an open or closed rectangle
+$R := [a^1,b^1] \times
+[a^2,b^2] \times \cdots \times
+[a^n,b^n] \subset \R^n$
+or
+$R := (a^1,b^1) \times
+(a^2,b^2) \times \cdots \times
+(a^n,b^n) \subset \R^n$,
+we define the
+\emph{$n$-dimensional volume}%
+\index{$n$-dimensional volume of rectangles}%
+\index{volume of rectangles} by
+\begin{equation*}
+V(R) :=
+(b^1-a^1)
+(b^2-a^2)
+\cdots
+(b^n-a^n) .
+\end{equation*}
+
+A \emph{\myindex{partition}} $P$ of the closed rectangle
+$R = [a^1,b^1] \times
+[a^2,b^2] \times \cdots \times
+[a^n,b^n]$
+is
+a finite set of 
+partitions $P^1,P^2,\ldots,P^n$ of the intervals
+$[a^1,b^1], [a^2,b^2],\ldots, [a^n,b^n]$.
+That is, for every $k$ there is an integer $\ell_k$ and the finite set
+of numbers
+$P^k = \{ x_0^k,x_1^k,x_2^k,\ldots,x_{\ell_k}^k \}$ such that
+\begin{equation*}
+a^k = x_0^k < x_1^k < x_2^k < \cdots < x_{{\ell_k}-1}^k < x_{\ell_k}^k = b^k .
+\end{equation*}
+Picking a set of $n$ integers $j_1,j_2,\ldots,j_n$ where
+$j_k \in \{ 1,2,\ldots,\ell_k \}$ we get
+the
+\emph{\myindex{subrectangle}}
+\begin{equation*}
+[x_{j_1-1}^1, x_{j_1}^1]
+\times
+[x_{j_2-1}^2, x_{j_2}^2]
+\times
+\cdots
+\times
+[x_{j_n-1}^n, x_{j_n}^n] .
+\end{equation*}
+For simplicity, we order the subrectangles somehow and
+we say $\{R_1,R_2,\ldots,R_N\}$ are the subrectangles corresponding
+to the partition $P$ of $R$.
+In other words we subdivide the original rectangle into many smaller
+subrectangles.  It is not difficult to see that
+these subrectangles cover our original $R$, and their
+volume sums to that of $R$.  That is
+\begin{equation*}
+R= \bigcup_{j=1}^N R_j , \qquad \text{and} \qquad
+V(R) = \sum_{j=1}^N V(R_j).
+\end{equation*}
+
+%We denote by $V(R_k)$ the $n$-dimensional volume of $R_k$.  That is,
+When
+\begin{equation*}
+R_k = [x_{j_1-1}^1, x_{j_1}^1]
+\times
+[x_{j_2-1}^2, x_{j_2}^2]
+\times
+\cdots
+\times
+[x_{j_n-1}^n, x_{j_n}^n]
+\end{equation*}
+then
+\begin{equation*}
+V(R_k) = 
+\Delta x_{j_1}^1
+\Delta x_{j_2}^2
+\cdots
+\Delta x_{j_n}^n
+=
+(x_{j_1}^1-x_{j_1-1}^1)
+(x_{j_2}^2-x_{j_2-1}^2)
+\cdots
+(x_{j_n}^n-x_{j_n-1}^n) .
+\end{equation*}
+
+Let $R \subset \R^n$ be a closed rectangle and
+let $f \colon R \to \R$ be a bounded function.  Let $P$ be a partition of
+$[a,b]$.  Let $R_i$ be a subrectangle corresponding to $P$ that has $N$
+subrectangles.
+Define
+\begin{align*}
+& m_i := \inf \{ f(x) : x \in R_i \} , \\
+& M_i := \sup \{ f(x) : x \in R_i \} , \\
+& L(P,f) :=
+\sum_{i=1}^N m_i V(R_i) , \\
+& U(P,f) :=
+\sum_{i=1}^N M_i V(R_i) .
+\end{align*}
+We call $L(P,f)$ the \emph{\myindex{lower Darboux sum}} and
+$U(P,f)$ the \emph{\myindex{upper Darboux sum}}\index{Darboux sum}.
+\end{defn}
+
+We start proving facts about the Darboux sums analogous to the one-variable
+results.
+
+\begin{prop} \label{mv:sumulbound:prop}
+Suppose $R \subset \R^n$ is a closed rectangle
+and $f \colon R \to \R$ is a bounded function.  Let $m, M \in \R$ be 
+such that for all $x \in R$ we have $m \leq f(x) \leq M$.  For any partition
+$P$ of $R$
+we have
+\begin{equation}
+\label{mv:sumulbound:eq}
+m V(R) \leq
+L(P,f) \leq U(P,f)
+\leq M\, V(R) .
+\end{equation}
+\end{prop}
+
+\begin{proof}
+Let $P$ be a partition.  Then note that $m \leq m_i$ for all $i$ and
+$M_i \leq M$ for all $i$.  Also $m_i \leq M_i$ for all $i$.  Finally
+$\sum_{i=1}^N V(R_i) = V(R)$.  Therefore,
+\begin{multline*}
+m V(R) =
+m \left( \sum_{i=1}^N V(R_i) \right)
+=
+\sum_{i=1}^N m V(R_i)
+\leq
+\sum_{i=1}^N m_i V(R_i)
+\leq
+\\
+\leq
+\sum_{i=1}^N M_i V(R_i)
+\leq
+\sum_{i=1}^N M \,V(R_i)
+=
+M \left( \sum_{i=1}^N V(R_i) \right)
+=
+M \,V(R) .  \qedhere
+\end{multline*}
+\end{proof}
+
+\subsection{Upper and lower integrals}
+
+By \propref{mv:sumulbound:prop} the set of upper and lower Darboux sums are bounded sets and we can take
+their infima and suprema.  As before, we now make the following definition.
+
+\begin{defn}
+If $f \colon R \to \R$ is a bounded function on a closed rectangle $R \subset
+\R^n$.
+Define
+\begin{equation*}
+\underline{\int_R} f := \sup \{ L(P,f) : P \text{ a partition of $R$} \} , 
+\qquad
+\overline{\int_R} f := \inf \{ U(P,f) : P \text{ a partition of $R$} \} .
+\end{equation*}
+We call $\underline{\int}$ the \emph{\myindex{lower Darboux integral}} and
+$\overline{\int}$ the \emph{\myindex{upper Darboux integral}}.
+\end{defn}
+
+As in one dimension we have refinements of partitions.
+
+\begin{defn}
+Let $R \subset \R^n$ be a closed rectangle and
+let $P = \{ P^1, P^2, \ldots, P^n \}$
+and $\tilde{P} = \{ \tilde{P}^1, \tilde{P}^2, \ldots, \tilde{P}^n \}$
+be partitions of $R$.  We say $\tilde{P}$ a
+\emph{refinement}\index{refinement of a partition} of $P$
+if as sets $P^k \subset \tilde{P}^k$ for all $k = 1,2,\ldots,n$.
+\end{defn}
+
+It is not difficult to see that if $\tilde{P}$ is a refinement of $P$,
+then subrectangles of $P$ are unions of subrectangles of $\tilde{P}$.
+Simply put, in a refinement we took the subrectangles of $P$
+and we cut them into smaller subrectangles.
+
+\begin{prop} \label{mv:prop:refinement}
+Suppose $R \subset \R^n$ is a closed rectangle, $P$ is a partition of $R$
+and $\tilde{P}$ is a refinement of $P$.
+If $f \colon R \to \R$ be a bounded function,
+then
+\begin{equation*}
+L(P,f) \leq L(\tilde{P},f) 
+\qquad \text{and} \qquad
+U(\tilde{P},f) \leq U(P,f) .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Let $R_1,R_2,\ldots,R_N$ be the subrectangles of $P$
+and
+$\tilde{R}_1,\tilde{R}_2,\ldots,\tilde{R}_M$ be the subrectangles of
+$\tilde{R}$.
+Let $I_k$ be the set of indices $j$ such that $\tilde{R}_j \subset R_k$.  We
+notice that
+\begin{equation*}
+R_k = \bigcup_{j \in I_k} \tilde{R}_j,
+\qquad
+V(R_k) = \sum_{j \in I_k} V(\tilde{R}_j).
+\end{equation*}
+
+Let $m_j := \inf \{ f(x) : x \in R_j \}$, and
+$\tilde{m}_j := \inf \{ f(x) : \in \tilde{R}_j \}$ as usual.
+Notice also that if $j \in I_k$, then $m_k \leq \tilde{m}_j$.  Then
+\begin{equation*}
+L(P,f) =
+\sum_{k=1}^N m_k V(R_k)
+=
+\sum_{k=1}^N \sum_{j\in I_k} m_k V(\tilde{R}_j)
+\leq
+\sum_{k=1}^N \sum_{j\in I_k} \tilde{m}_j V(\tilde{R}_j)
+=
+\sum_{j=1}^M \tilde{m}_j V(\tilde{R}_j) = L(\tilde{P},f) . \qedhere
+\end{equation*}
+\end{proof}
+
+The key point of this next proposition is that
+the lower Darboux integral is less than or equal to the upper Darboux
+integral.
+
+\begin{prop} \label{mv:intulbound:prop}
+Let $R \subset \R^n$ be a closed rectangle and
+$f \colon R \to \R$ a bounded function.  Let $m, M \in \R$ be 
+such that for all $x \in R$ we have $m \leq f(x) \leq M$.  Then
+\begin{equation}
+\label{mv:intulbound:eq}
+m V(R) \leq
+\underline{\int_R} f \leq \overline{\int_R} f
+\leq M \, V(R).
+\end{equation}
+\end{prop}
+
+\begin{proof}
+For any partition $P$, via \propref{mv:sumulbound:prop}
+\begin{equation*}
+mV(R) \leq L(P,f) \leq U(P,f) \leq M\,V(R).
+\end{equation*}
+By taking suprema of $L(P,f)$ and infima of $U(P,f)$ over all $P$
+we obtain the first and the last inequality.
+
+The key of course is the middle inequality in
+\eqref{mv:intulbound:eq}.
+Let $P_1 = \{ P_1^1,P_1^2,\ldots,P_1^n \}$ and
+$P_2 = \{ P_2^1,P_2^2,\ldots,P_2^n \}$
+be partitions of $R$.  Define 
+$\tilde{P} = \{ \tilde{P}^1,\tilde{P}^2,\ldots,\tilde{P}^n \}$
+by letting
+$\tilde{P}^k = P_1^k \cup P_2^k$.
+Then $\tilde{P}$ is a partition of $R$ as can easily be checked,
+and $\tilde{P}$ is a refinement of $P_1$ and a refinement of $P_2$.
+By \propref{mv:prop:refinement},
+$L(P_1,f) \leq L(\tilde{P},f)$ and
+$U(\tilde{P},f) \leq U(P_2,f)$.  Therefore,
+\begin{equation*}
+L(P_1,f) \leq L(\tilde{P},f) \leq U(\tilde{P},f) \leq U(P_2,f) .
+\end{equation*}
+In other words, for two arbitrary partitions $P_1$ and $P_2$ we have
+$L(P_1,f) \leq U(P_2,f)$.  
+Via \propref{infsupineq:prop} we obtain
+\begin{equation*}
+\sup \{ L(P,f) : \text{$P$ a partition of $R$} \}
+\leq
+\inf \{ U(P,f) : \text{$P$ a partition of $R$} \} .
+\end{equation*}
+In other words $\underline{\int_R} f \leq \overline{\int_R} f$.
+\end{proof}
+
+\subsection{The Riemann integral}
+
+We now have all we need to
+define the Riemann integral in $n$-dimensions over rectangles.
+Again, the Riemann
+integral is only defined on a certain class of functions, called the
+Riemann integrable functions.
+
+\begin{defn}
+Let $R \subset \R^n$ be a closed rectangle.
+Let $f \colon R \to \R$ be a bounded function such that
+\begin{equation*}
+\underline{\int_a^b} f(x)~dx = \overline{\int_a^b} f(x)~dx .
+\end{equation*}
+Then $f$ is said to be \emph{\myindex{Riemann integrable}}.
+The set of Riemann integrable functions on $R$ is denoted
+by $\sR(R)$.  When $f \in \sR(R)$ we define
+the \emph{\myindex{Riemann integral}}
+\begin{equation*}
+\int_R f := 
+\underline{\int_R} f = \overline{\int_R} f .
+\end{equation*}
+\end{defn}
+
+When the variable $x \in \R^n$ needs to be emphasized we write
+\begin{equation*}
+\int_R f(x)~dx,
+%\qquad
+%\int_R f(x^1,\ldots,x^n)~dx^1 \cdots dx^n,
+\qquad
+\text{or}
+\qquad
+\int_R f(x)~dV .
+\end{equation*}
+
+\propref{mv:intulbound:prop} implies immediately the following
+proposition.
+
+\begin{prop} \label{mv:intbound:prop}
+Let $f \colon R \to \R$ be a Riemann integrable function
+on a closed rectangle $R \subset \R^n$.
+Let $m, M \in \R$ be 
+such that $m \leq f(x) \leq M$ for all $x \in R$.  Then
+\begin{equation*}
+m V(R) \leq
+\int_a^b f
+\leq M \, V(R) .
+\end{equation*}
+\end{prop}
+
+\begin{example}
+A constant function is Riemann integrable.  Suppose
+$f(x) = c$ for all $x$ on $R$.  Then
+\begin{equation*}
+c V(R) \leq \underline{\int_R} f \leq \overline{\int_R} f \leq cV(R) .
+\end{equation*}
+So $f$ is integrable, and furthermore $\int_R f = cV(R)$.
+\end{example}
+
+The proofs of linearity and monotonicity are almost completely identical as
+the proofs from one variable.  We therefore leave it as an exercise to prove
+the next two propositions. (FIXME add the exercise).
+
+\begin{prop}[Linearity]
+\index{linearity of the integral}
+Let $R \subset \R^n$ be a closed rectangle and let
+$f$ and $g$ be in $\sR(R)$ and $\alpha \in \R$.
+\begin{enumerate}[(i)]
+\item $\alpha f$ is in $\sR(R)$ and
+\begin{equation*}
+\int_R \alpha f = \alpha \int_R f
+\end{equation*}
+\item $f+g$ is in $\sR(R)$ and
+\begin{equation*}
+\int_R (f+g) = 
+\int_R f
++
+\int_R g .
+\end{equation*}
+\end{enumerate}
+\end{prop}
+
+\begin{prop}[Monotonicity]
+\index{monotonicity of the integral}
+Let $R \subset \R^n$ be a closed rectangle and let
+$f$ and $g$ be in $\sR(R)$ and let $f(x) \leq g(x)$
+for all $x \in R$.  Then
+\begin{equation*}
+\int_R f 
+\leq
+\int_R g .
+\end{equation*}
+\end{prop}
+
+Again for simplicity if $f \colon S \to \R$ is a function and $R \subset S$
+is a closed rectangle, then if the restriction $f|_R$ is integrable we
+say $f$ is integrable on $R$, or $f \in \sR(R)$ and we
+write
+\begin{equation*}
+\int_R f := \int_R f|_R .
+\end{equation*}
+
+\begin{prop}
+For a closed rectangle $S \subset \R^n$,
+if $f \colon S \to \R$ is integrable and $R \subset S$
+is a closed rectangle, then $f$ is integrable over $R$.
+\end{prop}
+
+\begin{proof}
+Given $\epsilon > 0$, we find a partition $P$ such that
+$U(P,f)-L(P,f) < \epsilon$.  By making a refinement of $P$
+we can assume that the endpoints of $R$ are in $P$, or in other words,
+$R$ is a union of subrectangles of $P$.  Then the subrectangles of $P$
+divide into two collections, ones that are subsets of $R$
+and ones whose intersection with the interior of $R$ is empty.
+Suppose that $R_1,R_2\ldots,R_K$ be the subrectangles that
+are subsets of $R$ and $R_{K+1},\ldots, R_N$ be the rest.
+Let $\tilde{P}$ be the partition of $R$ composed of 
+those subrectangles of $P$ contained in $R$.
+Then using the same notation as before.
+\begin{equation*}
+\begin{split}
+\epsilon & > 
+U(P,f)-L(P,f)
+=
+\sum_{k=1}^K (M_k-m_k) V(R_k)
++
+\sum_{k=K+1}^N (M_k-m_k) V(R_k)
+\\
+&
+\geq
+\sum_{k=1}^K (M_k-m_k) V(R_k)
+=
+U(\tilde{P},f|_R)-L(\tilde{P},f|_R)
+\end{split}
+\end{equation*}
+Therefore $f|_R$ is integrable.
+\end{proof}
+
+\subsection{Integrals of continuous functions}
+
+FIXME:
+We will later on prove a much more general result, but it is useful to start
+with continuous functions only.  Before we get to continuous functions,
+let us state the following proposition, which has a very easy proof,
+but it is useful to 
+emphasize as a technique.
+
+\begin{prop}
+Let $R \subset \R^n$ be a closed rectangle and
+$f \colon R \to \R$ a bounded function.
+If for every $\epsilon > 0$, there exists a partition $P$ of $R$
+such that
+\begin{equation*}
+U(P,f) - L(P,f) < \epsilon ,
+\end{equation*}
+then $f \in \sR(R)$.
+\end{prop}
+
+\begin{proof}
+Given an $\epsilon > 0$ find $P$ as in the hypothesis.  Then
+\begin{equation*}
+\overline{\int_R} f - 
+\underline{\int_R} f 
+\leq
+U(P,f) - L(P,f)
+< \epsilon .
+\end{equation*}
+As $\overline{\int_R} f \geq \underline{\int_R} f$ and the above holds for
+every $\epsilon > 0$, we conclude 
+$\overline{\int_R} f = \underline{\int_R} f$ and $f \in \sR(R)$.
+\end{proof}
+
+We say a rectangle $R = [a^1,b^1] \times
+[a^2,b^2] \times \cdots \times
+[a^n,b^n]$ has longest side at most $\alpha$ if
+$b^k-a^k \leq \alpha$ for all $k$.
+
+\begin{prop}
+If a rectangle $R \subset \R^n$ has longest side at most $\alpha$.  Then
+for any $x,y \in R$,
+\begin{equation*}
+\snorm{x-y} \leq \sqrt{n} \, \alpha .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+\begin{equation*}
+\begin{split}
+\snorm{x-y} 
+& =
+\sqrt{
+{(x^1-y^1)}^2
++
+{(x^2-y^2)}^2
++ \cdots +
+{(x^n-y^n)}^2
+}
+\\
+& \leq
+\sqrt{
+{(b^1-a^1)}^2
++
+{(b^2-a^2)}^2
++ \cdots +
+{(b^n-a^n)}^2
+}
+\\
+& \leq
+\sqrt{
+{\alpha}^2
++
+{\alpha}^2
++ \cdots +
+{\alpha}^2
+}
+=
+\sqrt{n} \, \alpha .  \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+
+\begin{thm} \label{mv:thm:contintrect}
+Let $R \subset \R^n$ be a closed rectangle and
+$f \colon R \to \R$ a continuous function,
+then $f \in \sR(R)$.
+\end{thm}
+
+\begin{proof}
+The proof is analogous to the one variable proof with some complications.
+The set $R$ is closed and bounded and hence compact.  So
+$f$ is not just continuous but in fact uniformly continuous 
+by \propref{FIXME}.
+Let $\epsilon > 0$ be given.  Find a $\delta > 0$ such that
+$\snorm{x-y} < \delta$ implies $\abs{f(x)-f(y)} < \frac{\epsilon}{V(R)}$.
+
+Let $P$ be a partition of $R$ such that longest side of any subrectangle
+is strictly less than $\frac{\delta}{\sqrt{n}}$.
+Then for all $x, y \in R_k$ for a subrectangle $R_k$ of $P$ we have,
+by the proposition above,
+$\snorm{x-y} < \sqrt{n} \frac{\delta}{\sqrt{n}} = \delta$.  Therefore
+\begin{equation*}
+f(x)-f(y) \leq \abs{f(x)-f(y)} < \frac{\epsilon}{V(R)} .
+\end{equation*}
+As $f$ is continuous on $R_k$, it attains a maximum and a minimum
+on this interval.
+Let $x$ be a point where $f$ attains the maximum and $y$ be a point
+where $f$ attains the minimum.  Then $f(x) = M_k$
+and $f(y) = m_k$ in the notation from the definition of the integral.
+Therefore,
+\begin{equation*}
+M_i-m_i = f(x)-f(y) < 
+\frac{\epsilon}{V(R)} .
+\end{equation*}
+And so
+\begin{equation*}
+\begin{split}
+U(P,f) - L(P,f)
+& =
+\left(
+\sum_{k=1}^N
+M_k V(R_k)
+\right)
+-
+\left(
+\sum_{k=1}^N
+m_k V(R_k)
+\right)
+\\
+& =
+\sum_{k=1}^N
+(M_k-m_k) V(R_k)
+\\
+& <
+\frac{\epsilon}{V(R)}
+\sum_{k=1}^N
+V(R_k)
+= \epsilon.
+\end{split}
+\end{equation*}
+As $\epsilon > 0$ was arbitrary,
+\begin{equation*}
+\overline{\int_a^b} f = \underline{\int_a^b} f ,
+\end{equation*}
+and $f$ is Riemann integrable on $R$.
+\end{proof}
+
+\subsection{Integration of functions with compact support}
+
+Let $U \subset \R^n$ be an open set and
+$f \colon U \to \R$ be a function.  We say the
+\emph{\myindex{support}} of $f$ be the set
+\begin{equation*}
+\operatorname{supp} (f) :=
+\overline{
+\{ x \in U : f(x) \not= 0 \}
+} .
+\end{equation*}
+That is, the support is the closure of the set of points where the
+function is nonzero.  So for a point not in the support we have that
+$f$ is constantly zero in a whole neighbourhood.
+
+A function $f$ is said to have \emph{\myindex{compact support}}
+if $\supp(f)$ is a compact set.
+We will mostly consider the case when $U=\R^n$.  In light of the following
+exercise, this is not an oversimplification.
+
+\begin{exercise}
+Suppose $U \subset \R^n$ is open and $f \colon U \to \R$ is continuous and
+of compact support.  Show that the function $\tilde{f} \colon \R^n \to \R$
+\begin{equation*}
+\tilde{f}(x) :=
+\begin{cases}
+f(x) & \text{ if $x \in U$} \\
+0 & \text{ otherwise}
+\end{cases}
+\end{equation*}
+is continuous.
+\end{exercise}
+
+\begin{prop} \label{mv:prop:rectanglessupp}
+Suppose $f \colon \R^n \to \R$ be a function with compact support.
+If $R$ is a closed rectangle such that $\operatorname{supp}(f) \subset R^o$
+where $R^o$ is the interior of $R$,
+and $f$ is integrable over $R$, then for any other closed rectangle
+$S$ with $\operatorname{supp}(f) \subset S^o$,
+the function $f$ is integrable over $S$ and
+\begin{equation*}
+\int_S f = \int_R f .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+The intersection of closed rectangles is again a closed rectangle (or empty).  Therefore
+we can take $\tilde{R} = R \cap S$ be the intersection of all rectangles containing
+$\operatorname{supp}(f)$.  If $\tilde{R}$ is the empty set, then
+$\operatorname{supp}(f)$ is the empty set and $f$ is identically zero
+and the proposition is trivial.  So suppose that $\tilde{R}$ is nonempty.
+As $\tilde{R} \subset R$, we know that $f$ is integrable over $\tilde{R}$.
+Furthermore $\tilde{R} \subset S$.
+Given $\epsilon > 0$, take $\tilde{P}$ to be a partition of $\tilde{R}$
+such that
+\begin{equation*}
+U(\tilde{P},f|_{\tilde{R}})-
+L(\tilde{P},f|_{\tilde{R}}) < \epsilon .
+\end{equation*}
+Now add the endpoints of $S$ to $\tilde{P}$ to create a new partition $P$.
+Note that the subrectangles of $\tilde{P}$ are subrectangles of $P$ as well.
+Let $R_1,R_2,\ldots,R_K$ be the subrectangles of $\tilde{P}$
+and $R_{K+1},\ldots,R_N$ the new subrectangles.  Note that since
+$\operatorname{supp}(f) \subset \tilde{R}$, then 
+for $k=K+1,\ldots,N$ we have $\operatorname{supp}(f) \cap R_k = \emptyset$.
+In other words $f$ is identically zero on $R_k$.  Therefore in the notation
+used previously we have
+\begin{equation*}
+\begin{split}
+U(P,f|_S)-L(P,f|_S) & =
+\sum_{k=1}^K (M_k-m_k) V(R_k)
++
+\sum_{k=K+1}^N (M_k-m_k) V(R_k)
+\\
+& =
+\sum_{k=1}^K (M_k-m_k) V(R_k)
++
+\sum_{k=K+1}^N (0) V(R_k)
+\\
+& =
+U(\tilde{P},f|_{\tilde{R}})-
+L(\tilde{P},f|_{\tilde{R}}) < \epsilon .
+\end{split}
+\end{equation*}
+Similarly we have that
+$L(P,f|_S) = L(\tilde{P},f_{\tilde{R}})$
+and therefore
+\begin{equation*}
+\int_S f = \int_{\tilde{R}} f.
+\end{equation*}
+Since $\tilde{R} \subset R$ we also get $\int_R f = \int_{\tilde{R}} f$,
+or in other words $\int_R f = \int_S f$.
+\end{proof}
+
+
+Because of this proposition, when $f \colon \R^n \to \R$ has compact support
+and is integrable over a rectangle $R$ containing the support we write
+\begin{equation*}
+\int f := \int_R f \qquad \text{or} \qquad 
+\int_{\R^n} f := \int_R f .
+\end{equation*}
+For example if $f$ is continuous and of compact support then
+$\int_{\R^n} f$ exists.
+
+\subsection{Exercises}
+
+FIXME
+
+FIXME: Show that integration over a rectangle with one side of size
+zero results in zero integral.
+
+\begin{exercise} \label{mv:exersmallerset}
+Suppose $R$ and $R'$ are two closed rectangles with $R' \subset R$.  Suppose
+that $f \colon R \to \R$ is in $\sR(R)$.  Show that $f \in \sR(R')$.
+\end{exercise}
+
+\begin{exercise} \label{mv:zerooutside}
+Suppose $R$ and $R'$ are two closed rectangles with $R' \subset R$.  Suppose
+that $f \colon R \to \R$ is in $\sR(R')$ and $f(x) = 0$ for $x \notin R'$.
+Show that $f \in \sR(R)$ and
+\begin{equation*}
+\int_{R'} f = \int_R f .
+\end{equation*}
+Hint: see the previous exercise.
+\end{exercise}
+
+\begin{exercise}
+Prove a stronger version of \propref{mv:prop:rectanglessupp}.
+Suppose $f \colon \R^n \to \R$ be a function with compact support.
+Prove that
+if $R$ is a closed rectangle such that $\operatorname{supp}(f) \subset R$
+and $f$ is integrable over $R$, then for any other closed rectangle
+$S$ with $\operatorname{supp}(f) \subset S$,
+the function $f$ is integrable over $S$ and
+$\int_S f = \int_R f$.
+\emph{Hint: notice that now the new rectangles that you add as in the proof
+can intersect $\operatorname{supp}(f)$ on their boundary.}
+\end{exercise}
+
+\begin{exercise}
+Suppose that $R$ and $S$ are closed rectangles.  Let $f(x) := 1$ if 
+$x \in R$ and $f(x) = 0$ otherwise.  Show that $f$ is integrable over $S$
+and compute $\int_S f$.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Iterated integrals and Fubini theorem}
+\label{sec:iteratedints}
+
+\sectionnotes{FIXME2 lectures}
+
+The Riemann integral in several variables
+is hard to compute from the definition.
+For one-dimensional Riemann integral we have the fundamental
+theorem of calculus (FIXME) and we can compute many integrals without
+having to appeal to the definition of the integral.
+We will rewrite a 
+a Riemann integral in several variables into
+several one dimensional Riemann integrals
+by iterating.  However, if $f \colon [0,1]^2 \to \R$ is a Riemann integrable
+function, it is not immediately clear if the three expressions
+\begin{equation*}
+\int_{[0,1]^2} f ,
+\qquad
+\int_0^1 \int_0^1 f(x,y) \, dx \, dy ,
+\qquad \text{and}
+\qquad
+\int_0^1 \int_0^1 f(x,y) \, dy \, dx
+\end{equation*}
+are equal, or if the last two are even well-defined.
+
+\begin{example}
+Define 
+\begin{equation*}
+f(x,y) := 
+\begin{cases}
+1 & \text{ if $x=\nicefrac{1}{2}$ and $y \in \Q$,} \\
+0 & \text{ otherwise.}
+\end{cases}
+\end{equation*}
+Then $f$ is Riemann integrable on $R := [0,1]^2$ and $\int_R f = 0$.
+Furthermore, $\int_0^1 \int_0^1 f(x,y) \, dx \, dy = 0$.
+However
+\begin{equation*}
+\int_0^1 f(\nicefrac{1}{2},y) \, dy
+\end{equation*}
+does not exist, so we cannot even write $\int_0^1 \int_0^1 f(x,y) \, dy \,
+dx$.
+
+Proof:
+Let us start with integrability of $f$.  We simply take the partition
+of $[0,1]^2$ where the partition in the $x$ direction is
+$\{ 0, \nicefrac{1}{2}-\epsilon,
+\nicefrac{1}{2}+\epsilon,1\}$ and in the $y$ direction $\{ 0, 1 \}$ .
+The subrectangles of the partition are
+\begin{equation*}
+R_1 := [0,
+\nicefrac{1}{2}-\epsilon] \times [0,1],
+\qquad
+R_2 := [\nicefrac{1}{2}-\epsilon,
+\nicefrac{1}{2}+\epsilon] \times [0,1],
+\qquad
+R_3 := [\nicefrac{1}{2}+\epsilon,1] \times [0,1] .
+\end{equation*}
+We have $m_1 = M_1 = 0$, $m_2 =0$, $M_2 = 1$, and $m_3 = M_3 = 0$.
+Therefore,
+\begin{equation*}
+L(P,f) = 
+m_1 (\nicefrac{1}{2}-\epsilon) \cdot 1
++
+m_2 (2\epsilon) \cdot 1
++
+m_3 (\nicefrac{1}{2}-\epsilon) \cdot 1 = 0 ,
+\end{equation*}
+and
+\begin{equation*}
+U(P,f) = 
+M_1 (\nicefrac{1}{2}-\epsilon) \cdot 1
++
+M_2 (2\epsilon) \cdot 1
++
+M_3 (\nicefrac{1}{2}-\epsilon) \cdot 1 = 2 \epsilon .
+\end{equation*}
+The upper and lower sum are arbitrarily close and the lower sum is always
+zero, so the function is integrable and $\int_R f = 0$.
+
+For any $y$, the function that takes $x$ to $f(x,y)$ is zero except
+perhaps at a single point $x=\nicefrac{1}{2}$.  We know that such a
+function is integrable and $\int_0^1 f(x,y) \, dx = 0$.  Therefore,
+$\int_0^1 \int_0^1 f(x,y) \, dx \, dy = 0$.
+
+However if $x=\nicefrac{1}{2}$, the function that takes $y$ to
+$f(\nicefrac{1}{2},y)$ is the nonintegrable function that is
+1 on the rationals and 0 on the irrationals.  See \exampleref{FIXME}.
+\end{example}
+
+We will solve this problem of undefined inside integrals
+by using the upper and lower integrals, which are always defined.
+
+\medskip
+
+We split $\R^{n+m}$ into two parts.  That is,
+we write the coordinates on $\R^{n+m} = \R^n \times \R^m$ as
+$(x,y)$ where $x \in \R^n$ and $y \in \R^m$.  For a function $f(x,y)$
+we write
+\begin{equation*}
+f_x(y) := f(x,y)
+\end{equation*}
+when $x$ is fixed and we wish to speak of the function in terms of $y$.
+We write
+\begin{equation*}
+f^y(x) := f(x,y)
+\end{equation*}
+when $y$ is fixed and we wish to speak of the function in terms of $x$.
+
+\begin{thm}[Fubini version A] \label{mv:fubinivA}
+Let $R \times S \subset \R^n \times \R^m$ be a closed rectangle and
+$f \colon R \times S \to \R$ be integrable.
+The functions $g \colon R \to \R$ and $h \colon R \to \R$ defined by
+\begin{equation*}
+g(x) := \underline{\int_S} f_x \qquad
+\text{and} \qquad
+h(x) := \overline{\int_S} f_x 
+\end{equation*}
+are integrable over $R$ and
+\begin{equation*}
+\int_R g = \int_R h = \int_{R \times S} f .
+\end{equation*}
+\end{thm}
+
+In other words
+\begin{equation*}
+\int_{R \times S} f
+=
+ \int_R \left(
+ \underline{\int_S} f(x,y) \, dy
+\right) \, dx
+=
+ \int_R \left(
+ \overline{\int_S} f(x,y) \, dy
+\right) \, dx .
+\end{equation*}
+If it turns out that $f_x$ is integrable for all $x$, for example when
+$f$ is continuous, then we obtain the more familiar
+\begin{equation*}
+\int_{R \times S} f
+=
+ \int_R \int_S f(x,y) \, dy \, dx .
+\end{equation*}
+
+\begin{proof}
+Let $P$ be a partition of $R$ and $P'$ be a partition of $S$.  Let
+$R_1,R_2,\ldots,R_N$ be the subrectangles of $P$ and
+$R'_1,R'_2,\ldots,R'_K$ be the subrectangles of $P'$.  Then
+$P \times P'$ is the partition whose subrectangles are
+$R_j \times R'_k$ for all $1 \leq j \leq N$ and all $1 \leq k \leq K$.
+
+Let
+\begin{equation*}
+m_{j,k} :=
+\inf_{(x,y) \in R_j \times R'_k} f(x,y) .
+\end{equation*}
+We notice that
+$V(R_j \times R'_k) = V(R_j)V(R'_k)$ and hence
+\begin{equation*}
+L(P \times P',f) =
+\sum_{j=1}^N
+\sum_{k=1}^K
+m_{j,k} \, V(R_j \times R'_k)
+=
+\sum_{j=1}^N
+\left(
+\sum_{k=1}^K
+m_{j,k} \, V(R'_k) \right) V(R_j) .
+\end{equation*}
+If we let
+\begin{equation*}
+m_k(x) := \inf_{y \in R'_k} f(x,y) = \inf_{y \in R'_k} f_x(y) ,
+\end{equation*}
+then of course if $x \in R_j$ then $m_{j,k} \leq m_k(x)$.  Therefore
+\begin{equation*}
+\sum_{k=1}^K
+m_{j,k} \, V(R'_k)
+\leq \sum_{k=1}^K m_k(x) \, V(R'_k) = L(P',f_x) \leq
+\underline{\int_S} f_x = g(x) .
+\end{equation*}
+As we have the inequality for all $x \in R_j$ we have
+\begin{equation*}
+\sum_{k=1}^K
+m_{j,k} \, V(R'_k)
+\leq \inf_{x \in \R_j} g(x) .
+\end{equation*}
+We thus obtain
+\begin{equation*}
+L(P \times P',f) 
+\leq
+\sum_{j=1}^N
+\left(
+\inf_{x \in \R_j} g(x)
+\right) V(R_j) = L(P,g) .
+\end{equation*}
+
+Similarly $U(P \times P',f) \geq U(P,h)$, and the proof of this inequality is
+left as an exercise.
+
+Putting this together we have
+\begin{equation*}
+L(P \times P',f)
+\leq
+L(P,g) \leq
+U(P,g) \leq
+U(P,h) \leq
+U(P \times P',f) .
+\end{equation*}
+And since $f$ is integrable, it must be that $g$ is integrable as
+\begin{equation*}
+U(P,g) - L(P,g)
+\leq
+U(P \times P',f) -
+L(P \times P',f) ,
+\end{equation*}
+and we can make the right hand side arbitrarily small.  Furthermore
+as 
+$L(P \times P',f) \leq L(P,g) \leq U(P \times P',f)$ we must have
+that $\int_R g = \int_{R \times S} f$.
+
+Similarly we have
+\begin{equation*}
+L(P \times P',f)
+\leq
+L(P,g) \leq
+L(P,h) \leq
+U(P,h) \leq
+U(P \times P',f) ,
+\end{equation*}
+and hence
+\begin{equation*}
+U(P,h) - L(P,h)
+\leq
+U(P \times P',f) -
+L(P \times P',f) .
+\end{equation*}
+So if $f$ is integrable so is $h$, and
+as $L(P \times P',f) \leq L(P,h) \leq U(P \times P',f)$ we must have
+that $\int_R h = \int_{R \times S} f$.
+\end{proof}
+
+We can also do the iterated integration in opposite order.
+The proof of this version is almost identical to version A, and
+we leave it as an exercise to the reader.
+
+\begin{thm}[Fubini version B]\label{mv:fubinivB}
+Let $R \times S \subset \R^n \times \R^m$ be a closed rectangle and
+$f \colon R \times S \to \R$ be integrable.
+The functions $g \colon S \to \R$ and $h \colon S \to \R$ defined by
+\begin{equation*}
+g(x) := \underline{\int_S} f^y \qquad
+\text{and} \qquad
+h(x) := \overline{\int_S} f^x 
+\end{equation*}
+are integrable over $S$ and
+\begin{equation*}
+\int_S g = \int_S h = \int_{R \times S} f .
+\end{equation*}
+\end{thm}
+
+That is we also have
+\begin{equation*}
+\int_{R \times S} f
+=
+ \int_S \left(
+ \underline{\int_R} f(x,y) \, dx
+\right) \, dy
+=
+ \int_S \left(
+ \overline{\int_R} f(x,y) \, dx
+\right) \, dy .
+\end{equation*}
+
+Next suppose that $f_x$ and $f^y$ are integrable for simplicity.
+For example, suppose that $f$ is continuous.  Then by
+putting the two versions together we obtain the familiar
+\begin{equation*}
+\int_{R \times S} f
+=
+ \int_R 
+ \int_S f(x,y) \, dy \, dx 
+=
+ \int_S 
+ \int_R f(x,y) \, dx \, dy .
+\end{equation*}
+
+Often the Fubini theorem is stated in two dimensions
+for a continuous function $f \colon R \to
+\R$ on a rectangle $R = [a,b] \times [c,d]$.  Then the Fubini theorem
+states that
+\begin{equation*}
+\int_R f = \int_a^b \int_c^d f(x,y) \,dy\,dx
+\int_c^d \int_a^b f(x,y) \,dx\,dy .
+\end{equation*}
+And the Fubini theorem is commonly thought of as the theorem that allows us
+to swap the order of iterated integrals.
+
+We can also obtain the 
+Repeatedly applying Fubini theorem gets us the following
+corollary:
+Let $R := [a^1,b^1] \times [a^2,b^2] \times \cdots \times [a^n,b^n] \subset
+\R^n$ be a closed rectangle and let
+$f \colon R \to \R$ be continuous.  Then
+\begin{equation*}
+\int_R f = 
+\int_{a^1}^{b^1}
+\int_{a^2}^{b^2}
+\cdots
+\int_{a^n}^{b^n}
+f(x^1,x^2,\ldots,x^n)
+\,
+dx^n
+\,
+dx^{n-1}
+\cdots
+dx^1 .
+\end{equation*}
+
+Clearly we can also switch the order of integration to any order we please.
+We can also relax the continuity requirement by making sure that all the
+intermediate functions are integrable, or by using upper or lower integrals.
+
+\subsection{Exercises}
+
+\begin{exercise}
+Prove the assertion
+$U(P \times P',f) \geq U(P,h)$ from the proof
+of \thmref{mv:fubinivA}.
+\end{exercise}
+
+\begin{exercise}
+Prove \thmref{mv:fubinivB}.
+\end{exercise}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Outer measure and null sets}
+\label{sec:outermeasure}
+
+\sectionnotes{FIXME3 lectures}
+
+%\subsection{Content zero sets}
+%
+%\begin{defn}
+%A set $S \subset \R^n$ is a \emph{\myindex{content zero set}}
+%if for every $\epsilon > 0$
+%there exist a finite set of open rectangles $R_1, R_2, \ldots, R_k$ such that
+%\begin{equation*}
+%S \subset R_1 \cup R_2 \cup \ldots R_k \qquad \text{and} \qquad
+%V(R_1) + V(R_2) + \cdots + V(R_k) < \epsilon.
+%\end{equation*}
+%\end{defn}
+%
+%Obviously if $S$ is content zero and $S' \subset S$, then
+%$S'$ is of content zero.  We can in fact use the same exact rectangles.
+%
+%\begin{example}
+%A finite set is of content zero.
+%
+%\emph{Proof:}
+%FIXME
+%\end{example}
+%
+%\begin{example}
+%An open rectangle is not of content zero.
+%
+%\emph{Proof:}
+%FIXME
+%\end{example}
+%
+%\begin{example}
+%The set $\Q^n \subset \R^n$ is not of content zero.
+%
+%\emph{Proof:}
+%FIXME
+%\end{example}
+
+\subsection{Outer measure}
+
+%FIXME
+%
+%\begin{defn}
+%Let $(a^1,a^2,\ldots,a^n)$ and
+%$(b^1,b^2,\ldots,b^n)$ be such that $a^k < b^k$ for all $k$.
+%A set of the form
+%$(a^1,b^1) \times
+%(a^2,b^2) \times \cdots \times
+%(a^n,b^n)$ is called an \emph{\myindex{open rectangle}}
+%
+%For an open rectangle
+%$R := (a^1,b^1) \times
+%(a^2,b^2) \times \cdots \times
+%(a^n,b^n) \subset \R^n$ we define the
+%\emph{$n$-dimensional volume}%
+%\index{$n$-dimensional volume of rectangles}%
+%\index{volume of rectangles} by
+%\begin{equation*}
+%V(R) :=
+%(b^1-a^1)
+%(b^2-a^2)
+%\cdots
+%(b^n-a^n) .
+%\end{equation*}
+%\end{defn}
+%
+%FIXME
+
+Before we characterize all Riemann integrable functions, we need to make
+a slight detour.  We introduce a way of measuring the size of sets in $\R^n$.
+
+\begin{defn}
+Let 
+$S \subset \R^n$ be a subset.  Define the \emph{\myindex{outer measure}}
+of $S$ as
+\begin{equation*}
+m^*(S)
+:=
+\inf\,
+\sum_{j=1}^\infty V(R_j) ,
+\end{equation*}
+where the infimum is taken over all sequences
+$\{ R_j \}$ of open rectangles such that
+%\begin{equation*}
+$S \subset \bigcup_{j=1}^\infty R_j$.
+%\end{equation*}
+In particular $S$ is of \emph{\myindex{measure zero}} or
+a \emph{\myindex{null set}} if $m^*(S) = 0$.
+\end{defn}
+
+We will only need measure zero sets and so we focus on these.
+Note that $S$ is of measure zero if
+for every $\epsilon > 0$
+there exist a sequence of open rectangles $\{ R_j \}$ such that
+\begin{equation*}
+S \subset \bigcup_{j=1}^\infty R_j \qquad \text{and} \qquad
+\sum_{j=1}^\infty V(R_j) < \epsilon.
+\end{equation*}
+Furthermore, 
+if $S$ is measure zero and $S' \subset S$, then
+$S'$ is of measure zero.  We can in fact use the same exact rectangles.
+
+\begin{example}
+The set $\Q^n \subset \R^n$ of points with rational coordinates
+is a set of measure zero.
+
+\emph{Proof:}
+The set $\Q^n$ is countable and therefore let us write it
+as a sequence $q_1,q_2,\ldots$.  For each $q_j$ find an open rectangle
+$R_j$ with $q_j \in R_j$ and $V(R_j) < \epsilon 2^{-j}$.  Then
+\begin{equation*}
+\Q^n \subset \bigcup_{j=1}^\infty R_j \qquad \text{and} \qquad
+\sum_{j=1}^\infty V(R_j) <
+\sum_{j=1}^\infty \epsilon 2^{-j} = \epsilon .
+\end{equation*}
+\end{example}
+
+In fact, the example points to a more general result.
+
+\begin{prop}
+A countable union of measure zero sets is of measure zero.
+\end{prop}
+
+\begin{proof}
+Suppose
+\begin{equation*}
+S = \bigcup_{j=1}^\infty S_j
+\end{equation*}
+where $S_j$ are all measure zero sets.  Let $\epsilon > 0$ be given.
+For each $j$
+there exists a sequence of open rectangles $\{ R_{j,k} \}_{k=1}^\infty$
+such that
+\begin{equation*}
+S_j \subset \bigcup_{k=1}^\infty R_{j,k}
+\end{equation*}
+and 
+\begin{equation*}
+\sum_{k=1}^\infty V(R_{j,k}) < 2^{-j} \epsilon .
+\end{equation*}
+Then
+\begin{equation*}
+S \subset \bigcup_{j=1}^\infty \bigcup_{k=1}^\infty R_{j,k} .
+\end{equation*}
+As $V(R_{j,k})$ is always positive, the sum over all $j$ and $k$
+can be done in any order.  In particular, it can be done as
+\begin{equation*}
+\sum_{j=1}^\infty \sum_{k=1}^\infty V(R_{j,k}) <
+\sum_{j=1}^\infty 2^{-j} \epsilon = \epsilon . \qedhere
+\end{equation*}
+\end{proof}
+
+The next example is not just interesting, it will be useful later.
+
+\begin{example} \label{mv:example:planenull}
+Let $P := \{ x \in \R^n : x^k = c \}$ for a fixed $k=1,2,\ldots,n$ and
+a fixed constant $c \in \R$.  Then $P$ is of measure zero.
+
+\emph{Proof:}
+First fix $s$ and let us prove that
+\begin{equation*}
+P_s := \{ x \in \R^n : x^k = c, \abs{x^j} \leq s \text{ for all $j\not=k$} \}
+\end{equation*}
+is of measure zero.
+Given any $\epsilon > 0$ define the open rectangle
+\begin{equation*}
+R := \{ x \in \R^n : c-\epsilon < x^k < c+\epsilon, \abs{x^j} < s+1 \text{ for all $j\not=k$} \}
+\end{equation*}
+It is clear that $P_s \subset R$.  Furthermore
+\begin{equation*}
+V(R) = 2\epsilon {\bigl(2(s+1)\bigr)}^{n-1} .
+\end{equation*}
+As $s$ is fixed, we can
+make $V(R)$
+arbitrarily small by
+picking $\epsilon$ small enough.
+
+Next we note that
+\begin{equation*}
+P = \bigcup_{j=1}^\infty P_j
+\end{equation*}
+and a countable union of measure zero sets is measure zero.
+\end{example}
+
+\begin{example}
+%A closed rectangle $R = [a^1,b^1] \times \cdots \times [a^n,b^n]$
+%where $a^j < b^j$ is never a measure zero set.
+If $a < b$, then $m^*([a,b]) = b-a$.
+
+\emph{Proof:}
+In the case of $\R$, open rectangles are open intervals.
+Since $[a,b] \subset (a-\epsilon,b+\epsilon)$ for all $\epsilon > 0$.
+Hence, $m^*([a,b]) \leq b-a$.
+
+Let us prove the other inequality.
+Suppose that $\{ (a_j,b_j) \}$ are open intervals such that
+\begin{equation*}
+[a,b] \subset \bigcup_{j=1}^\infty (a_j,b_j) .
+\end{equation*}
+We wish to bound $\sum (b_j-a_j)$ from below.
+Since $[a,b]$ is compact, then there are only finitely many open intervals
+that still cover $[a,b]$.  As throwing out some of the intervals only makes the
+sum smaller, we only need to take the finite number of intervals
+still covering $[a,b]$.
+If $(a_i,b_i) \subset (a_j,b_j)$, then we can throw out
+$(a_i,b_i)$ as well.
+Therefore we have
+$[a,b] \subset \bigcup_{j=1}^k (a_j,b_j)$ for some $k$, and
+we assume that the intervals are sorted such that $a_1 < a_2 < \cdots <
+a_k$.  Note that since $(a_2,b_2)$ is not contained in $(a_1,b_1)$
+we have that $a_1 < a_2 < b_1 < b_2$.  Similarly
+$a_j < a_{j+1} < b_j < b_{j+1}$.  Furthermore, $a_1 < a$ and $b_k > b$.
+Thus,
+\begin{equation*}
+m^*([a,b]) \geq
+\sum_{j=1}^k (b_j-a_j)
+\geq
+\sum_{j=1}^{k-1} (a_{j+1}-a_j)
++
+(b_k-a_k)
+=
+b_k-a_1 > b-a .
+\end{equation*}
+\end{example}
+
+\begin{prop} \label{mv:prop:compactnull}
+Suppose $E \subset \R^n$ is a compact set of measure zero.  Then for
+every $\epsilon > 0$, there exist
+finitely many open rectangles $R_1,R_2,\ldots,R_k$ such that
+\begin{equation*}
+E \subset R_1 \cup R_2 \cup \cdots \cup R_k
+\qquad \text{and} \qquad
+\sum_{j=1}^k V(R_j) < \epsilon.
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Find a sequence of open rectangles $\{ R_j \}$ such that 
+\begin{equation*}
+E \subset \bigcup_{j=1}^\infty R_j
+\qquad \text{and} \qquad
+\sum_{j=1}^\infty V(R_j) < \epsilon.
+\end{equation*}
+By compactness, finitely
+many of these rectangles still contain $E$.  That is, there is some $k$ such
+that
+$E \subset R_1 \cup R_2 \cup \cdots \cup R_k$.  Hence
+\begin{equation*}
+\sum_{j=1}^k V(R_j) \leq
+\sum_{j=1}^\infty V(R_j) < \epsilon. \qedhere
+\end{equation*}
+\end{proof}
+
+The image of a measure zero set using a continuous map is not necessarily
+a measure zero set.  However if we assume the mapping is continuously
+differentiable, then the mapping cannot ``stretch'' the set too much.
+The proposition does not require compactness, and this is left as an
+exercise.
+
+\begin{prop} \label{prop:imagenull}
+Suppose $U \subset \R^n$ is an open set and $f \colon U \to \R^n$
+is a continuously differentiable mapping.  If $E \subset U$ is a 
+compact measure zero set, then $f(E)$ is measure zero.
+\end{prop}
+
+\begin{proof}
+As FIXME: distance to boundary, did we do that?  We should!
+
+FIXME: maybe this closed/open rectangle bussiness should be addressed above
+
+Let $\epsilon > 0$ be given.
+
+FIXME: Let $\delta > 0$ be the distance to boundary
+
+Let us ``fatten'' $E$ a little bit.
+Using compactness, there exist finitely
+many open rectangles $T_1,T_2,\ldots,T_k$ such that
+\begin{equation*}
+E \subset T_1 \cup T_2 \cup \cdots \cup T_k
+\qquad \text{and} \qquad
+V(T_1) + V(T_2) + \cdots + V(T_k) < \epsilon .
+\end{equation*}
+Since a closed rectangle has the same volume as an open rectangle
+with the same sides, so we could take $R_j$ to be the closure of $T_j$,
+Furthermore a closed rectangle can be written as finitely many small
+rectangles.   Consequently for some $\ell$ there exist finitely many
+closed rectangles $R_1,R_2,\ldots,R_n$ of side at most
+$\frac{\sqrt{n}\delta}{2}$. such that
+\begin{equation*}
+E \subset R_1 \cup R_2 \cup \cdots \cup R_\ell
+\qquad \text{and} \qquad
+V(R_1) + V(R_2) + \cdots + V(R_\ell) < \epsilon .
+\end{equation*}
+Let
+\begin{equation*}
+E' := R_1 \cup R_2 \cup \cdots \cup R_\ell
+\end{equation*}
+
+
+It is left as an exercise (see Exercise
+
+
+
+
+
+As $f$ is continuously differentiable,
+the function that takes $x$ to $\norm{Df(x)}$ is continuous, therefore
+$\norm{Df(x)}$ achieves a maximum on $E$.  Thus there exists some $C > 0$
+such that $\norm{Df(x)} \leq C$ on $E$.
+
+FIXME
+
+
+
+
+
+FIXME: may need the fact that the derivative exists AND is continuous
+on a FATTER E which is still comapact and of size $\epsilon$.
+
+FIXME: Then use the whole lipschitz thing we have.
+
+
+
+so we can assume that on $E$
+
+FIXME:
+\end{proof}
+
+\begin{example}
+FIXME: Cantor set, fat cantor set, can be done in $\R^n$
+
+FIXME: maybe too much
+
+FIXME
+\end{example}
+
+\subsection{Exercises}
+
+FIXME:
+
+\begin{exercise}
+If $A \subset B$ then $m^*(A) \leq m^*(B)$.
+\end{exercise}
+
+\begin{exercise}
+Show that if $R \subset \R^n$ is a closed rectangle then $m^*(R) = V(R)$.
+\end{exercise}
+
+\begin{exercise}
+Prove a version of \propref{prop:imagenull} without using compactness:\\
+a) Mimic the proof to first prove that the proposition holds only if $E$ is
+\emph{\myindex{relatively compact}}; a set $E \subset U$ is relatively
+compact if the closure of $E$ in the subspace topology on $E$ is compact,
+or in other words if there exists a compact set $K$ with $K \subset U$
+and $E \subset K$.\\
+Hint: The bound on the size of the derivative still holds, but you may need
+to use countably many rectangles.  Be careful as the closure of $E$ need no
+longer be measure zero.\\
+b) Now prove it for any null set $E$.\\
+Hint: First show that $\{ x \in U : d(x,y) \geq
+\nicefrac{1}{M} \text{ for all $y \notin U$ and } d(0,x) \leq M \}$ is a compact set for
+any $M > 0$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \R^n$ be an open set
+and let $f \colon U \to \R$ be a continuously differentiable function.
+Let $G := \{ (x,y) \in U \times \R : y = f(x) \}$ be the graph of $f$.
+Show that $f$ is of measure zero.
+\end{exercise}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{The set of Riemann integrable functions }
+\label{sec:riemannlebesgue}
+
+\sectionnotes{FIXME3 lectures}
+
+\subsection{Oscillation and continuity}
+
+Let $S \subset \R^n$ be a set and $f \colon S \to \R$ a function.
+Instead of just saying that $f$ is or is not continuous at
+a point $x \in S$, we
+we need to be able to quantify how discontinuous $f$ is at a function is
+at $x$.  For any $\delta > 0$ define the oscillation of 
+$f$ on the $\delta$-ball in subset topology that is
+$B_S(x,\delta) = B_{\R^n}(x,\delta) \cap S$ as
+\begin{equation*}
+o(f,x,\delta) :=
+{\sup_{y \in B_S(x,\delta)} f(y)}
+-
+{\inf_{y \in B_S(x,\delta)} f(y)}
+= 
+\sup_{y_1,y_2 \in B_S(x,\delta)} \bigl(f(y_1)-f(y_2)\bigr) .
+\end{equation*}
+That is, $o(f,x,\delta)$ is the length of the smallest interval
+that contains the image $f\bigl(B_S(x,\delta)\bigr)$.
+Clearly $o(f,x,\delta) \geq 0$ and
+notice $o(f,x,\delta) \leq o(f,x,\delta')$ whenever $\delta < \delta'$.
+Therefore, the limit as $\delta \to 0$ from the right exists and
+we define the \emph{\myindex{oscillation}} of a function $f$
+at $x$ as
+\begin{equation*}
+o(f,x) :=
+\lim_{\delta \to 0^+}
+o(f,x,\delta) =
+\inf_{\delta > 0}
+o(f,x,\delta) .
+\end{equation*}
+
+\begin{prop}
+$f \colon S \to \R$ is continuous at $x \in S$ if and only if $o(f,x) = 0$.
+\end{prop}
+
+\begin{proof}
+First suppose that $f$ is continuous at $x \in S$.  Then given any $\epsilon > 0$,
+there exists a $\delta > 0$ such that for $y \in B_S(x,\delta)$
+we have $\abs{f(x)-f(y)} < \epsilon$.  Therefore if $y_1,y_2 \in
+B_S(x,\delta)$ then
+\begin{equation*}
+f(y_1)-f(y_2) =
+f(y_1)-f(x)-\bigl(f(y_2)-f(x)\bigr) < \epsilon + \epsilon = 2 \epsilon .
+\end{equation*}
+We take the supremum over $y_1$ and $y_2$
+\begin{equation*}
+o(f,x,\delta) = 
+\sup_{y_1,y_2 \in B_S(x,\delta)} \bigl(f(y_1)-f(y_2)\bigr)
+\leq
+2 \epsilon .
+\end{equation*}
+Hence, $o(x,f) = 0$.
+
+On the other hand suppose that $o(x,f) = 0$.  Given any $\epsilon > 0$,
+find a $\delta > 0$ such that $o(f,x,\delta) < \epsilon$.  If
+$y \in B_S(x,\delta)$ then
+\begin{equation*}
+\abs{f(x)-f(y)}
+\leq
+\sup_{y_1,y_2 \in B_S(x,\delta)} \bigl(f(y_1)-f(y_2)\bigr)
+=
+o(f,x,\delta) < \epsilon. \qedhere
+\end{equation*}
+\end{proof}
+
+\begin{prop} \label{prop:seclosed}
+Let $S \subset \R^n$ be closed,
+$f \colon S \to \R$, and $\epsilon > 0$.
+The set $\{ x \in S : o(f,x) \geq \epsilon \}$ is closed.
+\end{prop}
+
+\begin{proof}
+Equivalently we want to show that
+$G = \{ x \in S : o(f,x) < \epsilon \}$ is open in the subset topology.
+As $\inf_{\delta > 0} o(f,x,\delta) < \epsilon$, find a $\delta > 0$ such
+that
+\begin{equation*}
+o(f,x,\delta) < \epsilon
+\end{equation*}
+Take any $\xi \in B_S(x,\nicefrac{\delta}{2})$.  Notice that
+$B_S(\xi,\nicefrac{\delta}{2}) \subset B_S(x,\delta)$.  Therefore,
+\begin{equation*}
+o(f,\xi,\nicefrac{\delta}{2}) =
+\sup_{y_1,y_2 \in B_S(\xi,\nicefrac{\delta}{2})} \bigl(f(y_1)-f(y_2)\bigr) 
+\leq
+\sup_{y_1,y_2 \in B_S(x,\delta)} \bigl(f(y_1)-f(y_2)\bigr) = o(f,x,\delta) <
+\epsilon .
+\end{equation*}
+So $o(f,\xi) < \epsilon$ as well.  As this is true for all $\xi \in
+B_S(x,\nicefrac{\delta}{2})$ we get that $G$ is open in the subset
+topology and $S \setminus G$ is closed as is claimed.
+\end{proof}
+
+
+\subsection{The set of Riemann integrable functions}
+
+We have seen that continuous functions are Riemann integrable, but we also
+know that certain kinds of discontinuities are allowed.
+It turns out that as long as the discontinuities happen on a set of measure
+zero, the function is integrable and vice versa.
+
+\begin{thm}[Riemann-Lebesgue]
+Let $R \subset \R^n$ be a closed rectangle and $f \colon R \to \R$
+a bounded function.  Then $f$ is Riemann integrable if and only if
+the set of discontinuities of $f$ is of measure zero (a null set).
+\end{thm}
+
+\begin{proof}
+Let $S \subset R$ be the set of discontinuities of $f$.  That is
+$S = \{ x \in R : o(f,x) > 0 \}$.  The trick to this proof is to isolate the
+bad set into a small set of subrectangles of a partition.  There are only
+finitely many subrectangles of a partition, so we will wish to use
+compactness.  If $S$ is closed, then it would be compact and we could cover
+it by small rectangles as it is of measure zero.  Unfortunately, in general $S$
+is not closed so we need to work a little harder.
+
+For every $\epsilon > 0$, define
+\begin{equation*}
+S_\epsilon := \{ x \in R : o(f,x) \geq \epsilon \} .
+\end{equation*}
+By \propref{prop:seclosed} $S_\epsilon$ is closed and as it is a subset of $R$
+which is bounded, $S_\epsilon$ is compact.  Furthermore,
+$S_\epsilon \subset S$ and $S$ is of measure zero.
+Via \propref{mv:prop:compactnull} there are finitely many open rectangles
+$S_1,S_2,\ldots,S_k$ that cover $S_\epsilon$ and
+$\sum V(S_j) < \epsilon$.  
+
+The set $T = R \setminus ( S_1 \cup \cdots \cup S_k )$ is closed, bounded,
+and therefore compact.  Furthermore for $x \in T$, we have $o(f,x) <
+\epsilon$.  Hence for each $x \in T$, there exists a small closed rectangle
+$T_x$ with $x$ in the interior of $T_x$, such that
+\begin{equation*}
+\sup_{y\in T_x} f(y) - \inf_{y\in T_x} f(y) < 2\epsilon.
+\end{equation*}
+The interiors of the rectangles $T_x$ cover $T$.  As $T$ is compact
+there exist finitely many such rectangles $T_1, T_2, \ldots, T_m$
+that covers $T$.
+
+Now take all the rectangles $T_1,T_2,\ldots,T_m$ and $S_1,S_2,\ldots,S_k$
+and construct a partition out of their endpoints.  That is construct
+a partition $P$ with subrectangles $R_1,R_2,\ldots,R_p$
+such that every $R_j$ is contained in $T_\ell$ for some $\ell$
+or the closure of $S_\ell$ for some $\ell$.  Suppose we order
+the rectangles so that $R_1,R_2,\ldots,R_q$ are those
+that are contained in some $T_\ell$, and $R_{q+1},R_{q+2},\ldots,R_{p}$
+are the rest.
+In particular, we have
+\begin{equation*}
+\sum_{j=1}^q V(R_j) \leq V(R)
+\qquad \text{and} \qquad
+\sum_{j=q+1}^p V(R_j) \leq \epsilon .
+\end{equation*}
+Let $m_j$ and $M_j$ be the inf and sup
+over $R_j$ as before.
+If $R_j \subset T_\ell$ for some $\ell$, then $(M_j-m_j) < 2 \epsilon$.
+Let $B \in \R$ be such that
+$\abs{f(x)} \leq B$ for all $x \in R$, so $(M_j-m_j) < 2B$ over all
+rectangles. Then
+\begin{equation*}
+\begin{split}
+U(P,f)-L(P,f)
+& =
+\sum_{j=1}^p (M_j-m_j) V(R_j)
+\\
+& =
+\left(
+\sum_{j=1}^q (M_j-m_j) V(R_j)
+\right)
++
+\left(
+\sum_{j=q+1}^p (M_j-m_j) V(R_j)
+\right)
+\\
+& \leq
+\left(
+\sum_{j=1}^q 2\epsilon V(R_j)
+\right)
++
+\left(
+\sum_{j=q+1}^p 2 B V(R_j)
+\right)
+\\
+& \leq
+2 \epsilon V(R)
++
+2B \epsilon = \epsilon (2V(R)+2B) .
+\end{split}
+\end{equation*}
+Clearly, we can make the right hand side as small as we want
+and hence $f$ is integrable.
+
+For the other direction, suppose that $f$ is Riemann integrable
+over $R$.
+Let $S$ be the set of discontinuities again and now let
+\begin{equation*}
+S_k := \{ x \in R : o(f,x) \geq \nicefrac{1}{k} \}.
+\end{equation*}
+Fix a $k \in \N$.
+Given an $\epsilon > 0$, find a partition $P$ with subrectangles
+$R_1,R_2,\ldots,R_p$ such that
+\begin{equation*}
+U(P,f)-L(P,f) =
+\sum_{j=1}^p (M_j-m_j) V(R_j)
+< \epsilon
+\end{equation*}
+Suppose that $R_1,R_2,\ldots,R_p$ are order so that
+the interiors of $R_1,R_2,\ldots,R_{q}$ intersect $S_k$,
+while the interiors of $R_{q+1},R_{q+2},\ldots,R_p$
+are disjoint from $S_k$.  If $x \in R_j \cap S_k$
+and $x$ is in the interior of $R_j$ so
+sufficiently small balls are completely inside $R_j$,
+then by definition of $S_k$ we have
+$M_j-m_j \geq \nicefrac{1}{k}$.
+Then
+\begin{equation*}
+\epsilon >
+\sum_{j=1}^p (M_j-m_j) V(R_j)
+\geq
+\sum_{j=1}^q (M_j-m_j) V(R_j)
+\geq
+\frac{1}{k}
+\sum_{j=1}^q V(R_j)
+\end{equation*}
+In other words
+$\sum_{j=1}^q V(R_j) < k \epsilon$.
+Let $G$ be the set of all boundaries of all the subrectangles
+of $P$.  The set $G$ is of measure zero (see \exampleref{mv:example:planenull}).
+Let $R_j^\circ$ denote the interior of $R_j$, then
+\begin{equation*}
+S_k \subset R_1^\circ \cup R_2^\circ \cup \cdots \cup R_q^\circ \cup G .
+\end{equation*}
+As $G$ can be covered by open rectangles arbitrarily small volume,
+$S_k$ must be of measure zero.  As
+\begin{equation*}
+S = \bigcup_{k=1}^\infty S_k
+\end{equation*}
+and a countable union of measure zero sets is of measure zero, 
+$S$ is of measure zero.
+\end{proof}
+
+%FIXME
+%
+%\begin{example}
+%FIXME: The popcorn-like example.
+%\end{example}
+
+\subsection{Exercises}
+
+FIXME:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Jordan measurable sets}
+\label{sec:jordansets}
+
+\sectionnotes{FIXME lectures}
+
+\subsection{Volume and Jordan measurable sets}
+
+Given a bounded set $S \subset \R^n$ its \emph{\myindex{characteristic
+function}} or \emph{\myindex{indicator function}} is
+\begin{equation*}
+\chi_S(x) :=
+\begin{cases}
+1 & \text{ if $x \in S$} \\
+0 & \text{ if $x \notin S$}.
+\end{cases}
+\end{equation*}
+A bounded set $S$ is said to be \emph{\myindex{Jordan measurable}}
+if for some closed rectangle $R$ such that $S \subset R$, the function
+$\chi_S$ is in $\sR(R)$.
+Take two closed rectangles $R$ and $R'$ 
+with $S \subset R$ and $S \subset R'$, then $R \cap R'$ is a closed rectangle
+also containing $S$.  By \exerciseref{mv:exersmallerset}
+and \exerciseref{mv:zerooutside}, $\chi_S \in \sR(R \cap R')$
+and hence
+$\chi_S \in \sR(R')$, and furthermore
+\begin{equation*}
+\int_R \chi_S = \int_{R'} \chi_S = \int_{R \cap R'} \chi_S.
+\end{equation*}
+We define the
+\emph{$n$-dimensional volume}%
+\index{$n$-dimensional volume of a Jordan measurable set}%
+\index{volume} of the
+bounded Jordan measurable set $S$ as
+\begin{equation*}
+V(S) := \int_R \chi_S ,
+\end{equation*}
+where $R$ is any closed rectangle containing $S$.
+
+\begin{prop}
+A bounded set $S \subset \R^n$ is Jordan measurable if and only if
+the boundary $\partial S$ is a measure zero set.
+\end{prop}
+
+\begin{proof}
+Suppose $R$ is a closed rectangle such that $S$ is
+contained in the interior of $R$.
+If $x \in \partial S$, then for every $\delta > 0$,
+the sets $S \cap B(x,\delta)$ (where $\chi_S$ is 1) and
+the sets $(R \setminus S) \cap B(x,\delta)$ (where $\chi_S$ is 0) are
+both nonempty.  So $\chi_S$ is not continuous at $x$.
+If $x$ is either in the interior of $S$ or in the complement of the closure
+$\overline{S}$, then $\chi_S$ is either identically 1 or identically 0
+in a whole neighbourhood of $x$ and hence $\chi_S$ is continuous at $x$.
+Therefore, the set of discontinuities of $\chi_S$ is precisely the
+boundary $\partial S$.  The proposition then follows.
+\end{proof}
+
+The proof of the following proposition is left as an exercise.
+
+\begin{prop} \label{prop:jordanmeas}
+Suppose $S$ and $T$ are bounded Jordan measurable sets.
+Then
+\begin{enumerate}[(i)]
+\item The closure $\overline{S}$ is Jordan measurable.
+\item The interior $S^\circ$ is Jordan measurable.
+\item $S \cup T$ is Jordan measurable.
+\item $S \cap T$ is Jordan measurable.
+\item $S \setminus T$ is Jordan measurable.
+\end{enumerate}
+\end{prop}
+
+FIXME
+
+\begin{prop}
+If $S \subset \R^n$ is Jordan measurable then $V(S) = m^*(S)$.
+\end{prop}
+
+\begin{proof}
+Given $\epsilon > 0$,
+let $R$ be a closed rectangle that contains $S$.  Let $P$ be a partition
+of $R$ such that 
+\begin{equation*}
+U(P,\chi_S) \leq \int_R \chi_S + \epsilon = V(S) + \epsilon
+\qquad \text{and} \qquad
+L(P,\chi_S) \geq \int_R \chi_S - \epsilon = V(S)-\epsilon.
+\end{equation*}
+Let $R_1,\ldots,R_k$ be all the subrectangles of $P$ such that $\chi_S$ is not
+identically zero on each $R_j$.  That is, there is some point $x \in R_j$ such
+that $x \in S$.  Let $O_j$ be an open rectangle such that $R_j \subset O_j$
+and $V(O_j) < V(R_j) + \nicefrac{\epsilon}{k}$.  Notice that $S \subset
+\bigcup_j O_j$.  Then
+\begin{equation*}
+U(P,\chi_S) = \sum_{j=1}^k V(R_k) > 
+\left(\sum_{j=1}^k V(O_k)\right) - \epsilon \geq m^*(S) - \epsilon .
+\end{equation*}
+As 
+$U(P,\chi_S) \leq V(S) + \epsilon$, then
+$m^*(S) - \epsilon \leq V(S) + \epsilon$, or in other words
+$m^*(S) \leq V(S)$.
+
+Now let $R'_1,\ldots,R'_\ell$ be all the subrectangles of $P$ such that
+$\chi_S$ is identically one on each $R'_j$.  In other words,
+these are the subrectangles contained in $S$.
+  The interiors
+of the subrectangles $R'^\circ_j$ are disjoint and
+$V(R'^\circ_j) = V(R'_j)$.  It is easy to see from definition
+that 
+\begin{equation*}
+m^*\Bigl(\bigcup_{j=1}^\ell R'^\circ_j\Bigr)
+=
+\sum_{j=1}^\ell
+V(R'^\circ_j) .
+\end{equation*}
+Hence
+\begin{equation*}
+m^*(S) \geq
+m^*\Bigl(\bigcup_{j=1}^\ell R'_j\Bigr)
+\geq
+m^*\Bigl(\bigcup_{j=1}^\ell R'^\circ_j\Bigr)
+%=
+%\sum_{j=1}^\ell
+%m^*(R'^\circ_j)
+=
+\sum_{j=1}^\ell
+V(R'^\circ_j)
+=
+\sum_{j=1}^\ell
+V(R'_j)
+=
+L(P,f) \geq V(S) - \epsilon .
+\end{equation*}
+Therefore $m^*(S) \geq V(S)$ as well.
+\end{proof}
+
+\subsection{Integration over Jordan measurable sets}
+
+In one variable there is really only one type of reasonable set to integrate over:
+an interval.   In several variables we have many very simple sets we might
+want to integrate over and these cannot be described so easily.
+
+\begin{defn}
+Let $S \subset \R^n$ be a bounded Jordan measurable set.
+A bounded function $f \colon S \to \R$
+is said to be Riemann integrable on $S$ if for a closed rectangle $R$
+such that $S \subset R$, the function $\widetilde{f} \colon R \to \R$
+defined  by
+\begin{equation*}
+\widetilde{f}(x) =
+\begin{cases}
+f(x) & \text{ if $x \in S$}, \\
+0 & \text{ otherwise},
+\end{cases}
+\end{equation*}
+is in $\sR(R)$.  In this case we write
+\begin{equation*}
+\int_S f := \int_R \widetilde{f}.
+\end{equation*}
+\end{defn}
+
+When $f$ is defined on a larger set and we wish to integrate over $S$, then
+we apply the definition to the restriction $f|_S$.  In particular note that
+if $f \colon R \to \R$ for a closed rectangle $R$, and $S \subset R$ is
+a Jordan measurable subset then
+\begin{equation*}
+\int_S f = \int_R f \chi_S .
+\end{equation*}
+
+FIXME
+
+\subsection{Images of Jordan measurable subsets}
+
+Let us prove the following FIXME.  We will only need this simple
+
+\begin{prop}
+Suppose $S \subset \R^n$ is a closed bounded Jordan measurable set,
+and $S \subset U$ for an open set $U \subset \R^n$.
+If
+$g \colon U \to \R^n$ is a one-to-one
+continuously differentiable mapping such that
+$J_g$ is never zero on $S$.
+Then $g(S)$ is Jordan measurable.
+\end{prop}
+
+\begin{proof}
+Let $T = g(S)$.
+We claim that the boundary $\partial T$ is contained in the
+set $g(\partial S)$.  Suppose the claim is proved.
+As $S$ is Jordan measurable, then
+$\partial S$ is measure zero.  Then  $g(\partial S)$ is measure
+zero by \propref{prop:imagenull}.  As $\partial T \subset g(\partial
+S)$, then $T$ is Jordan measurable.
+
+It is therefore left to prove the claim.  First, $S$ is closed and bounded
+and hence compact.  By \lemmaref{lemma:continuouscompact}, $T = g(S)$ is
+also compact and therefore closed.  In particular $\partial T \subset T$.
+Suppose $y \in \partial T$, then there must exist an
+$x \in S$
+such that $g(x) = y$.  The Jacobian of $g$ is nonzero at $x$.
+
+We now use the inverse function theorem \thmref{thm:inverse}.  We find 
+a neighbourhood $V \subset U$ of $x$ and an open set $W$ such that
+the restriction $f|_V$ is a one-to-one and onto function from $V$ to $W$
+with a continuously differentiable inverse.  In particular $g(x) = y \in W$.
+As $y \in \partial T$, there exists a sequence $\{ y_k \}$ in $W$ with
+$\lim y_k = y$ and $y_k \notin T$.  As $g|_V$ is invertible and in
+particular has a continuous inverse, there exists
+a sequence $\{ x_k \}$ in $V$ such that $g(x_k) = y_k$ and $\lim x_k = x$.
+Since $y_k \notin T = g(S)$, clearly $x_k \notin S$.  Since $x \in S$, we
+conclude that $x \in \partial S$.  The claim is proved, $\partial T \subset
+g(\partial S)$.
+\end{proof}
+
+\subsection{Exercises}
+
+\begin{exercise}
+Prove \propref{prop:jordanmeas}.
+\end{exercise}
+
+\begin{exercise}
+Prove that a bounded convex set is Jordan measurable.  Hint: induction on
+dimension.
+\end{exercise}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Change of variables}
+\label{sec:mvchangeofvars}
+
+\sectionnotes{FIXME4 lectures}
+
+In one variable, we have the familiar change of variables
+\begin{equation*}
+\int_a^b f\bigl(g(x)\bigr) g'(x)\, dx = 
+\int_{g(a)}^{g(b)} f(x) \, dx .
+\end{equation*}
+It may be surprising that the analogue in higher dimensions is quite
+a bit more complicated.  The first complication is orientation.  If we use
+the definition of integral from this chapter, then we do not have the notion
+of $\int_a^b$ versus $\int_b^a$.  We are simply integrating over an
+interval $[a,b]$.  With this notation then the change of variables becomes
+\begin{equation*}
+\int_{[a,b]} f\bigl(g(x)\bigr) \abs{g'(x)}\, dx = 
+\int_{g([a,b])} f(x) \, dx .
+\end{equation*}
+In this section we will try to obtain an analogue in this form.
+
+First we wish to see what plays the role of $\abs{g'(x)}$.  If we think about it,
+the $g'(x)$ is a scaling of $dx$.  The integral measures volumes, so in one
+dimension it measures length.  If our $g$ was linear, that is, $g(x)=Lx$, then
+$g'(x) = L$.  Then the length of the interval $g([a,b])$ is simply
+$\abs{L}(b-a)$.  That is because $g([a,b])$ is either $[La,Lb]$ or
+$[Lb,La]$.  This property holds in higher dimension with $\abs{L}$ replaced
+by absolute value of the determinant.
+
+\begin{prop} \label{prop:volrectdet}
+Suppose that $R \subset \R^n$ is a rectangle
+and $T \colon \R^n \to \R^n$ is linear.  Then
+$T(R)$ is Jordan measurable and $V\bigl(T(R)\bigr) = \abs{\det T} V(R)$.
+\end{prop}
+
+\begin{proof}
+It is enough to prove for elementary matrices.  The proof is left as an
+exercise.
+\end{proof}
+
+We next notice that this result still holds if $g$ is not necessarily
+linear, by integrating the absolute value of the Jacobian.  That is, we have
+the following lemma
+
+\begin{lemma}
+Suppose $S \subset \R^n$ is a closed bounded Jordan measurable set,
+and $S \subset U$ for an open set $U$.  If
+$g \colon U \to \R^n$ is a one-to-one
+continuously differentiable mapping such that
+$J_g$ is never zero on $S$.
+Then
+\begin{equation*}
+V\bigl(g(S)\bigr)
+=
+\int_S \abs{J_g(x)} \, dx .
+\end{equation*}
+\end{lemma}
+
+%\begin{lemma}
+%Suppose that $S \subset \R^n$ is an open bounded Jordan measurable set, and
+%$g \colon S \to \R^n$ is a one-to-one
+%continuously differentiable mapping such that
+%$g(S)$ is Jordan measurable and $J_g$ is never zero on $S$.
+%Then
+%\begin{equation*}
+%V\bigl(g(S)\bigr)
+%=
+%\int_S \abs{J_g(x)} \, dx .
+%\end{equation*}
+%\end{lemma}
+
+FIXME
+
+\begin{proof}
+The left hand side is $\int_{R'} \chi_{g(S)}$, where the integral is taken over a
+large enough rectangle $R'$ that contains $g(S)$.
+The right hand side is $\int_{R} \abs{J_g}$ for
+a large enough rectangle $R$ that contains $S$.  Let $\epsilon > 0$ be
+given.  Divide $R$ into
+subrectangles, denote
+by $R_1,R_2,\ldots,R_K$ those subrectangles which intersect $S$.
+Suppose that the partition is fine enough such that
+\begin{equation*}
+\epsilon + \int_S \abs{J_g(x)} \, dx \geq
+\sum_{j=1}^N \Bigl(\sup_{x \in S \cap R_j} \abs{J_g(x)} \Bigr) V(R_j)
+\end{equation*}
+...
+\begin{equation*}
+\sum_{j=1}^N \Bigl(\sup_{x \in S \cap R_j} \abs{J_g(x)} \Bigr) V(R_j)
+\geq
+\sum_{j=1}^N \abs{J_g(x_j)}  V(R_j)
+=
+\sum_{j=1}^N V\bigl(Dg(x_j) R_j\bigr)
+\end{equation*}
+... FIXME ... must pick $x_j$ correctly?
+
+
+
+
+Let 
+
+
+
+
+
+
+FIXME
+\end{proof}
+
+So $\abs{J_g(x)}$ is the replacement of $\abs{g'(x)}$ for multiple
+dimensions.  Note that the following theorem holds in more generality,
+but this statement is sufficient for many uses.
+
+\begin{thm}
+Suppose that $S \subset \R^n$ is an open bounded Jordan measurable set, and
+$g \colon S \to \R^n$ is a one-to-one
+continuously differentiable mapping such that
+$g(S)$ is Jordan measurable and $J_g$ is never zero on $S$.
+
+Suppose that $f \colon g(S) \to \R$ is Riemann
+integrable, then $f \circ g$ is Riemann integrable on $S$ and
+\begin{equation*}
+\int_{g(S)} f(x) \, dx = 
+\int_S f\bigl(g(x)\bigr) \abs{J_g(x)} \, dx .
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+FIXME
+\end{proof}
+
+\begin{cor}
+FIXME: change of variables for functions with compact support
+\end{cor}
+
+FIXME4
+
+\subsection{Exercises}
+
+\begin{exercise}
+Prove \propref{prop:volrectdet}.
+\end{exercise}
+
+FIXME
+
+
+
+
+\end{document}

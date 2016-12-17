@@ -1,0 +1,60 @@
+/* slightly modified sample from epix samples gallery */
+#include "epix.h"
+using namespace ePiX;
+
+// gather references to integrand
+double f(double t)
+{
+  if (t==0.0) return 1.0;
+  return sin(t)/t;
+}
+
+int main()
+{
+  int n;
+  picture(P(-4*M_PI,-0.25), P(4*M_PI,1.0), "3x2in");
+
+  begin();
+
+  //h_axis(30);
+  //v_axis(5);
+  //h_axis(1);
+  //v_axis(1);
+
+   // Axes
+  //h_axis(8);
+  //v_axis(8);
+  //
+  //
+  font_size("small");
+
+  // coordinate axis
+  axis Ax(P(xmin(),0), P(xmax(),0), 4, P(0,-4), b);
+  Ax.unmark(0);
+  Ax.trig().subdivide(4);
+  
+  //plain(Black());
+  //label_mask(White());
+  Ax.draw();
+
+  axis Ay(P(0,0), P(0,ymax()), 2, P(-4,0), l);
+  Ay.unmark(0);
+  Ay.frac().draw_labels();
+  Ay.draw();
+
+  axis Ay2(P(0,ymin()), P(0,0), 1, P(-4,0), l);
+  Ay2.unmark(0);
+  Ay2.frac().draw_labels();
+  Ay2.draw();
+
+  //h_axis_labels(8, P(-1, 2), bc);
+  //v_axis_labels(5, P(-1, 2), cr);
+
+  //bold();
+  plot(f, xmin(), xmax(), 160);
+
+
+  tikz_format();
+  end();
+}
+

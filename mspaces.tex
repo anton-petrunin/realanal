@@ -1,0 +1,2441 @@
+\documentclass[12pt]{book}
+%\usepackage{pdf14}
+%Paper saving
+%\documentclass[12pt,openany]{book}
+%\documentclass[10pt,openany]{book}
+%\documentclass[8pt,openany]{extbook}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{enumerate}
+\usepackage{ifpdf}
+\usepackage{amsmath}
+\usepackage[psamsfonts]{amsfonts}
+\usepackage[psamsfonts]{amssymb}
+\usepackage{amsthm}
+\usepackage[pdftex]{graphicx}
+%\usepackage{color}
+%\usepackage{graphics}
+\usepackage[headings]{fullpage}
+\usepackage{url}
+\usepackage{varioref}
+\usepackage{floatflt}
+\usepackage{wrapfig}
+\usepackage{makeidx}
+\usepackage[pdftex]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage[shortalphabetic]{amsrefs}
+\usepackage[all]{xy}
+\usepackage{nicefrac}
+\usepackage{microtype}
+
+\usepackage{tikz}
+\usepackage{rotating}
+
+
+
+% Times
+%\usepackage{txfonts}
+% Times, but symbol/cm/ams math fonts
+\usepackage{mathptmx}
+% But we do want helvetica for sans
+\usepackage{helvet}
+
+
+% useful
+\newcommand{\ignore}[1]{}
+
+% analysis/geometry stuff
+\newcommand{\ann}{\operatorname{ann}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\aut}{\operatorname{aut}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\sing}{\operatorname{sing}}
+
+% reals
+\newcommand{\esssup}{\operatorname{ess~sup}}
+\newcommand{\essran}{\operatorname{essran}}
+\newcommand{\innprod}[2]{\langle #1 | #2 \rangle}
+\newcommand{\linnprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Nul}{\operatorname{Nul}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\sabs}[1]{\lvert {#1} \rvert}
+\newcommand{\snorm}[1]{\lVert {#1} \rVert}
+\newcommand{\abs}[1]{\left\lvert {#1} \right\rvert}
+\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
+\newcommand{\sgn}{\operatorname{sgn}}
+
+% sets (some)
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathbb{F}}}
+
+% consistent
+\newcommand{\bB}{{\mathbb{B}}}
+\newcommand{\bC}{{\mathbb{C}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\newcommand{\bZ}{{\mathbb{Z}}}
+\newcommand{\bN}{{\mathbb{N}}}
+\newcommand{\bQ}{{\mathbb{Q}}}
+\newcommand{\bD}{{\mathbb{D}}}
+\newcommand{\bF}{{\mathbb{F}}}
+\newcommand{\bH}{{\mathbb{H}}}
+\newcommand{\bO}{{\mathbb{O}}}
+\newcommand{\bP}{{\mathbb{P}}}
+\newcommand{\bK}{{\mathbb{K}}}
+\newcommand{\bV}{{\mathbb{V}}}
+\newcommand{\CP}{{\mathbb{CP}}}
+\newcommand{\RP}{{\mathbb{RP}}}
+\newcommand{\HP}{{\mathbb{HP}}}
+\newcommand{\OP}{{\mathbb{OP}}}
+\newcommand{\sA}{{\mathcal{A}}}
+\newcommand{\sB}{{\mathcal{B}}}
+\newcommand{\sC}{{\mathcal{C}}}
+\newcommand{\sF}{{\mathcal{F}}}
+\newcommand{\sG}{{\mathcal{G}}}
+\newcommand{\sH}{{\mathcal{H}}}
+\newcommand{\sM}{{\mathcal{M}}}
+\newcommand{\sO}{{\mathcal{O}}}
+\newcommand{\sP}{{\mathcal{P}}}
+\newcommand{\sQ}{{\mathcal{Q}}}
+\newcommand{\sR}{{\mathcal{R}}}
+\newcommand{\sS}{{\mathcal{S}}}
+\newcommand{\sI}{{\mathcal{I}}}
+\newcommand{\sL}{{\mathcal{L}}}
+\newcommand{\sK}{{\mathcal{K}}}
+\newcommand{\sU}{{\mathcal{U}}}
+\newcommand{\sV}{{\mathcal{V}}}
+\newcommand{\sX}{{\mathcal{X}}}
+\newcommand{\sY}{{\mathcal{Y}}}
+\newcommand{\sZ}{{\mathcal{Z}}}
+\newcommand{\fS}{{\mathfrak{S}}}
+
+\newcommand{\interior}{\operatorname{int}}
+
+% Topo stuff
+\newcommand{\id}{\textit{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Torsion}{\operatorname{Torsion}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+
+%extra thingies
+\newcommand{\mapsfrom}{\ensuremath{\text{\reflectbox{$\mapsto$}}}}
+\newcommand{\from}{\ensuremath{\leftarrow}}
+\newcommand{\dhat}[1]{\hat{\hat{#1}}}
+
+% San Serif fonts
+%\renewcommand{\familydefault}{\sfdefault}
+
+% To allow skrinking to 5.5 x 8.5 inches without whitespaces
+% Make sure to rerun makeindex as well
+% Useful for printing on lilu.com and saving on paper
+%\addtolength{\textheight}{2.13in}
+%\addtolength{\paperheight}{2.13in}
+
+\hypersetup{
+    %colorlinks,
+    pdfborderstyle={/S/U/W 1},
+    %citecolor=black,
+    %filecolor=black,
+    %linkcolor=black,
+    %urlcolor=black,
+    pdfkeywords={real analysis, Riemann integral, derivative, limit, sequence},
+    pdfsubject={Real Analysis},
+    pdftitle={Basic Analysis: Introduction to Real Analysis},
+    pdfauthor={Jiri Lebl}
+}
+
+% Set up our index
+\makeindex
+
+% Very simple indexing
+\newcommand{\myindex}[1]{#1\index{#1}}
+
+% define this to be empty to kill notes
+\newcommand{\sectionnotes}[1]{\noindent \emph{Note: #1} \medskip \par}
+
+% Define this to be empty to not skip page before the sections to
+% save some paper
+\newcommand{\sectionnewpage}{\clearpage}
+%\newcommand{\sectionnewpage}{}
+
+\author{Ji\v{r}\'i Lebl}
+
+\title{Basic Analysis: Introduction to Real Analysis}
+
+% Don't include subsections
+\setcounter{tocdepth}{1}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\newtheoremstyle{exercise}% name
+  {}% Space above
+  {}% Space below
+  {\itshape}% Body font
+  {}% Indent amount 1
+  {\bfseries \itshape}% Theorem head font
+  {:}% Punctuation after theorem head
+  {.5em}% Space after theorem head 2
+  {}% Theorem head spec (can be left empty, meaning "normal")
+
+
+\theoremstyle{exercise}
+\newtheorem{exercise}{Exercise}[section]
+
+\newtheoremstyle{example}% name
+  {}% Space above
+  {}% Space below
+  {}% Body font
+  {}% Indent amount 1
+  {\bfseries}% Theorem head font
+  {:}% Punctuation after theorem head
+  {.5em}% Space after theorem head 2
+  {}% Theorem head spec (can be left empty, meaning "normal")
+
+\theoremstyle{example}
+\newtheorem{example}[thm]{Example}
+
+% Footnotes should use symbols, not numbers.  Numbered footnotes are
+% evil
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+% referencing
+\newcommand{\figureref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
+\newcommand{\tableref}[1]{\hyperref[#1]{Table~\ref*{#1}}}
+\newcommand{\chapterref}[1]{\hyperref[#1]{chapter~\ref*{#1}}}
+\newcommand{\Chapterref}[1]{\hyperref[#1]{Chapter~\ref*{#1}}}
+\newcommand{\sectionref}[1]{\hyperref[#1]{\S\ref*{#1}}}
+\newcommand{\exerciseref}[1]{\hyperref[#1]{Exercise~\ref*{#1}}}
+\newcommand{\exampleref}[1]{\hyperref[#1]{Example~\ref*{#1}}}
+\newcommand{\thmref}[1]{\hyperref[#1]{Theorem~\ref*{#1}}}
+\newcommand{\propref}[1]{\hyperref[#1]{Proposition~\ref*{#1}}}
+\newcommand{\lemmaref}[1]{\hyperref[#1]{Lemma~\ref*{#1}}}
+\newcommand{\corref}[1]{\hyperref[#1]{Corollary~\ref*{#1}}}
+\newcommand{\defnref}[1]{\hyperref[#1]{Definition~\ref*{#1}}}
+
+\begin{document}
+
+\setcounter{chapter}{0}
+\refstepcounter{chapter}
+\label{rn:chapter}
+\refstepcounter{chapter}
+\label{seq:chapter}
+\refstepcounter{chapter}
+\label{lim:chapter}
+
+\setcounter{chapter}{5}
+\refstepcounter{chapter}
+\label{fs:chapter}
+%\setcounter{chapter}{6}
+
+\let\oldchapter\chapter
+\renewcommand*{\chapter}[1]{\oldchapter[#1]{#1 \hspace{\fill} {\rm \normalsize \today}}}
+
+\newenvironment{exnote}{\small}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Metric Spaces} \label{ms:chapter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Metric spaces}
+\label{sec:metric}
+
+\sectionnotes{1.5 lectures}
+
+As mentioned in the introduction, the main idea in analysis is to take
+limits.  In \chapterref{seq:chapter} we learned to take limits of sequences of
+real numbers.  And in \chapterref{lim:chapter} we learned to take limits
+of functions as a real number approached some other real number.
+
+We want to take limits in more complicated contexts.  For
+example, we might want to have sequences of points in 3-dimensional space.
+Or perhaps we wish to define continuous functions of several variables.
+We might even want to define functions on spaces that are a little harder to
+describe, such as the surface of the earth.  We still want to talk about
+limits there.
+
+Finally, we have seen the limit of a sequence of
+functions in \chapterref{fs:chapter}.
+We wish to unify all these notions so that we do not have to
+reprove theorems over and over again in each context.  The concept of a
+metric space is an elementary yet powerful tool in analysis.  And while it
+is not sufficient to describe every type of limit we can find in modern
+analysis, it gets us very far indeed.
+
+\begin{defn}
+Let $X$ be a set and let
+$d \colon X \times X \to \R$
+be a function such that
+\begin{enumerate}[(i)]
+\item \label{metric:pos} $d(x,y) \geq 0$ for all $x, y$ in $X$,
+\item \label{metric:zero} $d(x,y) = 0$ if and only if $x = y$,
+\item \label{metric:com} $d(x,y) = d(y,x)$, 
+\item \label{metric:triang} $d(x,z) = d(x,y)+ d(y,z)$ \qquad (\emph{\myindex{triangle inequality}}).
+\end{enumerate}
+Then the pair $(X,d)$ is called a \emph{\myindex{metric space}}.  The
+function $d$ is called the \emph{\myindex{metric}} or sometimes the
+\emph{\myindex{distance function}}.
+Sometimes we just say $X$ is a metric space if the metric is clear from
+context.
+\end{defn}
+
+The geometric idea is that $d$ is the distance between two points. 
+Items \eqref{metric:pos}--\eqref{metric:com} have obvious geometric
+interpretation: distance is always nonnegative, the only point that is
+distance 0 away from $x$ is $x$ itself, and finally that the distance from
+$x$ to $y$ is the same as the distance from $y$ to $x$.  The triangle
+inequality \eqref{metric:triang} has the interpretation given in
+\figureref{fig:mstriang}.
+\begin{figure}[h!t]
+\begin{center}
+\input ms-triang.pdf_t
+\caption{Diagram of the triangle inequality in metric spaces.\label{fig:mstriang}}
+\end{center}
+\end{figure}
+
+For the purposes of drawing, it is convenient to draw figures and
+diagrams in the plane and have the metric be the standard distance.
+However, that is only one particular metric space.  Just because a
+certain fact seems to be clear from drawing a picture does not mean it is
+true.  You might be getting sidetracked by intuition from euclidean
+geometry,
+whereas the concept of a metric space is a lot more general.
+
+Let us give some examples of metric spaces.
+
+\begin{example}
+The set of real numbers $\R$ is a metric space with the metric
+\begin{equation*}
+d(x,y) := \abs{x-y} .
+\end{equation*}
+Items \eqref{metric:pos}--\eqref{metric:com} of the definition
+are easy to verify.  The
+triangle inequality \eqref{metric:triang} follows immediately
+from the standard triangle inequality for real numbers:
+\begin{equation*}
+d(x,z) = \abs{x-z} = 
+\abs{x-y+y-z} \leq
+\abs{x-y}+\abs{y-z} =
+d(x,y)+ d(y,z) .
+\end{equation*}
+This metric is the \emph{\myindex{standard metric on $\R$}}.  If we talk
+about $\R$ as a metric space without mentioning a specific metric, we 
+mean this particular metric.
+\end{example}
+
+\begin{example}
+We can also put a different metric on the set of real numbers.
+For example take the set of real numbers $\R$ together with the metric
+\begin{equation*}
+d(x,y) :=
+\frac{\abs{x-y}}{\abs{x-y}+1} .
+\end{equation*}
+Items \eqref{metric:pos}--\eqref{metric:com} are again easy to verify.  The
+triangle inequality \eqref{metric:triang} is a little bit more difficult.
+Note that $d(x,y) = \varphi(\abs{x-y})$ where $\varphi(t) =
+\frac{t}{t+1}$ and note that $\varphi$ is an increasing function
+(positive derivative) hence
+\begin{equation*}
+\begin{split}
+d(x,z) & = \varphi(\abs{x-z}) = 
+\varphi(\abs{x-y+y-z}) \leq
+\varphi(\abs{x-y}+\abs{y-z})
+\\
+& =
+\frac{\abs{x-y}+\abs{y-z}}{\abs{x-y}+\abs{y-z}+1} =
+\frac{\abs{x-y}}{\abs{x-y}+\abs{y-z}+1} +
+\frac{\abs{y-z}}{\abs{x-y}+\abs{y-z}+1}
+\\
+& \leq
+\frac{\abs{x-y}}{\abs{x-y}+1} +
+\frac{\abs{y-z}}{\abs{y-z}+1} =
+d(x,y)+ d(y,z) .
+\end{split}
+\end{equation*}
+Here we have an example of a nonstandard metric on $\R$.  With this metric
+we can see for example that $d(x,y) < 1$ for all $x,y \in \R$.  That is,
+any two points are less than 1 unit apart.
+\end{example}
+
+An important metric space is the
+$n$-dimensional \emph{\myindex{euclidean space}} $\R^n = \R
+\times \R \times \cdots \times \R$.   We use the following
+notation for points: $x =(x_1,x_2,\ldots,x_n) \in \R^n$.  We also
+simply write $0 \in \R^n$ to mean the vector $(0,0,\ldots,0)$.  Before
+making $\R^n$ a metric space, let us prove an important inequality, the
+so-called Cauchy-Schwarz inequality.
+
+\begin{lemma}[\myindex{Cauchy-Schwarz inequality}]
+Take $x =(x_1,x_2,\ldots,x_n) \in \R^n$ and $y =(y_1,y_2,\ldots,y_n) \in
+\R^n$.  Then
+\begin{equation*}
+{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2
+\leq
+\biggl(\sum_{j=1}^n x_j^2 \biggr)
+\biggl(\sum_{j=1}^n y_j^2 \biggr) .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Any square of a real number is nonnegative.  Hence any sum of squares is
+nonnegative:
+\begin{equation*}
+\begin{split}
+0 & \leq 
+\sum_{j=1}^n \sum_{k=1}^n (x_j y_k - x_k y_j)^2
+\\
+& =
+\sum_{j=1}^n \sum_{k=1}^n \bigl( x_j^2 y_k^2 + x_k^2 y_j^2 - 2 x_j x_k y_j
+y_k \bigr)
+\\
+& =
+\biggl( \sum_{j=1}^n x_j^2 \biggr)
+\biggl( \sum_{k=1}^n y_k^2 \biggr)
++
+\biggl( \sum_{j=1}^n y_j^2 \biggr)
+\biggl( \sum_{k=1}^n x_k^2 \biggr)
+-
+2
+\biggl( \sum_{j=1}^n x_j y_j \biggr)
+\biggl( \sum_{k=1}^n x_k y_k \biggr)
+\end{split}
+\end{equation*}
+We relabel and divide by 2 to obtain
+\begin{equation*}
+0 \leq 
+\biggl( \sum_{j=1}^n x_j^2 \biggr)
+\biggl( \sum_{j=1}^n y_j^2 \biggr)
+-
+{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2 ,
+\end{equation*}
+which is precisely what we wanted.
+\end{proof}
+
+\begin{example}
+Let us construct
+standard metric\index{standard metric on $\R^n$} for $\R^n$.  Define
+\begin{equation*}
+d(x,y) :=
+\sqrt{
+{(x_1-y_1)}^2 + 
+{(x_2-y_2)}^2 + 
+\cdots +
+{(x_n-y_n)}^2
+} =
+\sqrt{
+\sum_{j=1}^n
+{(x_j-y_j)}^2 
+} .
+\end{equation*}
+For $n=1$, the real line, this metric agrees with what we did above.  Again,
+the only tricky part of the definition to check is the triangle inequality.
+It is less messy to work with the square of the metric.  In the
+following, note the use of the Cauchy-Schwarz inequality.
+\begin{equation*}
+\begin{split}
+d(x,z)^2 & =
+\sum_{j=1}^n
+{(x_j-z_j)}^2 
+\\
+& =
+\sum_{j=1}^n
+{(x_j-y_j+y_j-z_j)}^2 
+\\
+& =
+\sum_{j=1}^n
+\Bigl(
+{(x_j-y_j)}^2+{(y_j-z_j)}^2 + 2(x_j-y_j)(y_j-z_j)
+\Bigr)
+\\
+& =
+\sum_{j=1}^n
+{(x_j-y_j)}^2
++
+\sum_{j=1}^n
+{(y_j-z_j)}^2 
++
+\sum_{j=1}^n
+ 2(x_j-y_j)(y_j-z_j)
+\\
+& \leq
+\sum_{j=1}^n
+{(x_j-y_j)}^2
++
+\sum_{j=1}^n
+{(y_j-z_j)}^2 
++
+2
+\sqrt{
+\sum_{j=1}^n
+{(x_j-y_j)}^2
+\sum_{j=1}^n
+{(y_j-z_j)}^2
+}
+\\
+& =
+{\left(
+\sqrt{
+\sum_{j=1}^n
+{(x_j-y_j)}^2
+}
++
+\sqrt{
+\sum_{j=1}^n
+{(y_j-z_j)}^2 
+}
+\right)}^2
+=
+{\bigl( d(x,y) + d(y,z) \bigr)}^2 .
+\end{split}
+\end{equation*}
+Taking the square root of both sides we obtain the correct inequality.
+\end{example}
+
+\begin{example}
+An example to keep in mind is the so-called \emph{\myindex{discrete
+metric}}.
+Let $X$ be any set and define
+\begin{equation*}
+d(x,y) :=
+\begin{cases}
+1 & \text{if $x \not= y$}, \\
+0 & \text{if $x = y$}.
+\end{cases}
+\end{equation*}
+That is, all points are equally distant from each other.  When $X$ is a
+finite set, we can draw a diagram, see for example
+\figureref{fig:msdiscmetric}.
+Things become subtle when $X$ is an infinite set such
+as the real numbers.
+\begin{figure}[h!t]
+\begin{center}
+\input msdiscmetric.pdf_t
+\caption{Sample discrete metric space $\{ a,b,c,d,e \}$, the distance
+between any two points is $1$.\label{fig:msdiscmetric}}
+\end{center}
+\end{figure}
+
+While this particular
+example seldom comes up in practice, it is gives a useful 
+``smell test.''  If you make a statement about metric spaces,
+try it with the discrete metric.
+To show that $(X,d)$ is indeed a metric space is left as an exercise.
+\end{example}
+
+\begin{example} \label{example:msC01}
+Let $C([a,b])$ be the set of continuous real-valued functions on the
+interval $[a,b]$.  Define the metric on $C([a,b])$ as
+\begin{equation*}
+d(f,g) := \sup_{x \in [a,b]} \abs{f(x)-g(x)} .
+\end{equation*}
+Let us check the properties.  First, $d(f,g)$ is finite as
+$\abs{f(x)-g(x)}$ is a continuous function on a closed bounded interval
+$[a,b]$, and so is bounded.
+It is clear that $d(f,g) \geq 0$, 
+it is the supremum of nonnegative numbers.  If $f = g$
+then $\abs{f(x)-g(x)} = 0$ for all $x$ and hence $d(f,g) = 0$.  Conversely
+if $d(f,g) = 0$, then for any $x$ we have $\abs{f(x)-g(x)} \leq d(f,g) = 0$
+and hence $f(x) = g(x)$ for all $x$ and $f=g$.  That $d(f,g) = d(g,f)$
+is equally trivial.  To show the triangle inequality we use the standard
+triangle inequality.
+\begin{equation*}
+\begin{split}
+d(f,h) & =
+\sup_{x \in [a,b]} \abs{f(x)-g(x)} =
+\sup_{x \in [a,b]} \abs{f(x)-h(x)+h(x)-g(x)}
+\\
+& \leq
+\sup_{x \in [a,b]} ( \abs{f(x)-h(x)}+\abs{h(x)-g(x)} )
+\\
+& \leq
+\sup_{x \in [a,b]} \abs{f(x)-h(x)}+
+\sup_{x \in [a,b]} \abs{h(x)-g(x)} = d(f,h) + d(h,g) .
+\end{split}
+\end{equation*}
+When treat $C([a,b])$ as a metric space without mentioning a metric, we mean this
+particular metric.
+
+This example may seem esoteric at first, but it turns out that working with
+spaces such as $C([a,b])$ is really the meat of a large part of modern 
+analysis.  Treating sets of functions as metric spaces allows us to
+abstract away a lot of the grubby detail and prove powerful results such as
+Picard's theorem with less work.
+\end{example}
+
+Oftentimes it is useful to consider a subset of a larger metric space
+as a metric space.  We obtain the following proposition, which has
+a trivial proof.
+
+\begin{prop}
+Let $(X,d)$ be a metric space and $Y \subset X$, then the restriction
+$d|_{Y \times Y}$ is a metric on $Y$.
+\end{prop}
+
+\begin{defn}
+If $(X,d)$ is a metric space, $Y \subset X$, and $d' := d|_{Y \times Y}$,
+then $(Y,d')$ is said to be a \emph{\myindex{subspace}} of $(X,d)$.
+\end{defn}
+
+It is common to simply write $d$ for the metric on $Y$, as it is 
+the restriction of the metric on $X$.  Sometimes we will say that $d'$ is
+the \emph{\myindex{subspace metric}} and that $Y$ has the
+\emph{\myindex{subspace topology}}.
+
+\medskip
+
+A subset of the real
+numbers is bounded whenever all its elements are at most some fixed distance
+from 0.
+We can also define bounded sets in a metric space.
+When dealing with an arbitrary metric space there may not be some
+natural fixed point 0.  For the purposes of boundedness it does not matter.
+
+\begin{defn}
+Let $(X,d)$ be a metric space.  A subset $S \subset X$ is said to be
+\emph{bounded}\index{bounded set} if there exists a $p \in X$ and a
+$B \in \R$ such that
+\begin{equation*}
+d(p,x) \leq B \quad \text{for all $x \in S$}.
+\end{equation*}
+We say that $(X,d)$ is bounded if $X$ itself is a bounded subset.
+\end{defn}
+
+For example, the set of real numbers with the standard metric is not a
+bounded metric space.  It is not hard to see that a
+subset of the real numbers is bounded in the
+sense of \chapterref{rn:chapter} if and only if it is bounded as a subset of the
+metric space of real numbers with the standard metric.
+
+On the other hand, if we take the real numbers with the discrete metric,
+then we obtain a bounded metric space.  In fact, any set with the
+discrete metric is bounded.
+
+\subsection{Exercises}
+
+\begin{exercise}
+Show that for any set $X$, the discrete metric ($d(x,y) = 1$ if $x\not=y$ and
+$d(x,x) = 0$) does give a metric space $(X,d)$.
+\end{exercise}
+
+\begin{exercise}
+Let $X := \{ 0 \}$ be a set.  Can you make it into a metric space?
+\end{exercise}
+
+\begin{exercise}
+Let $X := \{ a, b \}$ be a set.  Can you make it into two distinct metric
+spaces?  (define two distinct metrics on it)
+\end{exercise}
+
+\begin{exercise}
+Let the set $X := \{ A, B, C \}$ represent 3 buildings on campus.  Suppose we
+wish to our distance to be the time it takes to walk from one building to
+the other.
+It takes 5 minutes either way between buildings $A$ and $B$.  However,
+building $C$ is on a hill and it takes 10 minutes from $A$ and 15 minutes
+from $B$ to get to $C$.  On the other hand it takes 5 minutes to go
+from $C$ to $A$ and 7 minutes to go from $C$ to $B$, as we are going
+downhill.  Do these distances define a metric?  If so, prove it, if not say
+why not.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $(X,d)$ is a metric space and
+$\varphi \colon [0,\infty] \to \R$ is an increasing function such that 
+$\varphi(t) \geq 0$ for all $t$ and $\varphi(t) = 0$ if and only if
+$t=0$.  Also suppose that $\varphi$ is \emph{\myindex{subadditive}},
+that is $\varphi(s+t) \leq \varphi(s)+\varphi(t)$.
+Show that with $d'(x,y) := \varphi\bigl(d(x,y)\bigr)$, we obtain a new
+metric space $(X,d')$.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.\\
+a) Show that $(X \times Y,d)$ with
+$d\bigl( (x_1,y_1), (x_2,y_2) \bigr) := d_X(x_1,x_2) + d_Y(y_1,y_2)$ is
+a metric space. \\
+b) Show that $(X \times Y,d)$ with
+$d\bigl( (x_1,y_1), (x_2,y_2) \bigr) := \max \{ d_X(x_1,x_2) , d_Y(y_1,y_2) \}$ is
+a metric space.
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be the set of continuous functions on $[0,1]$.  Let $\varphi \colon
+[0,1] \to (0,\infty)$ be continuous.  Define
+\begin{equation*}
+d(f,g) := \int_0^1 \abs{f(x)-g(x)}\varphi(x)~dx .
+\end{equation*}
+Show that $(X,d)$ is a metric space.
+\end{exercise}
+
+\pagebreak[2]
+
+\begin{exercise}
+Let $(X,d)$ be a metric space.  For nonempty bounded subsets $A$ and $B$ let
+\begin{equation*}
+d(x,B) := \inf \{ d(x,b) : b \in B \}
+\qquad \text{and} \qquad
+d(A,B) := \sup \{ d(a,B) : a \in A \} .
+\end{equation*}
+Now define the \emph{\myindex{Hausdorff metric}} as
+\begin{equation*}
+d_H(A,B) := \max \{ d(A,B) , d(B,A) \} .
+\end{equation*}
+Note: $d_H$ can be defined for arbitrary nonempty subsets if we allow the
+extended reals.
+\\
+a) Let $Y \subset \sP(X)$ be the set of bounded nonempty subsets.  Show
+that $(Y,d_H)$ is a metric space.
+b) Show by example that $d$ itself is not a metric.  That is, $d$ is not
+always symmetric.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Open and closed sets}
+\label{sec:mettop}
+
+\sectionnotes{2 lectures}
+
+\subsection{Topology}
+
+It is useful to define a so-called \emph{\myindex{topology}}.  That is
+we define closed and open sets in a metric space.  Before doing so,
+let us define two special sets.
+
+\begin{defn}
+Let $(X,d)$ be a metric space, $x \in X$ and $\delta > 0$.  Then define
+the \emph{\myindex{open ball}} or simply \emph{\myindex{ball}} of radius $\delta$
+around $x$ as
+\begin{equation*}
+B(x,\delta) := \{ y \in X : d(x,y) < \delta \} .
+\end{equation*}
+Similarly we define the \emph{\myindex{closed ball}} as
+\begin{equation*}
+C(x,\delta) := \{ y \in X : d(x,y) \leq \delta \} .
+\end{equation*}
+\end{defn}
+
+When we are dealing with different metric spaces, it is sometimes 
+convenient to emphasize which metric space the ball is in.  We do this by
+writing $B_X(x,\delta) := B(x,\delta)$ or $C_X(x,\delta) := C(x,\delta)$.
+
+\begin{example}
+Take the metric space $\R$ with the standard metric.  For
+$x \in \R$, and $\delta > 0$ we get 
+\begin{equation*}
+B(x,\delta) = (x-\delta,x+\delta) \qquad \text{and} \qquad
+C(x,\delta) = [x-\delta,x+\delta] .
+\end{equation*}
+\end{example}
+
+\begin{example}
+Be careful when working on a subspace.  Suppose we take the
+metric space $[0,1]$ as a subspace of $\R$.  Then in $[0,1]$
+we get
+\begin{equation*}
+B(0,\nicefrac{1}{2}) = B_{[0,1]}(0,\nicefrac{1}{2}) = [0,\nicefrac{1}{2}) .
+\end{equation*}
+This is of course different from $B_{\R}(0,\nicefrac{1}{2}) =
+(-\nicefrac{1}{2},\nicefrac{1}{2})$.
+The important thing to keep in mind is which metric space we are working
+in.
+\end{example}
+
+\begin{defn}
+Let $(X,d)$ be a metric space.  A set $V \subset X$
+is \emph{open}\index{open set}
+if for every $x \in V$, there exists a $\delta > 0$ such that
+$B(x,\delta) \subset V$.  See \figureref{fig:msopenset}.  A set $E \subset X$ is 
+\emph{closed}\index{closed set} if the complement $E^c = X \setminus E$ is open.
+When the ambient space $X$ is not clear from context we say
+$V$ is open in $X$ and $E$ is closed in $X$.
+
+If $x \in V$ and $V$ is open, then we say that
+$V$ is an \emph{\myindex{open neighborhood}} of $x$ (or
+sometimes just \emph{\myindex{neighborhood}}).
+\end{defn}
+
+\begin{figure}[h!t]
+\begin{center}
+\input msopenset.pdf_t
+\caption{Open set in a metric space.  Note that $\delta$ depends on $x$.\label{fig:msopenset}}
+\end{center}
+\end{figure}
+
+Intuitively, an open set is a set that does not include its ``boundary.''
+Note that not every set is either open or closed, in fact generally
+most subsets are neither.
+
+\begin{example}
+The set $[0,1) \subset \R$ is neither open nor closed.  First,
+every ball in $\R$ around $0$, $(-\delta,\delta)$ contains negative
+numbers and hence is not contained in $[0,1)$ and so $[0,1)$ is not open.
+Second, every ball in $\R$ around $1$, $(1-\delta,1+\delta)$ contains
+numbers strictly less than 1 and greater than 0
+(e.g.\ $1-\nicefrac{\delta}{2}$ as long as $\delta < 2$).
+Thus $\R \setminus
+[0,1)$ is not open, and so $[0,1)$ is not closed.
+\end{example}
+
+\begin{prop} \label{prop:topology:open}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[(i)]
+\item \label{topology:openi} $\emptyset$ and $X$ are open in $X$.
+\item \label{topology:openii} If $V_1, V_2, \ldots, V_k$ are open then
+\begin{equation*}
+\bigcap_{j=1}^k V_j
+\end{equation*}
+is also open.  That is, finite intersection of open sets is open.
+\item \label{topology:openiii} If $\{ V_\lambda \}_{\lambda \in I}$ is
+an arbitrary collection of open sets, then
+\begin{equation*}
+\bigcup_{\lambda \in I} V_\lambda
+\end{equation*}
+is also open.  That is, union of open sets is open.
+\end{enumerate}
+\end{prop}
+
+Note that the index set in \eqref{topology:openiii} is arbitrarily large.
+By $\bigcup_{\lambda \in I} V_\lambda$ we simply mean the set of
+all $x$ such that $x \in V_\lambda$ for at least one $\lambda \in I$.
+
+\begin{proof}
+The set $X$ and $\emptyset$ are obviously open in $X$.
+
+Let us prove \eqref{topology:openii}.
+If $x \in \bigcap_{j=1}^k V_j$, then $x \in V_j$ for all $j$.
+As $V_j$ are all open, there exists a $\delta_j > 0$ for every $j$
+such that $B(x,\delta_j) \subset V_j$.  Take $\delta := \min \{
+\delta_1,\ldots,\delta_k \}$ and note that $\delta > 0$.  We have
+$B(x,\delta) \subset B(x,\delta_j) \subset V_j$ for every $j$ and thus
+$B(x,\delta) \subset \bigcap_{j=1}^k V_j$.  Thus the intersection is open.
+
+Let us prove \eqref{topology:openiii}.
+If $x \in \bigcup_{\lambda \in I} V_\lambda$, then $x \in V_\lambda$ for some
+$\lambda \in I$.
+As $V_\lambda$ is open then there exists a $\delta > 0$
+such that $B(x,\delta) \subset V_\lambda$.  But then
+$B(x,\delta) \subset \bigcup_{\lambda \in I} V_\lambda$
+and so the union is open.
+\end{proof}
+
+\begin{example}
+The main thing to notice is the difference between
+items
+\eqref{topology:openii} and \eqref{topology:openiii}.
+Item \eqref{topology:openii} is not true for an arbitrary intersection,
+for example $\bigcap_{n=1}^\infty (-\nicefrac{1}{n},\nicefrac{1}{n}) = \{ 0
+\}$, which is not open.
+\end{example}
+
+
+The proof of the following analogous proposition for closed sets
+is left as an exercise.
+
+\begin{prop} \label{prop:topology:closed}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[(i)]
+\item \label{topology:closedi} $\emptyset$ and $X$ are closed in $X$.
+\item \label{topology:closedii} If $\{ E_\lambda \}_{\lambda \in I}$ is
+an arbitrary collection of closed sets, then
+\begin{equation*}
+\bigcap_{\lambda \in I} E_\lambda
+\end{equation*}
+is also closed.  That is, intersection of closed sets is closed.
+\item \label{topology:closediii} If $E_1, E_2, \ldots, E_k$ are closed then
+\begin{equation*}
+\bigcup_{j=1}^k E_j
+\end{equation*}
+is also closed.  That is, finite union of closed sets is closed.
+\end{enumerate}
+\end{prop}
+
+We have not yet shown that the open ball is open and the closed ball is
+closed.  Let us show this fact now to justify the terminology.
+
+\begin{prop} \label{prop:topology:ballsopenclosed}
+Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$.  Then
+$B(x,\delta)$ is open and 
+$C(x,\delta)$ is closed.
+\end{prop}
+
+\begin{proof}
+Let $y \in B(x,\delta)$.  Let $\alpha := \delta-d(x,y)$.  Of course $\alpha
+> 0$.  Now let $z \in B(y,\alpha)$.  Then
+\begin{equation*}
+d(x,z) \leq d(x,y) + d(y,z) < d(x,y) + \alpha = d(x,y) + \delta-d(x,y) =
+\delta .
+\end{equation*}
+Therefore $z \in B(x,\delta)$ for every $z \in B(y,\alpha)$.  So $B(y,\alpha) \subset B(x,\delta)$ and
+$B(x,\delta)$ is open.
+
+The proof that $C(x,\delta)$ is closed is left as an exercise.
+\end{proof}
+
+Again be careful about what is the ambient metric space.
+As $[0,\nicefrac{1}{2})$ is
+an open ball in $[0,1]$, this means that $[0,\nicefrac{1}{2})$ is
+an open set in $[0,1]$.  On the other hand $[0,\nicefrac{1}{2})$
+is neither open nor closed in $\R$.
+
+A useful way to think about an open set is a union of open balls.  If $U$ is
+open, then for each $x \in U$, there is a $\delta_x > 0$ (depending on $x$
+of course) such that
+$B(x,\delta_x) \subset U$.  Then $U = \bigcup_{x\in U} B(x,\delta_x)$.
+
+The proof of the following proposition is left as an exercise.  Note that there are other open and
+closed sets in $\R$.
+
+\begin{prop} \label{prop:topology:intervals:openclosed}
+Let $a < b$ be two real numbers.  Then $(a,b)$, $(a,\infty)$,
+and $(-\infty,b)$ are open in $\R$.
+Also $[a,b]$, $[a,\infty)$,
+and $(-\infty,b]$ are closed in $\R$.
+\end{prop}
+
+
+\subsection{Connected sets}
+
+\begin{defn}
+A nonempty
+metric space $(X,d)$ is \emph{\myindex{connected}} if the
+only subsets that are both open and closed are $\emptyset$ and $X$ itself.
+
+When we apply the term \emph{connected} to a nonempty subset $A \subset X$, we simply
+mean that $A$ with the subspace topology is connected.
+\end{defn}
+
+In other words, a nonempty $X$ is connected if whenever we write
+$X = X_1 \cup X_2$ where $X_1 \cap X_2 = \emptyset$ and $X_1$ and $X_2$ are
+open, then either $X_1 = \emptyset$ or $X_2 = \emptyset$.
+So to test for disconnectedness, we need to find nonempty
+disjoint open sets $X_1$ and
+$X_2$ whose union is $X$.  For subsets, we state this idea as a proposition.
+
+\begin{prop}
+Let $(X,d)$ be a metric space.
+A nonempty set $S \subset X$ is not connected if and only if
+there exist open sets $U_1$ and
+$U_2$ in $X$, such that $U_1 \cap U_2 \cap S = \emptyset$,
+$U_1 \cap S \not= \emptyset$,
+$U_2 \cap S \not= \emptyset$, and
+\begin{equation*}
+S = 
+\bigl( U_1 \cap S \bigr)
+\cup
+\bigl( U_2 \cap S \bigr) .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+If $U_j$ is open in $X$,
+then $U_j \cap S$ is open in $S$ in the subspace topology (with subspace
+metric).  To see this,
+note that if $B_X(x,\delta) \subset U_j$, then as
+$B_S(x,\delta) = S \cap B_X(x,\delta)$,
+we have $B_S(x,\delta) \subset U_j \cap S$.
+The proof follows by the above discussion.
+
+The proof of the other direction follows by using
+\exerciseref{exercise:mssubspace} to find $U_1$ and $U_2$ from two
+open disjoint subsets of $S$.
+\end{proof}
+
+\begin{example}
+Let $S \subset \R$ be such that $x < z < y$ with $x,y \in S$
+and $z \notin S$.  Claim: $S$ is not connected.  Proof:  Notice
+\begin{equation}
+\bigl( (-\infty,z) \cap S \bigr)
+\cup
+\bigl( (z,\infty) \cap S \bigr)
+= S .
+\end{equation}
+\end{example}
+
+\begin{prop}
+A set $S \subset \R$ is connected if and only if it is
+an interval or a single point.
+\end{prop}
+
+\begin{proof}
+Suppose that $S$ is connected (so also nonempty).  If $S$ is a single point
+then we are done.  So suppose that $x < y$ and $x,y \in S$.  If $z$ is such
+that $x < z < y$, then $(-\infty,z) \cap S$ is nonempty and $(z,\infty) \cap
+S$ is nonempty.  The two sets are disjoint.  As
+$S$ is connected, we must have they their union is not $S$, so $z \in S$.
+
+Suppose that $S$ is bounded, connected, but not a single point.
+Let $\alpha := \inf S$ and
+$\beta := \sup S$ and note that $\alpha < \beta$.  Suppose $\alpha < z < \beta$.  As $\alpha$ is the
+infimum, then there is an $x \in S$ such that $\alpha \leq x < z$.  Similarly
+there is a $y \in S$ such that $\beta \geq y > z$. 
+We have shown above that $z \in S$, so $(\alpha,\beta) \subset S$.
+If $w < \alpha$, then $w \notin S$
+as $\alpha$ was the infimum,
+similarly if $w > \beta$ then $w \notin S$.  Therefore the only
+possibilities for $S$ are
+$(\alpha,\beta)$,
+$[\alpha,\beta)$,
+$(\alpha,\beta]$,
+$[\alpha,\beta]$.
+
+The proof that an unbounded connected $S$ is an interval is left as an exercise.
+
+On the other hand suppose that $S$ is an interval.
+Suppose that $U_1$ and $U_2$ are open subsets of $\R$,
+$U_1 \cap S$ and $U_2 \cap S$ are nonempty, and
+$S = 
+\bigl( U_1 \cap S \bigr)
+\cup
+\bigl( U_2 \cap S \bigr)$.  We will show that $U_1 \cap S$
+and $U_2 \cap S$ contain a common point, so they are not disjoint,
+and hence $S$ must be connected.
+Suppose that there is $x \in U_1 \cap S$
+and $y \in U_2 \cap S$.  We can assume that $x < y$.  As $S$ is an interval
+$[x,y] \subset S$.  Let $z := \inf (U_2 \cap [x,y])$.
+If $z = x$, then $z
+\in U_1$.  If $z > x$,
+then for any $\delta > 0$ the 
+ball $B(z,\delta) =
+(z-\delta,z+\delta)$ contains points that are not
+in $U_2$, and so $z \notin U_2$ as $U_2$ is open.
+Therefore, $z \in U_1$.
+As $U_1$ is open, $B(z,\delta) \subset U_1$ for a small enough $\delta >
+0$.
+As $z$ is the infimum of $U_2 \cap [x,y]$, 
+there must exist some $w \in U_2 \cap [x,y]$
+such that $w \in [z,z+\delta) \subset B(z,\delta) \subset U_1$.
+Therefore $w \in U_1 \cap U_2 \cap [x,y]$.
+So $U_1 \cap S$ and $U_2 \cap S$ are not disjoint and hence $S$ is connected.
+\end{proof}
+
+\begin{example}
+In many cases a ball $B(x,\delta)$ is connected.  But this is not
+necessarily true in every metric space.
+For a simplest example, take a two point space $\{ a,
+b\}$ with the discrete metric.  Then $B(a,2) = \{ a , b \}$, which is not
+connected as $B(a,1) = \{ a \}$ and 
+$B(b,1) = \{ b \}$ are open and disjoint.
+\end{example}
+
+\subsection{Closure and boundary}
+
+Sometime we wish to take a set and throw in everything that we can approach
+from the set.  This concept is called the closure.
+
+\begin{defn}
+Let $(X,d)$ be a metric space and $A \subset X$.  Then
+the \emph{\myindex{closure}} of $A$ is the set
+\begin{equation*}
+\overline{A} := \bigcap \{ E \subset X : \text{$E$ is closed and $A \subset
+E$} \} .
+\end{equation*}
+That is, $\overline{A}$ is the intersection of all closed sets that contain
+$A$.
+\end{defn}
+
+\begin{prop}
+Let $(X,d)$ be a metric space and $A \subset X$.  The closure $\overline{A}$
+is closed.  Furthermore if $A$ is closed then $\overline{A} = A$.
+\end{prop}
+
+\begin{proof}
+First, the closure is the intersection of closed sets, so it is closed.
+Second, if $A$ is closed, then take $E = A$, hence the intersection of all
+closed sets $E$ containing $A$ must be equal to $A$.
+\end{proof}
+
+\begin{example}
+The closure of $(0,1)$ in $\R$ is $[0,1]$.  Proof:  Simply notice that if
+$E$ is closed and contains $(0,1)$, then $E$ must contain $0$ and $1$ (why?).
+Thus $[0,1] \subset E$.  But $[0,1]$ is also closed.
+Therefore the closure $\overline{(0,1)} = [0,1]$.
+\end{example}
+
+\begin{example}
+Be careful to notice what ambient metric space you are working with.
+If $X = (0,\infty)$, then
+the closure of $(0,1)$ in $(0,\infty)$ is $(0,1]$.  Proof:  Similarly as
+above $(0,1]$ is closed in $(0,\infty)$ (why?).  Any closed set $E$
+that contains $(0,1)$ must contain 1 (why?).  Therefore $(0,1] \subset E$,
+and hence $\overline{(0,1)} = (0,1]$ when working in $(0,\infty)$.
+\end{example}
+
+Let us justify the statement that the closure is everything that we can
+``approach'' from the set.
+
+\begin{prop} \label{prop:msclosureappr}
+Let $(X,d)$ be a metric space and $A \subset X$.  Then $x \in \overline{A}$
+if and only if for every $\delta > 0$, $B(x,\delta) \cap A \not=\emptyset$.
+\end{prop}
+
+\begin{proof}
+Let us prove the two contrapositives.
+Let us show that $x \notin \overline{A}$ if and only if there exists
+a $\delta > 0$ such that $B(x,\delta) \cap A = \emptyset$.
+
+First suppose that $x \notin \overline{A}$.  We know $\overline{A}$ is
+closed.  Thus there is a $\delta > 0$ such that
+$B(x,\delta) \subset \overline{A}^c$.  As $A \subset \overline{A}$ we
+see that $B(x,\delta) \subset A^c$ and hence
+$B(x,\delta) \cap A = \emptyset$.
+
+On the other hand suppose that there is a $\delta > 0$ such that
+$B(x,\delta) \cap A = \emptyset$.  Then $B(x,\delta)^c$ is a closed set and we have
+that $A \subset B(x,\delta)^c$, but
+$x \notin B(x,\delta)^c$.  Thus as $\overline{A}$ is the intersection
+of closed sets containing $A$, we have $x \notin \overline{A}$.
+\end{proof}
+
+We can also talk about what is in the interior of a set and what is on the
+boundary.
+
+\begin{defn}
+Let $(X,d)$ be a metric space and $A \subset X$, then
+the \emph{\myindex{interior}} of $A$ is the set
+\begin{equation*}
+A^\circ := \{ x \in A : \text{there exists a $\delta > 0$ such that
+$B(x,\delta) \subset A$} \} .
+\end{equation*}
+The \emph{\myindex{boundary}} of $A$ is the set
+\begin{equation*}
+\partial A := \overline{A}\setminus A^\circ.
+\end{equation*}
+\end{defn}
+
+\begin{example}
+Suppose $A=(0,1]$ and $X = \R$.  Then it is not hard
+to see that $\overline{A}=[0,1]$, $A^\circ = (0,1)$,
+and $\partial A = \{ 0, 1 \}$.
+\end{example}
+
+\begin{example}
+Suppose $X = \{ a, b \}$ with the discrete metric.
+Let $A = \{ a \}$, then $\overline{A} = A^\circ$ and $\partial A =
+\emptyset$.
+\end{example}
+
+
+\begin{prop}
+Let $(X,d)$ be a metric space and $A \subset X$.  Then $A^\circ$ is open
+and $\partial A$ is closed.
+\end{prop}
+
+\begin{proof}
+Given $x \in A^\circ$ we have $\delta > 0$ such that $B(x,\delta)
+\subset A$.  If $z \in B(x,\delta)$, then as open balls are open,
+there is an $\epsilon > 0$ such that $B(z,\epsilon) \subset B(x,\delta)
+\subset A$, so $z$ is in $A^\circ$.  Therefore $B(x,\delta) \subset
+A^\circ$ and so $A^\circ$ is open.
+
+As $A^\circ$ is open, then
+$\partial A = \overline{A} \setminus A^\circ = \overline{A} \cap
+(A^\circ)^c$ is closed.
+\end{proof}
+
+The boundary is the set of points that are close to both the set and its
+complement.
+
+\begin{prop}
+Let $(X,d)$ be a metric space and $A \subset X$.  Then $x \in \partial A$
+if and only if for every $\delta > 0$,
+$B(x,\delta) \cap A$ and
+$B(x,\delta) \cap A^c$ are both nonempty.
+\end{prop}
+
+\begin{proof}
+If $x \notin \overline{A}$, then there is some $\delta > 0$ such that
+$B(x,\delta) \subset \overline{A}^c$ as $\overline{A}$ is closed.
+So $B(x,\delta)$ contains no points of $A$.
+
+Now suppose that $x \in A^\circ$, then there exists a $\delta > 0$
+such that $B(x,\delta) \subset A$, but that means that $B(x,\delta)$
+contains no points of $A^c$.
+
+Finally suppose that $x \in \overline{A} \setminus A^\circ$.  Let $\delta >
+0$ be arbitrary.  By \propref{prop:msclosureappr} $B(x,\delta)$ contains
+a point from $A$.  Also, if $B(x,\delta)$ contained no points of $A^c$,
+then $x$ would be in $A^\circ$.  Hence $B(x,\delta)$ contains a points of
+$A^c$ as well.
+\end{proof}
+
+We obtain the following immediate corollary about closures of $A$ and $A^c$.  We
+simply apply \propref{prop:msclosureappr}.
+
+\begin{cor}
+Let $(X,d)$ be a metric space and $A \subset X$.
+Then $\partial A = \overline{A} \cap \overline{A^c}$.
+\end{cor}
+
+\subsection{Exercises}
+
+\begin{exercise}
+Prove \propref{prop:topology:closed}.  Hint: consider the complements of the
+sets and apply \propref{prop:topology:open}.
+\end{exercise}
+
+\begin{exercise}
+Finish the proof of \propref{prop:topology:ballsopenclosed} by
+proving that $C(x,\delta)$ is closed.
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:topology:intervals:openclosed}.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $(X,d)$ is a nonempty metric space with the discrete topology.  Show
+that $X$ is connected if and only if it contains exactly one element.
+\end{exercise}
+
+\begin{exercise}
+Show that if $S \subset \R$ is a connected unbounded set, then it is an
+(unbounded) interval.
+\end{exercise}
+
+\begin{exercise}
+Show that every open set can be written as a union of closed sets.
+\end{exercise}
+
+\begin{exercise}
+a) Show that $E$ is closed if and only if $\partial E \subset E$.
+b) Show that $U$ is open if and only if $\partial U \cap U = \emptyset$.
+\end{exercise}
+
+\begin{exercise}
+a) Show that $A$ is open if and only if $A^\circ = A$.
+b) Suppose that $U$ is an open set and $U \subset A$.  Show
+that $U \subset A^\circ$.
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be a set and $d$, $d'$ be two metrics on $X$.
+Suppose that there exists an $\alpha > 0$ and $\beta > 0$
+such that $\alpha d(x,y) \leq d'(x,y) \leq \beta d(x,y)$ for all $x,y \in X$.
+Show that $U$ is open in $(X,d)$ if and only if $U$ is open in $(X,d')$.
+That is, the topologies of $(X,d)$ and $(X,d')$ are the same.
+\end{exercise}
+
+
+\begin{exercise}
+Suppose that $\{ S_i \}$, $i \in \N$
+is a collection of connected subsets of a metric space $(X,d)$.  Suppose
+that there exists an $x \in X$ such that $x \in S_i$ for all $i \in N$.
+Show that $\bigcup_{i=1}^\infty S_i$ is connected.
+\end{exercise}
+
+\begin{exercise}
+Let $A$ be a connected set.
+a) \nolinebreak Is $\overline{A}$ connected?  Prove or find a counterexample.
+b) \nolinebreak Is $A^\circ$ connected?  Prove or find a counterexample.
+Hint: Think of sets in $\R^2$.
+\end{exercise}
+
+\begin{exnote}
+The definition of open sets in the following exercise is usually called the
+\emph{\myindex{subspace topology}}.  You are asked to show that
+we obtain the same topology by considering the subspace metric.
+\end{exnote}
+
+\begin{exercise} \label{exercise:mssubspace}
+Suppose $(X,d)$ is a metric space and $Y \subset X$.  Show that
+with the subspace metric on $Y$, a set $U \subset Y$
+is open (in $Y$) whenever there exists an open set $V \subset X$ such
+that $U = V \cap Y$.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space.
+a) For any $x \in X$ and $\delta > 0$, show
+$\overline{B(x,\delta)} \subset C(x,\delta)$.
+b) Is it always true that
+$\overline{B(x,\delta)} = C(x,\delta)$?  Prove or find a counterexample.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space and $A \subset X$.  Show that
+$A^\circ = \bigcup \{ V : V \subset A \text{ is open} \}$.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Sequences and convergence}
+\label{sec:metseqs}
+
+\sectionnotes{1 lecture}
+
+\subsection{Sequences}
+
+The notion of a sequence in a metric space is very similar to a sequence of
+real numbers.
+
+\begin{defn}
+A \emph{\myindex{sequence}} in a metric space $(X,d)$ is a function
+$x \colon \N \to X$.  As before we write $x_n$ for the $n$th element in
+the sequence and use the notation $\{ x_n \}$, or more precisely
+\begin{equation*}
+\{ x_n \}_{n=1}^\infty .
+\end{equation*}
+
+A sequence $\{ x_n \}$ is \emph{bounded}\index{bounded sequence} if
+there exists a point $p \in X$ and $B \in \R$ such that
+\begin{equation*}
+d(p,x_n) \leq B \qquad \text{for all $n \in \N$.}
+\end{equation*}
+In other words, the sequence $\{x_n\}$ is bounded whenever
+the set $\{ x_n : n \in \N \}$
+is bounded.
+
+If $\{ n_j \}_{j=1}^\infty$ is a sequence of natural numbers
+such that $n_{j+1} > n_j$ for all $j$ then
+the sequence $\{ x_{n_j} \}_{j=1}^\infty$ is said to be
+a \emph{\myindex{subsequence}} of $\{x_n \}$.
+\end{defn}
+
+Similarly we also define convergence.  Again, we will be cheating a little
+bit and we will use the definite article in front of the word \emph{limit}
+before we prove that the limit is unique.
+
+\begin{defn}
+A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
+to \emph{\myindex{converge}} to a point
+$p \in X$, if for every $\epsilon > 0$, there exists an $M \in \N$ such
+that $d(x_n,p) < \epsilon$ for all $n \geq M$.  The point $p$
+is said to be the \emph{limit}\index{limit of a sequence}
+of $\{ x_n \}$.  We write
+\begin{equation*}
+\lim_{n\to \infty} x_n := p .
+\end{equation*}
+
+A sequence
+that converges is said to be \emph{convergent}\index{convergent sequence}.
+Otherwise, the sequence is said to be
+\emph{divergent}\index{divergent sequence}.
+\end{defn}
+
+Let us prove that the limit is unique.  Note that the proof is almost
+identical to the proof of the same fact for sequences of real numbers.
+In fact many results we know for sequences of real numbers can be proved in
+the more general settings of metric spaces.  We must replace $\abs{x-y}$
+with $d(x,y)$ in the proofs and apply the triangle inequality correctly.
+
+\begin{prop} \label{prop:mslimisunique}
+A convergent sequence in a metric space has a unique limit.
+\end{prop}
+
+\begin{proof}
+Suppose that the sequence $\{ x_n \}$ has the limit $x$ and the limit $y$.
+Take an arbitrary $\epsilon > 0$.
+From the definition we find an $M_1$ such that for all $n \geq M_1$,
+$d(x_n,x) < \nicefrac{\epsilon}{2}$.  Similarly we find an $M_2$
+such that for all $n \geq M_2$ we have
+$d(x_n,y) < \nicefrac{\epsilon}{2}$.  Now take an $n$ such that
+$n \geq M_1$ and also $n \geq M_2$
+\begin{equation*}
+\begin{split}
+d(y,x)
+& \leq
+d(y,x_n) + d(x_n,x) \\
+& <
+\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
+\end{split}
+\end{equation*}
+As $d(y,x) < \epsilon$ for all $\epsilon > 0$, then $d(x,y) = 0$
+and $y=x$.  Hence the limit (if it exists) is unique.
+\end{proof}
+
+The proofs of the following propositions are left as exercises.
+
+\begin{prop} \label{prop:msconvbound}
+A convergent sequence in a metric space is bounded.
+\end{prop}
+
+\begin{prop} \label{prop:msconvifa}
+A sequence $\{ x_n \}$ in a metric space $(X,d)$ converges to $p \in X$
+if and only
+if there exists a sequence $\{ a_n \}$ of real numbers such that
+\begin{equation*}
+d(x_n,p) \leq a_n \quad \text{for all $n \in \N$},
+\end{equation*}
+and
+\begin{equation*}
+\lim_{n\to\infty} a_n = 0.
+\end{equation*}
+\end{prop}
+
+\subsection{Convergence in euclidean space}
+
+It is useful to note what convergence means in the euclidean space
+$\R^n$.
+
+\begin{prop} \label{prop:msconveuc}
+Let $\{ x^j \}_{j=1}^\infty$ be a sequence in $\R^n$,
+where we write $x^j = \bigl(x_1^j,x_2^j,\ldots,x_n^j\bigr) \in \R^n$.
+Then $\{ x^j \}_{j=1}^\infty$ converges if and only if
+$\{ x_k^j \}_{j=1}^\infty$ converges for every $k$, in which case
+\begin{equation*}
+\lim_{j\to\infty}
+x^j =
+\Bigl(
+\lim_{j\to\infty} x_1^j,
+\lim_{j\to\infty} x_2^j,
+\ldots,
+\lim_{j\to\infty} x_n^j
+\Bigr) .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+For $\R = \R^1$ the result is immediate.
+So let $n > 1$.
+
+Let $\{ x^j \}_{j=1}^\infty$ be a convergent sequence
+in $\R^n$, where we write $x^j = \bigl(x_1^j,x_2^j,\ldots,x_n^j\bigr) \in \R^n$.
+Let $x = (x_1,x_2,\ldots,x_n) \in \R^n$ be the limit.
+Given $\epsilon > 0$, there exists an $M$ such that for all
+$j \geq M$ we have
+\begin{equation*}
+d(x,x^j) < \epsilon.
+\end{equation*}
+Fix some $k=1,2,\ldots,n$.  For $j \geq M$ we have
+\begin{equation}
+\bigl\lvert x_k - x_k^j \bigr\rvert
+=
+\sqrt{{\bigl(x_k - x_k^j\bigr)}^2}
+\leq
+\sqrt{\sum_{\ell=1}^n {\bigl(x_\ell-x_\ell^j\bigr)}^2}
+= d(x,x^j) < \epsilon .
+\end{equation}
+Hence the sequence $\{ x_k^j \}_{j=1}^\infty$ converges to $x_k$.
+
+For the other direction suppose that
+$\{ x_k^j \}_{j=1}^\infty$ converges to $x_k$ for every $k=1,2,\ldots,n$.
+Hence, given $\epsilon > 0$, pick an $M$, such that if $j \geq M$ then 
+$\bigl\lvert x_k-x_k^j \bigr\rvert < \nicefrac{\epsilon}{\sqrt{n}}$ for all
+$k=1,2,\ldots,n$.  Then
+\begin{equation*}
+d(x,x^j)
+=
+\sqrt{\sum_{k=1}^n {\bigl(x_k-x_k^j\bigr)}^2}
+<
+\sqrt{\sum_{k=1}^n {\left(\frac{\epsilon}{\sqrt{n}}\right)}^2}
+=
+\sqrt{\sum_{k=1}^n \frac{{\epsilon^2}}{n}}
+= \epsilon .
+\end{equation*}
+The sequence $\{ x^j \}$ converges to $x \in \R^n$ and we are done.
+\end{proof}
+
+\subsection{Convergence and topology}
+
+The topology, that is, the set of open sets of a space encodes which
+sequences converge.
+
+\begin{prop} \label{prop:msconvtopo}
+Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$.  Then
+$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
+$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$
+we have $x_n \in U$.
+\end{prop}
+
+\begin{proof}
+First suppose that $\{ x_n \}$ converges.  Let $U$ be an open neighborhood
+of $x$, then there exists an $\epsilon > 0$ such that $B(x,\epsilon) \subset
+U$.  As the sequence converges, find an $M \in \N$ such that for all $n \geq
+M$ we have $d(x,x_n) < \epsilon$ or in other words $x_n \in B(x,\epsilon)
+\subset U$.
+
+Let us prove the other direction.  Given $\epsilon > 0$ let $U :=
+B(x,\epsilon)$ be the neighborhood of $x$.  Then there is an $M \in \N$
+such that for $n \geq M$ we have $x_n \in U = B(x,\epsilon)$ or in other
+words, $d(x,x_n) < \epsilon$.
+\end{proof}
+
+A set is closed when it contains the limits of its convergent sequences.
+
+\begin{prop} \label{prop:msclosedlim}
+Let $(X,d)$ be a metric space, $E \subset X$ a closed set
+and $\{ x_n \}$ a sequence in $E$ that converges to some $x \in X$.
+Then $x \in E$.
+\end{prop}
+
+\begin{proof}
+Let us prove the contrapositive.
+Suppose $\{ x_n \}$ is a sequence in $X$ that converges to $x \in E^c$.
+As $E^c$ is open, \propref{prop:msconvtopo} says there is
+an $M$ such that for all $n \geq M$,
+$x_n \in E^c$.  So $\{ x_n \}$  is not a sequence in $E$.
+%Let $\{ x_n \}$ be a sequence in $E$ that converges to some $x \in X$.
+%Take $y \in E^c$, as $E^c$ is open then there exists a $\delta > 0$
+%such that $B(y,\delta) \subset E^c$, or in particular $d(y,x_n) \geq \delta$
+%for all $n$ as $x_n \in E$.  In particular, $\lim\, x_n = x \not= y$, and so
+%$x \in E$.
+\end{proof}
+
+When we take a closure of a set $A$, we really throw in precisely 
+those points that are limits of sequences in $A$.
+
+\begin{prop} \label{prop:msclosureapprseq}
+Let $(X,d)$ be a metric space and $A \subset X$.
+If $x \in \overline{A}$, then there exists a sequence $\{ x_n \}$ of
+elements in $A$ such that $\lim\, x_n = x$.
+\end{prop}
+
+\begin{proof}
+Let $x \in \overline{A}$.  We know by
+\propref{prop:msclosureappr} that given $\nicefrac{1}{n}$, there
+exists a point $x_n \in B(x,\nicefrac{1}{n}) \cap A$.
+As $d(x,x_n) < \nicefrac{1}{n}$, we have that $\lim\, x_n = x$.
+\end{proof}
+
+\subsection{Exercises}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space and
+let $A \subset X$.  Let $E$ be the set of all $x \in X$ such that there
+exists a sequence $\{ x_n \}$ in $A$ that converges to $x$.  Show that
+$E = \overline{A}$.
+\end{exercise}
+
+\begin{exercise}
+a) Show that $d(x,y) := \min \{ 1, \abs{x-y} \}$ defines a metric on $\R$.
+b) Show that a sequence converges in $(\R,d)$ if and only if it converges
+in the standard metric.  c) Find a bounded sequence in $(\R,d)$ that
+contains no convergent subsequence.
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:msconvbound}
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:msconvifa}
+\end{exercise}
+
+\begin{exercise}
+Suppose that $\{x_n\}_{n=1}^\infty$ converges to $x$.  Suppose that $f \colon \N
+\to \N$ is a one-to-one and onto function.  Show that
+$\{ x_{f(n)} \}_{n=1}^\infty$ converges to $x$.
+\end{exercise}
+
+\begin{exercise}
+If $(X,d)$ is a metric space where $d$ is the discrete metric.  Suppose that
+$\{ x_n \}$ is a convergent sequence in $X$.  Show that there exists
+a $K \in \N$ such that for all $n \geq K$ we have $x_n = x_K$.
+\end{exercise}
+
+\begin{exercise}
+A set $S \subset X$ is said to be dense in $X$ if for every $x \in X$,
+there exists a sequence $\{ x_n \}$ in $S$ that converges to $x$.  Prove
+that $\R^n$ contains a countable dense subset.
+\end{exercise}
+
+\begin{exercise}[Tricky]
+Suppose $\{ U_n \}_{n=1}^\infty$ be a decreasing ($U_{n+1} \subset U_n$ for
+all $n$) sequence of open sets in a metric space $(X,d)$ such that
+$\bigcap_{n=1}^\infty U_n = \{ p \}$ for some $p \in X$.  Suppose that
+$\{ x_n \}$ is a sequence of points in $X$ such that $x_n \in U_n$.  Does
+$\{ x_n \}$ necessarily converge to $p$?  Prove or construct a counterexample.
+\end{exercise}
+
+\begin{exercise}
+Let $E \subset X$ be closed and
+let $\{ x_n \}$ be a sequence in $X$ converging to $p \in X$.  Suppose
+$x_n \in E$ for infinitely many $n \in \N$.  Show $p \in E$.
+\end{exercise}
+
+\begin{exercise}
+Take $\R^* = \{ -\infty \} \cup \R \cup \{ \infty \}$ be the extended reals.
+Define $d(x,y) := \frac{\abs{x-y}}{1+\abs{x-y}}$ if $x, y \in \R$,
+define $d(\infty,x) := d(-\infty,x) = 1$ for all $x \in \R$, and
+let $d(\infty,-\infty) := 2$.
+a) Show that $(\R^*,d)$ is a metric space.
+b) Suppose that $\{ x_n \}$ is a sequence of real numbers such that
+for $x_n \geq n$ for all $n$.  Show that $\lim x_n = \infty$ in
+$(\R^*,d)$.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $\{ V_n \}_{n=1}^\infty$ is a collection of open sets
+in $(X,d)$
+such that $V_{n+1} \supset V_n$.  Let $\{ x_n \}$ be a sequence
+such that $x_n \in V_{n+1} \setminus V_n$ and suppose that
+$\{ x_n \}$ converges to $p \in X$.  Show that $p \in \partial V$
+where $V = \bigcup_{n=1}^\infty V_n$.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Completeness and compactness}
+\label{sec:metcompact}
+
+\sectionnotes{2 lectures}
+
+\subsection{Cauchy sequences and completeness}
+
+Just like with sequences of real numbers we can define Cauchy sequences.
+
+\begin{defn}
+Let $(X,d)$ be a metric space.
+A sequence $\{ x_n \}$ in $X$ is a \emph{\myindex{Cauchy sequence}} if
+for every $\epsilon > 0$ there exists an $M \in \N$ such that
+for all $n \geq M$ and all $k \geq M$ we have
+\begin{equation*}
+d(x_n, x_k) < \epsilon .
+\end{equation*}
+\end{defn}
+
+The definition is again simply a translation of the concept
+from the real numbers to metric spaces.  So a sequence of real
+numbers is Cauchy in the sense of \chapterref{seq:chapter} if and only if
+it is Cauchy in the sense above, provided we equip the real numbers with
+the standard metric $d(x,y) = \abs{x-y}$.
+
+\begin{defn}
+Let $(X,d)$ be a metric space.  We say that $X$ is
+\emph{\myindex{complete}} or \emph{\myindex{Cauchy-complete}}
+if every Cauchy sequence $\{ x_n \}$ in $X$
+converges to an $x \in X$.
+\end{defn}
+
+\begin{prop}
+The space $\R^n$ with the standard metric is a complete metric space.
+\end{prop}
+
+\begin{proof}
+For $\R = \R^1$ this was proved in \chapterref{seq:chapter}.
+
+Take $n > 1$.  Let $\{ x^j \}_{j=1}^\infty$ be a Cauchy sequence
+in $\R^n$, where we write $x^j = \bigl(x_1^j,x_2^j,\ldots,x_n^j\bigr) \in \R^n$.
+As the sequence is Cauchy, given $\epsilon > 0$, there exists an $M$ such that for all
+$i,j \geq M$ we have
+\begin{equation*}
+d(x^i,x^j) < \epsilon.
+\end{equation*}
+
+Fix some $k=1,2,\ldots,n$, for $i,j \geq M$ we have
+\begin{equation}
+\bigl\lvert x_k^i - x_k^j \bigr\rvert
+=
+\sqrt{{\bigl(x_k^i - x_k^j\bigr)}^2}
+\leq
+\sqrt{\sum_{\ell=1}^n {\bigl(x_\ell^i-x_\ell^j\bigr)}^2}
+= d(x^i,x^j) < \epsilon .
+\end{equation}
+Hence the sequence $\{ x_k^j \}_{j=1}^\infty$ is Cauchy.  As $\R$ is
+complete the sequence converges; there exists an $x_k \in \R$ such that
+$x_k = \lim_{j\to\infty} x_k^j$.
+
+Write $x = (x_1,x_2,\ldots,x_n) \in \R^n$.
+By \propref{prop:msconveuc} we have that $\{ x^j \}$ converges
+to $x \in \R^n$ and hence $\R^n$ is complete.
+\end{proof}
+
+\subsection{Compactness}
+
+\begin{defn}
+Let $(X,d)$ be a metric space and $K \subset X$. 
+The set $K$ is set to be \emph{\myindex{compact}}
+if for any collection
+of open sets $\{ U_{\lambda} \}_{\lambda \in I}$ such that
+\begin{equation*}
+K \subset \bigcup_{\lambda \in I} U_\lambda ,
+\end{equation*}
+there exists a finite subset
+$\{ \lambda_1, \lambda_2,\ldots,\lambda_k \} \subset I$
+such that
+\begin{equation*}
+K \subset \bigcup_{j=1}^k U_{\lambda_j} .
+\end{equation*}
+\end{defn}
+
+A collection of open sets $\{ U_{\lambda} \}_{\lambda \in I}$ as above is
+said to be a \emph{\myindex{open cover}} of $K$.  So a way to say that
+$K$ is compact is to say that \emph{every open cover of $K$ has a finite
+\myindex{subcover}}.
+
+\begin{prop}
+Let $(X,d)$ be a metric space.  A compact set $K \subset X$ is closed and
+bounded.
+\end{prop}
+
+\begin{proof}
+First, we prove that a compact set is bounded.
+Fix $p \in X$.  We have the open cover
+\begin{equation*}
+K \subset \bigcup_{n=1}^\infty B(p,n) = X .
+\end{equation*}
+If $K$ is compact, then there exists some set of indices
+$n_1 < n_2 < \ldots < n_k$ such that
+\begin{equation*}
+K \subset \bigcup_{j=1}^k B(p,n_j) = B(p,n_k) .
+\end{equation*}
+As $K$ is contained in a ball, $K$ is bounded.
+
+Next, we show a set that is not closed is not compact.  Suppose that
+$\overline{K} \not= K$, that is, there is a point $x \in \overline{K}
+\setminus K$.
+If $y \not= x$, then for $n$
+with $\nicefrac{1}{n} < d(x,y)$ we have
+$y \notin C(x,\nicefrac{1}{n})$. Furthermore $x \notin K$, so
+\begin{equation*}
+K \subset \bigcup_{n=1}^\infty C(x,\nicefrac{1}{n})^c .
+\end{equation*}
+As a closed ball is closed, $C(x,\nicefrac{1}{n})^c$ is open, and
+so we have an open cover.
+If we take any
+finite collection of indices $n_1 < n_2 < \ldots < n_k$, then 
+\begin{equation*}
+\bigcup_{j=1}^k C(x,\nicefrac{1}{n_j})^c 
+=
+C(x,\nicefrac{1}{n_k})^c 
+\end{equation*}
+As $x$ is in the closure,
+we have $C(x,\nicefrac{1}{n_k}) \cap K \not= \emptyset$, so there is no
+finite subcover and $K$ is not compact.
+\end{proof}
+
+We prove below that 
+in finite dimensional euclidean space
+every closed bounded set is compact.
+So closed bounded sets
+of $\R^n$ are examples of compact sets.
+It is not true that in every metric space, closed and bounded is equivalent
+to compact.  There are many metric spaces where closed and bounded is not
+enough to give compactness, see for example
+\exerciseref{exercise:msclbounnotcompt}.
+
+A useful property of compact sets in a metric space is that every
+sequence has a convergent subsequence.  Such sets are sometimes called
+\emph{\myindex{sequentially compact}}.  Let us prove that in the
+context of metric spaces, a set is compact if and only if it is sequentially
+compact.
+
+\begin{thm} \label{thm:mscompactisseqcpt}
+Let $(X,d)$ be a metric space.  Then $K \subset X$ is a compact set if
+and only if every sequence in $K$ has a subsequence converging to
+a point in $K$.
+\end{thm}
+
+\begin{proof}
+Let $K \subset X$ be a set and
+$\{ x_n \}$ a sequence in $K$.  Suppose that for each $x \in K$,
+there is a ball $B(x,\alpha_x)$ for some $\alpha_x > 0$ such that
+$x_n \in B(x,\alpha_x)$ for only finitely many $n \in \N$.
+Then
+\begin{equation*}
+K \subset \bigcup_{x \in K} B(x,\alpha_x) .
+\end{equation*}
+Any finite collection of these balls is going to contain only finitely many
+$x_n$.  Thus for any finite collection of such balls there is an $x_n \in K$
+that is not in the union.  Therefore, $K$ is not compact.
+
+So if $K$ is compact,
+then there exists an $x \in K$ such that
+for any $\delta > 0$,
+$B(x,\delta)$ contains $x_k$ for infinitely many $k \in \N$.
+$B(x,1)$ contains some $x_k$ so let $n_1 := k$.
+If $n_{j-1}$ is defined, then there must
+exist a $k > n_{j-1}$ such that $x_k \in B(x,\nicefrac{1}{j})$, so define
+$n_j := k$.  Notice that
+$d(x,x_{n_j}) < \nicefrac{1}{j}$.  By \propref{prop:msconvifa},
+$\lim\, x_{n_j} = x$.
+
+For the other direction, suppose that every sequence in $K$
+has a 
+subsequence converging in $K$.
+Take
+an open cover $\{ U_\lambda \}_{\lambda \in I}$ of $K$.
+For every $x \in K$, define
+\begin{equation*}
+\delta(x) := \sup \{ \delta \in (0,1) :
+B(x,\delta) \subset U_\lambda \text{ for some } \lambda \in I \} .
+\end{equation*}
+As $\{ U_\lambda \}$ is an open cover of $K$,
+$\delta(x) > 0$ for each $x \in K$.
+By construction,
+for any positive $\epsilon < \delta(x)$ there must exist a $\lambda \in I$
+such that $B(x,\epsilon) \subset U_\lambda$.
+
+Pick a $\lambda_0 \in I$ and look
+at $U_{\lambda_0}$.  If $K \subset U_{\lambda_0}$, we stop as we have found a
+finite subcover.
+Otherwise, there must be
+a point $x_1 \in K \setminus U_{\lambda_0}$.
+There must exist some $\lambda_1 \in I$ such that $x_1 \in U_{\lambda_1}$
+and in fact $B\bigl(x_1,\frac{1}{2}\delta({x_1})\bigr) \subset U_{\lambda_1}$.
+We work inductively.  Suppose that $\lambda_{n-1}$ is defined.
+Either
+$U_{\lambda_0} \cup
+U_{\lambda_1} \cup \cdots \cup
+U_{\lambda_{n-1}}$ is a finite cover of $K$, in which case we
+stop, or
+there must be 
+a point $x_n \in K \setminus \bigl( U_{\lambda_1} \cup
+U_{\lambda_2} \cup \cdots \cup
+U_{\lambda_{n-1}}\bigr)$.  In this case, there must be some $\lambda_n \in I$
+such that $x_n \in U_{\lambda_n}$,
+and in fact
+\begin{equation*}
+B\bigl(x_n,\tfrac{1}{2}\delta(x_n)\bigr) \subset U_{\lambda_n}.
+\end{equation*}
+
+So either we obtained a finite subcover or we obtained an
+infinite
+sequence $\{ x_n \}$ as above.  For contradiction suppose that
+there was no finite subcover and we have the sequence $\{ x_n \}$.
+Then there
+is a subsequence $\{ x_{n_k} \}$ that converges, that
+is, $x = \lim \, x_{n_k} \in K$.  We take $\lambda \in I$
+such that $B\bigl(x,\frac{1}{2}\delta(x)\bigr) \subset U_\lambda$.  As the subsequence
+converges, there is a $k$ such that $d(x_{n_k},x) < 
+\frac{1}{8}\delta(x)$.
+By the triangle inequality,
+$B\bigl(x_{n_k},\frac{3}{8}\delta(x)\bigr) \subset
+B\bigl(x,\frac{1}{2}\delta(x)\bigr) \subset U_\lambda$.
+So $\frac{3}{8}\delta(x) < \delta({x_{n_k}})$, which implies
+\begin{equation*}
+B\bigl(x_{n_k},\tfrac{3}{16}\delta(x)\bigr)
+\subset
+B\bigl(x_{n_k},\tfrac{1}{2}\delta(x_{n_k})\bigr)
+ \subset U_{\lambda_{n_k}}.
+\end{equation*}
+As $\nicefrac{1}{8} < \nicefrac{3}{16}$, we have
+$x \in B\bigl(x_{n_k},\frac{3}{16}\delta(x)\bigr)$, or
+$x \in U_{\lambda_{n_k}}$.  As
+$\lim x_{n_j} = x$, for all $j$ large enough
+we have $x_{n_j} \in U_{\lambda_{n_k}}$ by
+\propref{prop:msconvtopo}.  Let us fix one of those $j$ such that $j > k$.
+But by construction
+$x_{n_j} \notin U_{\lambda_{n_k}}$ if $j > k$, which is a contradiction.
+\end{proof}
+
+\begin{example}
+By the Bolzano-Weierstrass theorem for sequences (\thmref{thm:bwseq})
+we have that any bounded sequence has a convergent
+subsequence.  Therefore any sequence in a closed interval $[a,b] \subset \R$ has 
+a convergent subsequence.  The limit must also be in $[a,b]$ as limits
+preserve non-strict inequalities.  Hence a closed bounded interval $[a,b]
+\subset \R$ is compact.
+\end{example}
+
+\begin{prop}
+Let $(X,d)$ be a metric space and let $K \subset X$ be compact.  Suppose
+that $E \subset K$ is a closed set, then $E$ is compact.
+\end{prop}
+
+\begin{proof}
+Let $\{ x_n \}$ be a sequence in $E$.  It is also a sequence in $K$.
+Therefore it has a convergent subsequence $\{ x_{n_j} \}$ that converges to
+$x \in K$.  As $E$ is closed the limit of a sequence in $E$ is also in $E$
+and so $x \in E$.  Thus $E$ must be compact.
+\end{proof}
+
+\begin{thm}[Heine-Borel%
+\footnote{%
+Named after the German mathematician 
+Heinrich Eduard Heine (1821--1881),
+and the French mathematician
+F\'elix \'Edouard Justin \'Emile Borel (1871--1956).}]%
+\index{Heine-Borel theorem}
+\label{thm:msbw}
+A closed bounded subset $K \subset \R^n$ is compact.
+\end{thm}
+
+\begin{proof}
+For $\R = \R^1$ if $K \subset \R$ is closed and bounded, then
+any sequence $\{ x_n \}$ in $K$ is bounded, so it has a convergent
+subsequence by
+Bolzano-Weierstrass theorem for sequences (\thmref{thm:bwseq}).
+As $K$ is closed, the limit of the subsequence must be an element of
+$K$.  So $K$ is compact.
+
+Let us carry out the proof for $n=2$ and leave arbitrary $n$ as an exercise.
+
+As $K$ is bounded, there exists a set
+$B=[a,b]\times[c,d] \subset \R^2$ such that $K \subset B$.  If we can show
+that $B$ is compact, then $K$, being a closed subset of a compact $B$, is
+also compact.
+
+Let $\{ (x_k,y_k) \}_{k=1}^\infty$ be a sequence in $B$.  That is,
+$a \leq x_k \leq b$ and
+$c \leq y_k \leq d$ for all $k$.  A bounded sequence has a convergent
+subsequence so there is a subsequence $\{ x_{k_j} \}_{j=1}^\infty$
+that is convergent.  The subsequence 
+$\{ y_{k_j} \}_{j=1}^\infty$ is also a bounded sequence so there exists
+a subsequence
+$\{ y_{k_{j_i}} \}_{i=1}^\infty$ that is convergent.  A subsequence of a
+convergent sequence is still convergent, so 
+$\{ x_{k_{j_i}} \}_{i=1}^\infty$ is convergent.
+Let
+\begin{equation*}
+x := \lim_{i\to\infty} x_{k_{j_i}}
+\qquad \text{and} \qquad
+y := \lim_{i\to\infty} y_{k_{j_i}} .
+\end{equation*}
+%Now write
+%\begin{equation*}
+%d\bigl((x_{k_{j_i}},y_{k_{j_i}}),(x,y)\bigr)
+%=
+%\sqrt{
+%{\bigl(x_{k_{j_i}}-x\bigr)}^2 +
+%{\bigl(y_{k_{j_i}}-y\bigr)}^2}.
+%\end{equation*}
+%As 
+%$\sqrt{
+%{\bigl(x_{k_{j_i}}-x\bigr)}^2 +
+%{\bigl(y_{k_{j_i}}-y\bigr)}^2}$ goes to zero as $i$ goes to $\infty$,
+%then
+%$d\bigl((x_{k_{j_i}},y_{k_{j_i}}),(x,y)\bigr)$ goes to zero as
+%$i$ goes to $\infty$.
+By \propref{prop:msconveuc},
+$\bigl\{ (x_{k_{j_i}},y_{k_{j_i}}) \bigr\}_{i=1}^\infty$ converges to $(x,y)$ as $i$ goes to $\infty$.
+Furthermore, as $a \leq x_k \leq b$ and
+$c \leq y_k \leq d$ for all $k$, we know that $(x,y) \in B$.
+\end{proof}
+
+\subsection{Exercises}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space and $A$ a finite subset of $X$.
+Show that $A$ is compact.
+\end{exercise}
+
+\begin{exercise}
+Let $A = \{ \nicefrac{1}{n} : n \in \N \} \subset \R$.  a) Show that $A$ is
+not compact directly using the definition.  b) Show that $A \cup \{ 0 \}$ is
+compact directly using the definition.
+\end{exercise}
+
+
+\begin{exercise}
+Let $(X,d)$ be a metric space with the discrete metric.  a) Prove that
+$X$ is complete.  b) Prove that $X$ is compact if and only if $X$ is a finite
+set.
+\end{exercise}
+
+\begin{exercise}
+a) Show that the union of finitely many compact sets is a compact set.
+b) Find an example where the union of infinitely many compact sets is not
+compact.
+\end{exercise}
+
+\begin{exercise}
+Prove \thmref{thm:msbw} for arbitrary dimension.
+Hint: The trick is to use the correct notation.
+\end{exercise}
+
+\begin{exercise}
+Show that a compact set $K$ is a complete metric space.
+\end{exercise}
+
+\begin{exercise}
+Let $C([a,b])$ be the metric space as in \exampleref{example:msC01}.  Show that
+$C([a,b])$ is a complete metric space.
+\end{exercise}
+
+\begin{exercise}[Challenging] \label{exercise:msclbounnotcompt}
+Let $C([0,1])$ be the metric space of \exampleref{example:msC01}.  Let $0$
+denote the zero function.  Then show that the closed ball
+$C(0,1)$ is not compact (even though it is closed and bounded).
+Hints: Construct a sequence of distinct continuous functions $\{ f_n \}$ such that
+$d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \not= k$.  Show that
+the set $\{ f_n : n \in \N \} \subset C(0,1)$ is closed but not compact.
+See \chapterref{fs:chapter} for inspiration.
+\end{exercise}
+
+\begin{exercise}[Challenging]
+Show that there exists a metric on $\R$ that makes $\R$ into a compact set.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $(X,d)$ is complete and suppose we have a countably infinite
+collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset
+\cdots$ then prove $\bigcap_{j=1}^\infty E_j \not= \emptyset$.
+\end{exercise}
+
+\begin{exercise}[Challenging]
+Let $C([0,1])$ be the metric space of \exampleref{example:msC01}.
+Let $K$ be the set of $f \in C([0,1])$ such that
+$f$ is equal to a quadratic polynomial, i.e.\ $f(x) = a+bx+cx^2$, and such that
+$\abs{f(x)} \leq 1$ for all $x \in [0,1]$,
+that is $f \in C(0,1)$.  Show that $K$ is compact.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Continuous functions}
+\label{sec:metcont}
+
+\sectionnotes{1 lecture}
+
+\subsection{Continuity}
+
+\begin{defn}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
+Then $f \colon X \to Y$ is
+\emph{continuous at $c$}\index{continuous at $c$}
+if for every $\epsilon > 0$
+there is a $\delta > 0$ such that whenever $x \in X$ and $d_X(x,c) <
+\delta$, then
+$d_Y\bigl(f(x),f(c)\bigr) < \epsilon$.
+
+\medskip
+
+When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
+that $f$ is a \emph{\myindex{continuous function}}.
+\end{defn}
+
+The definition agrees with the definition from \chapterref{lim:chapter} when
+$f$ is a real-valued function on the real line, when we take the standard
+metric on $\R$.
+
+\begin{prop} \label{prop:contiscont}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
+Then $f \colon X \to Y$ is
+continuous at $c$
+if and only if for every sequence $\{ x_n \}$ in $X$
+converging to $c$, the sequence $\{ f(x_n) \}$ converges
+to $f(c)$.
+\end{prop}
+
+\begin{proof}
+Suppose that $f$ is continuous at $c$.  Let $\{ x_n \}$ be a
+sequence in $X$ converging to $c$.  Given $\epsilon > 0$,
+there is a $\delta > 0$ such that $d(x,c) < \delta$ implies
+$d\bigl(f(x),f(c)\bigr) < \epsilon$.  So take $M$ such that
+for all $n \geq M$, we have $d(x_n,c) < \delta$, then
+$d\bigl(f(x_n),f(c)\bigr) < \epsilon$.  Hence $\{ f(x_n) \}$
+converges to $f(c)$.
+
+On the other hand suppose that $f$ is not continuous at $c$.
+Then there exists an $\epsilon > 0$,
+such that for every $\nicefrac{1}{n}$ there exists an $x_n \in X$,
+$d(x_n,c) < \nicefrac{1}{n}$ such that $d\bigl(f(x_n),f(c)\bigr) \geq
+\epsilon$.  Therefore $\{ f(x_n) \}$ does not converge to $f(c)$.
+\end{proof}
+
+\subsection{Compactness and continuity}
+
+Continuous maps do not map closed sets to closed sets.  For example,
+$f \colon (0,1) \to \R$ defined by $f(x) := x$ takes the set $(0,1)$, which
+is closed in $(0,1)$, to the set $(0,1)$, which is not closed in $\R$.
+On the other hand continuous maps do preserve compact sets.
+
+\begin{lemma}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces,
+and $f \colon X \to Y$ is a continuous function.  If
+$K \subset X$ is a compact set, then $f(K)$ is a compact set.
+\end{lemma}
+
+\begin{proof}
+Let $\{ f(x_n) \}_{n=1}^\infty$ be a sequence in $f(K)$,
+then $\{ x_n \}_{n=1}^\infty$ is a sequence in $K$.  The set $K$ is compact and
+therefore has a subsequence
+$\{ x_{n_i} \}_{i=1}^\infty$ that converges to some $x \in K$.
+By continuity,
+\begin{equation*}
+\lim_{i\to\infty} f(x_{n_i}) = f(x) \in f(K) .
+\end{equation*}
+Therefore every sequence in $f(K)$ has a subsequence convergent to 
+a point in $f(K)$, so $f(K)$ is compact by \thmref{thm:mscompactisseqcpt}.
+\end{proof}
+
+As before, $f \colon X \to \R$ achieves an
+\emph{\myindex{absolute minimum}} at $c \in X$ if
+\begin{equation*}
+f(x) \geq f(c) \qquad \text{ for all $x \in X$.}
+\end{equation*}
+On the other hand, $f$ achieves an 
+\emph{\myindex{absolute maximum}} at $c \in X$ if
+\begin{equation*}
+f(x) \leq f(c) \qquad \text{ for all $x \in X$.}
+\end{equation*}
+
+\begin{thm}
+Let $(X,d)$ and be a compact metric space,
+and $f \colon X \to \R$ is a continuous function.  Then
+$f(X)$ is compact and in fact
+$f$ achieves an absolute minimum and an absolute maximum on $X$.
+\end{thm}
+
+\begin{proof}
+As $X$ is compact and $f$ is continuous, we have
+that $f(X) \subset \R$ is compact.  Hence $f(X)$ is closed
+and bounded.  In particular,
+$\sup f(X) \in f(X)$ and
+$\inf f(X) \in f(X)$.  That is because both the sup and inf
+can be achieved by sequences in $f(X)$ and $f(X)$ is closed.
+Therefore there is some $x \in X$ such that $f(x) = \sup f(X)$
+and some $y \in X$ such that $f(y) = \inf f(X)$.
+\end{proof}
+
+\subsection{Continuity and topology}
+
+Let us see how to define continuity just in the terms of topology, that is,
+the open sets.  We have already seen that topology determines which 
+sequences converge, and so it is no wonder that the topology also
+determines continuity of functions.
+
+\begin{lemma} \label{lemma:mstopocontloc}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+A function $f \colon X \to Y$ is continuous at $c \in X$
+if and only if for every open neighbourhood $U$ of $f(c)$ in $Y$, the set
+$f^{-1}(U)$ contains an open neighbourhood of $c$ in $X$.
+\end{lemma}
+
+\begin{proof}
+Suppose that $f$ is continuous at $c$.  
+Let $U$ be an open neighbourhood of $f(c)$
+in $Y$, then $B_Y\bigl(f(c),\epsilon\bigr) \subset U$ for some $\epsilon >
+0$.  As $f$ is continuous, then there exists a $\delta > 0$
+such that whenever $x$ is such that $d_X(x,c) < \delta$, then
+$d_Y\bigl(f(x),f(c)\bigr) < \epsilon$.  In other words,
+\begin{equation*}
+B_X(c,\delta) \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) .
+\end{equation*}
+and $B_X(c,\delta)$ is an open neighbourhood of $c$.
+
+For the other direction,
+let $\epsilon > 0$ be given.  If
+$f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr)$ contains an open
+neighbourhood, it contains a ball, that is there is some $\delta > 0$
+such that
+\begin{equation*}
+B_X(c,\delta) \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) .
+\end{equation*}
+That means precisely that if $d_X(x,c) < \delta$ then $d_Y\bigl(f(x),f(c)\bigr)
+< \epsilon$ and so $f$ is continuous at $c$.
+\end{proof}
+
+\begin{thm} \label{thm:mstopocont}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.  A function $f \colon X \to Y$
+is continuous if and only if
+for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
+\end{thm}
+
+The proof follows from \lemmaref{lemma:mstopocontloc} and is left as
+an exercise.
+
+\subsection{Exercises}
+
+\begin{exercise}
+Consider $\N \subset \R$ with the standard metric.  Let $(X,d)$ be a
+metric space and $f \colon X \to \N$ a continuous function.  a) Prove that
+if $X$ is connected, then $f$ is constant (the range of $f$ is a single
+value).  b) Find an example where $X$ is disconnected and $f$ is not constant.
+\end{exercise}
+
+\begin{exercise}
+Let $f \colon \R^2 \to \R$ be defined by $f(0,0) := 0$, and
+$f(x,y) := \frac{xy}{x^2+y^2}$ if $(x,y) \not= (0,0)$.  a) Show that for any fixed $x$,
+the function that takes $y$ to $f(x,y)$ is continuous.  Similarly
+for any fixed $y$, the function that takes $x$ to $f(x,y)$ is continuous.
+b) Show that $f$ is not continuous.
+\end{exercise}
+
+\begin{exercise} 
+Suppose that $f \colon X \to Y$ is continuous for metric spaces $(X,d_X)$
+and $(Y,d_Y)$.  Let $A \subset X$.  a) Show that $f(\overline{A}) \subset
+\overline{f(A)}$.  b) Show that the subset can be proper.
+\end{exercise}
+
+\begin{exercise}
+Prove \thmref{thm:mstopocont}.  Hint: Use \lemmaref{lemma:mstopocontloc}.
+\end{exercise}
+
+\begin{exercise} \label{exercise:msconnconn}
+Suppose that $f \colon X \to Y$ is continuous for metric spaces $(X,d_X)$
+and $(Y,d_Y)$.  Show that if $X$ is connected, then $f(X)$ is connected.
+\end{exercise}
+
+\begin{exercise}
+Prove the following version of the
+intermediate value theorem.  Let $(X,d)$ be a connected
+metric space and $f \colon X \to \R$ a continuous function.  Suppose that
+there exist $x_0,x_1 \in X$ and $y \in \R$ such that $f(x_0) < y < f(x_1)$.
+Then prove that there exists a $z \in X$ such that $f(z) = y$.
+Hint: see \exerciseref{exercise:msconnconn}.
+\end{exercise}
+
+\begin{exercise}
+A continuous function $f \colon X \to Y$ for metric spaces $(X,d_X)$ and
+$(Y,d_Y)$ is said to be \emph{\myindex{proper}}
+if for every compact set $K \subset Y$, the set $f^{-1}(K)$ is compact.
+Suppose that a continuous $f \colon (0,1) \to (0,1)$ is proper and $\{ x_n
+\}$ is a sequence in $(0,1)$ that converges to $0$.  Show that
+$\{ f(x_n) \}$ has no subsequence that converges in $(0,1)$.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric space and
+$f \colon X \to Y$ be a one to one and onto continuous function.  Suppose
+that $X$ is compact.  Prove that the inverse $f^{-1} \colon Y \to X$
+is continuous.
+\end{exercise}
+
+\begin{exercise}
+Take the metric space of continuous functions $C([0,1])$.  Let
+$k \colon [0,1] \times [0,1] \to \R$ be a continuous function.
+Given $f \in C([0,1])$ define
+\begin{equation*}
+\varphi_f(x) := \int_0^1 k(x,y) f(y) ~dy .
+\end{equation*}
+a) Show that $T(f) := \varphi_f$ defines a function $T \colon C([0,1]) \to
+C([0,1])$.
+b) Show that $T$ is continuous.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Fixed point theorem and Picard's theorem again}
+\label{sec:metpicard}
+
+\sectionnotes{1--1.5 lecture (optional)}
+
+In this section we prove a fixed point theorem for contraction
+mappings.  As an application we prove Picard's theorem.  We have proved
+Picard's theorem without metric spaces in \sectionref{sec:picard}.
+The proof we present here is similar, but the proof goes a lot
+smoother by using metric space concepts and the fixed point theorem.
+For more examples on using Picard's theorem see \sectionref{sec:picard}.
+
+\begin{defn}
+Let $(X,d)$ and $(X',d')$ be metric spaces.
+$F \colon X \to X'$ is said to be a \emph{contraction}
+(or a contractive map) if it is
+a $k$-Lipschitz map for some $k < 1$, i.e.\ if there exists a $k < 1$ such that
+\begin{equation*}
+d'\bigl(F(x),F(y)\bigr) \leq k d(x,y)
+\ \ \ \ \text{for all } x,y \in X.
+\end{equation*}
+
+\medskip
+
+If $T \colon X \to X$ is a map, $x \in X$ is called a \emph{fixed point}
+if $T(x)=x$.
+\end{defn}
+
+\begin{thm}%
+[\myindex{Contraction mapping principle} or \myindex{Fixed point theorem}]
+\label{thm:contr}
+Let $(X,d)$ be a nonempty complete metric space and $T \colon X \to X$ is a
+contraction.
+Then $T$ has a fixed point.
+\end{thm}
+
+Note that the words \emph{complete} and \emph{contraction} are necessary.
+See \exerciseref{exercise:nofixedpoint}.
+
+\begin{proof}
+Pick any $x_0 \in X$.
+Define a sequence $\{ x_n \}$ by $x_{n+1} := T(x_n)$.
+\begin{equation*}
+d(x_{n+1},x_n) = d\bigl(T(x_n),T(x_{n-1})\bigr)
+\leq k d(x_n,x_{n-1})
+\leq \cdots
+\leq k^n d(x_1,x_0) .
+\end{equation*}
+So let $m \geq n$
+\begin{equation*}
+\begin{split}
+d(x_m,x_n)
+& \leq \sum_{i=n}^{m-1} d(x_{i+1},x_i) \\
+& \leq \sum_{i=n}^{m-1} k^i d(x_1,x_0) \\
+& = k^n d(x_1,x_0) \sum_{i=0}^{m-n-1} k^i \\
+& \leq k^n d(x_1,x_0) \sum_{i=0}^{\infty} k^i
+= k^n d(x_1,x_0) \frac{1}{1-k} .
+\end{split}
+\end{equation*}
+In particular the sequence is Cauchy.  Since $X$ is complete
+we let $x := \lim_{n\to \infty} x_n$ and claim that $x$
+is our unique fixed point.
+
+Fixed point?  Note that $T$ is continuous because it is a contraction.
+Hence
+\begin{equation*}
+T(x) = \lim T(x_n) = \lim x_{n+1} = x .
+\end{equation*}
+
+Unique?  Let $y$ be a fixed point.
+\begin{equation*}
+d(x,y) = d\bigl(T(x),T(y)\bigr) = k d(x,y) .
+\end{equation*}
+As $k < 1$ this means that $d(x,y) = 0$ and hence $x=y$.  The theorem is
+proved.
+\end{proof}
+
+Note that the proof is constructive.  Not only do we know that
+a unique fixed point exists.  We also know how to find it.  Let us use the
+theorem
+to prove the classical Picard theorem on the existence and uniqueness of
+ordinary differential equations.
+
+Consider the equation
+\begin{equation*}
+\frac{dx}{dt} = F(t,x) .
+\end{equation*}
+Given some $t_0, x_0$ we are looking for a function $f(t)$ such that
+$f'(t_0) = x_0$ and such that
+\begin{equation*}
+f'(t) = F\bigl(t,f(t)\bigr) .
+\end{equation*}
+There are some subtle issues.
+Look at the equation $x' = x^2$, $x(0)=1$.  Then $x(t) = \frac{1}{1-t}$ is a
+solution.  While $F$ is a reasonably ``nice'' function and in particular
+exists for all $x$ and $t$, the solution ``blows up'' at $t=1$.
+
+\begin{thm}[Picard's theorem on existence and uniqueness]%
+\index{existence and uniqueness theorem}\index{Picard's theorem}
+Let $I, J \subset \R$ be compact intervals and let $I_0$ and $J_0$
+be their interiors.
+Suppose $F \colon I \times J \to \R$ is continuous
+and Lipschitz in the second variable, that is, there exists
+$L \in \R$ such that
+\begin{equation*}
+\abs{F(t,x) - F(t,y)} \leq L \abs{x-y}
+\ \ \ \text{ for all $x,y \in J$, $t \in I$} .
+\end{equation*}
+Let $(t_0,x_0) \in I_0 \times J_0$.
+Then there exists $h > 0$ and a unique differentiable
+$f \colon [t_0 - h, t_0 + h] \to \R$, such that
+$f'(t) = F\bigl(t,f(t)\bigr)$ and $f(t_0) = x_0$.
+\end{thm}
+
+\begin{proof}
+Without loss of generality assume $t_0 =0$.
+Let $M := \sup \{ \abs{F(t,x)} : (t,x) \in I\times J \}$.  As $I \times J$ is
+compact, $M < \infty$.  Pick $\alpha > 0$ such that
+$[-\alpha,\alpha] \subset I$ and $[x_0-\alpha, x_0 + \alpha] \subset J$.
+Let
+\begin{equation*}
+h := \min \left\{ \alpha, \frac{\alpha}{M+L\alpha} \right\} .
+\end{equation*}
+Note $[-h,h] \subset I$.  Define the set
+\begin{equation*}
+Y := \{ f \in C([-h,h]) : f([-h,h]) \subset [x_0-\alpha,x_0+\alpha] \} .
+\end{equation*}
+Here $C([-h,h])$ is equipped with the standard metric $d(f,g) := 
+\sup \{ \abs{f(x)-g(x)} : x \in [-h,h] \}$.  With this metric
+we have shown in an exercise that $C([-h,h])$ is a complete metric space.
+
+\begin{exercise}
+Show that $Y \subset \C([-h,h])$ is closed.
+\end{exercise}
+
+Define a mapping
+$T \colon Y \to C([-h,h])$ by
+\begin{equation*}
+T(f)(t)
+:=
+x_0 + \int_0^t F\bigl(s,f(s)\bigr)~ds .
+\end{equation*}
+
+\begin{exercise}
+Show that $T$ really maps into $C([-h,h])$.
+\end{exercise}
+
+Let $f \in Y$ and $\abs{t} \leq h$.
+As $F$ is bounded by $M$ we have
+\begin{equation*}
+\begin{split}
+\abs{T(f)(t) - x_0}
+&= \abs{\int_0^t F\bigl(s,f(s)\bigr)~ds} \\
+& \leq 
+\abs{t}M \leq hM \leq \alpha .
+\end{split}
+\end{equation*}
+Therefore, $T(Y) \subset Y$.  We can thus consider
+$T$ as a mapping of $Y$ to $Y$.
+
+We claim $T$ is a contraction.  First, for $t \in [-h,h]$
+and $f,g \in Y$ we have
+\begin{equation*}
+\abs{F\bigl(t,f(t)\bigr) - F\bigl(t,g(t)\bigr)} \leq
+L\abs{f(t)- g(t)} \leq L \, d(f,g) .
+\end{equation*}
+Therefore,
+\begin{equation*}
+\begin{split}
+\abs{T(f)(t) - T(g)(t)}
+&= \abs{\int_0^t F\bigl(s,f(s)\bigr) - F\bigl(s,g(s)\bigr)~ds} \\
+& \leq \abs{t} L \, d(f,g) \\
+& \leq h L\, d(f,g) \\
+& \leq \frac{L\alpha}{M+L\alpha} \, d(f,g) .
+\end{split}
+\end{equation*}
+We can assume $M > 0$ (why?).
+Then $\frac{L\alpha}{M+L\alpha} < 1$ and the claim is proved.
+
+Now apply the fixed point theorem (\thmref{thm:contr})
+to find a unique $f \in Y$ such that $T(f) = f$, that is,
+\begin{equation*}
+f(t) = x_0 + \int_0^t F\bigl(s,f(s)\bigr)~ds .
+\end{equation*}
+By the fundamental theorem of calculus, $f$ is differentiable and
+$f'(t) = F\bigl(t,f(t)\bigr)$.
+\begin{exercise}
+We have shown that $f$ is the unique function in $Y$.  Why is it the unique
+continuous function $f \colon [-h,h] \to J$ that solves $T(f)=f$?  Hint:
+Look at the last estimate in the proof.
+\end{exercise}
+\end{proof}
+
+\subsection{Exercises}
+
+\begin{exercise}
+Suppose $X = X' = \R$ with the standard metric.  Let $0 < k < 1$, $b \in \R$.
+a) Show that the map $F(x) = kx + b$ is a contraction.  b) Find the fixed
+point and show directly that it is unique.
+\end{exercise}
+
+\begin{exercise}
+Suppose $X = X' = [0,\nicefrac{1}{4}]$ with the standard metric.
+a) Show that the map
+$F(x) = x^2$ is a contraction, and find the best (largest) $k$ that works.
+b) Find the fixed point and show directly that it is unique.
+\end{exercise}
+
+\begin{exercise} \label{exercise:nofixedpoint}
+a) Find an example of a contraction of non-complete metric space with no fixed point.
+b) Find a 1-Lipschitz map of a complete metric space with no fixed point.
+\end{exercise}
+
+\begin{exercise}
+Consider $x' =x^2$, $x(0)=1$.  Start with $f_0(t) = 1$.  Find a 
+few iterates (at least up to $f_2$).  Prove that
+the limit of $f_n$ is $\frac{1}{1-t}$.
+\end{exercise}
+
+
+\end{document}
