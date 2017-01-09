@@ -580,46 +580,50 @@ finding errors and typos.
 \sectionnewpage
 \section{About analysis} \label{sec:aboutra}
 
-Analysis is the branch of mathematics that deals with inequalities and
-limits.  The present course deals with the most basic 
-concepts in analysis.  The goal of the course is to acquaint the reader
+Analysis is the branch of mathematics that deals with inequalities and limits.  
+The present course deals with the most basic 
+concepts in analysis.  
+The goal of the course is to acquaint the reader
 with rigorous proofs in analysis and also to
 set a firm foundation for calculus of one variable.
 
 Calculus has prepared you, the student, for using mathematics without telling
-you why what you learned is true.  To use, or teach, mathematics
+you why what you learned is true.  
+To use, or teach, mathematics
 effectively, you cannot simply know \emph{what} is true, you must know
-\emph{why} it is true.  This course shows you \emph{why} calculus
-is true.  It is here to give you a good understanding of the concept of a
-limit, the derivative, and the integral.
+\emph{why} it is true.  
+This course shows you \emph{why} calculus
+is true.  
+It is here to give you a good understanding of the concept of a limit, the derivative, and the integral.
 
 Let us use an analogy.
-An auto mechanic that has learned to change the oil, fix broken headlights,
-and charge the battery, will only be able to do those simple tasks.  He
-will be unable to work independently to diagnose and fix problems.
-A high school teacher that does not understand the definition of the Riemann
-integral or the derivative may not be able to properly answer all the
-students' questions.
-To this day I remember several nonsensical statements I heard
-from my calculus teacher in high school, who simply did not understand
-the concept of the limit, though he could ``do'' all problems in calculus.
+An auto mechanic that has learned to change the oil, fix broken headlights, and charge the battery, will only be able to do those simple tasks.  
+He will be unable to work independently to diagnose and fix problems.
+%A high school teacher that does not understand the definition of the Riemann integral or the derivative may not be able to properly answer all the students' questions.
+%To this day I remember several nonsensical statements I heard from my calculus teacher in high school, who simply did not understand the concept of the limit, though he could ``do'' all problems in calculus.
 
 \medskip
 
 We start with a discussion of the real number system, most importantly
 its completeness property, which is the basis for all that comes after.
 We then discuss the simplest form of a limit,
-the limit of a sequence.  Afterwards, we study
+the limit of a sequence.  
+Afterwards, we study
 functions of one variable, continuity, and the derivative.
 Next, we define the Riemann integral and prove the fundamental theorem of
-calculus.  We discuss sequences of functions and the
-interchange of limits.  Finally, we give an introduction to metric
+calculus.  
+We discuss sequences of functions and the
+interchange of limits.  
+Finally, we give an introduction to metric
 spaces.
 
 Let us give the most important difference between analysis and
-algebra.  In algebra, we prove equalities directly; we prove that
-an object, a number perhaps, is equal to another object.  In analysis,
-we usually prove inequalities.  To illustrate the point, consider the
+algebra.  
+In algebra, we prove equalities directly; we prove that
+an object, a number perhaps, is equal to another object.  
+In analysis, we usually prove inequalities.  
+
+To illustrate the point, consider the
 following statement.
 
 \medskip
@@ -672,12 +676,12 @@ This section should be thought of as a refresher.
 
 \subsection{Sets}
 
-\begin{defn}
 A \emph{\myindex{set}} is a collection of objects called
 \emph{elements}\index{element} or \emph{members}\index{member}.  A set with
 no objects is called the \emph{\myindex{empty set}} and is denoted by
 $\emptyset$ (or sometimes by $\{ \}$).
-\end{defn}
+
+\medskip
 
 Think of a set as a club with a certain membership.  For
 example, the students who play chess are members of the chess club.  However,
@@ -716,9 +720,10 @@ A set may also contain some of the same elements as another set.  For example,
 \begin{equation*}
 T := \{ 0, 2 \}
 \end{equation*}
-contains the numbers 0 and 2.  In this case all elements of $T$ also
-belong to $S$.  We write $T \subset S$.  More formally we make the
-following definition.
+contains the numbers 0 and 2.  
+In this case each element of $T$ also belongs to $S$.  
+We write $T \subset S$.  
+More formally we make the following definition.
 
 \begin{defn}
 {\ }
@@ -743,13 +748,16 @@ For example, for $S$ and $T$ defined above $T \subset S$, but
 $T \not= S$.  So $T$ is a proper subset of $S$.
 If $A = B$, then $A$ and $B$ are simply two names for the
 same exact set.
+
 Let us mention the
 \emph{\myindex{set building notation}},
 \begin{equation*}
 \{ x \in A : P(x) \} .
 \end{equation*}
 This notation refers to a subset of the set $A$ containing all elements
-of $A$ that satisfy the property $P(x)$.  The notation is sometimes
+of $A$ that satisfy the property $P(x)$. 
+%???AN EXAMPLE IS NEEDED RIGHT HERE
+The notation is sometimes
 abbreviated, $A$ is not mentioned when understood from context.
 Furthermore, $x \in A$ is sometimes replaced with a formula to make the notation
 easier to read.  
@@ -786,6 +794,9 @@ An \emph{\myindex{intersection}} of two sets $A$ and $B$ is defined as
 A \cap B := \{ x : x \in A \text{ and } x \in B \} .
 \end{equation*}
 \item
+We say sets $A$ and $B$ are \emph{\myindex{disjoint}} if $A \cap B =
+\emptyset$.
+\item
 A \emph{complement of $B$ relative to $A$\index{complement relative to}}
 (or \emph{\myindex{set-theoretic difference}} of $A$ and $B$) is defined as
 \begin{equation*}
@@ -796,9 +807,6 @@ We say
 \emph{\myindex{complement}} of $B$ and write $B^c$ instead of $A \setminus B$ if
 the set $A$ is either the entire universe or is the obvious
 set containing $B$, and is understood from context.
-\item
-We say sets $A$ and $B$ are \emph{\myindex{disjoint}} if $A \cap B =
-\emptyset$.
 \end{enumerate}
 \end{defn}
 
@@ -954,14 +962,19 @@ Then $P(n)$ is true for all $n \in \N$.
 
 \begin{proof}
 Suppose $S$ is the set of natural numbers $m$ for which $P(m)$ is
-not true.  Suppose
-$S$ is nonempty.  Then $S$ has a least element by the well ordering
-property.  Let us call $m$ the least element of $S$.  We know $1 \notin
-S$ by assumption.  Therefore $m > 1$ and $m-1$ is a natural number as well.
+not true.  
+
+Suppose $S$ is nonempty.  
+Then $S$ has a least element by the well ordering property.  
+Let us call $m$ the least element of $S$. 
+
+We know $1 \notin S$ by assumption.  Therefore $m > 1$ and $m-1$ is a natural number as well.
+
 Since $m$ was the least element of $S$, we know that $P(m-1)$ is true.
 But by the induction step we see that $P(m-1+1) = P(m)$ is true, 
-contradicting the statement that $m \in S$.  Therefore $S$ is empty and 
-$P(n)$ is true for all $n \in \N$.
+contradicting the statement that $m \in S$.  
+
+Therefore $S$ is empty and $P(n)$ is true for all $n \in \N$.
 \end{proof}
 
 Sometimes it is convenient to start at a different number than 1, but 
@@ -973,7 +986,7 @@ is usually called the \emph{\myindex{induction hypothesis}}.
 \begin{example}
 Let us prove that for all $n \in \N$,
 \begin{equation*}
-2^{n-1} \leq n! .
+2^{n-1} \leq n! := 1\cdot 2\cdots n.
 \end{equation*}
 We let $P(n)$ be the statement that
 $2^{n-1} \leq n!$ is true.  By plugging in $n=1$, we see that $P(1)$
@@ -1000,7 +1013,6 @@ We claim that for all $c \not= 1$,
 \begin{equation*}
 1 + c + c^2 + \cdots + c^n = \frac{1-c^{n+1}}{1-c} .
 \end{equation*}
-
 Proof: It is easy to check that the equation holds with $n=1$.  Suppose 
 it is true for $n$.  Then
 \begin{equation*}
@@ -1014,8 +1026,9 @@ it is true for $n$.  Then
 \end{equation*}
 \end{example}
 
-There is an equivalent principle called strong induction.  The proof that
-strong induction is equivalent to induction is left as an exercise.
+Some times it is easier to prove inductive step all the statements $P(k)$ is true for all $k = 1,2,\ldots,n$.
+This is called \emph{strong induction} and it is equivalent to the standard induction.  
+The proof that of the equivalence is left as an exercise.
 
 \begin{thm}[Principle of strong induction]
 \index{principle of strong induction}
@@ -1033,9 +1046,11 @@ Informally,
 a \emph{\myindex{set-theoretic function}}\index{function}
 $f$ taking a set $A$ to a set $B$
 is a mapping that to each $x \in A$ assigns a unique $y \in B$.  We write
-$f \colon A \to B$.  For example, we
-define a function $f \colon S \to T$ taking $S = \{ 0, 1, 2 \}$ to $T = \{ 0, 2 \}$
-by assigning $f(0) := 2$, $f(1) := 2$, and $f(2) := 0$.  That is, a function $f
+$f \colon A \to B$.  
+
+For example, we may define a function $f \colon S \to T$ taking $S = \{ 0, 1, 2 \}$ to $T = \{ 0, 2 \}$
+by assigning $f(0) := 2$, $f(1) := 2$, and $f(2) := 0$.  
+That is, a function $f
 \colon A \to B$ is
 a black box, into which we stick an element of $A$ and the function
 spits out an element of $B$.
@@ -1050,7 +1065,7 @@ The subtle issue here is that a single function can have several different
 formulas, all giving the same function.  Also, for many functions, there is
 no formula that expresses its values.
 
-To define a function rigorously first let us define the Cartesian product.
+To define a function in a more rigorous way, first let us define the Cartesian product.
 
 \begin{defn}
 Let $A$ and $B$ be sets.  The \emph{\myindex{Cartesian product}}
@@ -1070,9 +1085,7 @@ such a product.  For example $[0,1]^2 =
 \begin{defn}
 A \emph{function} $f \colon A \to B$ is a subset $f$ of $A \times B$
 such that for each $x \in A$, there is a unique $(x,y) \in f$.  We then
-write $f(x) = y$.  Sometimes
-the set $f$ is called the \emph{\myindex{graph}} of the function rather than
-the function itself.
+write $f(x) = y$.  
 
 The set $A$ is called the \emph{\myindex{domain}} of $f$ (and
 sometimes confusingly denoted $D(f)$).  The set
@@ -1084,6 +1097,10 @@ $f(x)=y$
 \end{equation*}
 is called the \emph{\myindex{range}} of $f$.
 \end{defn}
+
+Sometimes
+the set $f$ is called the \emph{\myindex{graph}} of the function rather than
+the function itself.
 
 Note that $R(f)$ can possibly be a proper subset of $B$,
 while the domain of $f$ is always equal to $A$.  We usually 
@@ -1144,8 +1161,7 @@ equality.
 The rest of the proof is left as an exercise.
 \end{proof}
 
-The proposition does not hold for direct images.  We do have
-the following weaker result.
+For direct images we have the following weaker result.
 
 \begin{prop} \label{st:propfor}
 Let $f \colon A \to B$.  Let $C, D$ be subsets of $A$.  Then
@@ -1183,6 +1199,7 @@ $f^{-1} \colon B \to A$.
 In this case, we call $f^{-1}$ the \emph{\myindex{inverse function}} of $f$.
 For example, for the bijection $f \colon \R \to \R$ defined by $f(x) := x^3$ we have
 $f^{-1}(x) = \sqrt[3]{x}$.
+%???I WOULD CHANGE TO f(x)=2x SINCE SOMETIMES CUBIC ROOT IS DEFINED ONLY FOR POSITIVE NUMBERS.
 
 A final piece of notation for functions that
 we need is the \emph{\myindex{composition of functions}}.
@@ -1197,18 +1214,21 @@ $g \circ f \colon A \to C$ is defined as
 
 \subsection{Cardinality}
 
-A subtle issue in set theory and one generating a considerable amount of
-confusion among students is that of cardinality, or ``size'' of sets.  The
-concept of cardinality is important in modern mathematics in general and
-in analysis in particular.  In this section, we will see the first really
-unexpected theorem.
+A subtle issue in set theory and one generating a considerable amount of confusion among students is that of cardinality, or ``size'' of sets.  
+The concept of cardinality is important in modern mathematics in general  and in analysis in particular.  
+In this section, we will see the first truly meaningful theorem.
 
 \begin{defn}
 Let $A$ and $B$ be sets.  We say $A$ and $B$ have the same
 \emph{\myindex{cardinality}}
-when there exists a bijection $f \colon A \to B$.  We denote
-by $\abs{A}$ the equivalence class of all sets with the same cardinality as
-$A$ and we simply call $\abs{A}$ the cardinality of $A$.
+when there exists a bijection $f \colon A \to B$.  
+In this case we write $\abs{A}=\abs{B}$.
+
+More precisely,
+the existence of bijection between the sets is 
+an \emph{equivalence relation} and $\abs{A}$ denotes the \emph{equivalence class} of this relation. 
+The class $\abs{A}$ is called the \emph{cardinality} of $A$.
+%???EQUUVALENCE RELATION IS NOT DEFINED, AND MAYBE IT SHOULD BE...
 \end{defn}
 
 Note that $A$ has the same cardinality as the empty set if and only
@@ -1306,8 +1326,8 @@ the sequel, and as the proof requires the
 Cantor--Bernstein--Schroeder theorem mentioned above, we will not give it
 here.
 
-We give the first truly striking result.  First, we need a notation for
-the set of all subsets of a set.
+We are about to give the first truly striking result.  
+First, we need a notation for the set of all subsets of a set.
 
 \begin{defn}
 If $A$ is a set,
@@ -1335,8 +1355,9 @@ $A$ onto $\sP(A)$.
 
 \begin{proof}
 There exists an injection $f \colon A \to \sP(A)$.
-For any $x \in A$, define $f(x) := \{ x \}$.  Therefore
-$\abs{A} \leq \abs{\sP(A)}$.
+For any $x \in A$, define $f(x) := \{ x \}$;
+that is $f(x)$ is the set containing single element $x$. 
+Therefore $\abs{A} \leq \abs{\sP(A)}$.
 
 To finish the proof, we must show that
 no function $f \colon A \to \sP(A)$ is a surjection.
@@ -1347,12 +1368,16 @@ $f(x)$ is a subset of $A$.  Define the set
 B := \{ x \in A : x \notin f(x) \} .
 \end{equation*}
 We claim that $B$ is not in the range of $f$ and hence $f$ is not a
-surjection.  Suppose there exists an $x_0$ such that $f(x_0) = B$.
-Either $x_0 \in B$ or $x_0 \notin B$.  If $x_0 \in B$, then $x_0 \notin
-f(x_0) = B$, which is a contradiction.  If $x_0 \notin B$, then $x_0 \in
-f(x_0) = B$, which is again a contradiction.  Thus such an $x_0$ does not
-exist.  Therefore, $B$ is not in the range of $f$, and $f$ is not a
-surjection.  As $f$ was an arbitrary function, no surjection exists.
+surjection.  
+Suppose there exists an $x_0$ such that $f(x_0) = B$.
+Either $x_0 \in B$ or $x_0 \notin B$.  
+If $x_0 \in B$, then $x_0 \notin f(x_0) = B$, which is a contradiction.  
+If $x_0 \notin B$, then $x_0 \in f(x_0) = B$, which is again a contradiction.  
+Thus such an $x_0$ does not exist.  
+Therefore, $B$ is not in the range of $f$, and $f$ is not a
+surjection.  
+
+As $f$ was an arbitrary function, no surjection exists.
 \end{proof}
 
 One particular consequence of this 
@@ -1496,11 +1521,9 @@ Find all $n \in \N$ such that $n^2 < 2^n$.
 \end{exercise}
 
 \begin{exercise}
-Finish the proof that the \hyperref[induction:thm]{principle of induction}
-is equivalent to the
-\hyperlink{wop:link}{well ordering property} of $\N$.  That is,
-prove the well ordering property for $\N$ using the principle of
-induction.
+Finish the proof that the \hyperref[induction:thm]{principle of induction} is equivalent to the
+\hyperlink{wop:link}{well ordering property}  of $\N$.  
+That is, prove the well ordering property for $\N$ using the principle of induction.
 \end{exercise}
 
 
@@ -1620,15 +1643,19 @@ is sometimes called the \emph{\myindex{completeness property}} or the
 \emph{\myindex{Dedekind completeness property}}.
 
 \begin{example}
-The set $\Q$ of rational numbers does not have the least-upper-bound property.  The subset
-$\{ x \in \Q : x^2 < 2 \}$ does not have a supremum in $\Q$.  The obvious
-supremum $\sqrt{2}$ is not rational.  Suppose $x \in \Q$ such that $x^2 = 2$.
+The set $\Q$ of rational numbers does not have the least-upper-bound property.  
+The subset
+$\{ x \in \Q : x^2 < 2 \}$ does not have a supremum in $\Q$.  
+(Informally speaking, we need to show that $\sqrt{2}$ is not rational.)
+
+Suppose $x \in \Q$ such that $x^2 = 2$.
 Write $x=\nicefrac{m}{n}$ in lowest terms.  So ${(\nicefrac{m}{n})}^2 = 2$
 or
-$m^2 = 2n^2$.  Hence $m^2$ is divisible by 2 and so $m$ is divisible by
-2.  Write $m = 2k$ and so ${(2k)}^2 = 2n^2$.  Divide by 2
-and note that $2k^2 = n^2$, and hence $n$ is divisible by 2.  But that is a
-contradiction as $\nicefrac{m}{n}$ was in lowest terms.
+$m^2 = 2n^2$.  
+Hence $m^2$ is divisible by 2 and so $m$ is divisible by
+2.  Write $m = 2k$ and so ${(2k)}^2 = 2n^2$.  
+Divide by 2 and note that $2k^2 = n^2$, and hence $n$ is divisible by 2.
+But that is a contradiction as $\nicefrac{m}{n}$ was in lowest terms.
 \end{example}
 
 That $\Q$ does not have the least-upper-bound property is one of the most
@@ -1773,8 +1800,10 @@ Hence we assume that $x$ and $y$ are nonzero,
 and we simply need to show that if they have opposite signs, then
 $xy < 0$.
 Without loss of
-generality suppose $x > 0$ and $y < 0$.  Multiply $y < 0$ by $x$ to get
-$xy < 0x = 0$.  The result follows by contrapositive.
+generality suppose $x > 0$ and $y < 0$.  
+Multiply $y < 0$ by $x$ to get
+$xy < x0 = 0$.  
+The result follows by contrapositive.
 \end{proof}
 
 \begin{example}
@@ -1908,8 +1937,9 @@ $\epsilon > 0$, then $x = 0$.
 \begin{proof}
 %If $x > 0$, then taking
 %$\epsilon = x$ we get the contradiction $x < x$.  Therefore $x=0$.
-If $x > 0$, then $0 < \nicefrac{x}{2} < x$ (why?).  Taking
-$\epsilon = \nicefrac{x}{2}$ obtains a contradiction.  Thus $x=0$.
+If $x > 0$, then $0 < \nicefrac{x}{2} < x$ (why?).  
+Taking $\epsilon = \nicefrac{x}{2}$ obtains a contradiction.  
+Thus $x=0$.
 \end{proof}
 
 A related simple fact is that 
@@ -1950,11 +1980,11 @@ equality, by showing two inequalities.
 We already know that $r \geq 1 > 0$.
 
 %\medskip
-In the following, it may seem we are pulling certain expressions out of
+(In the following, it may seem we are pulling certain expressions out of
 a hat.  When writing a proof such as this we would, of course, come up with
 the expressions only after playing around with what we wish to prove.  The
 order in which we write the proof is not necessarily the order in which we
-come up with the proof.
+come up with the proof.)
 
 Let us first show that $r^2 \geq 2$.
 Take a positive number $s$ such that $s^2 < 2$.  We wish to find an $h > 0$
@@ -2010,11 +2040,10 @@ $0 < r < s$ implies $r^2 < s^2$.  Hence $s = r$.
 \end{proof}
 \end{example}
 
-The number $\sqrt{2} \notin \Q$.  The set
-$\R \setminus \Q$ is called the set of
-\emph{\myindex{irrational}} numbers.  We just saw that $\R \setminus \Q$
-is nonempty.  Not only is it nonempty, we will see later that is it very
-large indeed.
+The number $\sqrt{2} \notin \Q$.  
+The complement $\R \setminus \Q$ is called the set of \emph{\myindex{irrational}} numbers.  
+We just saw that $\R \setminus \Q$ is nonempty.  
+Not only is it nonempty, we will see later that is it very large.
 
 Using the same technique as above, we can show that a positive real
 number $x^{1/n}$ exists for all $n\in \N$ and all $x > 0$.
