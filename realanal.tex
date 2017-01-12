@@ -1903,26 +1903,44 @@ Show that $A$ has a supremum and find what it is.
 
 \subsection{The set of real numbers}
 
-We finally get to the real number system.  To simplify matters, instead of constructing the
-real number set from the rational numbers, we simply state their existence
-as a theorem without proof.  Notice that $\Q$ is an ordered
-field.
+We finally get to the real number system.  
+
+\begin{defn}
+An ordered field with the \hyperref[defn:lub]{least-upper-bound property} is called the \emph{field of real numbers}. 
+It will be further denoted as $\R$.
+\end{defn}
+
+The existence of ordered field with the least-upper-bound property is by no means obvious.
+Ususally it is proved by constructing it from the rational numbers, 
+we simply state their existence as a theorem without proof.
 
 \begin{thm}
-There exists a unique\footnote{Uniqueness is up to isomorphism, but we wish
-to avoid excessive use of algebra.  For us, it is simply enough to assume
-that a set of real numbers exists.  See Rudin~\cite{Rudin:baby} for the
-construction and more details.}
-ordered field $\R$ with the \hyperref[defn:lub]{least-upper-bound property}
-such that $\Q \subset \R$.
+There exists an
+ordered field with the \hyperref[defn:lub]{least-upper-bound property}.
+
 \end{thm}
 
-Note that also $\N \subset \Q$.  We saw that $1 > 0$.  By
-\hyperref[induction:thm]{induction}
+In fact such field is unique;
+here uniqueness understood is up to \emph{isomorphism}, but we wish to avoid excessive use of algebra.
+For us, it is simply enough to assume that a set of real numbers exists.  
+See Rudin~\cite{Rudin:baby} for the construction and more details.
+
+In an ordered field we saw that $1 > 0$.
+By \hyperref[induction:thm]{induction}
 (exercise) we can prove that
-$n > 0$ for all $n \in \N$.  Similarly we can
-easily verify all the statements we know about rational numbers and their
-natural ordering.
+\[n=\underbrace{1+\dots +1}_{\text{$n$ times}}> 0\] 
+for all $n \in \N$ and all these numbers are different in $\R$.
+In particular, $\N\subset \R$; that is, the field of real numbers contains natural numbers.
+Further, since $\R$ is a field it must contain all the integers and rational numbers;
+this can be shown by taking the differences of natural numbers and then by taking all possible fractions.
+This discussion leads to the following theorem which we also leave without formal proof.
+
+\begin{thm}
+The field of real numbers contains
+the field of rational numbers%
+\footnote{More formally, ``contains an isomorphic copy of the field of rational numbers''}; 
+that is $\Q \subset \R$.
+\end{thm}
 
 Let us prove one of the most basic but useful results about the real numbers.
 The following proposition is essentially how an analyst proves that a number
@@ -1993,7 +2011,7 @@ As $2-s^2 > 0$, we have $\frac{2-s^2}{2s+1} > 0$.
 We choose an $h \in \R$ such that
 $0 < h < \frac{2-s^2}{2s+1}$.
 Furthermore, we assume $h < 1$.
-
+Note that
 \begin{equation*}
 \begin{aligned}
 {(s+h)}^2 - s^2 & = h(2s + h) \\
@@ -2003,7 +2021,9 @@ Furthermore, we assume $h < 1$.
 \end{equation*}
 Therefore, ${(s+h)}^2 < 2$.  Hence $s+h \in A$, but as $h > 0$
 we have $s+h > s$.  So $s < r = \sup\, A$.  As $s$ was an arbitrary
-positive number such that $s^2 < 2$, it follows that $r^2 \geq 2$.
+positive number such that $s^2 < 2$. 
+
+It follows that $r^2$ can not be smaller than 2 and therefore $r^2 \geq 2$.
 
 %\medskip
 
