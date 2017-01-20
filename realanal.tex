@@ -1826,11 +1826,11 @@ Prove part \ref{prop:bordfield:iii} of \propref{prop:bordfield}.
 
 
 \begin{exercise} \label{exercise:finitesethasminmax}
-Let $S$ be an ordered set.  Let $A \subset S$ be a nonempty finite subset.
-Then $A$ is bounded.  Furthermore,
-$\inf\, A$ exists and is in $A$ and 
-$\sup\, A$ exists and is in $A$.  Hint: Use
-\hyperref[induction:thm]{induction}.
+Let $S$ be an ordered set.  
+Let $A \subset S$ be a nonempty finite subset.
+Then $A$ is bounded.  
+Furthermore, $\inf\, A$ exists and is in $A$ and $\sup\, A$ exists and is in $A$.  
+Hint: Use \hyperref[induction:thm]{induction}.
 \end{exercise}
 
 \begin{exercise}
@@ -2081,71 +2081,81 @@ The proof is left as an exercise.
 \subsection{Archimedean property}
 
 The following is one of the fundamental facts about the real numbers.
-The two parts of the next theorem esily follow from eachother, 
+
+\begin{thm}\label{thm:arch:i}
+The set of natural numbers $\N$ is unbounded in $\R$.
+
+In particular, if $x, y \in \R$ and
+$x > 0$, then there exists an $n \in \N$ such that
+\end{thm}
+
+The second statement in the theorem is called \myindex{Archimedean property}.%
+\footnote{It appears as Axiom V of Archimedes' ``On the Sphere and Cylinder'' 225 BC.}
+
+
+\begin{proof}
+Arguing by contradiction, suppose that $\N$ is bounded above.  
+Let $b := \sup \N$.
+The number $b-1$ cannot possibly be an upper bound for $\N$ as it is strictly less than $b$ (the supremum).  
+Thus there exists an $m \in \N$ such that $m > b-1$.
+We add one to obtain $m+1 > b$, which contradicts $b$ being an upper bound.
+
+In particular there is a natural number $n$ such that $n>\nicefrac{y}{x}$.
+Hence $nx>y$.
+\end{proof}
+
+The following theorem says that set or rational numbers is \emph{dense} in reals.
+The theorems \ref{thm:arch:i} and \ref{thm:arch:ii} esily follow from each other, 
 even though it may not seem like that at first sight.
 
-\begin{thm} \label{thm:arch}
-{\ }
-\begin{enumerate}[(i)]
-\item \label{thm:arch:i} \emph{(\myindex{Archimedean property})} If $x, y \in \R$ and
-$x > 0$, then there exists an $n \in \N$ such that
-\begin{equation*}
-nx > y .
-\end{equation*}
-\item \label{thm:arch:ii} \emph{($\Q$ is dense in $\R$\index{density of
+\begin{thm} \label{thm:arch:ii} \emph{($\Q$ is dense in $\R$\index{density of
 rational numbers})} If $x, y \in \R$ and
 $x < y$, then there exists an $r \in \Q$ such that
 $x < r < y$.
-\end{enumerate}
+
 \end{thm}
 
-\begin{proof}
-Let us prove \ref{thm:arch:i}.  We divide through by $x$ and then 
-\ref{thm:arch:i} says that for any real number $t:= \nicefrac{y}{x}$,
-we can find natural number $n$ such that $n > t$.  In other words,
-\ref{thm:arch:i} says that $\N \subset \R$ is not bounded above.
-Suppose for contradiction that $\N$ is bounded above.  Let $b := \sup \N$.
-The number $b-1$ cannot possibly be an upper bound for $\N$ as it is strictly
-less than $b$ (the supremum).  Thus there exists an $m \in \N$ such that $m > b-1$.
-We add one to obtain $m+1 > b$, which contradicts $b$ being an
-upper bound.
-
-Let us tackle \ref{thm:arch:ii}.  First assume $x \geq 0$.
+\begin{proof} 
+First assume $x \geq 0$.
 Note that $y-x > 0$.
-By \ref{thm:arch:i}, there exists an $n \in \N$ such that
+By \ref{thm:arch:i}, there exists an $n \in \N$ such that $n(y-x) > 1$,
+or equvalently
 \begin{equation*}
-n(y-x) > 1.
+x<y-\nicefrac1n.
 \end{equation*}
-Also by \ref{thm:arch:i} the set 
-$A := \{ k \in \N : k > nx \}$ is nonempty.  By the
-\hyperlink{wop:link}{well ordering property}
-of $\N$, $A$ has a least element $m$.  As $m \in A$,
-then $m > nx$.
-We divide through by $n$ to get $x < \nicefrac{m}{n}$.
-As $m$ is the least
-element of $A$, $m-1 \notin A$.
-If $m > 1$, then $m-1 \in \N$, but $m-1 \notin A$ and so $m-1 \leq nx$.
-If $m=1$,
-then $m-1 = 0$, and $m-1 \leq nx$ still holds as $x \geq 0$.
-In other words,
-\begin{equation*}
-m-1 \leq nx \qquad \text{or} \qquad m \leq nx+1 . % < m .
-\end{equation*}
-On the other hand
-from $n(y-x) > 1$ we obtain $ny > 1+nx$.
-%  As $nx \geq m-1$ we get
-%that $1+nx \geq m$ and
-Hence $ny > 1+nx \geq m$, and therefore $y > \nicefrac{m}{n}$.
-Putting everything together we obtain $x < \nicefrac{m}{n} < y$.
-So let $r = \nicefrac{m}{n}$.
+Also by \ref{thm:arch:i} the set $A := \{ k \in \N : k \geq ny \}$ is nonempty.  
 
-Now assume $x < 0$.  If $y > 0$, then we just take $r=0$.  If
-$y \leq 0$, then $0 \leq -y < -x$, and we
-find a rational $q$ such that $-y < q < -x$.  Then take $r = -q$.
+By the \hyperlink{wop:link}{well ordering property} of $\N$, 
+the set $A$ has a least element $m$.
+Observe that 
+$$m\geq ny\geq n(y-x)>1.$$
+In particular $m-1\in\N$.
+
+As $m$ is the least element of $A$, we have $m-1 \notin A$, 
+so $m-1 < ny$.
+Summarizing, we get
+$$\nicefrac{(m-1)}{n}<y\leq \nicefrac{m}{n}.$$
+
+Further, from $x<y-\nicefrac1n$ and the last inequality, we obtain 
+$$x< 
+y-\nicefrac{1}{n}
+\leq
+\nicefrac{m}{n}-\nicefrac{1}{n}
+=
+\nicefrac{(m-1)}{n}.$$
+Putting everything together we obtain 
+$$x < \nicefrac{(m-1)}{n} < y.$$
+So let $r = \nicefrac{(m-1)}{n}$.
+
+Now assume $x < 0$.  
+If $y > 0$, then take $r=0$.  
+If $y \leq 0$, then $0 \leq -y < -x$.
+From above we can find a rational $q$ such that $-y < q < -x$.  
+Then take $r = -q$.
 \end{proof}
 
 Let us state and prove a simple but useful corollary of the
-\hyperref[thm:arch]{Archimedean property}.
+\hyperref[thm:arch:i]{Archimedean property}.
 
 \begin{cor}
 $\inf \{ \nicefrac{1}{n} : n \in \N \} = 0$.
@@ -2157,7 +2167,7 @@ Furthermore,
 $\nicefrac{1}{n} > 0$ and so 0 is a lower bound, and $b := \inf\, A$ exists.
 As 0 is a lower bound, then $b \geq 0$.
 Now take an arbitrary $a > 0$.  By the
-\hyperref[thm:arch]{Archimedean property} there exists an $n$ such that
+\hyperref[thm:arch:i]{Archimedean property} there exists an $n$ such that
 $na > 1$, or in other words $a > \nicefrac{1}{n} \in A$.  Therefore
 $a$ cannot be a lower bound for $A$.  Hence $b=0$.
 \end{proof}
@@ -2351,8 +2361,8 @@ Furthermore, equality occurs if and only if $x=y$.
 \begin{exercise}
 Show that for any two real numbers $x$ and $y$ such that $x < y$, there
 exists an irrational number $s$ such that $x < s < y$.  Hint:
-Apply the density of $\Q$ to $\dfrac{x}{\sqrt{2}}$ and
-$\dfrac{y}{\sqrt{2}}$.
+Apply the density of $\Q$ to $x+\sqrt{2}$ and
+$y+\sqrt{2}$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:supofsum}
@@ -3086,7 +3096,7 @@ and that
 $D_n < x \leq D_n + {10}^{-n}$.  We need to define $d_{n+1}$.
 
 By the 
-\hyperref[thm:arch]{Archimedean property} of the real numbers
+\hyperref[thm:arch:i]{Archimedean property} of the real numbers
 we find an integer $j$ such that
 $x-D_n \leq j {10}^{-(n+1)}$.  We take the least such $j$ and obtain 
 \begin{equation} \label{eq:theDnjineq}
@@ -3410,7 +3420,7 @@ Claim: The sequence $\{ \nicefrac{1}{n} \}$ is convergent and
 \end{equation*}
 Proof: Given an $\epsilon > 0$, we find an $M \in \N$ such that
 $0 < \nicefrac{1}{M} < \epsilon$
-(\hyperref[thm:arch]{Archimedean property} at work).
+(\hyperref[thm:arch:i]{Archimedean property} at work).
 Then for all $n \geq M$ we have that
 \begin{equation*}
 \abs{x_n - 0} = \abs{\frac{1}{n}} = \frac{1}{n} \leq \frac{1}{M} < \epsilon .
@@ -3630,7 +3640,7 @@ obtain
 b^2 \leq \frac{1}{n} \qquad \text{for all $n \in \N$}.
 \end{equation*}
 We have seen before that this implies that $b^2 \leq 0$ (a consequence
-of the \hyperref[thm:arch]{Archimedean property}).  As we also have $b^2 \geq 0$, then $b^2 = 0$
+of the \hyperref[thm:arch:i]{Archimedean property}).  As we also have $b^2 \geq 0$, then $b^2 = 0$
 and so $b = 0$.
 Hence $b=0$ is the greatest lower bound, and $\lim \frac{1}{\sqrt{n}} = 0$.
 \end{example}
@@ -4628,7 +4638,7 @@ if you know it) we have Bernoulli's inequality (see also
 \begin{equation*}
 c^n = {(1+r)}^n \geq 1+nr .
 \end{equation*}
-By the \hyperref[thm:arch]{Archimedean property}
+By the \hyperref[thm:arch:i]{Archimedean property}
 of the real numbers, the sequence $\{ 1+nr \}$
 is unbounded (for any number $B$, we find an $n \in \N$ such that $nr \geq
 B-1$).  Therefore $c^n$ is unbounded.
@@ -6082,7 +6092,7 @@ s_{2^k} =
 1 + \sum_{j=1}^k \frac{1}{2} = 1 + \frac{k}{2} .
 \end{equation*}
 As $\{ \frac{k}{2} \}$ is unbounded by the
-\hyperref[thm:arch]{Archimedean property}, that means that
+\hyperref[thm:arch:i]{Archimedean property}, that means that
 $\{ s_{2^k} \}$ is unbounded, and therefore $\{ s_n \}$ is unbounded.
 Hence $\{ s_n \}$ diverges, and consequently $\sum \frac{1}{n}$ diverges.
 \end{example}
@@ -8647,7 +8657,7 @@ Now let $c$ be irrational, so $f(c) = 0$.  Take a sequence
 $\{ x_n \}$ of numbers in $(0,1)$ such that $\lim\, x_n = c$.
 Given $\epsilon > 0$, find $K \in \N$ such
 that $\nicefrac{1}{K} < \epsilon$
-by the \hyperref[thm:arch]{Archimedean property}.
+by the \hyperref[thm:arch:i]{Archimedean property}.
 If $\nicefrac{m}{k} \in (0,1)$ is lowest terms
 (no common divisors), then $m < k$.
 So there are only finitely many rational numbers in $(0,1)$
@@ -13719,7 +13729,7 @@ By induction, \ref{it:log:iv} implies that for $n \in \N$
 L(2^n) = L(2) + L(2) + \cdots + L(2) = n L(2) .
 \end{equation*}
 Given any $y > 0$, 
-by the \hyperref[thm:arch]{Archimedean property} of the real numbers
+by the \hyperref[thm:arch:i]{Archimedean property} of the real numbers
 (notice $L(2) > 0$), there is an $n \in \N$ such that
 $L(2^n) > y$.  By the
 \hyperref[IVT:thm]{intermediate value theorem}
