@@ -1,155 +1,5 @@
 \documentclass[12pt]{book}
-%\usepackage{pdf14}
-%Paper saving
-%\documentclass[12pt,openany]{book}
-%\documentclass[10pt,openany]{book}
-%\documentclass[8pt,openany]{extbook}
-
-\usepackage[T1]{fontenc}
-
-% Footnotes should use symbols, not numbers.  Numbered footnotes are
-% evil
-\usepackage[perpage,symbol*]{footmisc}
-
-%\usepackage{enumerate}
-\usepackage[shortlabels]{enumitem}
-\usepackage{ifpdf}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage[pdftex]{graphicx}
-%\usepackage{color}
-%\usepackage{graphics}
-\usepackage[headings]{fullpage}
-\usepackage{url}
-\usepackage{varioref}
-%\usepackage{floatflt}
-%\usepackage{wrapfig}
-\usepackage{makeidx}
-\usepackage[pdftex]{hyperref}
-\usepackage[all]{hypcap}
-\usepackage[shortalphabetic]{amsrefs}
-\usepackage[all]{xy}
-\usepackage{nicefrac}
-\usepackage{microtype}
-
-\usepackage{tikz}
-\usepackage{rotating}
-
-
-
-% Times
-%\usepackage{txfonts}
-% Times, but symbol/cm/ams math fonts
-\usepackage{mathptmx}
-% But we do want helvetica for sans
-\usepackage{helvet}
-
-%enumitem global options
-\setlist{leftmargin=*,itemsep=0.5\itemsep,parsep=0.5\parsep,topsep=0.5\topsep,partopsep=0.5\partopsep}
-
-
-% useful
-\newcommand{\ignore}[1]{}
-
-% analysis/geometry stuff
-\newcommand{\ann}{\operatorname{ann}}
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-\newcommand{\Orb}{\operatorname{Orb}}
-\newcommand{\hol}{\operatorname{hol}}
-\newcommand{\aut}{\operatorname{aut}}
-\newcommand{\codim}{\operatorname{codim}}
-\newcommand{\sing}{\operatorname{sing}}
-
-% reals
-\newcommand{\esssup}{\operatorname{ess~sup}}
-\newcommand{\essran}{\operatorname{essran}}
-\newcommand{\innprod}[2]{\langle #1 | #2 \rangle}
-\newcommand{\linnprod}[2]{\langle #1 , #2 \rangle}
-\newcommand{\supp}{\operatorname{supp}}
-\newcommand{\Nul}{\operatorname{Nul}}
-\newcommand{\Ran}{\operatorname{Ran}}
-\newcommand{\sabs}[1]{\lvert {#1} \rvert}
-\newcommand{\snorm}[1]{\lVert {#1} \rVert}
-\newcommand{\abs}[1]{\left\lvert {#1} \right\rvert}
-\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
-
-% sets (some)
-\newcommand{\C}{{\mathbb{C}}}
-\newcommand{\R}{{\mathbb{R}}}
-\newcommand{\Z}{{\mathbb{Z}}}
-\newcommand{\N}{{\mathbb{N}}}
-\newcommand{\Q}{{\mathbb{Q}}}
-\newcommand{\D}{{\mathbb{D}}}
-\newcommand{\F}{{\mathbb{F}}}
-
-% consistent
-\newcommand{\bB}{{\mathbb{B}}}
-\newcommand{\bC}{{\mathbb{C}}}
-\newcommand{\bR}{{\mathbb{R}}}
-\newcommand{\bZ}{{\mathbb{Z}}}
-\newcommand{\bN}{{\mathbb{N}}}
-\newcommand{\bQ}{{\mathbb{Q}}}
-\newcommand{\bD}{{\mathbb{D}}}
-\newcommand{\bF}{{\mathbb{F}}}
-\newcommand{\bH}{{\mathbb{H}}}
-\newcommand{\bO}{{\mathbb{O}}}
-\newcommand{\bP}{{\mathbb{P}}}
-\newcommand{\bK}{{\mathbb{K}}}
-\newcommand{\bV}{{\mathbb{V}}}
-\newcommand{\CP}{{\mathbb{CP}}}
-\newcommand{\RP}{{\mathbb{RP}}}
-\newcommand{\HP}{{\mathbb{HP}}}
-\newcommand{\OP}{{\mathbb{OP}}}
-\newcommand{\sA}{{\mathcal{A}}}
-\newcommand{\sB}{{\mathcal{B}}}
-\newcommand{\sC}{{\mathcal{C}}}
-\newcommand{\sF}{{\mathcal{F}}}
-\newcommand{\sG}{{\mathcal{G}}}
-\newcommand{\sH}{{\mathcal{H}}}
-\newcommand{\sM}{{\mathcal{M}}}
-\newcommand{\sO}{{\mathcal{O}}}
-\newcommand{\sP}{{\mathcal{P}}}
-\newcommand{\sQ}{{\mathcal{Q}}}
-\newcommand{\sR}{{\mathcal{R}}}
-\newcommand{\sS}{{\mathcal{S}}}
-\newcommand{\sI}{{\mathcal{I}}}
-\newcommand{\sL}{{\mathcal{L}}}
-\newcommand{\sK}{{\mathcal{K}}}
-\newcommand{\sU}{{\mathcal{U}}}
-\newcommand{\sV}{{\mathcal{V}}}
-\newcommand{\sX}{{\mathcal{X}}}
-\newcommand{\sY}{{\mathcal{Y}}}
-\newcommand{\sZ}{{\mathcal{Z}}}
-\newcommand{\fS}{{\mathfrak{S}}}
-
-\newcommand{\interior}{\operatorname{int}}
-
-% Topo stuff
-\newcommand{\id}{\textit{id}}
-\newcommand{\im}{\operatorname{im}}
-\newcommand{\rank}{\operatorname{rank}}
-\newcommand{\Tor}{\operatorname{Tor}}
-\newcommand{\Torsion}{\operatorname{Torsion}}
-\newcommand{\Ext}{\operatorname{Ext}}
-\newcommand{\Hom}{\operatorname{Hom}}
-
-%extra thingies
-\newcommand{\mapsfrom}{\ensuremath{\text{\reflectbox{$\mapsto$}}}}
-\newcommand{\from}{\ensuremath{\leftarrow}}
-\newcommand{\dhat}[1]{\hat{\hat{#1}}}
-\newcommand{\spn}{\operatorname{span}}
-
-% San Serif fonts
-%\renewcommand{\familydefault}{\sfdefault}
-
-% To allow skrinking to 5.5 x 8.5 inches without whitespaces
-% Make sure to rerun makeindex as well
-% Useful for printing on lilu.com and saving on paper
-%\addtolength{\textheight}{2.13in}
-%\addtolength{\paperheight}{2.13in}
+\usepackage{realanal}
 
 \hypersetup{
     %colorlinks,
@@ -167,78 +17,11 @@
 % Set up our index
 \makeindex
 
-% Very simple indexing
-\newcommand{\myindex}[1]{#1\index{#1}}
-
-% define this to be empty to kill notes
-\newcommand{\sectionnotes}[1]{}%{\noindent \emph{Note: #1} \medskip \par}
-
-
-% Define this to be empty to not skip page before the sections to
-% save some paper
-\newcommand{\sectionnewpage}{\clearpage}
-%\newcommand{\sectionnewpage}{}
 
 \author{Ji\v{r}\'i Lebl}
 
 \title{Basic Analysis: Introduction to Real Analysis}
 
-% Don't include subsections
-\setcounter{tocdepth}{1}
-
-\theoremstyle{plain}
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-\newtheorem{cor}[thm]{Corollary}
-
-\theoremstyle{remark}
-\newtheorem{remark}[thm]{Remark}
-
-\theoremstyle{definition}
-\newtheorem{defn}[thm]{Definition}
-
-\newtheoremstyle{exercise}% name
-  {}% Space above
-  {}% Space below
-  {\itshape \small}% Body font
-  {}% Indent amount 1
-  {\bfseries \itshape \small}% Theorem head font
-  {:}% Punctuation after theorem head
-  {.5em}% Space after theorem head 2
-  {}% Theorem head spec (can be left empty, meaning "normal")
-
-\newenvironment{exnote}{\small}{}
-
-\theoremstyle{exercise}
-\newtheorem{exercise}{Exercise}[section]
-
-\newtheoremstyle{example}% name
-  {}% Space above
-  {}% Space below
-  {}% Body font
-  {}% Indent amount 1
-  {\bfseries}% Theorem head font
-  {:}% Punctuation after theorem head
-  {.5em}% Space after theorem head 2
-  {}% Theorem head spec (can be left empty, meaning "normal")
-
-\theoremstyle{example}
-\newtheorem{example}[thm]{Example}
-
-% referencing
-\newcommand{\figureref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
-\newcommand{\tableref}[1]{\hyperref[#1]{Table~\ref*{#1}}}
-\newcommand{\chapterref}[1]{\hyperref[#1]{chapter~\ref*{#1}}}
-\newcommand{\Chapterref}[1]{\hyperref[#1]{Chapter~\ref*{#1}}}
-\newcommand{\sectionref}[1]{\hyperref[#1]{\S\ref*{#1}}}
-\newcommand{\exerciseref}[1]{\hyperref[#1]{Exercise~\ref*{#1}}}
-\newcommand{\exampleref}[1]{\hyperref[#1]{Example~\ref*{#1}}}
-\newcommand{\thmref}[1]{\hyperref[#1]{Theorem~\ref*{#1}}}
-\newcommand{\propref}[1]{\hyperref[#1]{Proposition~\ref*{#1}}}
-\newcommand{\lemmaref}[1]{\hyperref[#1]{Lemma~\ref*{#1}}}
-\newcommand{\corref}[1]{\hyperref[#1]{Corollary~\ref*{#1}}}
-\newcommand{\defnref}[1]{\hyperref[#1]{Definition~\ref*{#1}}}
 
 \begin{document}
 
@@ -523,9 +306,14 @@ that is, I may simply define a function $f(x) := x^2$ for a single exercise or e
 %\hrule
 \medskip
 
-Finally, I would like to acknowledge Jana Ma\v{r}\'ikov\'a,
-Glen Pugh, Paul Vojta, Frank Beatrous, S\"{o}nmez \c{S}ahuto\u{g}lu,
-Jim Brandt, Kenji Kozai, and Arthur Busch,
+Finally, I would like to acknowledge 
+Jana Ma\v{r}\'ikov\'a,
+Glen Pugh, Paul Vojta, 
+Frank Beatrous, 
+S\"{o}nmez \c{S}ahuto\u{g}lu,
+Jim Brandt, 
+Kenji Kozai, 
+and Arthur Busch,
 for teaching with the book and giving me lots of useful feedback.
 Frank Beatrous wrote the University of Pittsburgh version extensions, which served as inspiration for many of the recent additions.
 I would also like to thank
@@ -627,7 +415,7 @@ We assume the reader has seen basic set theory
 and has had a course in basic proof writing.
 This section should be thought of as a refresher.
 
-\subsection{Sets}
+\subsection*{Sets}
 
 A \emph{\myindex{set}} is a collection of objects called
 \emph{elements}\index{element} or \emph{members}\index{member}.
@@ -907,7 +695,7 @@ Then we define
 \} .
 \end{equation*}
 
-\subsection{Induction}
+\subsection*{Induction}
 
 When a statement includes an arbitrary natural number,
 a common method of proof is the principle of induction.  
@@ -1006,7 +794,7 @@ We claim that for all $c \not= 1$,
 \begin{equation*}
 1 + c + c^2 + \cdots + c^n = \frac{1-c^{n+1}}{1-c} .
 \end{equation*}
-Proof: It is easy to check that the equation holds with $n=1$.  Suppose 
+\begin{proof} It is easy to check that the equation holds with $n=1$.  Suppose 
 it is true for $n$.
 Then
 \begin{equation*}
@@ -1018,6 +806,7 @@ Then
 & = \frac{1-c^{n+2}}{1-c} .
 \end{split}
 \end{equation*}
+\end{proof}
 \end{example}
 
 Some times it is easier to prove inductive step all the statements $P(k)$ is true for all $k = 1,2,\ldots,n$.
@@ -1034,7 +823,7 @@ Let $P(n)$ be a statement depending on a natural number $n$.  Suppose that
 Then $P(n)$ is true for all $n \in \N$.
 \end{thm}
 
-\subsection{Functions}
+\subsection*{Functions}
 
 Informally,
 a \emph{\myindex{set-theoretic function}}\index{function}
@@ -1231,7 +1020,7 @@ $g \circ f \colon A \to C$ is defined as
 \end{equation*}
 \end{defn}
 
-\subsection{Equivalence relations}
+\subsection*{Equivalence relations}
 
 A binary relation on a set $X$ can be formally defined as a subset of the Cartesian product $X\times X$.
 
@@ -1270,7 +1059,7 @@ The fraction $\nicefrac{m}{n}$ can be thought just as a fancy way to denote the 
 After defining the product and sum of such pairs --- ta-da ---
 we constructed the rational numbers from integers $\Q=(\Z\times\N)/{\sim}$.
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Show
@@ -1412,6 +1201,11 @@ Show that ``$\sim$'' is an equivalence relation.
 
 \sectionnotes{1.5 lectures}
 
+In this section we review definitions from abstract algebra 
+which will be needed to define real numbers.
+
+\subsection*{Ordered sets}
+
 The main object we work with in analysis is the set of
 \myindex{real numbers}.
 As this set is so fundamental, often much time is
@@ -1445,19 +1239,12 @@ Similarly,
 $\N$ and $\Z$ are also ordered sets.
 
 There are other ordered sets than sets of numbers.
-For example, the
-set of countries can be ordered by landmass, so for example India $>$
-Lichtenstein.
-Any time you sort a set in some way, you are making an ordered
-set.
-A typical ordered set that you have used since primary school is the
-dictionary.
-It is the ordered set of words where the order is the
-so-called lexicographic ordering.
-Such ordered sets appear often for example in
-computer science.
-In this class we will mostly be interested in ordered
-set of numbers however.
+For example, the set of countries can be ordered by landmass, so for example India $>$ Lichtenstein.
+Any time you sort a set in some way, you are making an ordered set.
+A typical ordered set that you have used since primary school is the dictionary.
+It is the ordered set of words where the order is the so-called lexicographic ordering.
+Such ordered sets appear often for example in computer science.
+In this class we will mostly be interested in ordered set of numbers however.
 
 \begin{defn}\label{def:sup-inf}
 Let $E \subset S$, where $S$ is an ordered set.
@@ -1494,18 +1281,67 @@ We write
 When a set $E$ is both bounded above and bounded below, we say simply that
 $E$ is \emph{bounded}\index{bounded set}.
 
-A supremum or infimum for $E$ (even if they exist) need not be
-in $E$.
-For example, the set $E := \{ x \in \Q : x < 1 \}$ has a least upper
-bound of 1, but 1 is not in the set $E$ itself.
-On the other hand, if we
-take $G := \{ x \in \Q : x \leq 1 \}$, then the least upper bound of $G$
-is clearly also 1, and in this case $1 \in G$.
-On the other hand,
-the set $P := \{ x \in \Q : x \geq 0 \}$ has no upper bound (why?) and therefore
-it can have no least upper bound.
-On the other hand 0 is the greatest lower
-bound of $P$.
+\begin{exercise}
+Let $S$ be an ordered set.
+Let $A \subset S$ and suppose 
+$b$ is an upper bound for $A$.
+Suppose $b \in A$.
+Show
+that $b = \sup\, A$.
+\end{exercise}
+
+\begin{exercise}
+Find a (nonstandard) ordering of the set of natural numbers $\N$
+such that there exists a nonempty proper subset $A \subsetneq \N$
+and such that $\sup\, A$ exists in $\N$, but $\sup\, A \notin A$.
+\end{exercise}
+
+\begin{exercise}
+Let $D$ be the ordered set of all possible words (not just English words,
+all strings of letters of arbitrary length)
+using the Latin alphabet using only lower case letters.
+The order is the
+lexicographic order as in a dictionary (e.g.\ \emph{aa} $<$ \emph{aaa} $<$ \emph{dog} $<$ \emph{door}).
+Let $A$ be the subset of $D$ containing the words whose
+first letter is `a' (e.g.\ \emph{a} $\in A$, \emph{abcd} $\in A$).
+Show that $A$ has a supremum and find what it is.
+\end{exercise}
+
+\begin{exercise}
+Let $S$ be an ordered set.
+Let $B \subset S$ be bounded (above and
+below).
+Let $A \subset B$ be a nonempty subset.
+Suppose all the $\inf$'s and
+$\sup$'s exist. Show that
+\begin{equation*}
+\inf\, B \leq \inf\, A \leq \sup\, A \leq \sup\, B .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise} \label{exercise:dominatingb}
+Let $S$ be an ordered set and
+$A$ is a nonempty subset such that $\sup \, A$ exists.
+Suppose there
+is a $B \subset A$ such that whenever $x \in A$ there is a $y \in B$
+such that $x \leq y$.
+Show that $\sup \, B$ exists and $\sup \, B = \sup \, A$.
+\end{exercise}
+
+A supremum or infimum for $E$ (even if they exist) need not be in $E$.
+For example, the set $E := \{ x \in \Q : x < 1 \}$ has a least upper bound of 1, but 1 is not in the set $E$ itself.
+On the other hand, if we take $G := \{ x \in \Q : x \leq 1 \}$, then the least upper bound of $G$ is clearly also 1, and in this case $1 \in G$.
+On the other hand, the set $P := \{ x \in \Q : x \geq 0 \}$ has no upper bound (why?) and therefore it can have no least upper bound.
+On the other hand 0 is the greatest lower bound of $P$.
+
+\begin{exercise} \label{exercise:finitesethasminmax}
+Let $S$ be an ordered set.
+
+Let $A \subset S$ be a nonempty finite subset.
+Then $A$ is bounded.  
+Furthermore, $\inf\, A$ exists and is in $A$ and $\sup\, A$ exists and is in $A$.  
+Hint: Use \hyperref[induction:thm]{induction}.
+\end{exercise}
 
 \begin{defn} \label{defn:lub}
 An ordered set $S$ has the \emph{\myindex{least-upper-bound property}} if
@@ -1518,15 +1354,15 @@ The \emph{least-upper-bound property}
 is sometimes called the \emph{\myindex{completeness property}} or the
 \emph{\myindex{Dedekind completeness property}}.
 
-As you will see in the next section,
-$\Q$ does not have the least-upper-bound property is one of the most
-important reasons why we work with $\R$ in analysis.
-The set $\Q$
-is just fine for algebraists.
-But analysts require the least-upper-bound
-property to do any work.
-We also require our real numbers to have many algebraic properties.  In particular, we require that they are a field.
 
+\subsection*{Fields}
+
+As you will see in the next section, the set of rational numbers $\Q$ with standard order does not have the least-upper-bound property.
+This is one of the most important reasons why we work with real numbers $\R$ in analysis.
+The set $\Q$ is just fine for algebraists --- analysts require the least-upper-bound
+property to do any work.
+We also require our real numbers to have many algebraic properties.  
+In particular, we require that they are a \emph{field} defined below.
 
 %\enlargethispage{\baselineskip}
 \begin{defn}
@@ -1562,25 +1398,53 @@ for all $x,y,z \in F$.
 \end{enumerate}
 \end{defn}
 
-\begin{example}
-The set $\Q$ of rational numbers is a field.
-On the other hand $\Z$ is not a
-field, as it does not contain multiplicative inverses.
-For example,
-there is no $x \in \Z$ such that $2x = 1$, so (M5) is not satisfied.  You can check that (M5) is the only property that fails\footnote{An algebraist would say that $\Z$ is an ordered
-ring, or perhaps more precisely a commutative ordered ring.}.
-\end{example}
 
-The basic facts about fields that are easily proved from the axioms.  
+For example the set $\Q$ of rational numbers is a field.
+An other example is two element set $F=\{0,1\}$ with the multiplication and addition given by
+$$0\cdot 0=0\cdot 1=1\cdot 0=1,\quad 1\cdot 1=1,\quad 0+0=1+1=0,\quad 0+1=1+0=1.$$
+
+On the other hand the set $\Z$ of integers is not a field, as it does not contain multiplicative inverses.
+For example, there is no $x \in \Z$ such that $2x = 1$, so (M5) is not satisfied.  
+You can check that (M5) is the only property that fails\footnote{An algebraist would say that $\Z$ is an ordered ring, or perhaps more precisely a commutative ordered ring.}.
+
+The associativity of addition and multiplication imply that the shortcuts $x+y+z=(x+y)+z=x+(y+z)$ and $xyz=(xy)z=x(yz)$ make sense since in any field. 
+We will use the following shortcuts 
+\[\nicefrac{x}{y}=x(\nicefrac{1}{y}),\  x^2=xx,\  x^3=xxx,\  2x=x+x,\  3x=x+x+x,\]  
+and so on.
+
+In the field one can do the usual tricks with the formulas;
+they all follow from the axioms, but sometimes it is tricky.
 
 \begin{example}
 In any field we have $0 = 0x$. 
 \begin{proof}
 By (A4), (D), and (M2) we have
-$$xx = (0+x)x = 0x+xx.$$ 
-Using (A5) on $xx$, along with (A2), (A3), and (A4), we obtain $0 = 0x$.
+\begin{align*}
+xx &= (0+x)x 
+\\
+&= 0x+xx.
+\end{align*}
+Using (A5) for $xx$, there is $-xx$.
+Adding it to the both sides, and applying (A2), (A3), and (A4), we obtain $0 = 0x$.
 \end{proof}
 \end{example}
+
+The following exercise includes the most common tricks which makes work in the field easier.
+
+\begin{exercise}
+Show that for any elements $x$, $y$ and $z$ in a fild the following conditions hold.
+\begin{enumerate}[a)]
+\item If $x+z=y+z$ then $x=y$.
+\item If $z\ne 0$ and $xz=yz$ then $x=y$.
+\item $(-x)(-y)=xy$
+\item $-(-x)=x$ 
+\item If $x\ne 0$ then $1/(\nicefrac1x)=x$ 
+\end{enumerate}
+\end{exercise}
+
+\subsection*{Ordered fields}
+
+Now let us marry ordered sets with fields.
 
 \begin{defn}
 A field $F$ is said to be an \emph{\myindex{ordered field}} if
@@ -1596,9 +1460,6 @@ If $x < 0$, we say $x$ is \emph{\myindex{negative}}.
 We also say $x$ is \emph{\myindex{nonnegative}} if $x \geq 0$,
 and $x$ is \emph{\myindex{nonpositive}} if $x \leq 0$.
 \end{defn}
-
-For example, it can be checked that the rational numbers $\Q$ with the
-standard ordering is an ordered field.
 
 \begin{prop} \label{prop:bordfield}
 Let $F$ be an ordered field and $x,y,z \in F$.
@@ -1633,7 +1494,9 @@ By algebraic properties we get $0 < xz - xy$,
 and again applying item
 \ref{defn:ordfield:i} of the definition we obtain $xy < xz$.
 
-Part \ref{prop:bordfield:iii} is left as an exercise.
+\begin{exercise}
+Prove part \ref{prop:bordfield:iii}.
+\end{exercise}
 
 To prove part \ref{prop:bordfield:iv} first suppose $x > 0$.
 Then
@@ -1663,6 +1526,18 @@ by definition of ordered field and by part \ref{prop:bordfield:ii}
 By algebraic properties we get $\nicefrac{1}{y} < \nicefrac{1}{x}$.
 \end{proof}
 
+\begin{exercise}
+Let $x, y \in F$, where $F$ is an ordered field.
+Suppose 
+$0 < x < y$.
+Show that $x^2 < y^2$.
+\end{exercise}
+
+\begin{exercise} Show that $\Q$ admits unique ordering. 
+Hint: use Proposition \ref{prop:bordfield}\ref{prop:bordfield:iv}
+\end{exercise}
+
+
 Product of two positive numbers (elements of an ordered field) is positive.
 However, it is not true that if the product is positive, then each of the two
 factors must be positive.
@@ -1690,7 +1565,42 @@ $xy < x0 = 0$.
 The result follows by contrapositive.
 \end{proof}
 
-\begin{example}
+\begin{exercise}
+Let $F = \{ 0, 1, 2 \}$ ba a field and $0$ and $1$ have their usual meaning of (A4) and (M4).
+\begin{enumerate}[a)]
+\item Show that  
+\[0\cdot0=0\cdot 1=0\cdot 2=0,\quad 1\cdot 1=2\cdot 2=1,\quad 1\cdot 2=2,\]
+\[0+0=1+2=0,\quad 0+ 1=2+ 2=1,\quad 0+2=1+1=2.\]
+\item Show that $F$ is not an ordered field.
+\item Show that arbitrary finite field does not admit an order.
+\end{enumerate}
+\end{exercise}
+
+It can be checked that the rational numbers $\Q$ with the
+standard ordering is an ordered field.
+Moreover, by the following proposition, we can (and will) assume that ordered contains $\Q$.
+
+\begin{prop}\label{prop:QinF}
+Any ordered field $F$ contains a \emph{copy} of $\Q$;
+that is, there is a injection $\Q\to F$ which respects multiplication and addition. 
+\end{prop}
+
+We will present an informal proof --- a formal proof will take us too far into the field of abstract algebra.
+
+\begin{proof}[Informal proof]
+Given a natural number $n \in \N$, we can consider the corresponding element in $F$
+\[n:=\underbrace{1+\dots +1}_{\text{$n$ times}}.\]
+
+Since $F$ is an ordered field,  Proposition~\ref{prop:bordfield}(\ref{prop:bordfield:iv}) implies that $1 > 0$.
+By \hyperref[induction:thm]{induction} (exercise) we can prove that $n> 0$ for all $n \in \N$ and all these numbers are different in $F$.
+In other words $\N\subset F$ --- the natural numbers can be considered as a subset the real numbers.
+
+Since $F$ is a field we can take difference and ratios.
+By taking differences of all natural numbers we get all integers $\Z$. 
+Futher by taking ratios of integers by natural numbers we get all the rational numbers $\Q$.
+\end{proof}
+
+
 The reader may also know about the \emph{\myindex{complex numbers}},
 usually denoted by
 $\C$.
@@ -1700,153 +1610,26 @@ imaginary number, a number such that $i^2 = -1$.
 The reader may
 remember from algebra that $\C$ is also a field, however, it is not an
 ordered field.
-While one can make $\C$ into an ordered set in some way,
-it can be proved that it is not possible to put an
-order on $\C$ that will make it an ordered field.
-\end{example}
-
-\subsection{Exercises}
+While one can make $\C$ into an ordered set in some way, the following exercise shows that $\C$ is not an ordered field.
 
 \begin{exercise}
-Prove part \ref{prop:bordfield:iii} of \propref{prop:bordfield}.
+Assume that a field $F$ contains an element $i$ such that $i^2+1=0$.
+Show that $F$ does not admit an order.
 \end{exercise}
 
 
-\begin{exercise} \label{exercise:finitesethasminmax}
-Let $S$ be an ordered set.
-
-Let $A \subset S$ be a nonempty finite subset.
-Then $A$ is bounded.  
-Furthermore, $\inf\, A$ exists and is in $A$ and $\sup\, A$ exists and is in $A$.  
-Hint: Use \hyperref[induction:thm]{induction}.
-\end{exercise}
-
-\begin{exercise}
-Let $x, y \in F$, where $F$ is an ordered field.
-Suppose 
-$0 < x < y$.
-Show that $x^2 < y^2$.
-\end{exercise}
-
-\begin{exercise}
-Let $S$ be an ordered set.
-Let $B \subset S$ be bounded (above and
-below).
-Let $A \subset B$ be a nonempty subset.
-Suppose all the $\inf$'s and
-$\sup$'s exist. Show that
-\begin{equation*}
-\inf\, B \leq \inf\, A \leq \sup\, A \leq \sup\, B .
-\end{equation*}
-\end{exercise}
-
-\begin{exercise}
-Let $S$ be an ordered set.
-Let $A \subset S$ and suppose 
-$b$ is an upper bound for $A$.
-Suppose $b \in A$.
-Show
-that $b = \sup\, A$.
-\end{exercise}
-
-\begin{exercise}
-Let $S$ be an ordered set.
-Let $A \subset S$ be a nonempty subset
-that is bounded above.
-Suppose $\sup\, A$ exists and
-$\sup\, A \notin A$.
-Show that $A$ contains a countably infinite
-subset.
-In particular, $A$ is infinite.
-\end{exercise}
-
-\begin{exercise}
-Find a (nonstandard) ordering of the set of natural numbers $\N$
-such that there exists a nonempty proper subset $A \subsetneq \N$
-and such that $\sup\, A$ exists in $\N$, but $\sup\, A \notin A$.
-\end{exercise}
-
-\begin{exercise}
-Show that $(-x)(-y)=xy$ for any $x$ and $y$ in a field.
-\end{exercise}
-
-
-\begin{exercise}
-Let $F = \{ 0, 1, 2 \}$ ba a field and $0$ and $1$ have their usual meaning of (A4) and (M4).
-\begin{enumerate}[a)]
-\item Show that  
-\[0\cdot0=0\cdot 1=0\cdot 2=0,\quad 1\cdot 1=2\cdot 2=1,\quad 1\cdot 2=2,\]
-\[0+0=1+2=0,\quad 0+ 1=2+ 2=1,\quad 0+2=1+1=2.\]
-\item Show that $F$ is not an ordered field.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise} \label{exercise:dominatingb}
-Let $S$ be an ordered set and
-$A$ is a nonempty subset such that $\sup \, A$ exists.
-Suppose there
-is a $B \subset A$ such that whenever $x \in A$ there is a $y \in B$
-such that $x \leq y$.
-Show that $\sup \, B$ exists and $\sup \, B = \sup \, A$.
-\end{exercise}
-
-\begin{exercise}
-Let $D$ be the ordered set of all possible words (not just English words,
-all strings of letters of arbitrary length)
-using the Latin alphabet using only lower case letters.
-The order is the
-lexicographic order as in a dictionary (e.g.\ \emph{aa} $<$ \emph{aaa} $<$ \emph{dog} $<$ \emph{door}).
-Let $A$ be the subset of $D$ containing the words whose
-first letter is `a' (e.g.\ \emph{a} $\in A$, \emph{abcd} $\in A$).
-Show that $A$ has a supremum and find what it is.
-\end{exercise}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\sectionnewpage
-\section{Real numbers} \label{sec:setofreals}
+\subsection*{Real numbers} \label{sec:setofreals}
 
 \sectionnotes{2 lectures, the extended real numbers are optional}
-
-\subsection{Definition}
-
-We finally get to the real number system.  
+ 
 
 \begin{defn}
 An ordered field with the \hyperref[defn:lub]{least-upper-bound property} is called the \emph{field of real numbers}. 
 It will be further denoted as $\R$.
 \end{defn}
 
-The existence of ordered field with the least-upper-bound property is by no means obvious.
-Usually it is proved by constructing it from the rational numbers, 
-we simply assume the existence  without proof.
-See Rudin~\cite{Rudin:baby} for the construction and more details.
-In fact such field is unique;
-here uniqueness understood is up to \emph{isomorphism},
-that is, if two fields satisfy the above definition 
-then there is a bijective map between them which respects multiplication and addition.
-
-\begin{thm}
-The field of real numbers contains
-the field of rational numbers%
-\footnote{More formally, ``contains an isomorphic copy of the field of rational numbers''}; 
-that is $\Q \subset \R$.
-\end{thm}
-
-\begin{proof}[Informal proof]
- Given $n \in \N$, we can consider the corresponding real number
-\[n:=\underbrace{1+\dots +1}_{\text{$n$ times}}.\]
-
-Since $\R$ is an ordered field,  Proposition~\ref{prop:bordfield}(\ref{prop:bordfield:iv}) implies that $1 > 0$.
-By \hyperref[induction:thm]{induction}
-(exercise) we can prove that $n> 0$ for all $n \in \N$ and all these numbers are different in $\R$.
-In other words $\N\subset \R$ --- the natural numbers can be considered as a subset the real numbers.
-
-Since $\R$ is a field we can take difference and ratios.
-By taking differences of all natural numbers we get all integers $\Z$. 
-Futher by taking ratios of integers by natural numbers we get all the rational numbers $\Q$.
-\end{proof}
-
+Recall that by Proposition \ref{prop:QinF}, we can (and will) assume that $\Q\subset \R$;
+that is, the field of rational numbers forms a subset in the field of reals.
 
 Let us prove one of the most basic but useful results about the real numbers.
 The following proposition is essentially how an analyst proves that a number
@@ -1871,10 +1654,14 @@ Essentially, in analysts we want $\Q$, but we also want to take suprema (and inf
 So what we do is to throw in enough numbers to obtain $\R$.
 In the next section you will see the first application of the \hyperref[defn:lub]{least-upper-bound property}
 
-\subsection{On square root of two}
-  
-Let us show that applying the \hyperref[defn:lub]{least-upper-bound property} we can prove the existence of the real number $\sqrt{2}$. 
-The proof requires a bit of work.
+\subsection*{On square root of two}
+
+Here we will show that reals contain $\sqrt{2}$, but rationals do not.
+
+The proof requires quite a bit of work.
+However, using theorems the intermediate value theorem (see \ref{IVT:thm} below)
+we could write this proof in a few lines.
+We hurry up since we wanted to show that not all reals are rational right after the definition of reals.
 
 \begin{example} \label{example:sqrt2}
 There exists a unique positive real number $r$ such that $r^2 = 2$.  
@@ -1931,9 +1718,9 @@ Therefore
 \begin{align*}
 (s-h)^2&= s^2-2sh+h^2>
 \\
-&> s^2-2s(\tfrac{s^2-2}{s})\geq
+&> s^2-2s(\tfrac{s^2-2}{2s})=
 \\
-&\geq 2.
+&= 2.
 \end{align*}
 
 
@@ -1950,12 +1737,6 @@ Similarly $0 < r < s$ implies $r^2 < s^2$.
 Hence $s = r$.
 \end{proof}
 \end{example}
-
-Using the same technique as above, we can show that a positive real
-number $x^{1/n}$ exists for all $n\in \N$ and all $x > 0$.
-That is, for each $x > 0$,
-there exists a unique positive real number $r$ such that $r^n = x$.
-The proof is left as an exercise.
 
 Now let us show that $\sqrt{2}$ is not rational.
 
@@ -1975,16 +1756,41 @@ Divide by 2 and note that $2k^2 = n^2$, and hence $n$ is divisible by 2.
 But that is a contradiction as $\nicefrac{m}{n}$ was in lowest terms.
 \end{proof}
 
-  
+\begin{exercise}
+Mimic the proof above to show that $\sqrt[3]{3}$ is irrational;
+that is, there is no rational number $q$ such that $q^3=3$.
+\end{exercise}
+
+\begin{exercise}
+Consider the set $S$ of real numbers of the form $a+b\sqrt{2}$, where $a,b\in\Q$.
+Given $x=a+b\sqrt{2}$ for $a,b\in\Q$, set $\bar x=a-b\sqrt{2}$.
+\begin{enumerate}[a)]
+\item Show that $S$ is a field and any element of $S$ admits a unique representation as $a+b\sqrt{2}$, where $a,b\in\Q$. Conclude that the map $x\mapsto \bar x$ is well defined.
+\item\label{ex:Q(sqrt2):b} Show that the map $x\mapsto \bar x$ respects muliplication and addition; that is 
+ \[\overline{xy}=\bar x\bar y,\quad \overline{x+y}=\bar x+\bar y\]
+for any $x,y\in S$. 
+\item Use \ref{ex:Q(sqrt2):b} to show that the field $S$ admits distinct orderings.
+\end{enumerate}
+
+
+\end{exercise}
+
+
 The complement $\R \setminus \Q$ is called the set of \emph{\myindex{irrational}} numbers.  
 We just saw that $\sqrt{2} \notin \Q$;
 in particular $\R \setminus \Q$ is nonempty.
 In particular it implies that $\Q$ does not have an upper bound property.
 
 
-In Section~\ref{sec:intandsizeR} we will see that is the set of irrational numbers is very large.
+In Section~\ref{sec:intandsizeR} we will see that is the set of irrational numbers is very large --- most of real numbers are irrational.
 
-\subsection{Extended real numbers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Basic constructions}
+
+\subsection*{Extended real numbers}
 
 To make using suprema and infima even easier, we may want to
 write $\sup\, A$ and $\inf\, A$ without worrying about $A$ being
@@ -2023,7 +1829,7 @@ Now we can take suprema and infima without fear of emptiness or
 unboundedness.  
 In this book we mostly avoid using $\R^*$ outside of exercises, and leave such generalizations to the interested reader.
 
-\subsection{Intervals}
+\subsection*{Intervals}
 
 You surely saw the notation for intervals\index{interval}
 before, but let us give a formal
@@ -2053,12 +1859,16 @@ define \emph{unbounded intervals}\index{unbounded interval},
 \end{align*}
 For completeness we define $(-\infty,\infty) := \R$.
 
-In short, an interval is a set $I \subset \R$ with at least 2 elements,
-such that if $a < b < c$ and
-$a,c \in I$, then $b \in I$.
-See \exerciseref{exercise:intervaldef}.
 
-\subsection{Using supremum and infimum}
+\begin{exercise} \label{exercise:intervaldef}
+Suppose $I \subset \R$ is a subset with at least 2 elements
+such that if $a < b < c$ and $a, c \in I$, then $b\in I$.
+Show that $I$ is one of the nine types of intervals explicitly given in this section.
+Furthermore, prove that the intervals given in this section
+all satisfy this property.
+\end{exercise}
+
+\subsection*{On supremum and infimum}
 
 The following fact about supremum and infimum is often useful.
 It follow directly from the definitions of least upper bound and greatest lower bound \ref{def:sup-inf}.
@@ -2073,45 +1883,52 @@ Then $a=\inf\, S$ if and only if for every $\epsilon > 0$ there exists $x \in S$
 that $x<a + \epsilon$.
 \end{prop}
  
-For a set $A \subset \R$ and a number
-$x \in \R$ define
-\begin{align*}
-x + A & := \{ x+y \in \R : y \in A \} , \\
-xA & := \{ xy \in \R : y \in A \} .
-\end{align*}
-
 \begin{example}\label{ex:sup(x+A)}
 Let $A \subset \R$ be nonempty bounded above and $x \in \R$.
-Show that 
-$$\sup (x+A) = x + \sup\, A.$$
-In particular supremum of $x+A$ exists, which means that the set $x+A$  is nonempty and bounded from above.
+Define
+\begin{align*}
+x + A & := \{ x+y \in \R : y \in A \}. 
+\end{align*}
+
+Assume $B=A+x$. Show that 
+$$\sup B = x + \sup\, A.$$
+In particular supremum of $B$ exists, which means that the set $B$ is nonempty and bounded from above.
 
 \begin{proof}
-Let us only prove the first statement.
-The rest are left as exercises.
-
-Suppose $b$ is an upper bound for $A$.
-That is, $y \leq b$ for all $y \in A$.
-Then $x+y \leq x+b$ for all $y \in A$, and so $x+b$ is an upper
-bound for $x+A$.
-In particular, if $b = \sup\, A$, then
+Note that $y \leq sup\, A$ for all $y \in A$.
+Then $x+y \leq x+sup\, A$ for all $y \in A$, and so $x+sup\, A$ is an upper
+bound for $B$.
+In particular, 
 \begin{equation*}
-\sup (x+A) \leq x+b = x+ \sup\, A .
+\sup\, B \leq  x+ \sup\, A.
 \end{equation*}
 
-The other direction is similar.
-If $b$ is an upper bound for $x+A$,
-then $x+y \leq b$
-for all $y \in A$ and so $y \leq b-x$ for all $y \in A$.
-So $b-x$ is an upper bound for $A$.
-If $b =
-\sup (x+A)$, then 
+Note that $A=(-x)+B$.
+Therefore the same argument as above implies 
 \begin{equation*}
-\sup\, A \leq b-x = \sup (x+A) -x .
+\sup\, A \leq  (-x)+ \sup\, B.
 \end{equation*}
-And the result follows.
+Hence 
+\begin{equation*}
+\sup\, B =  x+ \sup\, A.
+\end{equation*}
 \end{proof}
 \end{example}
+
+\begin{exercise}
+\label{prop:supinfalg}
+Set $xA  := \{ xy \in \R : y \in A \}$.
+Assume $A \subset \R$ be nonempty. 
+Prove the following:
+\begin{enumerate}[(i)]
+\item If $x \in \R$ and $A$ is bounded below, then $\inf (x+A) = x + \inf\, A$.
+\item If $x > 0$ and $A$ is bounded above, then $\sup (xA) = x ( \sup\, A )$.
+\item If $x > 0$ and $A$ is bounded below, then $\inf (xA) = x ( \inf\, A )$.
+\item If $x < 0$ and $A$ is bounded below, then $\sup (xA) = x ( \inf\, A )$.
+\item If $x < 0$ and $A$ is bounded above, then $\inf (xA) = x ( \sup\, A )$.
+\end{enumerate}
+Do note that multiplying a set by a negative number switches supremum for an infimum and vice-versa.  
+\end{exercise}
 
 Sometimes we need to apply supremum or infimum twice. 
 Here is an example.
@@ -2137,39 +1954,6 @@ For example, take $A := (-\infty,0)$ and take $B := (0,\infty)$.
 Then $x < y$ for all $x \in A$ and $y \in B$.  
 However, $\sup\, A = 0$ and $\inf\, B = 0$.
 
-\subsection{Exercises}
-
-\begin{exercise}
-Let $x, y \in \R$.  
-Suppose $x^2 + y^2 = 0$.  
-Prove that $x = 0$ and $y = 0$.
-\end{exercise}
-
-\begin{exercise}
-Show that $\sqrt{3}$ is irrational.
-\end{exercise}
-
-\begin{exercise}
-Let $n \in \N$.
-Show that either $\sqrt{n}$ is either an integer or it is irrational.
-\end{exercise}
-
-\begin{exercise}
-Prove the \emph{\myindex{arithmetic-geometric mean inequality}}.  That is, 
-for two positive real numbers $x,y$ we have
-\begin{equation*}
-\sqrt{xy} \leq \frac{x+y}{2} .
-\end{equation*}
-Furthermore, equality occurs if and only if $x=y$.
-\end{exercise}
-
-\begin{exercise} \label{exercise:intervaldef}
-Suppose $I \subset \R$ is a subset with at least 2 elements
-such that if $a < b < c$ and $a, c \in I$, then $b\in I$.
-Show that $I$ is one of the nine types of intervals explicitly given in this section.
-Furthermore, prove that the intervals given in this section
-all satisfy this property.
-\end{exercise}
 
 \begin{exercise}
 Let $A,B\subset \R$ be bounded nonempty sets.
@@ -2177,20 +1961,6 @@ Assume for any $a\in A$ there is $b\in B$ such that $a\le b$.
 Show that $\sup A\le \sup B$.
 \end{exercise}
 
-\begin{exercise}
-\label{prop:supinfalg}
-Let $A \subset \R$ be nonempty. 
-Prove the following analogs of Example~\ref{ex:sup(x+A)}.
-\begin{enumerate}[(i)]
-\item If $x \in \R$ and $A$ is bounded below, then $\inf (x+A) = x + \inf\, A$.
-\item If $x > 0$ and $A$ is bounded above, then $\sup (xA) = x ( \sup\, A )$.
-\item If $x > 0$ and $A$ is bounded below, then $\inf (xA) = x ( \inf\, A )$.
-\item If $x < 0$ and $A$ is bounded below, then $\sup (xA) = x ( \inf\, A )$.
-\item If $x < 0$ and $A$ is bounded above, then $\inf (xA) = x ( \sup\, A )$.
-\end{enumerate}
-
-Do note that multiplying a set by a negative number switches supremum for an infimum and vice-versa.  
-\end{exercise}
 
 \begin{exercise} \label{exercise:supofsum}
 Let $A$ and $B$ be two nonempty bounded sets of real numbers.
@@ -2218,167 +1988,7 @@ Show that $C$ is a bounded set and that
 Hint: Use Proposition~\ref{prop:existsxepsfromsup}.
 \end{exercise}
 
-\begin{exercise}[Hard]
-Given $x > 0$ and $n \in \N$, show that there exists a unique positive
-real number $r$ such that $x = r^n$.
-Usually $r$ is denoted by $x^{1/n}$.
-\end{exercise}
-
-\begin{exercise}[Easy]
-Prove \propref{prop:existsxepsfromsup}.
-\end{exercise}
-
-\begin{exercise} \label{exercise:bernoulliineq}
-Prove the so-called \emph{\myindex{Bernoulli's inequality}}%
-\footnote{%
-Named after the Swiss mathematician
-\href{http://en.wikipedia.org/wiki/Jacob_Bernoulli}{Jacob Bernoulli} (1655 --
-1705).}%
-: If $1+x > 0$ then
-for all $n \in \N$ we have $(1+x)^n \geq 1+nx$.
-\end{exercise}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\sectionnewpage
-\section{Archimedean property} \label{sec:Archimedean property}
-
-\subsection{Archimedean property}
-
-The following is one of the fundamental facts about the real numbers.
-
-\begin{thm}\label{thm:arch:i}
-The set of natural numbers $\N$ is unbounded in $\R$.
-
-In particular, if $x, y \in \R$ and
-$x > 0$, then there exists an $n \in \N$ such that $nx>y$.
-\end{thm}
-
-The second statement in the theorem is called \myindex{Archimedean property}.%
-\footnote{It appears as Axiom V of Archimedes' ``On the Sphere and Cylinder'' 225 BC.}
-
-
-\begin{proof}
-Arguing by contradiction, suppose that $\N$ is bounded above.
-
-Let $b := \sup \N$.
-The number $b-1$ cannot possibly be an upper bound for $\N$ as it is strictly less than $b$ (the supremum).
-
-Thus there exists an $m \in \N$ such that $m > b-1$.
-We add one to obtain $m+1 > b$, which contradicts $b$ being an upper bound.
-
-In particular there is a natural number $n$ such that $n>\nicefrac{y}{x}$.
-Since $x>0$, we get $nx>y$.
-\end{proof}
-
-Let us state and prove a simple but useful corollary of the
-\hyperref[thm:arch:i]{Archimedean property}.
-
-\begin{cor}
-$\inf \{ \nicefrac{1}{n} : n \in \N \} = 0$.
-\end{cor}
-
-\begin{proof}
-Let $A := \{ \nicefrac{1}{n} : n \in \N \}$.  
-Obviously $A$ is not empty.
-Furthermore, $\nicefrac{1}{n} > 0$ and so 0 is a lower bound, and $b := \inf\, A$ exists.
-As 0 is a lower bound, then $b \geq 0$.
-Now take an arbitrary $a > 0$.  
-By the \hyperref[thm:arch:i]{Archimedean property} there exists an $n$ such that
-$na > 1$, or in other words $a > \nicefrac{1}{n} \in A$.
-Therefore
-$a$ cannot be a lower bound for $A$.
-Hence $b=0$.
-\end{proof}
-
-\subsection{Density of rational numbers}
-
-We are about to prove that the set or rational numbers is \emph{dense} in reals.
-Theorem~\ref{thm:arch:i} and Corollary~\ref{thm:arch:ii} esily follow from each other, 
-even though it may not seem like that at first sight.
-
-\begin{cor}\label{thm:arch:ii} \emph{($\Q$ is dense in $\R$\index{density of
-rational numbers})} Any real interval contains a rational number
-\end{cor}
-
-Before the proof let introduce the notion of maximum and minimum.
-
-By \exerciseref{exercise:finitesethasminmax} we know 
-a finite set of numbers always has a supremum or an infimum that is contained
-in the set itself.
-In this case we usually do not use the words
-supremum or infimum.
-
-When a set $A$ of real numbers is bounded above,
-such that 
-$\sup\, A \in A$, then we can use the word
-\emph{\myindex{maximum}} and the notation $\max A$ to denote the supremum.
-Similarly for infimum; when a set $A$ is bounded below
-and $\inf\, A \in A$, then we can use the
-word \emph{\myindex{minimum}} and the notation $\min\, A$.
-For example,
-\begin{align*}
-& \max \{ 1,2.4,\pi,100 \} = 100 , \\
-& \min \{ 1,2.4,\pi,100 \} = 1 .
-\end{align*}
-While writing $\sup$ and $\inf$ may be technically
-correct in this situation, $\max$ and
-$\min$ are generally used to emphasize that the supremum or infimum
-is in the set itself.
-
-Notice that any set of integers bounded below has well defined  minimum.
-The same way any set of integers bounded above has maximum.
-These properties maybe considered as a reformulation of \hyperref[wop]{well ordering property of $\N$}. 
-%%%???I moved min/max here --- if a notion is introduced then it must be used right after.
-
-\begin{proof} 
-Note that it is sufficient to consider the case of bounded open inteval $(x,y)$.
-That is, assuming for any $x, y \in \R$ such that
-$x < y$, we need to find $r \in \Q$ such that
-$x < r < y$.
-
-Note that $y-x > 0$.
-By \ref{thm:arch:i}, there exists an $n \in \N$ such that $n(y-x) > 1$,
-or equivalently
-\begin{equation*}
-x<y-\nicefrac1n.
-\end{equation*}
-
-Consider the set of integers $A=\{k\in\N : k>nx \}$.
-Notice that $A$ is bounded below therefore it has the minimal element $m=\min A$;
-that is $m$ is the minimal integer such that $m>nx$.
-
-Note that $m-1\le nx$,
-or equivalently 
-$$\nicefrac{m}{n}-\nicefrac1{n}\le x<\nicefrac{m}{n}.$$
-Since $x<y-\nicefrac1n$, the first inequality implies 
-$\nicefrac{m}{n}<y$.
-That is 
-$$x<\nicefrac{m}{n}<y.$$
-So let $r = \nicefrac{m}{n}$.
-\end{proof}
-
-\subsection{Exercises}
-
-
-
-\begin{exercise}
-Prove that
-if $t \geq 0$ ($t \in \R$), then there exists an $n \in \N$ such that $n-1 \leq t < n$.
-\end{exercise}
-
-\begin{exercise}
-Show that for any two real numbers $x$ and $y$ such that $x < y$, there
-exists an irrational number $s$ such that $x < s < y$.
-Hint:
-Apply the density of $\Q$ to $x+\sqrt{2}$ and
-$y+\sqrt{2}$.
-\end{exercise}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\sectionnewpage
-\section{Absolute value} \label{sec:absval}
+\subsection*{Absolute value} \label{sec:absval}
 
 \sectionnotes{0.5--1 lecture}
 
@@ -2393,6 +2003,16 @@ x & \text{ if $x \geq 0$}, \\
 -x & \text{ if $x < 0$} .
 \end{cases}
 \end{equation*}
+
+\begin{exercise}
+Show that
+\begin{enumerate}[a)]
+\item
+$\max \{x,y\} = \frac{x+y+\abs{x-y}}{2}$
+\item
+$\min \{x,y\} = \frac{x+y-\abs{x-y}}{2}$
+\end{enumerate}
+\end{exercise}
 
 Let us give the main features of the absolute
 value as a proposition.
@@ -2465,6 +2085,11 @@ $(-x) \leq y$, which is equivalent to $\abs{x} \leq y$.
 
 \ref{prop:absbas:vi}:  Apply \ref{prop:absbas:v} with $y = \abs{x}$.
 \end{proof}
+
+\begin{exercise}
+Show that
+$\abs{x-y} < \epsilon$ if and only if $y\in (x-\epsilon,x+\epsilon)$.
+\end{exercise}
 
 A property used frequently enough to give it a name is the so-called
 \emph{\myindex{triangle inequality}}.
@@ -2572,194 +2197,150 @@ is much higher than it
 need be, but we didn't ask for the best possible $M$, just one that works.
 \end{example}
 
-\subsection{Range of functions}
-
-The last example leads us to the concept of bounded functions.
-
-\begin{defn}
-Suppose $f \colon D \to \R$ is a function.
-We say $f$ is
-\emph{bounded}\index{bounded function}
-if there exists a number $M$
-such that $\abs{f(x)} \leq M$ for all $x \in D$.
-\end{defn}
-
-In the example we proved $x^2-9x+1$ is bounded when considered as a
-function on $D = \{ x : -1 \leq x \leq 5 \}$.
- On the other hand,
-if we consider the same polynomial as a function on the whole real line $\R$,
-then it is not bounded.
-
-For a function $f \colon D \to \R$ we write
-\begin{align*}
-& \sup_{x \in D} f(x) := \sup\, f(D) , \\
-& \inf_{x \in D} f(x) := \inf\, f(D) .
-\end{align*}
-We also sometimes replace the ``$x \in D$'' with an expression.
-For example if, as before, $f(x) = x^2-9x+1$, for $-1 \leq x \leq 5$, 
-a little bit of calculus shows
-\begin{equation*}
-\sup_{x \in D} f(x) = 
-\sup_{-1 \leq x \leq 5} ( x^2 -9x+1 ) = 11,
-\qquad
-\inf_{x \in D} f(x) = 
-\inf_{-1 \leq x \leq 5} ( x^2 -9x+1 ) = \nicefrac{-77}{4} .
-\end{equation*}
-
-
-
-%To illustrate some common issues, let us prove the following proposition.
-
-\begin{prop} \label{prop:funcsupinf}
-If $f \colon D \to \R$ and $g \colon D \to \R$ ($D$ nonempty) are
-bounded\footnote{The boundedness hypothesis is for simplicity,
-it can be dropped if we allow for the extended real numbers.}
-functions and
-\begin{equation*}
-f(x) \leq g(x) \qquad \text{for all $x \in D$},
-\end{equation*}
-then
-\begin{equation} \label{prop:funcsupinf:eq}
-\sup_{x \in D} f(x) \leq \sup_{x \in D} g(x)
-\qquad \text{and} \qquad
-\inf_{x \in D} f(x) \leq \inf_{x \in D} g(x) .
-\end{equation}
-\end{prop}
-
-You should be careful with the variables.
-The $x$ on the left side of
-the inequality in \eqref{prop:funcsupinf:eq}
-is different from the $x$ on the right.
-You
-should really think of the first inequality as
-\begin{equation*}
-\sup_{x \in D} f(x) \leq \sup_{y \in D} g(y) .
-\end{equation*}
-Let us prove this inequality.
-If $b$ is an upper bound for $g(D)$, then
-$f(x) \leq g(x) \leq b$ for all $x \in D$, and hence $b$ is an upper bound for $f(D)$.
-Taking the least upper bound we get that for all $x \in D$
-\begin{equation*}
-f(x) \leq \sup_{y \in D} g(y) .
-\end{equation*}
-Therefore
-$\sup_{y \in D} g(y)$ is an upper bound for $f(D)$ and thus greater than or
-equal to the least upper bound of $f(D)$.
-\begin{equation*}
-\sup_{x \in D} f(x) \leq \sup_{y \in D} g(y) .
-\end{equation*}
-The second inequality (the statement about the inf) is left as an exercise.
-
-\medskip
-
-A common mistake is to conclude 
-\begin{equation} \label{rn:av:ltnottrue}
-\sup_{x \in D} f(x) \leq \inf_{y \in D} g(y) .
-\end{equation}
-The inequality \eqref{rn:av:ltnottrue} is not true given the hypothesis of the claim above.
-For this stronger
-inequality we need the stronger hypothesis
-\begin{equation*}
-f(x) \leq g(y) \qquad \text{for all $x \in D$ and $y \in D$.}
-\end{equation*}
-The proof as well as a counterexample is left as an exercise.
-
-\subsection{Exercises}
-
-\begin{exercise}
-Show that
-$\abs{x-y} < \epsilon$ if and only if $x-\epsilon < y < x+\epsilon$.
-\end{exercise}
-
-\begin{exercise}
-Show that
-\begin{enumerate}[a)]
-\item
-$\max \{x,y\} = \frac{x+y+\abs{x-y}}{2}$
-\item
-$\min \{x,y\} = \frac{x+y-\abs{x-y}}{2}$
-\end{enumerate}
-\end{exercise}
-
 \begin{exercise}
 Find a number $M$ such that $\sabs{x^3-x^2+8x} \leq M$ for all $-2 \leq x \leq
 10$.
 \end{exercise}
 
 \begin{exercise}
-Finish the proof of \propref{prop:funcsupinf}.
-That is, prove that
-given any set $D$,
-and two bounded functions
-$f \colon D \to \R$ and $g \colon D \to \R$ 
-such that $f(x) \leq g(x)$ for all $x \in D$, then 
-\begin{equation*}
-\inf_{x\in D} f(x) \leq \inf_{x\in D} g(x) .
-\end{equation*}
+Find $\epsilon>0$ such that $x^2-x^4>\epsilon$ for all  $\nicefrac13<x<\nicefrac23$.
 \end{exercise}
 
-\begin{exercise}
-Let 
-$f \colon D \to \R$ and $g \colon D \to \R$ be functions ($D$ nonempty).
-\begin{enumerate}[a)]
-%
-\item
-Suppose 
-$f(x) \leq g(y)$ for all $x \in D$ and $y \in D$.
-Show that
-\begin{equation*}
-\sup_{x\in D} f(x) \leq \inf_{x\in D} g(x) .
-\end{equation*}
-%
-\item
-Find a specific $D$, $f$, and $g$, such that
-$f(x) \leq g(x)$ for all $x \in D$, but
-\begin{equation*}
-\sup_{x\in D} f(x) > \inf_{x\in D} g(x) .
-\end{equation*}
-\end{enumerate}
-\end{exercise}
 
-\begin{exercise}
-Prove \propref{prop:funcsupinf} without the assumption that
-the functions are bounded.
-Hint: You need to use the extended real
-numbers.
-\end{exercise}
 
-\begin{exercise} \label{exercise:sumofsup}
-Let $D$ be a nonempty set.
-Suppose $f \colon D \to \R$ and $g \colon D \to \R$ are bounded functions.
-\begin{enumerate}[a)]
-\item Show 
-\begin{equation*}
-\sup_{x\in D} \bigl(f(x) + g(x) \bigr) \leq
-\sup_{x\in D} f(x)
-+
-\sup_{x\in D} g(x)
-\qquad \text{and} \qquad
-\inf_{x\in D} \bigl(f(x) + g(x) \bigr) \geq
-\inf_{x\in D} f(x)
-+
-\inf_{x\in D} g(x) .
-\end{equation*}
-\item Find examples where we obtain strict inequalities.
-\end{enumerate}
-\end{exercise}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectionnewpage
-\section{Countable and uncountable sets}
+\section{Advanced constructions} \label{sec:Archimedean property}
+
+\subsection*{Archimedean property}
+
+The following is one of the fundamental facts about the real numbers.
+
+\begin{thm}\label{thm:arch:i}
+The set of natural numbers $\N$ is unbounded in $\R$.
+
+In particular, if $x, y \in \R$ and
+$x > 0$, then there exists an $n \in \N$ such that $nx>y$.
+\end{thm}
+
+The second statement in the theorem is called \myindex{Archimedean property}.%
+\footnote{It appears as Axiom V of Archimedes' ``On the Sphere and Cylinder'' 225 BC.}
+
+
+\begin{proof}
+Arguing by contradiction, suppose that $\N$ is bounded above.
+
+Let $b := \sup \N$.
+The number $b-1$ cannot possibly be an upper bound for $\N$ as it is strictly less than $b$ (the supremum).
+
+Thus there exists an $m \in \N$ such that $m > b-1$.
+We add one to obtain $m+1 > b$, which contradicts $b$ being an upper bound.
+
+In particular there is a natural number $n$ such that $n>\nicefrac{y}{x}$.
+Since $x>0$, we get $nx>y$.
+\end{proof}
+
+Let us state and prove a simple but useful corollary of the
+\hyperref[thm:arch:i]{Archimedean property}.
+
+\begin{cor}
+$\inf \{ \nicefrac{1}{n} : n \in \N \} = 0$.
+\end{cor}
+
+\begin{proof}
+Let $A := \{ \nicefrac{1}{n} : n \in \N \}$.  
+Obviously $A$ is not empty.
+Furthermore, $\nicefrac{1}{n} > 0$ and so 0 is a lower bound, and $b := \inf\, A$ exists.
+As 0 is a lower bound, then $b \geq 0$.
+Now take an arbitrary $a > 0$.  
+By the \hyperref[thm:arch:i]{Archimedean property} there exists an $n$ such that
+$na > 1$, or in other words $a > \nicefrac{1}{n} \in A$.
+Therefore
+$a$ cannot be a lower bound for $A$.
+Hence $b=0$.
+\end{proof}
+
+\subsection*{Density of rational numbers}
+
+The proof of the following theorem relies on Archimedean property.
+
+\begin{thm}\label{thm:arch:ii} \emph{($\Q$ is dense in $\R$\index{density of
+rational numbers})} Any real interval contains a rational number
+\end{thm}
+
+Before the proof let introduce the notion of maximum and minimum.
+
+By \exerciseref{exercise:finitesethasminmax} we know 
+a finite set of numbers always has a supremum or an infimum that is contained
+in the set itself.
+In this case we usually do not use the words
+supremum or infimum.
+
+When a set $A$ of real numbers is bounded above,
+such that 
+$\sup\, A \in A$, then we can use the word
+\emph{\myindex{maximum}} and the notation $\max A$ to denote the supremum.
+Similarly for infimum; when a set $A$ is bounded below
+and $\inf\, A \in A$, then we can use the
+word \emph{\myindex{minimum}} and the notation $\min\, A$.
+For example,
+\begin{align*}
+& \max \{ 1,2.4,\pi,100 \} = 100 , \\
+& \min \{ 1,2.4,\pi,100 \} = 1 .
+\end{align*}
+While writing $\sup$ and $\inf$ may be technically
+correct in this situation, $\max$ and
+$\min$ are generally used to emphasize that the supremum or infimum
+is in the set itself.
+
+Notice that any set of integers bounded below has well defined  minimum.
+The same way any set of integers bounded above has maximum.
+These properties maybe considered as a reformulation of \hyperref[wop]{well ordering property of $\N$}. 
+%%%???I moved min/max here --- if a notion is introduced then it must be used right after.
+
+\begin{proof} 
+Note that it is sufficient to consider the case of bounded open inteval $(x,y)$.
+That is, assuming for any $x, y \in \R$ such that
+$x < y$, we need to find $r \in \Q$ such that
+$x < r < y$.
+
+Note that $y-x > 0$.
+By \ref{thm:arch:i}, there exists an $n \in \N$ such that $n(y-x) > 1$,
+or equivalently
+\begin{equation*}
+x<y-\nicefrac1n.
+\end{equation*}
+
+Consider the set of integers $A=\{k\in\N : k>nx \}$.
+Notice that $A$ is bounded below therefore it has the minimal element $m=\min A$;
+that is $m$ is the minimal integer such that $m>nx$.
+
+Note that $m-1\le nx$,
+or equivalently 
+$$\nicefrac{m}{n}-\nicefrac1{n}\le x<\nicefrac{m}{n}.$$
+Since $x<y-\nicefrac1n$, the first inequality implies 
+$\nicefrac{m}{n}<y$.
+That is 
+$$x<\nicefrac{m}{n}<y.$$
+So let $r = \nicefrac{m}{n}$.
+\end{proof}
+
+\subsection*{Countable sets}
 \label{sec:intandsizeR}
 
 \sectionnotes{0.5--1 lecture (proof of uncountability of $\R$ can be optional)}
 
 The set $A$ is called countable if it can be counted;
-that is, all the elements of $A$ can be enumerated by natural numbers. Here is a formal definition.
+that is, each element of $A$ can be labeled by unique natural number. 
+Here is a formal definition.
 
 \begin{defn}\label{def:countabe-simple}
-The set $A$ called \emph{\myindex{countable}} if there is a bijecection from a subset of $\N$ to $A$. 
+The set $A$ called \emph{\myindex{countable}} if there is a bijecection from a subset of $\N$ to $A$.
+
+A countable infinite set is called \emph{\myindex{infinite countable}}.
 
 If $A$ is not countable, then $A$ is said to be \emph{\myindex{uncountable}}.
 \end{defn}
@@ -2782,10 +2363,10 @@ In other words $A$ is countable if it is finite or can be written as a sequence 
 in the later case the function $n\mapsto x_n$ gives a bijection from $\N\to A$.
 
 The set of natural numbers is the first example of countable set.
-It turns out that the set of integers $\Z$ is also countable.
-To see this note that $\Z=\{x_1,x_2,\dots\}$,
-where 
-$$x_1=0,\ x_2=1,\ x_3=-1,\ x_4=2,\  x_5=-2,\ x_6=3,\dots$$
+Since set of integers can be written as 
+$\Z=\{0,1,-1,2,-2,3,\dots\},$
+it is also countable.
+The following example is more advanced.
 
 \begin{example}\label{example:NxN}
 There is a bijection
@@ -2794,10 +2375,9 @@ In particular, the set of all pairs of natural numbers $\N\times \N$ is a counta
 
 \begin{proof}
 Arrange the elements of $\N \times \N$ as follows
-$(1,1)$, $(1,2)$, $(2,1)$, $(1,3)$, $(2,2)$, $(3,1)$, \ldots.
+$$\N \times \N= \{(1,1), (1,2), (2,1), (1,3), (2,2), (3,1),\dots\}$$
 That is, always write down first all the elements whose two entries sum to $k$, then write down all the elements whose entries sum to $k+1$ and so on.
-Then define a bijection with $\N$ by letting 1 go to $(1,1)$,
-2 go to $(1,2)$ and so on.
+Then define a bijection with $\N$ by letting $1\mapsto(1,1)$, $2\mapsto(1,2)$, $3\mapsto(2,1)$, and so on.
 \end{proof}
 \end{example}%???+PIC
 
@@ -2805,18 +2385,19 @@ This example implies the following.
 
 \begin{prop}\label{prop:countable-union}
 Union of countable collection of countable set is countable.
+
 That is, assume $A_1,A_2,\dots$ be finite or infinite sequence of countable sets then the union
 $$A=\bigcup_n A_n$$
 is countable.
 \end{prop}
 
-\begin{proof}(Informal)
+\begin{proof}[Informal proof]
 Note that the elements of $A$ can be enumerated by $\N\times \N$.
 Indeed, each set $A_m$ is countable therefore it can be written as a sequence $A=\{x_{m,n}\}$, where $n$ runs in a subset of $\N$.
-The function $\N\times \N\to A$, 
-defined by $(m,n)\mapsto x_{m,n}$ 
-counts all the elements of $A$, possibly with repetitions.
-Removing the repitiotion gives a bijection from a subset of $\N\times \N$ to $A$.
+The function 
+defined by $(m,n)\mapsto x_{m,n}$ maps a subset of $\N\times \N$ to $A$;
+it covers all the elements of $A$, possibly with repetitions.
+Removing the repetition gives a bijection from a subset of $\N\times \N$ to $A$.
 
 By \exampleref{example:NxN}, there is a bijection $\N\to \N\times\N$.
 Hence the statement follows.
@@ -2952,11 +2533,41 @@ The later contradicts Cantor's theorem (\ref{thm:Cantor}).
 
 
 
-\subsection{Exercises}
+\subsection*{Exercises}
+
+
+\begin{exercise}
+Prove that
+if $t \geq 0$ ($t \in \R$), then there exists an $n \in \N$ such that $n-1 \leq t < n$.
+\end{exercise}
+
+\begin{exercise}
+Assume $t$ is nonnegative real number is such that $t\le \tfrac{1+n^2}{1+n^4}$ for any $n\in \N$.
+Show that $t=0$.
+\end{exercise}
+
+\begin{exercise}
+Show that for any interval $(x,y)$ contains an irrational number.
+Hint: Apply Theorem~\ref{thm:arch:ii} to the interval $(x+\sqrt{2},y+\sqrt{2})$.
+\end{exercise}
+
+\begin{exercise}
+Show that any interval contains a \emph{dyadic rational number};
+that is, a rational number whose denominator is a power of two
+(for example, 1/2 or 3/8, but not 1/3).
+\end{exercise}
+
+\begin{exercise}
+Given $x,y>0$ consider the set of all sums $A=\{\,mx+ny:m,n\in\Z\,\}$.
+Show that either $A$ is dense in $\R$ or $\nicefrac xy\in\Q$.
+Hint: Note that sums and differences of elements in $A$ belongs to $A$.
+\end{exercise}
 
 \begin{exercise}
 For $a < b$, construct an explicit bijection from $(a,b]$ to $(0,1]$.
 \end{exercise}
+
+
 
 \begin{exercise}
 Suppose a bijection $f \colon [0,1] \to (0,1)$ is given.
@@ -3016,6 +2627,27 @@ integer coefficients, in other words, $a_n x^n + a_{n-1} x^{n-1}  + \ldots
 numbers (follow in the footsteps of Cantor, use uncountability of $\R$).
 \end{enumerate}
 Hint: Feel free to use the fact that a polynomial of degree $n$ has finite number of real roots.
+\end{exercise}
+
+\begin{exercise}
+Let $S$ be an ordered set.
+Let $A \subset S$ be a nonempty subset
+that is bounded above.
+Suppose $\sup\, A$ exists and
+$\sup\, A \notin A$.
+Show that $A$ is infinite.
+\end{exercise}
+
+\begin{exercise}
+Assume $A\subset \R$ is a set such that any real number can be presented as a sum of finite number of elements in $A$. 
+Show that $A$ is uncountable.
+\end{exercise}
+
+\begin{exercise}
+Assume $f(a,b)$ is a bijection $f\colon\N\times \N\to \N$. 
+Show that 
+$$h(a,b,c):=f(f(a,b),c)$$ 
+defines a bijection $h\colon\N\times\N\times\N\to \N$.
 \end{exercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3103,29 +2735,20 @@ So it makes sense to talk about \emph{the} limit of a sequence.
 A sequence $\{ x_n \}$ is said to \emph{\myindex{converge}} to a number
 $x \in \R$, if for every $\epsilon > 0$, there exists an $M \in \N$ such
 that $\abs{x_n - x} < \epsilon$ for all $n \geq M$.
-The number $x$
-is said to be the \emph{limit} of $\{ x_n \}$.
+In this case, the number $x$ is said to be the \emph{limit} of $\{ x_n \}$.
 We write
 \begin{equation*}
 \lim_{n\to \infty} x_n := x .
 \end{equation*}
 
-A sequence
-that converges is said to be \emph{convergent}\index{convergent sequence}.
-Otherwise, the sequence is said to be
-\emph{divergent}\index{divergent sequence}.
+A sequence that converges is said to be \emph{convergent}\index{convergent sequence}.
+Otherwise, the sequence is said to be \emph{divergent}\index{divergent sequence}.
 \end{defn}
 
-It is good to know intuitively what a limit means.
-It means that eventually
-every number in the sequence is close to the number $x$.
-More precisely,
-we can get arbitrarily close to the limit, provided we go far enough in the
-sequence.
-It does not mean we ever reach the limit.
-It is possible,
-and quite common, that there is no $x_n$ in the sequence that equals the
-limit $x$.
+Intuitively it means that eventually every number in the sequence is close to the number $x$ --- we get arbitrarily close to the limit, provided we go far enough in the sequence.
+It does not mean we ever reach the limit; it is possible,
+and quite common, that $x_n\ne x$ for any $n$.
+
 We illustrate the concept in \figureref{figsequenceconvergence}.
 In the
 figure we first think of the sequence as a graph, as it is a function of
@@ -3149,19 +2772,13 @@ number line.\label{figsequenceconvergence}}
 \end{center}
 \end{figure}
 
-When we write $\lim\, x_n = x$ for some real number $x$, we are saying two
-things.
-First, that $\{ x_n \}$ is convergent, and second that the limit is
-$x$.
+When we write $\lim\, x_n = x$ for some real number $x$, we are saying two things:
+first, that $\{ x_n \}$ is convergent, so the limit is defined, 
+and second that the limit is $x$.
 
-The above definition is one of the most important definitions in analysis,
-and it is necessary to understand it perfectly.
-The key point in the
-definition is that given \emph{any} $\epsilon > 0$, we can find an $M$.
-The
-$M$ can depend on $\epsilon$, so we only pick an $M$ once we know
-$\epsilon$.
-Let us illustrate this concept on a few examples.
+The above definition is one of the most important definitions in analysis, and it is necessary to understand it perfectly.
+The key point in the definition is that given \emph{any} $\epsilon > 0$, we can find an $M$.
+The $M$ can depend on $\epsilon$, so we only pick an $M$ once we know $\epsilon$.
 
 \begin{example}
 The constant sequence $1,1,1,1,\ldots$ is convergent and the limit is 1.
@@ -3174,18 +2791,19 @@ Claim: The sequence $\{ \nicefrac{1}{n} \}$ is convergent and
 \begin{equation*}
 \lim_{n\to \infty} \frac{1}{n} = 0 .
 \end{equation*}
-Proof: Given an $\epsilon > 0$, we find an $M \in \N$ such that
+\begin{proof} Given an $\epsilon > 0$, we find an $M \in \N$ such that
 $0 < \nicefrac{1}{M} < \epsilon$
 (\hyperref[thm:arch:i]{Archimedean property} at work).
 Then for all $n \geq M$ we have that
 \begin{equation*}
 \abs{x_n - 0} = \abs{\frac{1}{n}} = \frac{1}{n} \leq \frac{1}{M} < \epsilon .
 \end{equation*}
+\end{proof}
 \end{example}
 
 \begin{example}
 The sequence $\{ {(-1)}^n \}$ is divergent.
-Proof: If there
+\begin{proof} If there
 were a limit $x$, then for $\epsilon = \frac{1}{2}$ we expect an $M$ that
 satisfies the definition.
 Suppose
@@ -3201,6 +2819,7 @@ But
 \abs{1 - x} + \abs{-1 -x} < \nicefrac{1}{2} + \nicefrac{1}{2} = 1 ,
 \end{equation*}
 and that is a contradiction.
+\end{proof}
 \end{example}
 
 \begin{prop} \label{prop:limisunique}
@@ -3210,22 +2829,23 @@ A convergent sequence has a unique limit.
 The proof of this proposition exhibits a useful technique in
 analysis.
 Many proofs follow the same general scheme.
-We want to
-show a certain quantity is zero.
-We write the quantity using the 
-triangle inequality as two quantities, and we estimate each one
+We want to show a certain quantity is zero.
+We write the quantity using the triangle inequality as two quantities, and we estimate each one
 by arbitrarily small numbers.
 
 \begin{proof}
-Suppose the sequence $\{ x_n \}$ has the limit $x$ and the limit $y$.
+Suppose $x$ and $y$ are limits of the sequence $\{ x_n \}$.
+
 Take an arbitrary $\epsilon > 0$.
 From the definition find an $M_1$ such that for all $n \geq M_1$,
 $\abs{x_n-x} < \nicefrac{\epsilon}{2}$.
 Similarly find an $M_2$
 such that for all $n \geq M_2$ we have
 $\abs{x_n-y} < \nicefrac{\epsilon}{2}$.
+
 Take $M := \max \{M_1, M_2\}$.
-For $n \geq M$ (so that both $n \geq M_1$ and $n \geq M_2$) we have
+Fix $n \geq M$ (so that both $n \geq M_1$ and $n \geq M_2$).
+Then by the triangle inequality, we have
 \begin{equation*}
 \begin{split}
 \abs{y-x}
@@ -3246,20 +2866,25 @@ Hence the limit (if it exists) is unique.
 A convergent sequence $\{ x_n \}$ is bounded.
 \end{prop}
 
+The sequence $\{ {(-1)}^n \}$ shows that the converse does not hold ---
+a bounded sequence is not necessarily convergent.
+
 \begin{proof}
 Suppose $\{ x_n \}$ converges to $x$.
 Thus there exists an $M \in \N$
 such that for all $n \geq M$ we have
 $\abs{x_n - x} < 1$.
-Let $B_1 := \abs{x}+1$ and note that for $n \geq M$ we
-have
+Let $B_1 := \abs{x}+1$; 
+note that for $n \geq M$ we have
 \begin{equation*}
 \begin{split}
 \abs{x_n} & = \abs{x_n - x + x}
 \\
 & \leq \abs{x_n - x} + \abs{x}
 \\
-& < 1 + \abs{x} = B_1 .
+& < 1 + \abs{x} 
+\\
+&= B_1 .
 \end{split}
 \end{equation*}
 The set $\{ \abs{x_1}, \abs{x_2}, \ldots, \abs{x_{M-1}} \}$
@@ -3273,10 +2898,6 @@ Then for all $n \in \N$ we have
 \abs{x_n} \leq B. \qedhere
 \end{equation*}
 \end{proof}
-
-The sequence $\{ {(-1)}^n \}$ shows that the converse
-does not hold.
-A bounded sequence is not necessarily convergent.
 
 \begin{example}
 Let us show the sequence $\left\{ \frac{n^2+1}{n^2+n} \right\}$ converges and
@@ -3309,7 +2930,7 @@ Therefore,
 $\lim \frac{n^2+1}{n^2+n} = 1$.
 \end{example}
 
-\subsection{Monotone sequences}
+\subsection*{Monotone sequences}
 
 The simplest type of a sequence is a monotone sequence.
 Checking that
@@ -3389,6 +3010,8 @@ other direction of the implication.
 The proof for monotone decreasing sequences is left as an exercise.
 \end{proof}
 
+%???formally speaking we did not defined \sqrt{x}???
+
 \begin{example}
 Take the sequence $\{ \frac{1}{\sqrt{n}} \}$.
 
@@ -3432,7 +3055,7 @@ A word of caution:  We must show that a monotone sequence is bounded
 in order to use \thmref{thm:monotoneconv}.
 For
 example, 
-the sequence $\{ 1 + \nicefrac{1}{2} + \cdots + \nicefrac{1}{n} \}$
+the sequence $x_n=1 + \nicefrac{1}{2} + \cdots + \nicefrac{1}{n}$
 is a monotone increasing
 sequence that grows very slowly.
 We will see, once we get to series,
@@ -3455,7 +3078,9 @@ $\{ x_n \}$ and $\{ y_n \}$ such that $x_n, y_n \in S$ and
 \end{equation*}
 \end{prop}
 
-\subsection{Tail of a sequence}
+\subsection*{Tail of a sequence}
+
+%???why do you need it???
 
 \begin{defn}
 For a sequence $\{ x_n \}$,
@@ -3568,7 +3193,7 @@ The proof is left as an exercise.
 Since the 3-tail
 is monotone and bounded below by zero, it is convergent, and therefore the sequence is convergent.
 
-\subsection{Subsequences}
+\subsection*{Subsequences}
 
 A very useful concept related to sequences is that of a subsequence.
 A subsequence of $\{ x_n \}$ is a sequence that contains
@@ -3644,7 +3269,7 @@ $\{ x_{2n+1} \}$ converges to 0.
 Compare \thmref{seqconvsubseqconv:thm}.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exnote}
 In the following exercises, feel free to use what you know from calculus to
@@ -3829,7 +3454,7 @@ In this section we go over some basic results about the limits of
 sequences.
 We start by looking at how sequences interact with inequalities.
 
-\subsection{Limits and inequalities}
+\subsection*{Limits and inequalities}
 
 A basic lemma about limits and inequalities is the so-called squeeze lemma.
 It allows us to show convergence of sequences in difficult cases
@@ -4029,7 +3654,7 @@ we may only conclude
 \end{equation*}
 This issue is a common source of errors.
 
-\subsection{Continuity of algebraic operations}
+\subsection*{Continuity of algebraic operations}
 
 Limits interact nicely with algebraic operations.
 
@@ -4320,7 +3945,7 @@ That is, the limit on the left hand side exists because the right hand
 side exists.
 You really should read the above equality from right to left.
 
-\subsection{Recursively defined sequences}
+\subsection*{Recursively defined sequences}
 
 Now that we know we can interchange limits and algebraic operations, we can
 compute the limits of many sequences.
@@ -4434,7 +4059,7 @@ An entire branch of mathematics, called dynamics, deals precisely with these
 issues.
 \end{example}
 
-\subsection{Some convergence tests}
+\subsection*{Some convergence tests}
 
 It is not always necessary to go back to the definition of convergence
 to prove that a sequence is convergent.
@@ -4643,7 +4268,7 @@ A simple application of the above lemma is to prove that
 \lim_{n\to\infty} \frac{2^n}{n!} = 0 .
 \end{equation*}
 
-Proof:
+\begin{proof}
 We find that
 \begin{equation*}
 \frac{2^{n+1} / (n+1)!}{2^n/n!}
@@ -4654,9 +4279,10 @@ We find that
 \end{equation*}
 It is not hard to see that $\{ \frac{2}{n+1} \}$ converges to zero.
 The conclusion follows by the lemma.
+\end{proof}
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Prove \corref{limandineq:cor}.
@@ -4787,7 +4413,7 @@ but it is divergent.
 All is not lost however and we can
 still compute certain limits with a bounded divergent sequence.
 
-\subsection{Upper and lower limits}
+\subsection*{Upper and lower limits}
 
 There are ways of creating monotone sequences out of any sequence, and
 in this fashion we
@@ -5022,7 +4648,7 @@ we have
 We leave the statement for $\liminf$ as an exercise.
 \end{proof}
 
-\subsection{Using limit inferior and limit superior}
+\subsection*{Using limit inferior and limit superior}
 
 The advantage of $\liminf$ and $\limsup$ is that we can always write them
 down for any (bounded) sequence.
@@ -5142,7 +4768,7 @@ every convergent subsequence
 $\{ x_{n_k} \}$ converges to $x$.
 \end{thm}
 
-\subsection{Bolzano--Weierstrass theorem}
+\subsection*{Bolzano--Weierstrass theorem}
 
 While it is not true that a bounded sequence is convergent, the
 Bolzano--Weierstrass theorem tells us that we can at least find a convergent
@@ -5251,7 +4877,7 @@ following claim,
 which is left as a challenging exercise.
 \emph{Claim: Every sequence has a monotone subsequence}.
 
-\subsection{Infinite limits}
+\subsection*{Infinite limits}
 
 If we allow $\liminf$ and $\limsup$ to take on
 the values $\infty$ and $-\infty$, we can apply $\liminf$ and $\limsup$
@@ -5300,7 +4926,7 @@ then
 \end{equation*}
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Suppose $\{ x_n \}$ is a bounded sequence.
@@ -5534,7 +5160,7 @@ First, let us look at some examples.
 \begin{example}
 The sequence $\{ \nicefrac{1}{n} \}$ is a Cauchy sequence.
 
-Proof:  Given $\epsilon > 0$, find $M$ such that
+\begin{proof}  Given $\epsilon > 0$, find $M$ such that
 $M > \nicefrac{2}{\epsilon}$.
 Then for $n,k \geq M$
 we have that $\nicefrac{1}{n} < \nicefrac{\epsilon}{2}$
@@ -5548,12 +5174,13 @@ we have
 \abs{\frac{1}{n}} + \abs{\frac{1}{k}}
 < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
 \end{equation*}
+\end{proof}
 \end{example}
 
 \begin{example}
 The sequence $\{ \frac{n+1}{n} \}$ is a Cauchy sequence.
 
-Proof:  Given $\epsilon > 0$, find $M$ such that
+\begin{proof}  Given $\epsilon > 0$, find $M$ such that
 $M > \nicefrac{2}{\epsilon}$.
 Then for $n,k \geq M$
 we have that $\nicefrac{1}{n} < \nicefrac{\epsilon}{2}$
@@ -5582,6 +5209,7 @@ we have
 < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
 \end{split}
 \end{equation*}
+\end{proof}
 \end{example}
 
 \begin{prop}
@@ -5722,7 +5350,7 @@ vary independently and can be arbitrarily far apart.
 %The Cauchy criterion for convergence becomes very useful for series, which
 %we will discuss in the next section.
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Prove that $\{ \frac{n^2-1}{n^2} \}$ is Cauchy using directly the definition
@@ -5814,7 +5442,7 @@ For example, solving differential equations often includes
 series, and differential equations are the basis for understanding
 almost all of modern science.
 
-\subsection{Definition}
+\subsection*{Definition}
 
 \begin{defn}
 Given a sequence $\{ x_n \}$, we write the formal object
@@ -5895,7 +5523,7 @@ That is,
 1 .
 \end{equation*}
 
-Proof: First we prove the following equality
+\begin{proof} First we prove the following equality
 \begin{equation*}
 \left( \sum_{n=1}^k \frac{1}{2^n} \right)
 + \frac{1}{2^k}
@@ -5923,6 +5551,7 @@ We write
 The sequence $\{ \frac{1}{2^k} \}$ and therefore $\{ \abs{1-s_k} \}$
 converges to zero.
 So, $\{ s_k \}$ converges to 1.
+\end{proof}
 \end{example}
 
 For $-1 < r < 1$, the \emph{\myindex{geometric series}}
@@ -5970,7 +5599,7 @@ Now use
 \propref{prop:contalg} to finish the proof.
 \end{proof}
 
-\subsection{Cauchy series}
+\subsection*{Cauchy series}
 
 \begin{defn}
 A series $\sum x_n$ is said to be \emph{Cauchy} or a
@@ -6009,7 +5638,7 @@ and every $k > n$ we have
 \end{equation*}
 \end{prop}
 
-\subsection{Basic properties}
+\subsection*{Basic properties}
 
 %A sequence is convergent if and only if it is Cauchy, and therefore
 %the same statement is true for series.
@@ -6052,7 +5681,7 @@ give is the earliest proof and was given by
 \href{http://en.wikipedia.org/wiki/Oresme}{Nicole Oresme}
 (1323?--1382).}.
 
-Proof: We will show that the sequence of partial sums is unbounded, and hence
+\begin{proof} We will show that the sequence of partial sums is unbounded, and hence
 cannot converge.
 Write the partial sums $s_n$ for $n = 2^k$ as:
 \begin{align*}
@@ -6099,6 +5728,7 @@ As $\{ \frac{k}{2} \}$ is unbounded by the
 \hyperref[thm:arch:i]{Archimedean property}, that means that
 $\{ s_{2^k} \}$ is unbounded, and therefore $\{ s_n \}$ is unbounded.
 Hence $\{ s_n \}$ diverges, and consequently $\sum \frac{1}{n}$ diverges.
+\end{proof}
 \end{example}
 
 Convergent series are linear.
@@ -6164,7 +5794,7 @@ It is not true, of course, that we can multiply
 term by term, since that strategy does not work even for finite sums.
 For example, $(a+b)(c+d) \not= ac+bd$.
 
-\subsection{Absolute convergence}
+\subsection*{Absolute convergence}
 
 Since monotone sequences are easier to work with than arbitrary sequences, it
 is generally easier to work with series $\sum x_n$ where $x_n \geq 0$ for
@@ -6250,7 +5880,7 @@ diverges.
 Therefore 
 $\sum \frac{{(-1)}^n}{n}$ is a conditionally convergent subsequence.
 
-\subsection{Comparison test and the \texorpdfstring{$p$}{p}-series}
+\subsection*{Comparison test and the \texorpdfstring{$p$}{p}-series}
 
 We have noted above that for a series to converge
 the terms not only have to go to zero, but they have to go to zero ``fast
@@ -6443,12 +6073,13 @@ in seemingly unrelated areas such as modern cryptography.
 \begin{example}
 The series $\sum \frac{1}{n^2+1}$ converges.
 
-Proof:  First note that $\frac{1}{n^2+1} < \frac{1}{n^2}$ for all $n \in \N$.
+\begin{proof}  First note that $\frac{1}{n^2+1} < \frac{1}{n^2}$ for all $n \in \N$.
 Note that $\sum \frac{1}{n^2}$ converges by the $p$-series test.
 Therefore, by the comparison test, $\sum \frac{1}{n^2+1}$ converges.
+\end{proof}
 \end{example}
 
-\subsection{Ratio test}
+\subsection*{Ratio test}
 
 \begin{prop}[Ratio test]\index{ratio test for series}
 Let $\sum x_n$ be a series such that
@@ -6558,15 +6189,16 @@ The series
 \end{equation*}
 converges absolutely.
 
-Proof:  We write
+\begin{proof}  We write
 \begin{equation*}
 \lim_{n\to\infty} \frac{2^{(n+1)}/(n+1)!}{2^n / n!} =
 \lim_{n\to\infty} \frac{2}{n+1} = 0 .
 \end{equation*}
 Therefore, the series converges absolutely by the ratio test.
+\end{proof}
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 For $r \not= 1$, prove
@@ -6733,7 +6365,7 @@ but $\sum x_n$ still diverges
 
 \sectionnotes{up to 2--3 lectures (optional, can safely be skipped or covered partially)}
 
-\subsection{Root test}
+\subsection*{Root test}
 
 We have seen the ratio test before.
 There is one more similar
@@ -6803,7 +6435,7 @@ so the series converges.
 Therefore $\sum x_n$ converges absolutely.
 \end{proof}
 
-\subsection{Alternating series test}
+\subsection*{Alternating series test}
 
 The tests we have so far only addressed absolute convergence.
 The
@@ -6874,7 +6506,7 @@ For example,
 converges for arbitrarily small $p > 0$, but it does not converge
 absolutely when $p \leq 1$.
 
-\subsection{Rearrangements}
+\subsection*{Rearrangements}
 
 Generally,
 absolutely convergent series behave as we imagine they should.
@@ -7014,7 +6646,7 @@ is
 At this point we are no more than $\nicefrac{1}{8}$ from the limit.
 \end{example}
 
-\subsection{Multiplication of series}
+\subsection*{Multiplication of series}
 
 As we have
 already mentioned,
@@ -7217,7 +6849,7 @@ Therefore
 The terms do not go to zero and hence $\sum c_n$ cannot converge.
 \end{example}
 
-\subsection{Power series}
+\subsection*{Power series}
 
 Fix $x_0 \in \R$.
 A \emph{\myindex{power series}} about $x_0$
@@ -7550,7 +7182,7 @@ x + \frac{1}{1+x} - \frac{1}{1-x}
 x + \sum_{n=0}^\infty {(-1)}^n x^n - \sum_{n=0}^\infty x^n .
 \end{equation*}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 %This kind of sucks as an exercise ....
 %\begin{exercise}
@@ -7745,7 +7377,7 @@ more general notion of a limit.
 That is, given a function $f \colon S \to
 \R$, we want to see how $f(x)$ behaves as $x$ tends to a certain point.
 
-\subsection{Cluster points}
+\subsection*{Cluster points}
 
 First,
 let us return to a concept we have previously seen in an exercise.
@@ -7805,7 +7437,7 @@ $\epsilon > 0$ there is an $M$ such that in particular $\abs{x_M - x} <
 That is, $x_M \in (x-\epsilon,x+\epsilon) \cap S \setminus \{x\}$.
 \end{proof}
 
-\subsection{Limits of functions}
+\subsection*{Limits of functions}
 
 If a function $f$ is defined on a set $S$ and $c$ is a cluster point of $S$,
 then we can define the limit of $f(x)$ as $x$ gets close to $c$.
@@ -7880,7 +7512,7 @@ Then
 \lim_{x\to c} f(x) = \lim_{x\to c} x^2 = c^2 .
 \end{equation*}
 
-Proof: First let $c$ be fixed.
+\begin{proof} First let $c$ be fixed.
 Let $\epsilon > 0$ be given.
 Take
 \begin{equation*}
@@ -7906,6 +7538,7 @@ We compute
 &< (2\abs{c}+1)\frac{\epsilon}{2\abs{c}+1} = \epsilon .
 \end{split}
 \end{equation*}
+\end{proof}
 \end{example}
 
 \begin{example}
@@ -7923,15 +7556,16 @@ Then
 \end{equation*}
 even though $f(0) = 1$.
 
-Proof:  Let $\epsilon > 0$ be given.
+\begin{proof}  Let $\epsilon > 0$ be given.
 Let $\delta := \epsilon$.
 Then for $x \in [0,1)$, $x \not= 0$, and $\abs{x-0} < \delta$ we get
 \begin{equation*}
 \abs{f(x) - 0} = \abs{x} < \delta = \epsilon .
 \end{equation*}
+\end{proof}
 \end{example}
 
-\subsection{Sequential limits} \label{subseq:sequentiallimits}
+\subsection*{Sequential limits} \label{subseq:sequentiallimits}
 
 Let us connect the limit as defined above with limits of sequences.
 
@@ -8012,7 +7646,7 @@ near zero as it oscillates too fast.\label{figsin1x}}
 \end{center}
 \end{figure}
 
-Proof:
+\begin{proof}
 Let us work with $\sin(\nicefrac{1}{x})$ first.
 Let us define the sequence
 $x_n := \frac{1}{\pi n + \nicefrac{\pi}{2}}$.
@@ -8048,6 +7682,7 @@ $\{ x_n\sin(\nicefrac{1}{x_n}) \}$ converges to zero.
 By
 \lemmaref{seqflimit:lemma}, 
 $\displaystyle \lim_{x \to 0} \, x\sin( \nicefrac{1}{x} ) = 0$.
+\end{proof}
 \end{example}
 
 Keep in mind the phrase ``for every sequence'' in the lemma.
@@ -8167,7 +7802,7 @@ and $g(x) \not= 0$ for all $x \in S \setminus \{ c \}$, then
 \end{enumerate}
 \end{cor}
 
-\subsection{Limits of restrictions and one-sided limits}
+\subsection*{Limits of restrictions and one-sided limits}
 
 %It is not necessary to always consider all of $S$.
 Sometimes we work with the function defined on a subset.
@@ -8305,7 +7940,7 @@ The key point is that
 $\bigl( S \cap (-\infty,c) \bigr) \cup \bigl( S \cap (c,\infty) \bigr)
 = S \setminus \{ c \}$.
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Find the limit or prove that the limit does not exist
@@ -8465,7 +8100,7 @@ The following definition took three great mathematicians
 (Bolzano, Cauchy, and finally Weierstrass) to get correctly and its final
 form dates only to the late 1800s.
 
-\subsection{Definition and basic properties}
+\subsection*{Definition and basic properties}
 
 \begin{defn}
 Let $S \subset \R$, $c \in S$, and let $f \colon S \to \R$ be a function.
@@ -8600,7 +8235,7 @@ It can also be strengthened, see \exerciseref{exercise:contseqalt}.
 $f \colon (0,\infty) \to \R$ defined by
 $f(x) := \nicefrac{1}{x}$ is continuous.
 
-Proof: Fix $c \in (0,\infty)$.  
+\begin{proof} Fix $c \in (0,\infty)$.  
 Let $\{ x_n \}$ be a sequence in $(0,\infty)$ such that
 $\lim\, x_n = c$.
 Then we know that
@@ -8616,6 +8251,7 @@ f(c) = \frac{1}{c}
 Thus $f$ is continuous at $c$.
 As $f$ is continuous at all $c \in
 (0,\infty)$, $f$ is continuous.
+\end{proof}
 \end{example}
 
 We have previously shown $\lim_{x \to c} x^2 = c^2$ directly.
@@ -8742,7 +8378,7 @@ Details are left to the
 reader.
 \end{example}
 
-\subsection{Composition of continuous functions}
+\subsection*{Composition of continuous functions}
 
 You have probably already realized that one of the basic tools in
 constructing complicated functions out of simple ones is composition.
@@ -8772,7 +8408,7 @@ Thus $f \circ g$ is continuous at $c$.
 \begin{example}
 Claim: ${\bigl(\sin(\nicefrac{1}{x})\bigr)}^2$ is a continuous function on $(0,\infty)$.
 
-Proof: First note that $\nicefrac{1}{x}$ is a continuous function on
+\begin{proof} First note that $\nicefrac{1}{x}$ is a continuous function on
 $(0,\infty)$ and $\sin(x)$ is a continuous function on $(0,\infty)$ (actually
 on all of $\R$, but $(0,\infty)$ is the range for $\nicefrac{1}{x}$).
 Hence the composition $\sin(\nicefrac{1}{x})$ is continuous.
@@ -8781,9 +8417,10 @@ know that $x^2$ is continuous on the interval $(-1,1)$ (the range of sin).
 Thus
 the composition
 ${\bigl(\sin(\nicefrac{1}{x})\bigr)}^2$ is also continuous on $(0,\infty)$.
+\end{proof}
 \end{example}
 
-\subsection{Discontinuous functions}
+\subsection*{Discontinuous functions}
 
 %Let us spend a bit of time on discontinuous functions.
 When $f$ is not continuous at $c$, we
@@ -8813,11 +8450,12 @@ f(x) :=
 \end{equation*}
 is not continuous at 0.
 
-Proof: Take the sequence $\{ - \nicefrac{1}{n} \}$.
+\begin{proof} Take the sequence $\{ - \nicefrac{1}{n} \}$.
 Then
 $f(-\nicefrac{1}{n}) = -1$
 and so
 $\lim\, f(-\nicefrac{1}{n}) = -1$, but $f(0) = 1$.
+\end{proof}
 \end{example}
 
 \begin{example}
@@ -8832,7 +8470,7 @@ f(x) :=
 \end{equation*}
 The function $f$ is discontinuous at all $c \in \R$.
 
-Proof:
+\begin{proof}
 Suppose $c$ is rational.
 Take a sequence $\{ x_n \}$
 of irrational numbers such that $\lim\, x_n = c$ (why can we?).
@@ -8841,6 +8479,7 @@ and so $\lim\, f(x_n) = 0$, but $f(c) = 1$.
 If $c$ is irrational, take a sequence of rational numbers $\{ x_n \}$
 that converges to $c$ (why can we?).
 Then $\lim\, f(x_n) = 1$, but $f(c) = 0$.
+\end{proof}
 \end{example}
 
 Let us yet again test the limits of your intuition.
@@ -8878,7 +8517,7 @@ in \figureref{popcornfig}.
 \end{center}
 \end{figure}
 
-Proof:
+\begin{proof}
 Suppose $c = \nicefrac{m}{k}$ is rational.
 Take a sequence of
 irrational numbers $\{ x_n \}$ such that $\lim\, x_n = c$.
@@ -8906,6 +8545,7 @@ Thus for $n \geq M$
 \abs{f(x_n) - 0} = f(x_n) \leq \nicefrac{1}{K} < \epsilon .
 \end{equation*}
 Therefore $f$ is continuous at irrational $c$.
+\end{proof}
 \end{example}
 
 Let us end on an easier example.
@@ -8934,7 +8574,7 @@ Let $A = \{ 0
 \}$, then $g|_A$ is continuous (why?), while $g$ is not continuous on $A$.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Using the definition of continuity directly prove that
@@ -9087,7 +8727,7 @@ have some interesting and very useful properties.
 %intervals of
 %the real line.
 
-\subsection{Min-max theorem}
+\subsection*{Min-max theorem}
 
 Recall a function $f \colon [a,b] \to \R$ is
 \emph{bounded\index{bounded function}} if there exists a $B \in \R$ such that
@@ -9244,13 +8884,11 @@ The problem is that
 the function is not continuous at 0.
 \end{example}
 
-\subsection{Bolzano's intermediate value theorem}
+\subsection*{Intermediate value theorem}
 
-Bolzano's intermediate value theorem is one of the cornerstones of analysis.
-It is sometimes called only intermediate value theorem, or just
-Bolzano's theorem.
-To prove Bolzano's theorem we prove the
-following simpler lemma.
+Intermediate value theorem is one of the cornerstones of analysis.
+It is sometimes called Bolzano's intermediate value theorem, or just Bolzano's theorem.
+To prove the theorem we prove the following simpler lemma.
 
 \begin{lemma} \label{IVT:lemma}
 Let $f \colon [a,b] \to \R$ be a continuous function.
@@ -9343,7 +8981,7 @@ The
 proof is not only useful for us pure mathematicians,
 but it is a useful idea in applied mathematics.
 
-\begin{thm}[Bolzano's intermediate value theorem] \label{IVT:thm}
+\begin{thm}[intermediate value theorem] \label{IVT:thm}
 \index{Bolzano's theorem}
 \index{Bolzano's intermediate value theorem}
 \index{intermediate value theorem}
@@ -9520,7 +9158,7 @@ there exists a $c$ such that $f(y) = c$.
 Proof is left as an exercise.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Find an example of a discontinuous function $f \colon [0,1] \to \R$
@@ -9636,7 +9274,7 @@ is bounded.
 \sectionnotes{1.5--2 lectures (Continuous extension and Lipschitz can be
 optional)}
 
-\subsection{Uniform continuity}
+\subsection*{Uniform continuity}
 
 We made a fuss of saying that the $\delta$ in the definition of
 continuity depended on the point $c$.
@@ -9670,7 +9308,7 @@ smaller set.
 The function $f \colon (0,1) \to \R$, defined by $f(x) := \nicefrac{1}{x}$ is not
 uniformly continuous, but it is continuous.
 
-Proof: Given $\epsilon > 0$, then for $\epsilon >
+\begin{proof} Given $\epsilon > 0$, then for $\epsilon >
 \abs{\nicefrac{1}{x}-\nicefrac{1}{y}}$ to hold we must have
 \begin{equation*}
 \epsilon >
@@ -9688,12 +9326,13 @@ Therefore, to satisfy the definition of uniform continuity we would have to
 have $\delta \leq xy \epsilon$ for all $x,y$ in $(0,1)$, but that would mean
 that $\delta \leq 0$.
 Therefore there is no single $\delta > 0$.
+\end{proof}
 \end{example}
 
 \begin{example}
 $f \colon [0,1] \to \R$, defined by $f(x) := x^2$ is uniformly continuous.
 
-Proof: Note that $0 \leq x,c \leq 1$.
+\begin{proof} Note that $0 \leq x,c \leq 1$.
 Then
 \begin{equation*}
 \abs{x^2-c^2} = \abs{x+c}\abs{x-c}
@@ -9702,11 +9341,12 @@ Then
 \end{equation*}
 Therefore given $\epsilon > 0$, let $\delta := \nicefrac{\epsilon}{2}$.
 If $\abs{x-c} < \delta$, then $\abs{x^2-c^2} < \epsilon$.
+\end{proof}
 
 On the other hand, $f \colon \R \to \R$, defined by $f(x) := x^2$ is not uniformly
 continuous.
 
-Proof: Suppose it is uniformly continuous, then for all $\epsilon > 0$,
+\begin{proof} Suppose it is uniformly continuous, then for all $\epsilon > 0$,
 there would exist a $\delta > 0$ such that
 if $\abs{x-c} < \delta$, then $\abs{x^2 -c^2} < \epsilon$.
 Take $x > 0$ and let
@@ -9722,6 +9362,7 @@ Write
 \end{equation*}
 Therefore $x < \nicefrac{\epsilon}{\delta}$ for all $x > 0$, which is a
 contradiction.
+\end{proof}
 \end{example}
 
 We have seen that if $f$ is defined on an interval that is either not closed
@@ -9798,7 +9439,7 @@ hand side of the inequality would go to zero while the right-hand side is positi
 Thus $f$ cannot be continuous at $c$.
 \end{proof}
 
-\subsection{Continuous extension}
+\subsection*{Continuous extension}
 
 Before we get to continuous extension, we show the following useful lemma.
 It says that uniformly continuous functions behave nicely with respect
@@ -9915,7 +9556,7 @@ And since $f$ is continuous at $c \in (a,b)$, then
 $\widetilde{f}$ is continuous at $c \in (a,b)$.
 \end{proof}
 
-\subsection{Lipschitz continuous functions}
+\subsection*{Lipschitz continuous functions}
 
 \begin{defn}
 Let $f \colon S \to \R$ be a function such that there exists a number $K$
@@ -10001,7 +9642,9 @@ Hence sin and cos are Lipschitz continuous with $K=1$.
 
 \begin{example}
 The function $f \colon [1,\infty) \to \R$ defined by $f(x) := \sqrt{x}$
-is Lipschitz continuous. Proof:
+is Lipschitz continuous. 
+
+\begin{proof}
 \begin{equation*}
 \abs{\sqrt{x}-\sqrt{y}} = 
 \abs{\frac{x-y}{\sqrt{x}+\sqrt{y}}}
@@ -10018,6 +9661,7 @@ Therefore
 \frac{1}{2}
 \abs{x-y}.
 \end{equation*}
+\end{proof}
 
 On the other hand $f \colon [0,\infty) \to \R$ defined by
 $f(x) := \sqrt{x}$ is not Lipschitz continuous.
@@ -10051,7 +9695,7 @@ to show that this means that $\sqrt{x}$ is uniformly continuous on
 $[0,\infty)$.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Let $f \colon S \to \R$ be uniformly continuous.
@@ -10178,7 +9822,7 @@ for which $\abs{f(x)} = \nicefrac{K}{2}$ for some $x \in [0,1]$.
 \sectionref{sec:monotonefunc} or
 \sectionref{sec:impropriemann} is also covered)}
 
-\subsection{Limits at infinity}
+\subsection*{Limits at infinity}
 
 As for sequences, a continuous variable can also approach infinity.
 Let us make this notion precise.
@@ -10237,7 +9881,7 @@ Then
 \lim_{x\to -\infty} f(x) = 0 .
 \end{equation*}
 
-Proof:
+\begin{proof}
 Let $\epsilon > 0$ be given.
 Find $M > 0$ large enough
 so that $\frac{1}{M+1} < \epsilon$.
@@ -10245,6 +9889,7 @@ If
 $x \geq M$, then $\frac{1}{x+1} \leq \frac{1}{M+1} < \epsilon$.
 Since $\frac{1}{\abs{x}+1} > 0$ for all $x$ the first limit is proved.
 The proof for $-\infty$ is left to the reader.
+\end{proof}
 \end{example}
 
 \begin{example}
@@ -10325,7 +9970,7 @@ to a real number.
 We leave it to
 the student to verify these statements.
 
-\subsection{Infinite limit}
+\subsection*{Infinite limit}
 
 Just as for sequences, it is often convenient to distinguish certain
 divergent sequences, and talk about limits being infinite
@@ -10365,7 +10010,7 @@ We can again use sequential limits, and an analogue of
 \begin{example}
 Let us show that $\lim_{x \to \infty} \frac{1+x^2}{1+x} = \infty$.
 
-Proof: For $x \geq 1$ we have
+\begin{proof} For $x \geq 1$ we have
 \begin{equation*}
 \frac{1+x^2}{1+x} \geq 
 \frac{x^2}{x+x}  = 
@@ -10378,9 +10023,10 @@ So
 \frac{1+x^2}{1+x} \geq 
 \frac{x}{2} > N .
 \end{equation*}
+\end{proof}
 \end{example}
 
-\subsection{Compositions}
+\subsection*{Compositions}
 
 Finally, just as for limits at finite numbers we can compose functions
 easily.
@@ -10416,7 +10062,7 @@ Then
 \lim_{x\to \infty} h(x) = 0 .
 \end{equation*}
 
-Proof:
+\begin{proof}
 The claim follows once we know
 \begin{equation*}
 \lim_{x\to \infty} -x^2+x = -\infty
@@ -10426,9 +10072,10 @@ and
 \lim_{y\to -\infty} e^y = 0 ,
 \end{equation*}
 which is usually proved when the exponential function is defined.
+\end{proof}
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Prove \propref{liminfty:unique}.
@@ -10534,7 +10181,7 @@ Sometimes \emph{\myindex{nondecreasing}}
 for increasing (resp.\ decreasing) function to emphasize it is not
 strictly increasing (resp.\ strictly decreasing).
 
-\subsection{Continuity of monotone functions}
+\subsection*{Continuity of monotone functions}
 
 It is easy to compute one-sided limits for monotone functions.
 
@@ -10744,7 +10391,7 @@ defined on a closed bounded interval.
 \end{example}
 
 
-\subsection{Continuity of inverse functions}
+\subsection*{Continuity of inverse functions}
 
 
 A strictly monotone function $f$ is one-to-one (injective).
@@ -10855,7 +10502,7 @@ interval precisely when $f$ is continuous.
 %monotone, and so $f$ is continuous by \propref{prop:invcont}.  
 %\end{proof}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Suppose $f \colon [0,1] \to \R$ is monotone.
@@ -10960,7 +10607,7 @@ Of course, we are leaving out any function that has corners or
 discontinuities.
 Let us be precise.
 
-\subsection{Definition and basic properties}
+\subsection*{Definition and basic properties}
 
 \begin{defn}
 Let $I$ be an interval, let
@@ -11194,7 +10841,7 @@ h'(c) = \frac{f'(c) g(c) - f(c) g'(c)}{{\bigl(g(c)\bigr)}^2} .
 
 Again the proof is left as an exercise.
 
-\subsection{Chain rule}
+\subsection*{Chain rule}
 
 A useful rule for computing derivatives 
 is the chain rule.
@@ -11275,7 +10922,7 @@ Thus $h$
 is differentiable at $c$ and the limit is $f'\bigl(g(c)\bigr)g'(c)$.
 \end{proof}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Prove the product rule.
@@ -11387,7 +11034,7 @@ h'(c)$.
 
 \sectionnotes{2 lectures (some applications may be skipped)}
 
-\subsection{Relative minima and maxima}
+\subsection*{Relative minima and maxima}
 
 We talked about absolute maxima and minima.
 These are the tallest peaks and
@@ -11468,7 +11115,7 @@ As you remember from calculus, finding minima and maxima of a function can
 be done by finding all the critical points together with the endpoints of
 the interval and simply checking where is the function biggest or smallest.
 
-\subsection{Rolle's theorem}
+\subsection*{Rolle's theorem}
 
 Suppose a function is zero at both endpoints of an interval.
 Intuitively it ought to attain a minimum or a maximum in the interior of the
@@ -11533,7 +11180,7 @@ Note that it is absolutely necessary for the derivative to exist for all $x
 For example take the function $f(x) = \abs{x}$ on $[-1,1]$.
 Clearly $f(-1) = f(1)$, but there is no point where $f'(c) = 0$.
 
-\subsection{Mean value theorem}
+\subsection*{Mean value theorem}
 
 We extend \hyperref[thm:rolle]{Rolle's theorem}
 to functions that attain different
@@ -11585,7 +11232,7 @@ line between $\bigl(a,f(a)\bigr)$ and $\bigl(b,f(b)\bigr)$.
 \end{center}
 \end{figure}
 
-\subsection{Applications}
+\subsection*{Applications}
 
 We now solve our very first differential equation.
 
@@ -11708,7 +11355,7 @@ The converse of the proposition does not hold.
 See
 \exampleref{baddifffunc:example} below.
 
-\subsection{Continuity of derivatives and the intermediate value theorem}
+\subsection*{Continuity of derivatives and the intermediate value theorem}
 
 Derivatives of functions satisfy an
 intermediate value property.
@@ -11755,7 +11402,6 @@ $b$ cannot possibly be a maximum.
 Therefore $c \in (a,b)$.
 Then as $c$ is a maximum of $g$ we find $g'(c) = 0$
 and $f'(c) = y$.
-
 \end{proof}
 
 We have seen already that
@@ -11792,7 +11438,7 @@ Notice that $f(x) \leq x^2$ on the left graph.\label{fig:nonc1diff}}
 \end{center}
 \end{figure}
 
-Proof: It is easy to see from the definition that $f$ has an absolute
+\begin{proof}It is easy to see from the definition that $f$ has an absolute
 minimum at 0: we know $f(x) \geq 0$ for all $x$ and $f(0) = 0$.
 
 The function $f$ is differentiable for $x\not=0$
@@ -11826,6 +11472,8 @@ And, of course, as $x$ tends to zero, then $\abs{x}$ tends to zero and hence
 $\abs{\frac{f(x)-f(0)}{x-0} - 0}$ goes to zero.
 Therefore, $f$
 is differentiable at 0 and the derivative at 0 is 0.
+\end{proof}
+
 A key point in the above calculation is that 
 is that $\abs{f(x)} \leq x^2$,
 see also Exercises \ref{exercise:bndmuldiff} and
@@ -11840,7 +11488,7 @@ the derivative $f'$ is continuous on $I$, then we say $f$ is
 It is common to
 write $C^1(I)$ for the set of continuously differentiable functions on $I$.
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Finish the proof of \propref{incdecdiffprop}.
@@ -11947,7 +11595,7 @@ it is the unique differentiable function with this property.
 
 \sectionnotes{half a lecture (optional section)}
 
-\subsection{Derivatives of higher orders}
+\subsection*{Derivatives of higher orders}
 
 When $f \colon I \to \R$ is differentiable, we obtain a function
 $f' \colon I \to \R$.
@@ -11966,7 +11614,7 @@ by $f^{(n)}$ the \emph{$n$th derivative}\index{nth derivative} of $f$.
 When $f$ possesses $n$ derivatives, we say $f$ is
 \emph{$n$ times differentiable}\index{n times differentiable}.
 
-\subsection{Taylor's theorem}
+\subsection*{Taylor's theorem}
 
 Taylor's theorem%
 \footnote{Named for the English mathematician
@@ -12108,7 +11756,7 @@ saying that if a function is
 locally approximated in a certain way by a polynomial of degree $d$, then it
 has $d$ derivatives.
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Compute the $n$th Taylor Polynomial at $0$ for the exponential function.
@@ -12175,7 +11823,7 @@ while $f'(0)$ exists, $f''(0)$ does not.
 \sectionref{sec:logandexp}, requires 
 \sectionref{sec:monotonefunc})}
 
-\subsection{Inverse function theorem}
+\subsection*{Inverse function theorem}
 
 The main idea of differentiating inverse functions is the following lemma.
 
@@ -12328,7 +11976,7 @@ See also \exerciseref{exercise:oddroot}.
 \end{example}
 
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Suppose $f \colon \R \to \R$ is continuously differentiable such that
@@ -12444,7 +12092,7 @@ using the Darboux integral%
 which is technically simpler than (but equivalent to) the traditional
 definition as done by Riemann.
 
-\subsection{Partitions and lower and upper integrals}
+\subsection*{Partitions and lower and upper integrals}
 
 We want to integrate a bounded function defined on an interval $[a,b]$.
 We first define two auxiliary integrals that can be defined for all
@@ -12740,7 +12388,7 @@ infimum over all partitions we get
 In other words $\underline{\int_a^b} f \leq \overline{\int_a^b} f$.
 \end{proof}
 
-\subsection{Riemann integral}
+\subsection*{Riemann integral}
 
 We can finally define the Riemann integral.
 However, the Riemann
@@ -12812,7 +12460,7 @@ f(x) :=
 \end{equation*}
 We claim $f$ is Riemann integrable and $\int_0^2 f = 1$.
 
-Proof: Let $0 < \epsilon < 1$ be arbitrary.
+\begin{proof} Let $0 < \epsilon < 1$ be arbitrary.
 Let $P := \{0, 1-\epsilon, 1+\epsilon, 2\}$ be a partition.
 We use the notation from
 the definition of the Darboux sums.
@@ -12859,6 +12507,7 @@ Finally,
 Hence, $\bigl\lvert \int_0^2 f - 1 \bigr\rvert \leq \epsilon$.
 As $\epsilon$ was arbitrary,
 we have $\int_0^2 f = 1$.
+\end{proof}
 \end{example}
 
 It may be worthwhile to extract part of the technique of the example into a
@@ -12930,7 +12579,7 @@ $\frac{b^2}{n(b+1)} < \epsilon$ the proposition is satisfied and the
 function is integrable.
 \end{example}
 
-\subsection{More notation}
+\subsection*{More notation}
 
 When $f \colon S \to \R$ is defined on a larger set $S$ and
 $[a,b] \subset S$,
@@ -12963,7 +12612,7 @@ For example,
 \int_a^b f(s)~ds := \int_a^b f(x)~dx .
 \end{equation*}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Let $f \colon [0,1] \to \R$ be defined by $f(x) := x^3$
@@ -13127,7 +12776,7 @@ such that the composition $f \circ g$ is not Riemann integrable.
 \sectionnotes{2 lectures, integrability of functions with 
 discontinuities can safely be skipped}
 
-\subsection{Additivity}
+\subsection*{Additivity}
 
 The next result we prove is usually referred to as the
 \myindex{additive property of the integral}.
@@ -13317,7 +12966,7 @@ $[c,d] \subset [a,b]$, then
 the restriction $f|_{[c,d]}$ is in $\sR[c,d]$.
 \end{cor}
 
-\subsection{Linearity and monotonicity}
+\subsection*{Linearity and monotonicity}
 
 \begin{prop}[Linearity]
 \index{linearity of the integral}
@@ -13460,7 +13109,7 @@ We take the supremum over all $P$ (see \propref{prop:funcsupinf}) to obtain
 As $f$ and $g$ are Riemann integrable, the conclusion follows.
 \end{proof}
 
-\subsection{Continuous functions}
+\subsection*{Continuous functions}
 
 Let us show that continuous functions are Riemann integrable.
 In fact we
@@ -13713,7 +13362,7 @@ and is left as an exercise.
 \end{proof}
 
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Let $f$ be in $\sR[a,b]$.
@@ -13920,7 +13569,7 @@ derivative.
 It tells us how to compute the antiderivative of a function
 using the integral and vice-versa.
 
-\subsection{First form of the theorem}
+\subsection*{First form of the theorem}
 
 \begin{thm}
 Let $F \colon [a,b] \to \R$ be a continuous function, differentiable
@@ -14005,7 +13654,7 @@ use the fundamental theorem to write
 \end{equation*}
 \end{example}
 
-\subsection{Second form of the theorem}
+\subsection*{Second form of the theorem}
 
 The second form of the fundamental theorem gives us a way to solve
 the differential equation $F'(x) = f(x)$, where $f$ is a known
@@ -14156,7 +13805,7 @@ as an integral.
 If we wish to compute any particular value, we 
 numerically approximate the integral.
 
-\subsection{Change of variables}
+\subsection*{Change of variables}
 
 A theorem often used in calculus to solve integrals is the change of
 variables theorem.
@@ -14259,7 +13908,7 @@ The integral we wrote down simply does not make sense.
 Finally, $g$ is not continuous on $[-1,1]$ either.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Compute
@@ -14433,7 +14082,7 @@ $x^y$ in general?  In particular, what is $e^x$ for all $x$?
 And how do we solve $y=e^x$ for $x$?
 This section answers these questions and more.
 
-\subsection{The logarithm}
+\subsection*{The logarithm}
 \index{logarithm}
 
 It is convenient to start with the logarithm.  
@@ -14564,7 +14213,7 @@ we simply define the \emph{\myindex{logarithm}} or sometimes called the
 Often mathematicians write $\log(x)$ instead of $\ln(x)$, which is
 more familiar to calculus students.
 
-\subsection{The exponential}
+\subsection*{The exponential}
 \index{exponential}
 
 Just as with the logarithm we define the exponential via a list of
@@ -14719,7 +14368,7 @@ If $x > 0$ then $\ln(x^y) = y \ln (x)$.
 \end{enumerate}
 \end{prop}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Let $y$ be any real number and $b > 0$.
@@ -15203,7 +14852,7 @@ The improper integral
 \end{equation*}
 converges.
 
-Proof:  First observe we simply need to show
+\begin{proof}  First observe we simply need to show
 that the integral converges when going from 1 to infinity.
 For $x \geq 1$ we obtain
 \begin{equation*}
@@ -15220,6 +14869,7 @@ Then
 \lim_{c\to\infty} \int_1^c \frac{3}{x^2} ~dx.
 \end{equation*}
 So the integral converges.
+\end{proof}
 \end{example}
 
 \begin{example}
@@ -15627,7 +15277,7 @@ We leave the other statement---that the integral
 of the absolute value of the sinc function diverges---as an exercise.
 \end{example}
 
-\subsection{Integral test for series}
+\subsection*{Integral test for series}
 
 It can be very useful to apply the fundamental theorem 
 of calculus in proving a series is summable and to estimate its sum.
@@ -15772,7 +15422,7 @@ obtain
 The actual sum is $\nicefrac{\pi^2}{6} \approx 1.6449\ldots$. 
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Finish the proof of \propref{impropriemann:ptest}.
@@ -15969,7 +15619,7 @@ tricky part is that there are multiple notions of a limit.
 Let us describe two common
 notions of a limit of a sequence of functions.
 
-\subsection{Pointwise convergence}
+\subsection*{Pointwise convergence}
 
 \begin{defn}
 \index{pointwise convergence}
@@ -16093,7 +15743,7 @@ That is, for each $x$ we can pick a different $N$.
 If we can pick one $N$ for all $x$, we have what is called
 uniform convergence.
 
-\subsection{Uniform convergence}
+\subsection*{Uniform convergence}
 
 \begin{defn}
 \index{uniform convergence}
@@ -16155,7 +15805,7 @@ Therefore, for $n \geq N$
 \end{equation*}
 \end{example}
 
-\subsection{Convergence in uniform norm}
+\subsection*{Convergence in uniform norm}
 
 For bounded functions there is another more abstract way to 
 think of uniform convergence.
@@ -16323,7 +15973,7 @@ Take supremum over all $x$ to obtain
 \end{equation*}
 \end{proof}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Let $f$ and $g$ be bounded functions on $[a,b]$.
@@ -16468,7 +16118,7 @@ We treat two cases.
 First we look at continuity of
 the limit, and second we look at the integral of the limit.
 
-\subsection{Continuity of the limit}
+\subsection*{Continuity of the limit}
 
 If we have a sequence $\{ f_n \}$ of continuous functions, is the limit continuous?
 Suppose $f$ is the (pointwise) limit of $\{ f_n \}$.
@@ -16603,7 +16253,7 @@ $x$.
 As $x$ was arbitrary, $f$ is continuous everywhere.
 \end{proof}
 
-\subsection{Integral of the limit}
+\subsection*{Integral of the limit}
 
 Again, if we simply require pointwise convergence, then the integral
 of a limit of a sequence of functions need not be equal to the limit
@@ -16821,7 +16471,7 @@ however, enough to swap limits with derivatives, unless you also have
 uniform convergence of the derivatives themselves.
 See the exercises below.
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 While uniform convergence preserves continuity, it does not preserve
@@ -17033,7 +16683,7 @@ with all we have learned.
 It is also a good example of how analysis is
 applied as differential equations are indispensable in science.
 
-\subsection{First order ordinary differential equation}
+\subsection*{First order ordinary differential equation}
 
 Modern science is described in the language of
 \emph{differential equations}\index{differential equation}.
@@ -17058,7 +16708,7 @@ true that a solution exists, and if it does, that it is the unique solution.
 Picard's theorem gives us certain sufficient conditions for existence
 and uniqueness.
 
-\subsection{The theorem}
+\subsection*{The theorem}
 
 We need a definition of continuity in two variables.
 First, a point in the
@@ -17354,7 +17004,7 @@ Therefore, $f=g$, and the
 solution is unique.
 \end{proof}
 
-\subsection{Examples}
+\subsection*{Examples}
 
 Let us look at some examples.
 The proof of the theorem 
@@ -17489,7 +17139,7 @@ Therefore to obtain existence of a solution, some continuity hypothesis on
 $F$ is necessary.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Let $I, J \subset \R$ be intervals.
@@ -17974,7 +17624,7 @@ then we obtain a bounded metric space.
 In fact, any set with the
 discrete metric is bounded.
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Show that for any set $X$, the discrete metric ($d(x,y) = 1$ if $x\not=y$ and
@@ -18083,7 +17733,7 @@ nonempty bounded subsets $A$ and $B$ such that $d_H(A,B) = 0$.
 
 \sectionnotes{2 lectures}
 
-\subsection{Topology}
+\subsection*{Topology}
 
 It is useful to define a so-called \emph{\myindex{topology}}.
 That is
@@ -18315,7 +17965,7 @@ and $(-\infty,b]$ are closed in $\R$.
 \end{prop}
 
 
-\subsection{Connected sets}
+\subsection*{Connected sets}
 
 \begin{defn}
 A nonempty
@@ -18371,13 +18021,14 @@ open disjoint subsets of $S$.
 Let $S \subset \R$ be such that $x < z < y$ with $x,y \in S$
 and $z \notin S$.
 Claim: $S$ is not connected.
-Proof:  Notice
+\begin{proof}  Notice
 \begin{equation*}
 \bigl( (-\infty,z) \cap S \bigr)
 \cup
 \bigl( (z,\infty) \cap S \bigr)
 = S .
 \end{equation*}
+\end{proof}
 \end{example}
 
 \begin{prop}
@@ -18462,7 +18113,7 @@ connected as $B(a,1) = \{ a \}$ and
 $B(b,1) = \{ b \}$ are open and disjoint.
 \end{example}
 
-\subsection{Closure and boundary}
+\subsection*{Closure and boundary}
 
 Sometimes we wish to take a set and throw in everything that we can approach
 from the set.
@@ -18495,23 +18146,25 @@ closed sets $E$ containing $A$ must be equal to $A$.
 
 \begin{example}
 The closure of $(0,1)$ in $\R$ is $[0,1]$.
-Proof:  Simply notice that if
+\begin{proof}  Simply notice that if
 $E$ is closed and contains $(0,1)$, then $E$ must contain $0$ and $1$ (why?).
 Thus $[0,1] \subset E$.
 But $[0,1]$ is also closed.
 Therefore the closure $\overline{(0,1)} = [0,1]$.
+\end{proof}
 \end{example}
 
 \begin{example}
 Be careful to notice what ambient metric space you are working with.
 If $X = (0,\infty)$, then
 the closure of $(0,1)$ in $(0,\infty)$ is $(0,1]$.
-Proof:  Similarly as
+\begin{proof}  Similarly as
 above $(0,1]$ is closed in $(0,\infty)$ (why?).
 Any closed set $E$
 that contains $(0,1)$ must contain 1 (why?).
 Therefore $(0,1] \subset E$,
 and hence $\overline{(0,1)} = (0,1]$ when working in $(0,\infty)$.
+\end{proof}
 \end{example}
 
 Let us justify the statement that the closure is everything that we can
@@ -18637,7 +18290,7 @@ Let $(X,d)$ be a metric space and $A \subset X$.
 Then $\partial A = \overline{A} \cap \overline{A^c}$.
 \end{cor}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Prove \propref{prop:topology:closed}.
@@ -18742,7 +18395,7 @@ $A^\circ = \bigcup \{ V : V \subset A \text{ is open} \}$.
 
 \sectionnotes{1 lecture}
 
-\subsection{Sequences}
+\subsection*{Sequences}
 
 The notion of a sequence in a metric space is very similar to a sequence of
 real numbers.
@@ -18866,7 +18519,7 @@ converges to $p \in X$, then
 \end{enumerate}
 \end{prop}
 
-\subsection{Convergence in euclidean space}
+\subsection*{Convergence in euclidean space}
 
 It is useful to note what convergence means in the euclidean space
 $\R^n$.
@@ -18931,7 +18584,7 @@ d(y,x_j)
 The sequence $\{ x_j \}$ converges to $y \in \R^n$ and we are done.
 \end{proof}
 
-\subsection{Convergence and topology}
+\subsection*{Convergence and topology}
 
 The topology, that is, the set of open sets of a space encodes which
 sequences converge.
@@ -19009,7 +18662,7 @@ For the other direction, see \exerciseref{exercise:reverseclosedseq}.
 %\overline{A}$.
 \end{proof}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise} \label{exercise:reverseclosedseq}
 Let $(X,d)$ be a metric space and
@@ -19120,7 +18773,7 @@ Prove \propref{prop:mssubseq}.
 
 \sectionnotes{2 lectures}
 
-\subsection{Cauchy sequences and completeness}
+\subsection*{Cauchy sequences and completeness}
 
 Just like with sequences of real numbers we define Cauchy sequences.
 
@@ -19208,7 +18861,7 @@ with no limit in $(0,1]$.
 But see also
 \exerciseref{exercise:closedcomplete}.
 
-\subsection{Compactness}
+\subsection*{Compactness}
 
 \begin{defn}
 Let $(X,d)$ be a metric space and $K \subset X$. 
@@ -19548,7 +19201,7 @@ of these statements are either trivial or are relegated to the exercises
 below.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Let $(X,d)$ be a metric space and $A$ a finite subset of $X$.
@@ -19677,7 +19330,7 @@ Show that $E$ with the subspace metric is a complete metric space.
 
 \sectionnotes{1 lecture}
 
-\subsection{Continuity}
+\subsection*{Continuity}
 
 \begin{defn}
 Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
@@ -19774,7 +19427,7 @@ Similarly, a
 polynomial in $n$ variables is continuous.
 \end{example}
 
-\subsection{Compactness and continuity}
+\subsection*{Compactness and continuity}
 
 Continuous maps do not map closed sets to closed sets.
 For example,
@@ -19836,7 +19489,7 @@ Therefore there is some $x \in X$ such that $f(x) = \sup f(X)$
 and some $y \in X$ such that $f(y) = \inf f(X)$.
 \end{proof}
 
-\subsection{Continuity and topology}
+\subsection*{Continuity and topology}
 
 Let us see how to define continuity in terms of the topology, that is,
 the open sets.
@@ -19913,7 +19566,7 @@ $f^{-1}\bigl( (0,\infty) \bigr) = \{ x \in X :
 f(x) > 0 \}$ is open.
 \end{example}
 
-\subsection{Uniform continuity}
+\subsection*{Uniform continuity}
 
 As for continuous
 functions on the real line, in the definition of continuity
@@ -19991,7 +19644,7 @@ easiest to simply show it is Lipschitz even if we are only
 interested in knowing continuity.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Consider $\N \subset \R$ with the standard metric.  
@@ -20110,7 +19763,7 @@ without metric spaces in \sectionref{sec:picard}.
 The proof we present here is similar, but the proof goes a lot
 smoother with metric spaces and the fixed point theorem.
 
-\subsection{Fixed point theorem}
+\subsection*{Fixed point theorem}
 
 \begin{defn}
 Let $(X,d)$ and $(X',d')$ be metric spaces.
@@ -20192,7 +19845,7 @@ from the fixed point you are, see the exercises.
 The idea of the proof is
 therefore used in real world applications.
 
-\subsection{Picard's theorem}
+\subsection*{Picard's theorem}
 
 Before we get to Picard, let us mention what metric space we will be
 applying the fixed point theorem to.
@@ -20381,7 +20034,7 @@ That is, prove that if we know the theorem with $x_0 = 0$, the
 theorem is true as stated.
 \end{exercise}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exnote}
 For more exercises related to Picard's theorem see \sectionref{sec:picard}.
@@ -20673,7 +20326,7 @@ Therefore $y \notin X$, and as $X$ was an arbitrary countable subset,
 $(0,1]$ must be uncountable.
 \end{proof}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}
 Prove that the cardinality of $[0,1]$ is the same as the cardinality of
@@ -20985,7 +20638,7 @@ For every $P$,
 if we go far enough, we find a 1 that is followed by at least $P+1$ zeros.
 \end{example}
 
-\subsection{Exercises}
+\subsection*{Exercises}
 
 \begin{exercise}[Easy]
 What is the decimal representation of $1$ guaranteed by
@@ -21013,6 +20666,194 @@ Define a representation of a real number in
 $[0,1]$ in terms of base $b$ rather than base 10 and prove
 \propref{prop:decimalprop} for base $b$.
 \end{exercise}
+
+\chapter{I do not think it is needed}
+
+\subsection*{Range of functions}
+
+The last example leads us to the concept of bounded functions.
+
+\begin{defn}
+Suppose $f \colon D \to \R$ is a function.
+We say $f$ is
+\emph{bounded}\index{bounded function}
+if there exists a number $M$
+such that $\abs{f(x)} \leq M$ for all $x \in D$.
+\end{defn}
+
+In the example we proved $x^2-9x+1$ is bounded when considered as a
+function on $D = \{ x : -1 \leq x \leq 5 \}$.
+ On the other hand,
+if we consider the same polynomial as a function on the whole real line $\R$,
+then it is not bounded.
+
+For a function $f \colon D \to \R$ we write
+\begin{align*}
+& \sup_{x \in D} f(x) := \sup\, f(D) , \\
+& \inf_{x \in D} f(x) := \inf\, f(D) .
+\end{align*}
+We also sometimes replace the ``$x \in D$'' with an expression.
+For example if, as before, $f(x) = x^2-9x+1$, for $-1 \leq x \leq 5$, 
+a little bit of calculus shows
+\begin{equation*}
+\sup_{x \in D} f(x) = 
+\sup_{-1 \leq x \leq 5} ( x^2 -9x+1 ) = 11,
+\qquad
+\inf_{x \in D} f(x) = 
+\inf_{-1 \leq x \leq 5} ( x^2 -9x+1 ) = \nicefrac{-77}{4} .
+\end{equation*}
+
+
+
+%To illustrate some common issues, let us prove the following proposition.
+
+\begin{prop} \label{prop:funcsupinf}
+If $f \colon D \to \R$ and $g \colon D \to \R$ ($D$ nonempty) are
+bounded\footnote{The boundedness hypothesis is for simplicity,
+it can be dropped if we allow for the extended real numbers.}
+functions and
+\begin{equation*}
+f(x) \leq g(x) \qquad \text{for all $x \in D$},
+\end{equation*}
+then
+\begin{equation} \label{prop:funcsupinf:eq}
+\sup_{x \in D} f(x) \leq \sup_{x \in D} g(x)
+\qquad \text{and} \qquad
+\inf_{x \in D} f(x) \leq \inf_{x \in D} g(x) .
+\end{equation}
+\end{prop}
+
+You should be careful with the variables.
+The $x$ on the left side of
+the inequality in \eqref{prop:funcsupinf:eq}
+is different from the $x$ on the right.
+You
+should really think of the first inequality as
+\begin{equation*}
+\sup_{x \in D} f(x) \leq \sup_{y \in D} g(y) .
+\end{equation*}
+Let us prove this inequality.
+If $b$ is an upper bound for $g(D)$, then
+$f(x) \leq g(x) \leq b$ for all $x \in D$, and hence $b$ is an upper bound for $f(D)$.
+Taking the least upper bound we get that for all $x \in D$
+\begin{equation*}
+f(x) \leq \sup_{y \in D} g(y) .
+\end{equation*}
+Therefore
+$\sup_{y \in D} g(y)$ is an upper bound for $f(D)$ and thus greater than or
+equal to the least upper bound of $f(D)$.
+\begin{equation*}
+\sup_{x \in D} f(x) \leq \sup_{y \in D} g(y) .
+\end{equation*}
+The second inequality (the statement about the inf) is left as an exercise.
+
+\medskip
+
+A common mistake is to conclude 
+\begin{equation} \label{rn:av:ltnottrue}
+\sup_{x \in D} f(x) \leq \inf_{y \in D} g(y) .
+\end{equation}
+The inequality \eqref{rn:av:ltnottrue} is not true given the hypothesis of the claim above.
+For this stronger
+inequality we need the stronger hypothesis
+\begin{equation*}
+f(x) \leq g(y) \qquad \text{for all $x \in D$ and $y \in D$.}
+\end{equation*}
+The proof as well as a counterexample is left as an exercise.
+
+\subsection*{Exercises}
+
+\begin{exercise}
+Let $x, y \in \R$.  
+Suppose $x^2 + y^2 = 0$.  
+Prove that $x = 0$ and $y = 0$.
+\end{exercise}
+
+\begin{exercise}
+Prove the \emph{\myindex{arithmetic-geometric mean inequality}}.  That is, 
+for two positive real numbers $x,y$ we have
+\begin{equation*}
+\sqrt{xy} \leq \frac{x+y}{2} .
+\end{equation*}
+Furthermore, equality occurs if and only if $x=y$.
+\end{exercise}
+
+\begin{exercise}[Easy]
+Prove \propref{prop:existsxepsfromsup}.
+\end{exercise}
+
+\begin{exercise} \label{exercise:bernoulliineq}
+Prove the so-called \emph{\myindex{Bernoulli's inequality}}%
+\footnote{%
+Named after the Swiss mathematician
+\href{http://en.wikipedia.org/wiki/Jacob_Bernoulli}{Jacob Bernoulli} (1655 --
+1705).}%
+: If $1+x > 0$ then
+for all $n \in \N$ we have $(1+x)^n \geq 1+nx$.
+\end{exercise}
+
+
+\begin{exercise}
+Finish the proof of \propref{prop:funcsupinf}.
+That is, prove that
+given any set $D$,
+and two bounded functions
+$f \colon D \to \R$ and $g \colon D \to \R$ 
+such that $f(x) \leq g(x)$ for all $x \in D$, then 
+\begin{equation*}
+\inf_{x\in D} f(x) \leq \inf_{x\in D} g(x) .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Let 
+$f \colon D \to \R$ and $g \colon D \to \R$ be functions ($D$ nonempty).
+\begin{enumerate}[a)]
+%
+\item
+Suppose 
+$f(x) \leq g(y)$ for all $x \in D$ and $y \in D$.
+Show that
+\begin{equation*}
+\sup_{x\in D} f(x) \leq \inf_{x\in D} g(x) .
+\end{equation*}
+%
+\item
+Find a specific $D$, $f$, and $g$, such that
+$f(x) \leq g(x)$ for all $x \in D$, but
+\begin{equation*}
+\sup_{x\in D} f(x) > \inf_{x\in D} g(x) .
+\end{equation*}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:funcsupinf} without the assumption that
+the functions are bounded.
+Hint: You need to use the extended real
+numbers.
+\end{exercise}
+
+\begin{exercise} \label{exercise:sumofsup}
+Let $D$ be a nonempty set.
+Suppose $f \colon D \to \R$ and $g \colon D \to \R$ are bounded functions.
+\begin{enumerate}[a)]
+\item Show 
+\begin{equation*}
+\sup_{x\in D} \bigl(f(x) + g(x) \bigr) \leq
+\sup_{x\in D} f(x)
++
+\sup_{x\in D} g(x)
+\qquad \text{and} \qquad
+\inf_{x\in D} \bigl(f(x) + g(x) \bigr) \geq
+\inf_{x\in D} f(x)
++
+\inf_{x\in D} g(x) .
+\end{equation*}
+\item Find examples where we obtain strict inequalities.
+\end{enumerate}
+\end{exercise}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

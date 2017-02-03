@@ -1,0 +1,223 @@
+%\usepackage{pdf14}
+%Paper saving
+%\documentclass[12pt,openany]{book}
+%\documentclass[10pt,openany]{book}
+%\documentclass[8pt,openany]{extbook}
+
+\usepackage[T1]{fontenc}
+
+% Footnotes should use symbols, not numbers.  Numbered footnotes are
+% evil
+\usepackage[perpage,symbol*]{footmisc}
+
+%\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{ifpdf}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[pdftex]{graphicx}
+%\usepackage{color}
+%\usepackage{graphics}
+\usepackage[headings]{fullpage}
+\usepackage{url}
+\usepackage{varioref}
+%\usepackage{floatflt}
+%\usepackage{wrapfig}
+\usepackage{makeidx}
+\usepackage[pdftex]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage[shortalphabetic]{amsrefs}
+\usepackage[all]{xy}
+\usepackage{nicefrac}
+\usepackage{microtype}
+
+\usepackage{tikz}
+\usepackage{rotating}
+
+
+
+% Times
+%\usepackage{txfonts}
+% Times, but symbol/cm/ams math fonts
+\usepackage{mathptmx}
+% But we do want helvetica for sans
+\usepackage{helvet}
+
+%enumitem global options
+\setlist{leftmargin=*,itemsep=0.5\itemsep,parsep=0.5\parsep,topsep=0.5\topsep,partopsep=0.5\partopsep}
+
+
+% useful
+\newcommand{\ignore}[1]{}
+
+% analysis/geometry stuff
+\newcommand{\ann}{\operatorname{ann}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\aut}{\operatorname{aut}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\sing}{\operatorname{sing}}
+
+% reals
+\newcommand{\esssup}{\operatorname{ess~sup}}
+\newcommand{\essran}{\operatorname{essran}}
+\newcommand{\innprod}[2]{\langle #1 | #2 \rangle}
+\newcommand{\linnprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Nul}{\operatorname{Nul}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\sabs}[1]{\lvert {#1} \rvert}
+\newcommand{\snorm}[1]{\lVert {#1} \rVert}
+\newcommand{\abs}[1]{\left\lvert {#1} \right\rvert}
+\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
+
+% sets (some)
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathbb{F}}}
+
+% consistent
+\newcommand{\bB}{{\mathbb{B}}}
+\newcommand{\bC}{{\mathbb{C}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\newcommand{\bZ}{{\mathbb{Z}}}
+\newcommand{\bN}{{\mathbb{N}}}
+\newcommand{\bQ}{{\mathbb{Q}}}
+\newcommand{\bD}{{\mathbb{D}}}
+\newcommand{\bF}{{\mathbb{F}}}
+\newcommand{\bH}{{\mathbb{H}}}
+\newcommand{\bO}{{\mathbb{O}}}
+\newcommand{\bP}{{\mathbb{P}}}
+\newcommand{\bK}{{\mathbb{K}}}
+\newcommand{\bV}{{\mathbb{V}}}
+\newcommand{\CP}{{\mathbb{CP}}}
+\newcommand{\RP}{{\mathbb{RP}}}
+\newcommand{\HP}{{\mathbb{HP}}}
+\newcommand{\OP}{{\mathbb{OP}}}
+\newcommand{\sA}{{\mathcal{A}}}
+\newcommand{\sB}{{\mathcal{B}}}
+\newcommand{\sC}{{\mathcal{C}}}
+\newcommand{\sF}{{\mathcal{F}}}
+\newcommand{\sG}{{\mathcal{G}}}
+\newcommand{\sH}{{\mathcal{H}}}
+\newcommand{\sM}{{\mathcal{M}}}
+\newcommand{\sO}{{\mathcal{O}}}
+\newcommand{\sP}{{\mathcal{P}}}
+\newcommand{\sQ}{{\mathcal{Q}}}
+\newcommand{\sR}{{\mathcal{R}}}
+\newcommand{\sS}{{\mathcal{S}}}
+\newcommand{\sI}{{\mathcal{I}}}
+\newcommand{\sL}{{\mathcal{L}}}
+\newcommand{\sK}{{\mathcal{K}}}
+\newcommand{\sU}{{\mathcal{U}}}
+\newcommand{\sV}{{\mathcal{V}}}
+\newcommand{\sX}{{\mathcal{X}}}
+\newcommand{\sY}{{\mathcal{Y}}}
+\newcommand{\sZ}{{\mathcal{Z}}}
+\newcommand{\fS}{{\mathfrak{S}}}
+
+\newcommand{\interior}{\operatorname{int}}
+
+% Topo stuff
+\newcommand{\id}{\textit{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Torsion}{\operatorname{Torsion}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+
+%extra thingies
+\newcommand{\mapsfrom}{\ensuremath{\text{\reflectbox{$\mapsto$}}}}
+\newcommand{\from}{\ensuremath{\leftarrow}}
+\newcommand{\dhat}[1]{\hat{\hat{#1}}}
+\newcommand{\spn}{\operatorname{span}}
+
+% San Serif fonts
+%\renewcommand{\familydefault}{\sfdefault}
+
+% To allow skrinking to 5.5 x 8.5 inches without whitespaces
+% Make sure to rerun makeindex as well
+% Useful for printing on lilu.com and saving on paper
+%\addtolength{\textheight}{2.13in}
+%\addtolength{\paperheight}{2.13in}
+
+
+% Very simple indexing
+\newcommand{\myindex}[1]{#1\index{#1}}
+
+% define this to be empty to kill notes
+\newcommand{\sectionnotes}[1]{}%{\noindent \emph{Note: #1} \medskip \par}
+
+
+% Define this to be empty to not skip page before the sections to
+% save some paper
+\newcommand{\sectionnewpage}{\clearpage}
+%\newcommand{\sectionnewpage}{}
+
+% Don't include subsections
+\setcounter{tocdepth}{1}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{exercise}[thm]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+%\newtheoremstyle{exercise}% name
+%  {}% Space above
+%  {}% Space below
+%  {\itshape \small}% Body font
+%  {}% Indent amount 1
+%  {\bfseries \itshape \small}% Theorem head font
+%  {:}% Punctuation after theorem head
+%  {.5em}% Space after theorem head 2
+%  {}% Theorem head spec (can be left empty, meaning "normal")
+
+\newenvironment{exnote}{\small}{}
+
+%\theoremstyle{exercise}
+%\newtheorem{exercise}{Exercise}[section]
+
+\newtheoremstyle{example}% name
+  {}% Space above
+  {}% Space below
+  {}% Body font
+  {}% Indent amount 1
+  {\bfseries}% Theorem head font
+  {:}% Punctuation after theorem head
+  {.5em}% Space after theorem head 2
+  {}% Theorem head spec (can be left empty, meaning "normal")
+
+\theoremstyle{example}
+\newtheorem{example}[thm]{Example}
+
+% referencing
+\newcommand{\figureref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
+\newcommand{\tableref}[1]{\hyperref[#1]{Table~\ref*{#1}}}
+\newcommand{\chapterref}[1]{\hyperref[#1]{chapter~\ref*{#1}}}
+\newcommand{\Chapterref}[1]{\hyperref[#1]{Chapter~\ref*{#1}}}
+\newcommand{\sectionref}[1]{\hyperref[#1]{\S\ref*{#1}}}
+\newcommand{\exerciseref}[1]{\hyperref[#1]{Exercise~\ref*{#1}}}
+\newcommand{\exampleref}[1]{\hyperref[#1]{Example~\ref*{#1}}}
+\newcommand{\thmref}[1]{\hyperref[#1]{Theorem~\ref*{#1}}}
+\newcommand{\propref}[1]{\hyperref[#1]{Proposition~\ref*{#1}}}
+\newcommand{\lemmaref}[1]{\hyperref[#1]{Lemma~\ref*{#1}}}
+\newcommand{\corref}[1]{\hyperref[#1]{Corollary~\ref*{#1}}}
+\newcommand{\defnref}[1]{\hyperref[#1]{Definition~\ref*{#1}}}
+
