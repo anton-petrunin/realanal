@@ -1868,6 +1868,13 @@ Furthermore, prove that the intervals given in this section
 all satisfy this property.
 \end{exercise}
 
+\begin{exercise}
+Show that an intersection
+of a possibly infinite family of closed intervals is either empty, a single point,
+or a closed interval.
+\end{exercise}
+
+
 \subsection*{On supremum and infimum}
 
 The following fact about supremum and infimum is often useful.
@@ -1987,6 +1994,35 @@ Show that $C$ is a bounded set and that
 \end{equation*}
 Hint: Use Proposition~\ref{prop:existsxepsfromsup}.
 \end{exercise}
+
+\subsection*{On maximum and minimum}
+
+By \exerciseref{exercise:finitesethasminmax} we know 
+a finite set of numbers always has a supremum or an infimum that is contained
+in the set itself.
+In this case we usually do not use the words
+supremum or infimum.
+
+When a set $A$ of real numbers is bounded above,
+such that 
+$\sup\, A \in A$, then we can use the word
+\emph{\myindex{maximum}} and the notation $\max A$ to denote the supremum.
+Similarly for infimum; when a set $A$ is bounded below
+and $\inf\, A \in A$, then we can use the
+word \emph{\myindex{minimum}} and the notation $\min\, A$.
+For example,
+\begin{align*}
+& \max \{ 1,2.4,\pi,100 \} = 100 , \\
+& \min \{ 1,2.4,\pi,100 \} = 1 .
+\end{align*}
+While writing $\sup$ and $\inf$ may be technically
+correct in this situation, $\max$ and
+$\min$ are generally used to emphasize that the supremum or infimum
+is in the set itself.
+
+Notice that any set of integers bounded below has well defined  minimum.
+The same way any set of integers bounded above has maximum.
+These properties maybe considered as a reformulation of \hyperref[wop]{well ordering property of $\N$}. 
 
 \subsection*{Absolute value} \label{sec:absval}
 
@@ -2213,7 +2249,7 @@ Find $\epsilon>0$ such that $x^2-x^4>\epsilon$ for all  $\nicefrac13<x<\nicefrac
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectionnewpage
-\section{Advanced constructions} \label{sec:Archimedean property}
+\section{Fundamental constructions} \label{sec:Archimedean property}
 
 \subsection*{Archimedean property}
 
@@ -2243,6 +2279,11 @@ In particular there is a natural number $n$ such that $n>\nicefrac{y}{x}$.
 Since $x>0$, we get $nx>y$.
 \end{proof}
 
+\begin{exercise}
+Prove that
+if $t \geq 0$ ($t \in \R$), then there exists an $n \in \N$ such that $n-1 \leq t < n$.
+\end{exercise}
+
 Let us state and prove a simple but useful corollary of the
 \hyperref[thm:arch:i]{Archimedean property}.
 
@@ -2263,43 +2304,20 @@ $a$ cannot be a lower bound for $A$.
 Hence $b=0$.
 \end{proof}
 
+\begin{exercise}
+Assume $t$ is nonnegative real number such that $t\le \tfrac{1+n^2}{1+n^4}$ for any $n\in \N$.
+Show that $t=0$.
+\end{exercise}
+
 \subsection*{Density of rational numbers}
 
 The proof of the following theorem relies on Archimedean property.
 
 \begin{thm}\label{thm:arch:ii} \emph{($\Q$ is dense in $\R$\index{density of
-rational numbers})} Any real interval contains a rational number
+rational numbers})} Any real interval contains a rational number.
+
+Equivalently, given a real numbers $x$ and $\epsilon>0$ there is a rational number $r$ such that $\abs{x-r}<\epsilon$.
 \end{thm}
-
-Before the proof let introduce the notion of maximum and minimum.
-
-By \exerciseref{exercise:finitesethasminmax} we know 
-a finite set of numbers always has a supremum or an infimum that is contained
-in the set itself.
-In this case we usually do not use the words
-supremum or infimum.
-
-When a set $A$ of real numbers is bounded above,
-such that 
-$\sup\, A \in A$, then we can use the word
-\emph{\myindex{maximum}} and the notation $\max A$ to denote the supremum.
-Similarly for infimum; when a set $A$ is bounded below
-and $\inf\, A \in A$, then we can use the
-word \emph{\myindex{minimum}} and the notation $\min\, A$.
-For example,
-\begin{align*}
-& \max \{ 1,2.4,\pi,100 \} = 100 , \\
-& \min \{ 1,2.4,\pi,100 \} = 1 .
-\end{align*}
-While writing $\sup$ and $\inf$ may be technically
-correct in this situation, $\max$ and
-$\min$ are generally used to emphasize that the supremum or infimum
-is in the set itself.
-
-Notice that any set of integers bounded below has well defined  minimum.
-The same way any set of integers bounded above has maximum.
-These properties maybe considered as a reformulation of \hyperref[wop]{well ordering property of $\N$}. 
-%%%???I moved min/max here --- if a notion is introduced then it must be used right after.
 
 \begin{proof} 
 Note that it is sufficient to consider the case of bounded open inteval $(x,y)$.
@@ -2326,7 +2344,22 @@ $\nicefrac{m}{n}<y$.
 That is 
 $$x<\nicefrac{m}{n}<y.$$
 So let $r = \nicefrac{m}{n}$.
+
+The last statement follows since $\abs{x-r}<\epsilon$ if and only if $r$ lies in the interval $(x-\epsilon,x+\epsilon)$.
 \end{proof}
+
+\begin{exercise}
+Show that any interval contains a \emph{dyadic rational number};
+that is, a rational number whose denominator is a power of two
+(for example, 1/2 or 3/8, but not 1/3).
+\end{exercise}
+
+\begin{exercise}\label{ex:irrationals-are-dense}
+Show that for any interval $(x,y)$ contains an irrational number.
+Hint: Apply Theorem~\ref{thm:arch:ii} to the interval $(x+\sqrt{2},y+\sqrt{2})$.
+\end{exercise}
+
+
 
 \subsection*{Countable sets}
 \label{sec:intandsizeR}
@@ -2377,11 +2410,20 @@ In particular, the set of all pairs of natural numbers $\N\times \N$ is a counta
 Arrange the elements of $\N \times \N$ as follows
 $$\N \times \N= \{(1,1), (1,2), (2,1), (1,3), (2,2), (3,1),\dots\}$$
 That is, always write down first all the elements whose two entries sum to $k$, then write down all the elements whose entries sum to $k+1$ and so on.
-Then define a bijection with $\N$ by letting $1\mapsto(1,1)$, $2\mapsto(1,2)$, $3\mapsto(2,1)$, and so on.
+Note that this list includes all the pairs.
+
+It remains to define the needed bijection as $1\mapsto(1,1)$, $2\mapsto(1,2)$, $3\mapsto(2,1)$, and so on.
 \end{proof}
 \end{example}%???+PIC
 
-This example implies the following.
+\begin{exercise}
+Assume $f(a,b)$ is a bijection $f\colon\N\times \N\to \N$. 
+Show that 
+$$h(a,b,c):=f(f(a,b),c)$$ 
+defines a bijection $h\colon\N\times\N\times\N\to \N$.
+\end{exercise}
+
+This example above implies the following.
 
 \begin{prop}\label{prop:countable-union}
 Union of countable collection of countable set is countable.
@@ -2418,6 +2460,35 @@ As it stated in the next theorem,
 the set of real numbers is uncountable.
 It means that countable sets of real numbers are ``small'' compared to the set of real numbers. 
 In particular, from \exampleref{Q-countable}, existence of irational numbers follow. 
+
+\begin{exercise}\label{ex:sentences}
+Show that the set of all sentences in English is countable.
+\end{exercise}
+
+\begin{exercise}[Challenging]
+A number $x$ is \emph{algebraic}\index{algebraic number} if $x$ is a root of a polynomial with
+integer coefficients, in other words, $a_n x^n + a_{n-1} x^{n-1}  + \ldots
++ a_1 x + a_0 = 0$ where all $a_n \in \Z$. 
+\begin{enumerate}[a)]
+ \item Show that there are only countably many algebraic numbers.
+ \item Show that there exist non-algebraic
+numbers (follow in the footsteps of Cantor, use uncountability of $\R$).
+\end{enumerate}
+Hint: Feel free to use the fact that a polynomial of degree $n$ has finite number of real roots.
+\end{exercise}
+
+\begin{exercise}
+Suppose $S$ is a set of disjoint open intervals in $\R$.
+That is, 
+if $(a,b) \in S$ and $(c,d) \in S$, then either $(a,b) = (c,d)$
+or $(a,b) \cap (c,d) = \emptyset$.
+Prove $S$ is a countable set. 
+Hint: use \exampleref{Q-countable} and Theorem~\ref{thm:arch:ii}.
+\end{exercise}
+
+\begin{exercise}
+Show that the set $S$ is countable if and only if one can introduce an order ``$<$'' on $S$ such that for any $s\in S$ the set $\{\,x\in S: x<s\,\}$ is finite.
+\end{exercise}
 
 \begin{thm}[Cantor]\index{Cantor's theorem}\label{thm:Cantor}
 The set of real numbers is uncountable.
@@ -2509,14 +2580,18 @@ Since $\R$ is uncountable, so is $(-\nicefrac{\pi}{2},\nicefrac{\pi}{2})$.
 A linear function provides a bijection between any pair of real intervals.
 Since any interval contains an open interval the discussion above leads to the following.
 
-\begin{prop}
-All real intervals are all uncountable.
+\begin{prop}\label{prop:uncountable-intervals}
+The real intervals are all uncountable.
 \end{prop}
 
 We have seen that there exist irrational numbers, that is
 $\R \setminus \Q$ is nonempty. 
 Now let us show that there are a lot more irrational numbers than rational
 numbers.
+
+\begin{exercise} Use Proposition~\ref{prop:uncountable-intervals} to build an other solution of \exerciseref{ex:irrationals-are-dense}.
+\end{exercise}
+
 
 \begin{prop}
 The set of irrational numbers is uncountable
@@ -2530,125 +2605,24 @@ Then by Proposition~\ref{prop:countable-union} and \exampleref{Q-countable}, so 
 The later contradicts Cantor's theorem (\ref{thm:Cantor}).
 \end{proof}
 
-
-
-
-\subsection*{Exercises}
-
+The following exercise is closely related to \exerciseref{ex:sentences}.
 
 \begin{exercise}
-Prove that
-if $t \geq 0$ ($t \in \R$), then there exists an $n \in \N$ such that $n-1 \leq t < n$.
-\end{exercise}
-
-\begin{exercise}
-Assume $t$ is nonnegative real number is such that $t\le \tfrac{1+n^2}{1+n^4}$ for any $n\in \N$.
-Show that $t=0$.
-\end{exercise}
-
-\begin{exercise}
-Show that for any interval $(x,y)$ contains an irrational number.
-Hint: Apply Theorem~\ref{thm:arch:ii} to the interval $(x+\sqrt{2},y+\sqrt{2})$.
-\end{exercise}
-
-\begin{exercise}
-Show that any interval contains a \emph{dyadic rational number};
-that is, a rational number whose denominator is a power of two
-(for example, 1/2 or 3/8, but not 1/3).
-\end{exercise}
-
-\begin{exercise}
-Given $x,y>0$ consider the set of all sums $A=\{\,mx+ny:m,n\in\Z\,\}$.
-Show that either $A$ is dense in $\R$ or $\nicefrac xy\in\Q$.
-Hint: Note that sums and differences of elements in $A$ belongs to $A$.
-\end{exercise}
-
-\begin{exercise}
-For $a < b$, construct an explicit bijection from $(a,b]$ to $(0,1]$.
-\end{exercise}
-
-
-
-\begin{exercise}
-Suppose a bijection $f \colon [0,1] \to (0,1)$ is given.
-Use $f$ to construct a
-bijection from $[-1,1]$ to $\R$.
-\end{exercise}
-
-\begin{exercise}
-Construct an explicit bijection from $(0,\infty)$ to $[0,\infty)$.
-Hint: Take $x\mapsto x-1$ for $x\in\N$ and $x\mapsto x$ otherwise.
-\end{exercise}
-
-\begin{exercise}[Hard]
-Construct an explicit bijection from $[0,1]$ to $(0,1)$.
-\end{exercise}
-
-\begin{exercise}
-\begin{enumerate}[a)]
-\item Show that every closed interval $[a,b]$ is the intersection
-of countably many open intervals.
-\item Show that every open interval $(a,b)$
-is a countable union of closed intervals.  
-\item Show that an intersection
-of a possibly infinite family of closed intervals is either empty, a single point,
-or a closed interval.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}
-Suppose $S$ is a set of disjoint open intervals in $\R$.
-That is, 
-if $(a,b) \in S$ and $(c,d) \in S$, then either $(a,b) = (c,d)$
-or $(a,b) \cap (c,d) = \emptyset$.
-Prove $S$ is a countable set.
-\end{exercise}
-
-\begin{exercise}\label{exercise:RxR}
-Construct a bijection between $[0,1]$ and $[0,1] \times [0,1]$.  Hint:
-consider even and odd digits, and be careful about the uniqueness of
-representation.
-\end{exercise}
-
-\begin{exercise}
-Some real numbers can be uniquely described by a sentence.
-For example the number $\pi$ can be described as \emph{the ratio of a circle's circumference to its diameter}.
+Some real numbers can be uniquely described by a written sentence in English.
+For example the number $\pi$ can be described as
+``The ratio of a circle's circumference to its diameter.''
 
 Show that there are real numbers which do not admit such a description.
 \end{exercise}
 
-\begin{exercise}[Challenging]
-A number $x$ is \emph{algebraic}\index{algebraic number} if $x$ is a root of a polynomial with
-integer coefficients, in other words, $a_n x^n + a_{n-1} x^{n-1}  + \ldots
-+ a_1 x + a_0 = 0$ where all $a_n \in \Z$. 
-\begin{enumerate}[a)]
- \item Show that there are only countably many algebraic numbers.
- \item Show that there exist non-algebraic
-numbers (follow in the footsteps of Cantor, use uncountability of $\R$).
-\end{enumerate}
-Hint: Feel free to use the fact that a polynomial of degree $n$ has finite number of real roots.
-\end{exercise}
-
 \begin{exercise}
-Let $S$ be an ordered set.
-Let $A \subset S$ be a nonempty subset
-that is bounded above.
-Suppose $\sup\, A$ exists and
-$\sup\, A \notin A$.
-Show that $A$ is infinite.
-\end{exercise}
-
-\begin{exercise}
-Assume $A\subset \R$ is a set such that any real number can be presented as a sum of finite number of elements in $A$. 
+Assume $A\subset \R$ is a set such that any real number can be presented as a sum of two elements in $A$. 
 Show that $A$ is uncountable.
 \end{exercise}
 
-\begin{exercise}
-Assume $f(a,b)$ is a bijection $f\colon\N\times \N\to \N$. 
-Show that 
-$$h(a,b,c):=f(f(a,b),c)$$ 
-defines a bijection $h\colon\N\times\N\times\N\to \N$.
-\end{exercise}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2716,13 +2690,18 @@ $-1,1,-1,1,-1,1,\ldots$, whereas the set of values, the
 is just the set $\{ -1, 1 \}$.
 We can write this set
 as $\{ {(-1)}^n : n \in \N \}$.
- When ambiguity can arise, we
-use the words \emph{sequence} or \emph{set} to distinguish the two
-concepts.
+When ambiguity can arise, we use the words \emph{sequence} or \emph{set} to distinguish the two concepts.
 
 Another example of a sequence is the so-called \emph{\myindex{constant sequence}}.
 That is a sequence $\{ c \} = c,c,c,c,\ldots$ consisting of a single
 constant $c \in \R$ repeating indefinitely.
+
+\begin{exercise}
+Is the sequence $\{ 3n \}$ bounded?  
+Prove or disprove.
+\end{exercise}
+
+
 
 We now get to the idea of a \emph{\myindex{limit of a sequence}}.  We will
 see in \propref{prop:limisunique}
@@ -2930,6 +2909,66 @@ Therefore,
 $\lim \frac{n^2+1}{n^2+n} = 1$.
 \end{example}
 
+\begin{exercise}[Easy]
+Let $\{ x_n \}$ be a sequence and $x \in \R$.
+Suppose for any $\epsilon > 0$, there is an $M$ such that for
+all $n \geq M$, $\abs{x_n-x} \leq \epsilon$.
+Show that $\lim\, x_n = x$.
+\end{exercise}
+
+\begin{exercise}[Easy]
+Let $\{ x_n \}$ be a sequence and $x \in \R$ such that
+there exists a $k \in \N$ such that for all $n \geq k$,
+$x_n = x$.
+Prove that $\{ x_n \}$ converges to $x$.
+\end{exercise}
+
+\begin{exercise}
+Is the sequence $\{ n \}$ convergent?  
+If so, what is the limit?
+\end{exercise}
+
+\begin{exercise}
+Is the sequence $\left\{ \dfrac{{(-1)}^n}{2n} \right\}$ convergent?
+If so, what is the limit?
+\end{exercise}
+
+\begin{exercise}
+Is the sequence
+$\{ 2^{-n} \}$
+convergent?
+If so, what is the limit?
+\end{exercise}
+
+\begin{exercise}
+Is the sequence
+$\left\{ \dfrac{n}{n+1} \right\}$
+convergent?
+  If so, what is the limit?
+\end{exercise}
+
+\begin{exercise}
+Is the sequence
+$\left\{ \dfrac{n}{n^2+1} \right\}$
+convergent?
+  If so, what is the limit?
+\end{exercise}
+
+\begin{exercise} \label{exercise:absconv}
+Let $\{ x_n \}$ be a sequence.
+\begin{enumerate}[a)]
+\item Show that $\lim\, x_n = 0$ (that is, the limit exists and is zero)
+if and only if $\lim \abs{x_n} = 0$.
+\item Find an example such that $\{ \abs{x_n} \}$ converges and $\{ x_n \}$
+diverges.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Is the sequence $\left\{ \dfrac{2^n}{n!} \right\}$ convergent?
+If so, what is the limit?
+\end{exercise}
+
 \subsection*{Monotone sequences}
 
 The simplest type of a sequence is a monotone sequence.
@@ -3007,7 +3046,9 @@ Therefore the sequence converges to $x$.
 We already know that a convergent sequence is bounded, which completes the
 other direction of the implication.
 
-The proof for monotone decreasing sequences is left as an exercise.
+\begin{exercise}
+Prove the theorem for monotone decreasing sequences.
+\end{exercise}
 \end{proof}
 
 %???formally speaking we did not defined \sqrt{x}???
@@ -3051,22 +3092,27 @@ Hence $b=0$ is the greatest lower bound, and $\lim \frac{1}{\sqrt{n}} = 0$.
 \end{example}
 
 \begin{example}
-A word of caution:  We must show that a monotone sequence is bounded
-in order to use \thmref{thm:monotoneconv}.
-For
-example, 
-the sequence $x_n=1 + \nicefrac{1}{2} + \cdots + \nicefrac{1}{n}$
-is a monotone increasing
-sequence that grows very slowly.
-We will see, once we get to series,
-that this sequence has no upper bound and so does not converge.
-It is not
-at all obvious that this sequence has no upper bound.
+A word of caution:  
+We must show that a monotone sequence is bounded in order to use \thmref{thm:monotoneconv}.
+For example, the sequence $x_n=1 + \nicefrac{1}{2} + \cdots + \nicefrac{1}{n}$ is a monotone increasing sequence that grows very slowly.
+We will see latter in \exampleref{example:harmonicseries}, that this sequence has no upper bound and so does not converge.
+It is not at all obvious that this sequence has no upper bound.
 \end{example}
 
-A common example of where monotone sequences arise is the following
-proposition.
-The proof is left as an exercise.
+\begin{exercise}
+Show that the sequence
+$\left\{ \dfrac{1}{\sqrt[3]{n}} \right\}$ is monotone, bounded, and use \thmref{thm:monotoneconv} to find the limit.
+%???\sqrt[3]{n} is not yet defined
+\end{exercise}
+
+\begin{exercise}
+Show that the sequence
+$\left\{ \dfrac{n+1}{n} \right\}$
+is monotone, bounded, and use
+\thmref{thm:monotoneconv} to find the limit.
+\end{exercise}
+
+Here is a common example of where monotone sequences arise.
 
 \begin{prop} \label{prop:supinfseq}
 Let $S \subset \R$ be a nonempty bounded set.
@@ -3077,6 +3123,20 @@ $\{ x_n \}$ and $\{ y_n \}$ such that $x_n, y_n \in S$ and
 \lim_{n\to\infty} y_n .
 \end{equation*}
 \end{prop}
+
+\begin{exercise}
+Prove the proposition above.
+\end{exercise}
+
+\begin{exercise}
+Let $\{ x_n \}$ be a convergent monotone sequence.
+Suppose 
+\begin{equation*}
+\lim_{n\to \infty} x_n = x_k 
+\end{equation*}
+for some $k\in\N$.
+Show that $x_n = x_k$ for all $n \geq k$.
+\end{exercise}
 
 \subsection*{Tail of a sequence}
 
@@ -3269,100 +3329,6 @@ $\{ x_{2n+1} \}$ converges to 0.
 Compare \thmref{seqconvsubseqconv:thm}.
 \end{example}
 
-\subsection*{Exercises}
-
-\begin{exnote}
-In the following exercises, feel free to use what you know from calculus to
-find the limit, if it exists.
-But you must \emph{prove}
-that you
-found the correct limit, or prove that the series is divergent.
-\end{exnote}
-
-\begin{exercise}
-Is the sequence
-$\{ 3n \}$
-bounded?  Prove or disprove.
-\end{exercise}
-
-\begin{exercise}
-Is the sequence
-$\{ n \}$
-convergent?  If so, what is the limit?
-\end{exercise}
-
-\begin{exercise}
-Is the sequence
-$\left\{ \dfrac{{(-1)}^n}{2n} \right\}$
-convergent?  If so, what is the limit?
-\end{exercise}
-
-\begin{exercise}
-Is the sequence
-$\{ 2^{-n} \}$
-convergent?  If so, what is the limit?
-\end{exercise}
-
-\begin{exercise}
-Is the sequence
-$\left\{ \dfrac{n}{n+1} \right\}$
-convergent?  If so, what is the limit?
-\end{exercise}
-
-\begin{exercise}
-Is the sequence
-$\left\{ \dfrac{n}{n^2+1} \right\}$
-convergent?  If so, what is the limit?
-\end{exercise}
-
-\begin{exercise} \label{exercise:absconv}
-Let $\{ x_n \}$ be a sequence.
-\begin{enumerate}[a)]
-\item Show that $\lim\, x_n = 0$ (that is, the limit exists and is zero)
-if and only if $\lim \abs{x_n} = 0$.
-\item Find an example such that $\{ \abs{x_n} \}$ converges and $\{ x_n \}$
-diverges.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}
-Is the sequence
-$\left\{ \dfrac{2^n}{n!} \right\}$
-convergent?  If so, what is the limit?
-\end{exercise}
-
-\begin{exercise}
-Show that the sequence
-$\left\{ \dfrac{1}{\sqrt[3]{n}} \right\}$ is monotone, bounded, and use
-\thmref{thm:monotoneconv} to find the limit.
-\end{exercise}
-
-\begin{exercise}
-Show that the sequence
-$\left\{ \dfrac{n+1}{n} \right\}$
-is monotone, bounded, and use
-\thmref{thm:monotoneconv} to find the limit.
-\end{exercise}
-
-\begin{exercise}
-Finish the proof of \thmref{thm:monotoneconv} for monotone decreasing
-sequences.
-\end{exercise}
-
-\begin{exercise}
-Prove \propref{prop:supinfseq}.
-\end{exercise}
-
-\begin{exercise}
-Let $\{ x_n \}$ be a convergent monotone sequence.
-Suppose 
-there exists a $k \in \N$ such that
-\begin{equation*}
-\lim_{n\to \infty} x_n = x_k .
-\end{equation*}
-Show that $x_n = x_k$ for all $n \geq k$.
-\end{exercise}
-
 \begin{exercise}
 Find a convergent subsequence of the sequence
 $\{ {(-1)}^n \}$.
@@ -3379,42 +3345,9 @@ n & \text{if $n$ is odd} , \\
 \end{equation*}
 \begin{enumerate}[a)]
 \item Is the sequence bounded? (prove or disprove)
-\item Is there a convergent subsequence?  If so, find it.
+\item Is there a convergent subsequence?
+  If so, find it.
 \end{enumerate}
-\end{exercise}
-
-\begin{exercise}
-Let $\{ x_n \}$ be a sequence.
-Suppose there are two convergent subsequences $\{ x_{n_i} \}$ and
-$\{ x_{m_i} \}$.
-Suppose 
-\begin{equation*}
-\lim_{i\to\infty} x_{n_i} = a
-\qquad \text{and} \qquad
-\lim_{i\to\infty} x_{m_i} = b,
-\end{equation*}
-where $a \not= b$.
-Prove that $\{ x_n \}$ is not convergent, without
-using \propref{prop:seqtosubseq}.
-\end{exercise}
-
-\begin{exercise}
-Find a sequence $\{ x_n \}$ such that for any $y \in \R$, there exists a
-subsequence $\{ x_{n_i} \}$ converging to $y$.
-\end{exercise}
-
-\begin{exercise}[Easy]
-Let $\{ x_n \}$ be a sequence and $x \in \R$.
-Suppose for any $\epsilon > 0$, there is an $M$ such that for
-all $n \geq M$, $\abs{x_n-x} \leq \epsilon$.
-Show that $\lim\, x_n = x$.
-\end{exercise}
-
-\begin{exercise}[Easy]
-Let $\{ x_n \}$ be a sequence and $x \in \R$ such that
-there exists a $k \in \N$ such that for all $n \geq k$,
-$x_n = x$.
-Prove that $\{ x_n \}$ converges to $x$.
 \end{exercise}
 
 \begin{exercise}
@@ -3427,19 +3360,16 @@ $\lim\, x_n = \lim\, y_n$.
 \end{exercise}
 
 \begin{exercise}
-Show that the 3-tail of the sequence defined by $x_n := \frac{n}{n^2+16}$ is
-monotone decreasing.
-Hint: Suppose $n \geq m \geq 4$ and consider the 
-numerator of the expression $x_n-x_m$.
-\end{exercise}
-
-\begin{exercise}
 Suppose that $\{ x_n \}$ is a sequence such that
 the subsequences $\{ x_{2n} \}$, $\{ x_{2n-1} \}$, and
 $\{ x_{3n} \}$ all converge.
 Show that $\{ x_n \}$ is convergent.
 \end{exercise}
 
+\begin{exercise}
+Find a sequence $\{ x_n \}$ such that for any $y \in \R$, there exists a
+subsequence $\{ x_{n_i} \}$ converging to $y$.
+\end{exercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4324,7 +4254,9 @@ Define
 $z_n := \frac{x_n}{y_n}$ and 
 $w_n := \frac{y_n}{x_n}$.
 Do $\{ z_n \}$ and $\{ w_n \}$
-converge?  What are the limits?  Can you apply \propref{prop:contalg}?
+converge?
+What are the limits?
+Can you apply \propref{prop:contalg}?
 Why or why not?
 \end{exercise}
 
@@ -5334,9 +5266,7 @@ more abstract settings.
 \end{remark}
 
 It should be noted that the Cauchy criterion is stronger than just
-$\abs{x_{n+1}-x_n}$ (or $\abs{x_{n+j}-x_n}$ for a fixed $j$) going to zero as
-$n$ goes to
-infinity.
+$\abs{x_{n+1}-x_n}$ (or $\abs{x_{n+j}-x_n}$ for a fixed $j$) going to zero as $n$ goes to infinity.
 In fact, when we get to the partial sums of the harmonic series
 (see \exampleref{example:harmonicseries} in the next section), we will have
 a sequence such that $x_{n+1}-x_n = \nicefrac{1}{n}$, yet $\{ x_n \}$ is
@@ -7271,10 +7201,8 @@ f) $\displaystyle \sum_{n=0}^\infty n! \, x^{n!}$
 
 \begin{exercise}
 Suppose $\sum a_n x^n$ converges for $x=1$.
-\begin{enumerate}[a)]
- \item What can you say about the radius of convergence?
-  \item If you further know that at $x=1$ the convergence is not absolute,
-what can you say?
+\begin{enumerate}[a)]\item What can you say about the radius of convergence?
+\item If you further know that at $x=1$ the convergence is not absolute, what can you say?
 \end{enumerate}
 \end{exercise}
 
@@ -8485,7 +8413,8 @@ Then $\lim\, f(x_n) = 1$, but $f(c) = 0$.
 Let us yet again test the limits of your intuition.
 Can
 there exist a function that is continuous on all irrational numbers, but
-discontinuous at all rational numbers?  There are rational numbers
+discontinuous at all rational numbers?
+  There are rational numbers
 arbitrarily close to any irrational number.
 Perhaps strangely, the
 answer is yes.
@@ -8611,7 +8540,8 @@ f(x) :=
 0 & \text{ if $x=0$.}
 \end{cases}
 \end{equation*}
-Is $f$ continuous?  Prove your assertion.
+Is $f$ continuous?
+  Prove your assertion.
 \end{exercise}
 
 \begin{exercise}
@@ -8624,7 +8554,8 @@ x \sin(\nicefrac{1}{x}) & \text{ if $x \not= 0$,} \\
 0 & \text{ if $x=0$.}
 \end{cases}
 \end{equation*}
-Is $f$ continuous?  Prove your assertion.
+Is $f$ continuous?
+  Prove your assertion.
 \end{exercise}
 
 \begin{exercise}
@@ -12718,7 +12649,8 @@ Let $f \colon [0,1] \to \R$ be a bounded function.
 Let $P_n = \{ x_0,x_1,\ldots,x_n \}$ be a uniform partition of $[0,1]$,
 that is, $x_j := \nicefrac{j}{n}$.
 Is $\{ L(P_n,f) \}_{n=1}^\infty$
-always monotone?  Yes/No: Prove or find a counterexample.
+always monotone?
+  Yes/No: Prove or find a counterexample.
 \end{exercise}
 
 \begin{exercise}[Challenging]
@@ -13774,7 +13706,8 @@ computable in closed-form.
 Even some integrals that we consider
 in closed-form are not really such.
 For example, how does a computer find
-the value of $\ln x$?  One way to do it is to note that
+the value of $\ln x$?
+  One way to do it is to note that
 we define the natural log as the antiderivative of $\nicefrac{1}{x}$
 such that $\ln 1 = 0$.
 Therefore,
@@ -14077,8 +14010,10 @@ number $\nicefrac{n}{m}$, we define
 \begin{equation*}
 x^{n/m} := {\bigl(x^{1/m}\bigr)}^n .
 \end{equation*}
-However, what do we mean by $\sqrt{2}^{\sqrt{2}}$?  Or
-$x^y$ in general?  In particular, what is $e^x$ for all $x$?
+However, what do we mean by $\sqrt{2}^{\sqrt{2}}$?
+  Or
+$x^y$ in general?
+  In particular, what is $e^x$ for all $x$?
 And how do we solve $y=e^x$ for $x$?
 This section answers these questions and more.
 
@@ -15456,7 +15391,8 @@ Can you interpret
 \begin{equation*}
 \int_{-1}^1 \frac{1}{\sqrt{\abs{x}}}~dx
 \end{equation*}
-as an improper integral?  If so, compute its value.
+as an improper integral?
+  If so, compute its value.
 \end{exercise}
 
 \begin{exercise}
@@ -17654,7 +17590,8 @@ from $B$ to get to $C$.
 On the other hand it takes 5 minutes to go
 from $C$ to $A$ and 7 minutes to go from $C$ to $B$, as we are going
 downhill.
-Do these distances define a metric?  If so, prove it, if not, say
+Do these distances define a metric?
+  If so, prove it, if not, say
 why not.
 \end{exercise}
 
@@ -18353,8 +18290,10 @@ Show that $\bigcup_{i=1}^\infty S_i$ is connected.
 
 \begin{exercise}
 Let $A$ be a connected set.
-a) \nolinebreak Is $\overline{A}$ connected?  Prove or find a counterexample.
-b) \nolinebreak Is $A^\circ$ connected?  Prove or find a counterexample.
+a) \nolinebreak Is $\overline{A}$ connected?
+  Prove or find a counterexample.
+b) \nolinebreak Is $A^\circ$ connected?
+  Prove or find a counterexample.
 Hint: Think of sets in $\R^2$.
 \end{exercise}
 
@@ -18378,7 +18317,8 @@ Let $(X,d)$ be a metric space.
 a) For any $x \in X$ and $\delta > 0$, show
 $\overline{B(x,\delta)} \subset C(x,\delta)$.
 b) Is it always true that
-$\overline{B(x,\delta)} = C(x,\delta)$?  Prove or find a counterexample.
+$\overline{B(x,\delta)} = C(x,\delta)$?
+  Prove or find a counterexample.
 \end{exercise}
 
 \begin{exercise}
@@ -18719,7 +18659,8 @@ $\bigcap_{n=1}^\infty U_n = \{ p \}$ for some $p \in X$.
 Suppose 
 $\{ x_n \}$ is a sequence of points in $X$ such that $x_n \in U_n$.
 Does
-$\{ x_n \}$ necessarily converge to $p$?  Prove or construct a counterexample.
+$\{ x_n \}$ necessarily converge to $p$?
+  Prove or construct a counterexample.
 \end{exercise}
 
 \begin{exercise}
@@ -19817,14 +19758,16 @@ Since $X$ is complete
 we let $x := \lim\, x_n$, and we claim that $x$
 is our unique fixed point.
 
-Fixed point?  The function $f$ is continuous as it is a contraction, so
+Fixed point?
+  The function $f$ is continuous as it is a contraction, so
 Lipschitz continuous.
 Hence
 \begin{equation*}
 f(x) = f( \lim \, x_n) = \lim\, f(x_n) = \lim\, x_{n+1} = x .
 \end{equation*}
 
-Unique?  Let $x$ and $y$ both be fixed points.
+Unique?
+  Let $x$ and $y$ both be fixed points.
 \begin{equation*}
 d(x,y) = d\bigl(f(x),f(y)\bigr) \leq k d(x,y) .
 \end{equation*}
@@ -20365,6 +20308,36 @@ Show that $\abs{A}=\abs{[0,1]}$ or $\abs{B}=\abs{[0,1]}$.
 Hint: Use \exerciseref{exercise:RxR} and Proposition~\ref{axiom of chice}.
 \end{exercise}
 
+\begin{exercise}
+For $a < b$, construct an explicit bijection from $(a,b]$ to $(0,1]$.
+\end{exercise}
+
+\begin{exercise}
+Suppose a bijection $f \colon [0,1] \to (0,1)$ is given.
+Use $f$ to construct a
+bijection from $[-1,1]$ to $\R$.
+\end{exercise}
+
+\begin{exercise}
+Construct an explicit bijection from $(0,\infty)$ to $[0,\infty)$.
+Hint: Take $x\mapsto x-1$ for $x\in\N$ and $x\mapsto x$ otherwise.
+\end{exercise}
+
+\begin{exercise}[Hard]
+Construct an explicit bijection from $[0,1]$ to $(0,1)$.
+\end{exercise}
+
+\begin{exercise}
+Denote by $\mathcal{F}$ the set of all functions $\R\to\R$. 
+Show that $\abs{\mathcal{F}}>\abs{\R}$.
+\end{exercise}
+
+\begin{exercise}
+Denote by $\mathcal{C}$ the set of all continuous functions $\R\to\R$. 
+Show that $\abs{\mathcal{C}}=\abs{\R}$.
+\end{exercise}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectionnewpage
@@ -20642,7 +20615,8 @@ if we go far enough, we find a 1 that is followed by at least $P+1$ zeros.
 
 \begin{exercise}[Easy]
 What is the decimal representation of $1$ guaranteed by
-\propref{prop:decimalprop}?  Make sure to show that it does satisfy
+\propref{prop:decimalprop}?
+  Make sure to show that it does satisfy
 the condition.
 \end{exercise}
 
@@ -20665,6 +20639,12 @@ Let $b \geq 2$ be an integer.
 Define a representation of a real number in
 $[0,1]$ in terms of base $b$ rather than base 10 and prove
 \propref{prop:decimalprop} for base $b$.
+\end{exercise}
+
+\begin{exercise}\label{exercise:RxR}
+Construct a bijection between $[0,1]$ and $[0,1] \times [0,1]$.  Hint:
+consider even and odd digits, and be careful about the uniqueness of
+representation.
 \end{exercise}
 
 \chapter{I do not think it is needed}
