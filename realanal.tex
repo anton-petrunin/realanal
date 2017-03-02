@@ -1187,8 +1187,7 @@ That is, prove the well ordering property for $\N$ using the principle of induct
 Show that ``$\sim$'' is an equivalence relation.
 \end{exercise}
 
-
-
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1197,7 +1196,7 @@ Show that ``$\sim$'' is an equivalence relation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Ordered fields} \label{sec:basicpropsrn}
+\section{Definition} \label{sec:basicpropsrn}
 
 \sectionnotes{1.5 lectures}
 
@@ -1767,7 +1766,7 @@ Given $x=a+b\sqrt{2}$ for $a,b\in\Q$, set $\bar x=a-b\sqrt{2}$.
 \begin{enumerate}[a)]
 \item Show that $S$ is a field and any element of $S$ admits a unique representation as $a+b\sqrt{2}$, where $a,b\in\Q$. Conclude that the map $x\mapsto \bar x$ is well defined.
 \item\label{ex:Q(sqrt2):b} Show that the map $x\mapsto \bar x$ respects muliplication and addition; that is 
- \[\overline{xy}=\bar x\bar y,\quad \overline{x+y}=\bar x+\bar y\]
+ \[\overline{x\cdot y}=\bar x\cdot \bar y,\quad \overline{x+y}=\bar x+\bar y\]
 for any $x,y\in S$. 
 \item Use \ref{ex:Q(sqrt2):b} to show that the field $S$ admits distinct orderings.
 \end{enumerate}
@@ -2249,7 +2248,7 @@ Find $\epsilon>0$ such that $x^2-x^4>\epsilon$ for all  $\nicefrac13<x<\nicefrac
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectionnewpage
-\section{Fundamental constructions} \label{sec:Archimedean property}
+\section{Fundamental properties} \label{sec:Archimedean property}
 
 \subsection*{Archimedean property}
 
@@ -2632,7 +2631,7 @@ Show that $A$ is uncountable.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Sequences and limits}
+\section{Sequences}
 \label{sec:seqsandlims}
 
 \sectionnotes{2.5 lectures}
@@ -2646,6 +2645,9 @@ definition.
 
 \begin{defn}
 A \emph{\myindex{sequence}} (of real numbers) is a function $x \colon \N \to \R$.
+\end{defn}
+
+
 Instead of $x(n)$ we 
 usually denote the $n$th element in the sequence by $x_n$.
 We 
@@ -2654,16 +2656,6 @@ use the notation $\{ x_n \}$, or more precisely
 \{ x_n \}_{n=1}^\infty,
 \end{equation*}
 to denote a sequence.
-
-A sequence $\{ x_n \}$ is \emph{bounded}\index{bounded sequence} if
-there exists a $B \in \R$ such that
-\begin{equation*}
-\abs{x_n} \leq B \qquad \text{for all $n \in \N$.}
-\end{equation*}
-In other words, the sequence $\{x_n\}$ is bounded whenever
-the set $\{ x_n : n \in \N \}$
-is bounded.
-\end{defn}
 
 When we need
 to give a concrete sequence we often give each term as a formula in
@@ -2696,9 +2688,27 @@ Another example of a sequence is the so-called \emph{\myindex{constant sequence}
 That is a sequence $\{ c \} = c,c,c,c,\ldots$ consisting of a single
 constant $c \in \R$ repeating indefinitely.
 
+\begin{defn}
+A sequence $\{ x_n \}$ is \emph{bounded}\index{bounded sequence} if
+there exists a $B \in \R$ such that
+\begin{equation*}
+\abs{x_n} \leq B \qquad \text{for all $n \in \N$.}
+\end{equation*}
+In other words, the sequence $\{x_n\}$ is bounded whenever
+the set $\{ x_n : n \in \N \}$
+is bounded.
+\end{defn}
+
 \begin{exercise}
-Is the sequence $\{ 3n \}$ bounded?  
+Which of the following sequences are bounded?  
 Prove or disprove.
+\begin{enumerate}[a)]
+ \item $\{ 3n \}$
+ \item $\{ (-\nicefrac12)^n \}$
+ \item $\{ (-2)^n \}$
+ \item $\{ (-1)^n \}$
+\end{enumerate}
+
 \end{exercise}
 
 
@@ -2724,17 +2734,6 @@ A sequence that converges is said to be \emph{convergent}\index{convergent seque
 Otherwise, the sequence is said to be \emph{divergent}\index{divergent sequence}.
 \end{defn}
 
-Intuitively it means that eventually every number in the sequence is close to the number $x$ --- we get arbitrarily close to the limit, provided we go far enough in the sequence.
-It does not mean we ever reach the limit; it is possible,
-and quite common, that $x_n\ne x$ for any $n$.
-
-We illustrate the concept in \figureref{figsequenceconvergence}.
-In the
-figure we first think of the sequence as a graph, as it is a function of
-$\N$.
- Secondly we also plot it as a sequence of labeled points on the real
-line.
-
 \begin{figure}[h!t]
 \begin{center}
 % To get fonts right we have to use .eepic not .pdf
@@ -2750,6 +2749,24 @@ On bottom, the points of the same sequence marked on the
 number line.\label{figsequenceconvergence}}
 \end{center}
 \end{figure}
+
+\begin{exercise}
+Let $\{ x_n \}$ be a sequence and $x \in \R$.
+Suppose for any $\epsilon > 0$, there is an $M$ such that for
+all $n \geq M$, $\abs{x_n-x} \leq \epsilon$.
+Show that $\lim\, x_n = x$.
+\end{exercise}
+
+Intuitively it means that eventually every number in the sequence is close to the number $x$ --- we get arbitrarily close to the limit, provided we go far enough in the sequence.
+It does not mean we ever reach the limit; it is possible,
+and quite common, that $x_n\ne x$ for any $n$.
+
+We illustrate the concept in \figureref{figsequenceconvergence}.
+In the
+figure we first think of the sequence as a graph, as it is a function of
+$\N$.
+ Secondly we also plot it as a sequence of labeled points on the real
+line.
 
 When we write $\lim\, x_n = x$ for some real number $x$, we are saying two things:
 first, that $\{ x_n \}$ is convergent, so the limit is defined, 
@@ -2800,6 +2817,38 @@ But
 and that is a contradiction.
 \end{proof}
 \end{example}
+
+\begin{example}
+Let us show the sequence $\left\{ \frac{n^2+1}{n^2+n} \right\}$ converges and
+\begin{equation*}
+\lim_{n\to\infty} \frac{n^2+1}{n^2+n} = 1 .
+\end{equation*}
+
+Given $\epsilon > 0$,
+find $M \in \N$ such that $\frac{1}{M+1} < \epsilon$.
+Then for any $n \geq
+M$ we have
+\begin{equation*}
+\begin{split}
+%\abs{\frac{n^2+1}{n^2+n} - 1} & =
+%\abs{\frac{n^2+1 - (n^2+n)}{n^2+n}} \\
+\abs{\frac{n^2+1}{n^2+n} - 1}  =
+\abs{\frac{n^2+1 - (n^2+n)}{n^2+n}}
+& =
+\abs{\frac{1 - n}{n^2+n}} \\
+& =
+\frac{n-1}{n^2+n} \\
+& \leq 
+\frac{n}{n^2+n} 
+ =
+\frac{1}{n+1}  \\
+& \leq \frac{1}{M+1} < \epsilon .
+\end{split}
+\end{equation*}
+Therefore,
+$\lim \frac{n^2+1}{n^2+n} = 1$.
+\end{example}
+
 
 \begin{prop} \label{prop:limisunique}
 A convergent sequence has a unique limit.
@@ -2878,43 +2927,6 @@ Then for all $n \in \N$ we have
 \end{equation*}
 \end{proof}
 
-\begin{example}
-Let us show the sequence $\left\{ \frac{n^2+1}{n^2+n} \right\}$ converges and
-\begin{equation*}
-\lim_{n\to\infty} \frac{n^2+1}{n^2+n} = 1 .
-\end{equation*}
-
-Given $\epsilon > 0$,
-find $M \in \N$ such that $\frac{1}{M+1} < \epsilon$.
-Then for any $n \geq
-M$ we have
-\begin{equation*}
-\begin{split}
-%\abs{\frac{n^2+1}{n^2+n} - 1} & =
-%\abs{\frac{n^2+1 - (n^2+n)}{n^2+n}} \\
-\abs{\frac{n^2+1}{n^2+n} - 1}  =
-\abs{\frac{n^2+1 - (n^2+n)}{n^2+n}}
-& =
-\abs{\frac{1 - n}{n^2+n}} \\
-& =
-\frac{n-1}{n^2+n} \\
-& \leq 
-\frac{n}{n^2+n} 
- =
-\frac{1}{n+1}  \\
-& \leq \frac{1}{M+1} < \epsilon .
-\end{split}
-\end{equation*}
-Therefore,
-$\lim \frac{n^2+1}{n^2+n} = 1$.
-\end{example}
-
-\begin{exercise}[Easy]
-Let $\{ x_n \}$ be a sequence and $x \in \R$.
-Suppose for any $\epsilon > 0$, there is an $M$ such that for
-all $n \geq M$, $\abs{x_n-x} \leq \epsilon$.
-Show that $\lim\, x_n = x$.
-\end{exercise}
 
 \begin{exercise}[Easy]
 Let $\{ x_n \}$ be a sequence and $x \in \R$ such that
@@ -2924,35 +2936,21 @@ Prove that $\{ x_n \}$ converges to $x$.
 \end{exercise}
 
 \begin{exercise}
-Is the sequence $\{ n \}$ convergent?  
+Is the following sequence convergent?  
 If so, what is the limit?
+
+\begin{enumerate}[a)]
+\item $\{ n \}$
+\item $\left\{ \dfrac{{(-1)}^n}{2n} \right\}$
+\item $\{ 2^{-n} \}$
+\item $\left\{ \dfrac{n}{n+1} \right\}$
+\item $\left\{ \dfrac{n}{n^2+1} \right\}$
+\item $\left\{ \dfrac{2^n}{n!} \right\}$
+\end{enumerate}
+
 \end{exercise}
 
-\begin{exercise}
-Is the sequence $\left\{ \dfrac{{(-1)}^n}{2n} \right\}$ convergent?
-If so, what is the limit?
-\end{exercise}
 
-\begin{exercise}
-Is the sequence
-$\{ 2^{-n} \}$
-convergent?
-If so, what is the limit?
-\end{exercise}
-
-\begin{exercise}
-Is the sequence
-$\left\{ \dfrac{n}{n+1} \right\}$
-convergent?
-  If so, what is the limit?
-\end{exercise}
-
-\begin{exercise}
-Is the sequence
-$\left\{ \dfrac{n}{n^2+1} \right\}$
-convergent?
-  If so, what is the limit?
-\end{exercise}
 
 \begin{exercise} \label{exercise:absconv}
 Let $\{ x_n \}$ be a sequence.
@@ -2964,183 +2962,9 @@ diverges.
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
-Is the sequence $\left\{ \dfrac{2^n}{n!} \right\}$ convergent?
-If so, what is the limit?
-\end{exercise}
-
-\subsection*{Monotone sequences}
-
-The simplest type of a sequence is a monotone sequence.
-Checking that
-a monotone sequence converges is as easy as checking that it is bounded.
-It is also easy to find
-the limit for a convergent
-monotone sequence, provided we can find the supremum or infimum
-of a countable set of numbers.
-
-\begin{defn}
-A sequence $\{ x_n \}$ is \emph{monotone increasing}\index{monotone
-increasing sequence} if $x_n \leq x_{n+1}$ for all $n \in \N$.  
-%
-A sequence $\{ x_n \}$ is \emph{monotone decreasing}\index{monotone
-decreasing sequence} if $x_n \geq x_{n+1}$ for all $n \in \N$.  
-%
-If a sequence is either monotone increasing or monotone decreasing, we
-can simply say the sequence is \emph{monotone}\index{monotone sequence}.
-Some
-authors also use the word \emph{monotonic}\index{monotonic sequence}.
-\end{defn}
-
-For example, $\{ \nicefrac{1}{n} \}$ is monotone decreasing,
-the constant sequence $\{ 1 \}$ is both monotone increasing and monotone
-decreasing, and $\{ {(-1)}^n \}$ is not monotone.
-First few terms of a sample monotone increasing sequence
-are shown in 
-\figureref{figsequenceincreasing}.
-
-\begin{figure}[h!t]
-\begin{center}
-% To get fonts right we have to use .eepic not .pdf
-\input sequence-increasing.eepic
-\caption{First few terms of a monotone increasing sequence as a
-graph.\label{figsequenceincreasing}}
-\end{center}
-\end{figure}
-
-\begin{thm} \label{thm:monotoneconv}
-A monotone sequence $\{ x_n \}$ is bounded if and only if it is convergent.
-
-Furthermore, if $\{ x_n \}$ is monotone increasing and bounded, then
-\begin{equation*}
-\lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N \} .
-\end{equation*}
-If $\{ x_n \}$ is monotone decreasing and bounded, then
-\begin{equation*}
-\lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N \} .
-\end{equation*}
-\end{thm}
-
-\begin{proof}
-Let us suppose the sequence is monotone increasing.
-Suppose 
-the sequence is bounded, so there exists a $B$
-such that $x_n \leq B$ for all $n$, that is the set
-$\{ x_n : n \in  \N \}$ is bounded from above.
-Let
-\begin{equation*}
-x := \sup \{ x_n : n \in \N \} .
-\end{equation*}
-Let $\epsilon > 0$ be arbitrary.
-As $x$ is the supremum, then
-there must be at least one $M \in \N$ such that $x_{M} > x-\epsilon$
-(because $x$ is the supremum).
-As $\{ x_n \}$ is monotone increasing,
-then it is easy to see (by \hyperref[induction:thm]{induction}) that
-$x_n \geq x_{M}$ for all $n \geq M$.
-Hence
-\begin{equation*}
-\abs{x_n-x} = x-x_n \leq x-x_{M} < \epsilon  .
-\end{equation*}
-Therefore the sequence converges to $x$.
-We already know that a convergent sequence is bounded, which completes the
-other direction of the implication.
-
-\begin{exercise}
-Prove the theorem for monotone decreasing sequences.
-\end{exercise}
-\end{proof}
-
-%???formally speaking we did not defined \sqrt{x}???
-
-\begin{example}
-Take the sequence $\{ \frac{1}{\sqrt{n}} \}$.
-
-First $\frac{1}{\sqrt{n}} > 0$ for all $n \in \N$, and hence the sequence is
-bounded from below.
-Let us show that it is monotone decreasing.
-We start with
-$\sqrt{n+1} \geq \sqrt{n}$ (why is that true?).
-From this inequality
-we obtain
-\begin{equation*}
-\frac{1}{\sqrt{n+1}} \leq \frac{1}{\sqrt{n}} .
-\end{equation*}
-So the sequence is monotone decreasing and bounded from below (hence
-bounded).
-We apply the theorem to note that the sequence is
-convergent and in fact
-\begin{equation*}
-\lim_{n\to \infty} \frac{1}{\sqrt{n}}
-=
-\inf \left\{ \frac{1}{\sqrt{n}} : n \in \N \right\} .
-\end{equation*}
-We already know that the infimum is greater than or equal to 0, as
-0 is a lower bound.
-Take a number $b \geq 0$ such
-that $b \leq \frac{1}{\sqrt{n}}$ for all $n$.
-We square both sides to
-obtain
-\begin{equation*}
-b^2 \leq \frac{1}{n} \qquad \text{for all $n \in \N$}.
-\end{equation*}
-We have seen before that this implies that $b^2 \leq 0$ (a consequence
-of the \hyperref[thm:arch:i]{Archimedean property}).
-As we also have $b^2 \geq 0$, then $b^2 = 0$
-and so $b = 0$.
-Hence $b=0$ is the greatest lower bound, and $\lim \frac{1}{\sqrt{n}} = 0$.
-\end{example}
-
-\begin{example}
-A word of caution:  
-We must show that a monotone sequence is bounded in order to use \thmref{thm:monotoneconv}.
-For example, the sequence $x_n=1 + \nicefrac{1}{2} + \cdots + \nicefrac{1}{n}$ is a monotone increasing sequence that grows very slowly.
-We will see latter in \exampleref{example:harmonicseries}, that this sequence has no upper bound and so does not converge.
-It is not at all obvious that this sequence has no upper bound.
-\end{example}
-
-\begin{exercise}
-Show that the sequence
-$\left\{ \dfrac{1}{\sqrt[3]{n}} \right\}$ is monotone, bounded, and use \thmref{thm:monotoneconv} to find the limit.
-%???\sqrt[3]{n} is not yet defined
-\end{exercise}
-
-\begin{exercise}
-Show that the sequence
-$\left\{ \dfrac{n+1}{n} \right\}$
-is monotone, bounded, and use
-\thmref{thm:monotoneconv} to find the limit.
-\end{exercise}
-
-Here is a common example of where monotone sequences arise.
-
-\begin{prop} \label{prop:supinfseq}
-Let $S \subset \R$ be a nonempty bounded set.
-Then there exist monotone sequences
-$\{ x_n \}$ and $\{ y_n \}$ such that $x_n, y_n \in S$ and
-\begin{equation*}
-\sup\,S = \lim_{n\to \infty} x_n \qquad \text{and} \qquad \inf\,S =
-\lim_{n\to\infty} y_n .
-\end{equation*}
-\end{prop}
-
-\begin{exercise}
-Prove the proposition above.
-\end{exercise}
-
-\begin{exercise}
-Let $\{ x_n \}$ be a convergent monotone sequence.
-Suppose 
-\begin{equation*}
-\lim_{n\to \infty} x_n = x_k 
-\end{equation*}
-for some $k\in\N$.
-Show that $x_n = x_k$ for all $n \geq k$.
-\end{exercise}
-
+\sectionnewpage
+\section{Subsequences}
 \subsection*{Tail of a sequence}
-
-%???why do you need it???
 
 \begin{defn}
 For a sequence $\{ x_n \}$,
@@ -3374,7 +3198,7 @@ subsequence $\{ x_{n_i} \}$ converging to $y$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectionnewpage
-\section{Facts about limits of sequences}
+\section{Properties of limit}
 \label{sec:factslimsseqs}
 
 \sectionnotes{2--2.5 lectures, recursively defined sequences can safely be
@@ -3875,457 +3699,14 @@ That is, the limit on the left hand side exists because the right hand
 side exists.
 You really should read the above equality from right to left.
 
-\subsection*{Recursively defined sequences}
 
-Now that we know we can interchange limits and algebraic operations, we can
-compute the limits of many sequences.
-One such class are recursively defined sequences, that is, sequences where
-the next number in the sequence computed using a formula from a fixed number
-of preceding elements in the sequence.
-
-\begin{example}
-Let $\{ x_n \}$ be defined by $x_1 := 2$ and
-\begin{equation*}
-x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
-\end{equation*}
-We must first find out if this sequence is well defined; we must show we never
-divide by zero.
-Then we must find out if the sequence converges.
-Only then
-can we attempt to find the limit.
-
-First let us prove 
-$x_n$ exists and $x_n > 0$ for all $n$ (so the sequence is well defined
-and bounded below).
-Let us show this by \hyperref[induction:thm]{induction}.
-We know that
-$x_1 = 2 > 0$.
-For the induction step, suppose $x_n > 0$.
-Then
-\begin{equation*}
-x_{n+1} = x_n - \frac{x_n^2-2}{2x_n} =
-\frac{2x_n^2 - x_n^2+2}{2x_n} =
-\frac{x_n^2+2}{2x_n} .
-\end{equation*}
-If $x_n > 0$, then $x_n^2+2 > 0$ and hence $x_{n+1} > 0$.
-
-Next let us
-show that the sequence is monotone decreasing.
-If we show that
-$x_n^2-2 \geq 0$ for all $n$, then $x_{n+1} \leq x_n$ for all $n$.
-Obviously $x_1^2-2 = 4-2 = 2 > 0$.
-For an arbitrary $n$ we have 
-\begin{equation*}
-x_{n+1}^2-2 =
-{\left( \frac{x_n^2+2}{2x_n} \right)}^2 - 2
-=
-\frac{x_n^4+4x_n^2+4 - 8x_n^2}{4x_n^2}
-=
-\frac{x_n^4-4x_n^2+4}{4x_n^2}
-=
-\frac{{\left( x_n^2-2 \right)}^2}{4x_n^2} .
-\end{equation*}
-Since any number squared is nonnegative, we have
-that $x_{n+1}^2-2 \geq 0$ for all $n$.
-Therefore,
-$\{ x_n \}$ is monotone decreasing and bounded ($x_n > 0$ for all $n$), and 
-the limit exists.
-It remains to find the limit.
-
-Let us write
-\begin{equation*}
-2x_nx_{n+1} = x_n^2+2 .
-\end{equation*}
-Since $\{ x_{n+1} \}$ is the 1-tail of $\{ x_n \}$, it converges to the
-same limit.
-Let us define $x := \lim\, x_n$.
-We take the limit of
-both sides to obtain
-\begin{equation*}
-2x^2 = x^2+2 ,
-\end{equation*}
-or $x^2 = 2$.
-As $x_n > 0$ for all $n$ we get $x \geq 0$, and therefore $x = \sqrt{2}$.
-\end{example}
-
-You may have seen the above sequence before.
-It is the
-\emph{Newton's method}%
-\footnote{%
-Named after the English physicist and mathematician
-\href{http://en.wikipedia.org/wiki/Isaac_Newton}{Isaac Newton} (1642 --
-1726/7).}
-for finding the square root of 2.
-This method comes up very often in
-practice and converges very rapidly.
-Notice that we have used the fact that
-$x_1^2 -2 >0$, although it was not strictly needed to show convergence by
-considering a tail of the sequence.
-In fact the sequence converges as long as $x_1 \not= 0$, although with a negative $x_1$
-we would arrive at $x=-\sqrt{2}$.
-By replacing the 2 in the numerator we 
-obtain the square root of any positive number.
-These statements are left as
-an exercise.
-
-You should, however, be careful.
-Before taking any limits, you must
-make sure the sequence converges.
-Let us see an example.
-
-\begin{example}
-Suppose $x_1 := 1$ and $x_{n+1} := x_n^2+x_n$.
-If we blindly assumed that the limit exists (call it $x$), then we
-would get the equation $x = x^2+x$, from which we might
-conclude $x=0$.
-However, it is not hard
-to show that $\{ x_n \}$ is unbounded and therefore does not converge.
-
-The thing to notice in this example is that the method still works, but
-it depends on the initial value $x_1$.
-If we set $x_1 := 0$,
-then the sequence converges and the limit really is 0.
-An entire branch of mathematics, called dynamics, deals precisely with these
-issues.
-\end{example}
-
-\subsection*{Some convergence tests}
-
-It is not always necessary to go back to the definition of convergence
-to prove that a sequence is convergent.
-We first give a simple convergence test.
-The main idea is that 
-$\{ x_n \}$ converges to $x$ if and only if 
-$\{ \abs{ x_n - x } \}$ converges to zero.
-
-\begin{prop} \label{convzero:prop}
-Let $\{ x_n \}$ be a sequence. 
-Suppose there is an $x \in \R$
-and a convergent sequence $\{ a_n \}$
-such that
-\begin{equation*}
-\lim_{n\to\infty} a_n = 0
-\end{equation*}
-and 
-\begin{equation*}
-\abs{x_n - x} \leq a_n
-\end{equation*}
-for all $n$.
-Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
-\end{prop}
-
-\begin{proof}
-Let $\epsilon > 0$ be given.
-Note that $a_n \geq 0$
-for all $n$.
-Find an $M \in \N$ such that for
-all $n \geq M$ we have
-$a_n = \abs{a_n - 0} < \epsilon$.
-Then, for all $n \geq M$
-we have
-\begin{equation*}
-\abs{x_n - x} \leq a_n < \epsilon . \qedhere
-\end{equation*}
-\end{proof}
-
-As the proposition shows, to study when a sequence has a limit is 
-the same as studying when another sequence goes to zero.
-%However, it may not give us an easily applicable test for convergence.
-In general it may be hard to decide if a sequence converges, but
-for certain sequences there exist easy to apply tests that tell us
-if the sequence converges or not.
-Let us see one such test.
-%For some special sequences we can test the convergence easily.
-First let
-us compute the limit of a very specific sequence.
-\begin{prop}
-Let $c > 0$.
-\begin{enumerate}[(i)]
-\item
-If $c < 1$, then
-\begin{equation*}
-\lim_{n\to\infty} c^n = 0.
-\end{equation*}
-\item
-If $c > 1$, then $\{ c^n \}$ is unbounded.
-\end{enumerate}
-\end{prop}
-
-\begin{proof}
-First let us suppose $c > 1$.
-We write
-$c = 1+r$ for some $r > 0$.
-By \hyperref[induction:thm]{induction} (or using the binomial theorem
-if you know it) we have Bernoulli's inequality (see also
-\exerciseref{exercise:bernoulliineq}):
-\begin{equation*}
-c^n = {(1+r)}^n \geq 1+nr .
-\end{equation*}
-By the \hyperref[thm:arch:i]{Archimedean property}
-of the real numbers, the sequence $\{ 1+nr \}$
-is unbounded (for any number $B$, we find an $n \in \N$ such that $nr \geq
-B-1$).
-Therefore $c^n$ is unbounded.
-
-Now let $c < 1$.
-Write $c = \frac{1}{1+r}$, where $r > 0$.
-Then
-\begin{equation*}
-c^n = \frac{1}{{(1+r)}^n} \leq
-\frac{1}{1+nr} \leq \frac{1}{r} \frac{1}{n} .
-\end{equation*}
-As $\{ \frac{1}{n} \}$ converges to zero, so does
-$\{ \frac{1}{r} \frac{1}{n} \}$.
-Hence, $\{ c^n \}$ converges to zero.
-\end{proof}
-
-If we look at the above proposition, we note that the
-ratio of the $(n+1)$th term and the $n$th term is $c$.
-We 
-generalize this simple result to a larger class of sequences.
-The following lemma will come up again once we get to series.
-
-\begin{lemma}[Ratio test for sequences]\index{ratio test for sequences}
-\label{seq:ratiotest}
-Let $\{ x_n \}$ be a sequence such that $x_n \not= 0$ for all $n$ and such that
-the limit
-\begin{equation*}
-L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
-\end{equation*}
-exists.
-\begin{enumerate}[(i)]
-\item
-If $L < 1$, then $\{ x_n \}$ converges and $\lim\, x_n = 0$.
-\item
-If $L > 1$, then $\{ x_n \}$ is unbounded (hence diverges).
-\end{enumerate}
-\end{lemma}
-
-If $L$ exists, but $L=1$, the lemma says nothing.
-We cannot make any
-conclusion based on that information alone.
-For example,
-the sequence $\{ \nicefrac{1}{n} \}$ converges to zero, but $L=1$.
-The constant sequence $\{ 1 \}$ converges to 1, not zero, and also
-$L=1$.
-The sequence $\{ {(-1)}^n \}$ does not converge at all, and $L=1$.
-Finally the sequence $\{ \ln n \}$ is unbounded, yet again $L=1$.
-
-\begin{proof}
-Suppose $L < 1$.
-As
-$\frac{\abs{x_{n+1}}}{\abs{x_n}} \geq 0$, we have that $L \geq 0$.
-Pick $r$ such that $L < r < 1$.
-We wish to compare the sequence to the sequence $r^n$.
-The idea is that
-while the sequence is not going to be less than $L$ eventually,
-it will eventually be less than $r$, which is still less than 1.
-The intuitive idea of the proof is illustrated in \figureref{figratseq}.
-\begin{figure}[h!t]
-\begin{center}
-\input figratseq.pdf_t
-\caption{Proof of ratio test in picture.
-The short lines represent the
-ratios 
-$\frac{\abs{x_{n+1}}}{\abs{x_n}}$
-approaching $L$.\label{figratseq}}
-\end{center}
-\end{figure}
-
-As $r-L > 0$, there exists an $M \in \N$ such that for
-all $n \geq M$ we have
-\begin{equation*}
-\abs{\frac{\abs{x_{n+1}}}{\abs{x_n}} - L} < r-L .
-\end{equation*}
-Therefore,
-\begin{equation*}
-\frac{\abs{x_{n+1}}}{\abs{x_n}} < r .
-\end{equation*}
-For $n > M$ (that is for $n \geq M+1$)
-we write
-\begin{equation*}
-\abs{x_n} =
-\abs{x_M}
-\frac{\abs{x_{M+1}}}{\abs{x_{M}}}
-\frac{\abs{x_{M+2}}}{\abs{x_{M+1}}}
-\cdots
-\frac{\abs{x_{n}}}{\abs{x_{n-1}}}
-<
-\abs{x_M}
-r r \cdots r = \abs{x_M} r^{n-M} = (\abs{x_M} r^{-M}) r^n .
-\end{equation*}
-The sequence $\{ r^n \}$ converges to zero and hence 
-$\abs{x_M} r^{-M} r^n$ converges to zero.
-By \propref{convzero:prop},
-the $M$-tail of 
-$\{x_n\}$ converges to zero and therefore $\{x_n\}$ converges to zero.
-
-Now suppose $L > 1$.
-Pick
-$r$ such that $1 < r < L$.
-As $L-r > 0$,
-there exists an $M \in \N$ such that for
-all $n \geq M$ we have
-\begin{equation*}
-\abs{\frac{\abs{x_{n+1}}}{\abs{x_n}} - L} < L-r .
-\end{equation*}
-Therefore,
-\begin{equation*}
-\frac{\abs{x_{n+1}}}{\abs{x_n}} > r .
-\end{equation*}
-Again for $n > M$
-we write
-\begin{equation*}
-\abs{x_n} =
-\abs{x_M}
-\frac{\abs{x_{M+1}}}{\abs{x_{M}}}
-\frac{\abs{x_{M+2}}}{\abs{x_{M+1}}}
-\cdots
-\frac{\abs{x_{n}}}{\abs{x_{n-1}}}
->
-\abs{x_M}
-r r \cdots r = \abs{x_M} r^{n-M} = (\abs{x_M} r^{-M}) r^n .
-\end{equation*}
-The sequence $\{ r^n \}$ is unbounded (since $r > 1$), and therefore
-$\{x_n\}$ cannot be bounded (if $\abs{x_n} \leq B$ for all $n$, then
-$r^n < \frac{B}{\abs{x_M}} r^{M}$ for all $n$, which is impossible).
-Consequently, $\{ x_n \}$ cannot converge.
-\end{proof}
-
-\begin{example}
-A simple application of the above lemma is to prove that
-\begin{equation*}
-\lim_{n\to\infty} \frac{2^n}{n!} = 0 .
-\end{equation*}
-
-\begin{proof}
-We find that
-\begin{equation*}
-\frac{2^{n+1} / (n+1)!}{2^n/n!}
-=
-\frac{2^{n+1}}{2^n}\frac{n!}{(n+1)!}
-=
-\frac{2}{n+1} .
-\end{equation*}
-It is not hard to see that $\{ \frac{2}{n+1} \}$ converges to zero.
-The conclusion follows by the lemma.
-\end{proof}
-\end{example}
-
-\subsection*{Exercises}
-
-\begin{exercise}
-Prove \corref{limandineq:cor}.
-Hint: Use constant sequences
-and \lemmaref{limandineq:lemma}.
-\end{exercise}
-
-\begin{exercise}
-Prove part \ref{prop:contalg:ii} of \propref{prop:contalg}.
-\end{exercise}
-
-\begin{exercise}
-Prove that if $\{ x_n \}$ is a convergent sequence, $k \in \N$, then
-\begin{equation*}
-\lim_{n\to\infty} x_n^k = 
-{\left( \lim_{n\to\infty} x_n \right)}^k .
-\end{equation*}
-Hint: Use \hyperref[induction:thm]{induction}.
-\end{exercise}
-
-\begin{exercise}
-Suppose $x_1 := \frac{1}{2}$ and $x_{n+1} := x_n^2$.
-Show that
-$\{ x_n \}$ converges and find
-$\lim\, x_n$.
-Hint: You cannot divide by zero!
-\end{exercise}
-
-\begin{exercise}
-Let $x_n := \frac{n-\cos(n)}{n}$.
-Use the
-\hyperref[squeeze:lemma]{squeeze lemma} to show that
-$\{ x_n \}$ converges and find the limit.
-\end{exercise}
-
-\begin{exercise}
-Let $x_n := \frac{1}{n^2}$ and $y_n := \frac{1}{n}$.
-Define
-$z_n := \frac{x_n}{y_n}$ and 
-$w_n := \frac{y_n}{x_n}$.
-Do $\{ z_n \}$ and $\{ w_n \}$
-converge?
-What are the limits?
-Can you apply \propref{prop:contalg}?
-Why or why not?
-\end{exercise}
-
-\begin{exercise}
-True or false, prove or find a counterexample.
-If $\{ x_n \}$ is a sequence
-such that $\{ x_n^2 \}$ converges, then $\{ x_n \}$ converges.
-\end{exercise}
-
-\begin{exercise}
-Show that
-\begin{equation*}
-\lim_{n\to\infty} \frac{n^2}{2^n} = 0 .
-\end{equation*}
-\end{exercise}
-
-\begin{exercise}
-Suppose $\{ x_n \}$ is a sequence and suppose for
-some $x \in \R$, the limit
-\begin{equation*}
-L := \lim_{n \to \infty} \frac{\abs{x_{n+1}-x}}{\abs{x_n-x}}
-\end{equation*}
-exists and $L < 1$.
-Show that $\{ x_n \}$ converges to $x$.
-\end{exercise}
-
-\begin{exercise}[Challenging]
-Let $\{ x_n \}$ be a convergent sequence such
-that $x_n \geq 0$ and $k \in \N$.
-Then
-\begin{equation*}
-\lim_{n\to\infty} x_n^{1/k} =
-{\left( \lim_{n\to\infty} x_n \right)}^{1/k} .
-\end{equation*}
-Hint: Find an expression $q$ such that $\frac{x_n^{1/k}-x^{1/k}}{x_n-x} =
-\frac{1}{q}$.
-\end{exercise}
-
-\begin{exercise}
-Let $r > 0$.
-Show that starting with any $x_1 \not= 0$, the sequence
-defined by
-\begin{equation*}
-x_{n+1} := x_n - \frac{x_n^2-r}{2x_n}
-\end{equation*}
-converges to $\sqrt{r}$ if $x_1 > 0$ and $-\sqrt{r}$ if $x_1 < 0$.
-\end{exercise}
-
-\begin{exercise}
-\begin{enumerate}[a)]
- \item Suppose $\{ a_n \}$ is a bounded sequence and $\{ b_n \}$ is a sequence
-converging to 0. Show that $\{ a_n b_n \}$ converges to 0.
- \item Find an example where $\{ a_n \}$ is unbounded, $\{ b_n \}$ converges to
-0, and $\{ a_n b_n \}$ is not convergent.
-  \item Find an example where $\{ a_n \}$ is bounded, $\{ b_n \}$ converges to
-some $x \not= 0$, and $\{ a_n b_n \}$ is not convergent.
-\end{enumerate}
-\end{exercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \sectionnewpage
-\section{Limit superior, limit inferior, and Bolzano--Weierstrass}
-\label{sec:bw}
-
-\sectionnotes{1--2 lectures, alternative proof of BW optional}
+\section{Upper and lower limits}
 
 In this section we study bounded sequences and their subsequences.
-In particular we define the so-called limit superior and limit inferior
+In particular we define the so-called upper limit and lower limit
 of a bounded sequence and talk about limits of subsequences.
 Furthermore, we prove the
 Bolzano--Weierstrass theorem%
@@ -4345,11 +3726,183 @@ but it is divergent.
 All is not lost however and we can
 still compute certain limits with a bounded divergent sequence.
 
-\subsection*{Upper and lower limits}
+\subsection*{Monotone sequences}
+
+
+The simplest type of a sequence is a monotone sequence.
+Checking that
+a monotone sequence converges is as easy as checking that it is bounded.
+It is also easy to find
+the limit for a convergent
+monotone sequence, provided we can find the supremum or infimum
+of a countable set of numbers.
+
+\begin{defn}
+A sequence $\{ x_n \}$ is \emph{monotone increasing}\index{monotone
+increasing sequence} if $x_n \leq x_{n+1}$ for all $n \in \N$.  
+%
+A sequence $\{ x_n \}$ is \emph{monotone decreasing}\index{monotone
+decreasing sequence} if $x_n \geq x_{n+1}$ for all $n \in \N$.  
+%
+If a sequence is either monotone increasing or monotone decreasing, we
+can simply say the sequence is \emph{monotone}\index{monotone sequence}.
+Some
+authors also use the word \emph{monotonic}\index{monotonic sequence}.
+\end{defn}
+
+For example, $\{ \nicefrac{1}{n} \}$ is monotone decreasing,
+the constant sequence $\{ 1 \}$ is both monotone increasing and monotone
+decreasing, and $\{ {(-1)}^n \}$ is not monotone.
+First few terms of a sample monotone increasing sequence
+are shown in 
+\figureref{figsequenceincreasing}.
+
+\begin{figure}[h!t]
+\begin{center}
+% To get fonts right we have to use .eepic not .pdf
+\input sequence-increasing.eepic
+\caption{First few terms of a monotone increasing sequence as a
+graph.\label{figsequenceincreasing}}
+\end{center}
+\end{figure}
+
+\begin{thm} \label{thm:monotoneconv}
+A monotone sequence $\{ x_n \}$ is bounded if and only if it is convergent.
+
+Furthermore, if $\{ x_n \}$ is monotone increasing and bounded, then
+\begin{equation*}
+\lim_{n\to \infty} x_n = \sup \{ x_n : n \in \N \} .
+\end{equation*}
+If $\{ x_n \}$ is monotone decreasing and bounded, then
+\begin{equation*}
+\lim_{n\to \infty} x_n = \inf \{ x_n : n \in \N \} .
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Let us suppose the sequence is monotone increasing.
+Suppose 
+the sequence is bounded, so there exists a $B$
+such that $x_n \leq B$ for all $n$, that is the set
+$\{ x_n : n \in  \N \}$ is bounded from above.
+Let
+\begin{equation*}
+x := \sup \{ x_n : n \in \N \} .
+\end{equation*}
+Let $\epsilon > 0$ be arbitrary.
+As $x$ is the supremum, then
+there must be at least one $M \in \N$ such that $x_{M} > x-\epsilon$
+(because $x$ is the supremum).
+As $\{ x_n \}$ is monotone increasing,
+then it is easy to see (by \hyperref[induction:thm]{induction}) that
+$x_n \geq x_{M}$ for all $n \geq M$.
+Hence
+\begin{equation*}
+\abs{x_n-x} = x-x_n \leq x-x_{M} < \epsilon  .
+\end{equation*}
+Therefore the sequence converges to $x$.
+We already know that a convergent sequence is bounded, which completes the
+other direction of the implication.
+
+\begin{exercise}
+Prove the theorem for monotone decreasing sequences.
+\end{exercise}
+\end{proof}
+
+%???formally speaking we did not defined \sqrt{x}???
+
+\begin{example}
+Take the sequence $\{ \frac{1}{\sqrt{n}} \}$.
+
+First $\frac{1}{\sqrt{n}} > 0$ for all $n \in \N$, and hence the sequence is
+bounded from below.
+Let us show that it is monotone decreasing.
+We start with
+$\sqrt{n+1} \geq \sqrt{n}$ (why is that true?).
+From this inequality
+we obtain
+\begin{equation*}
+\frac{1}{\sqrt{n+1}} \leq \frac{1}{\sqrt{n}} .
+\end{equation*}
+So the sequence is monotone decreasing and bounded from below (hence
+bounded).
+We apply the theorem to note that the sequence is
+convergent and in fact
+\begin{equation*}
+\lim_{n\to \infty} \frac{1}{\sqrt{n}}
+=
+\inf \left\{ \frac{1}{\sqrt{n}} : n \in \N \right\} .
+\end{equation*}
+We already know that the infimum is greater than or equal to 0, as
+0 is a lower bound.
+Take a number $b \geq 0$ such
+that $b \leq \frac{1}{\sqrt{n}}$ for all $n$.
+We square both sides to
+obtain
+\begin{equation*}
+b^2 \leq \frac{1}{n} \qquad \text{for all $n \in \N$}.
+\end{equation*}
+We have seen before that this implies that $b^2 \leq 0$ (a consequence
+of the \hyperref[thm:arch:i]{Archimedean property}).
+As we also have $b^2 \geq 0$, then $b^2 = 0$
+and so $b = 0$.
+Hence $b=0$ is the greatest lower bound, and $\lim \frac{1}{\sqrt{n}} = 0$.
+\end{example}
+
+\begin{example}
+A word of caution:  
+We must show that a monotone sequence is bounded in order to use \thmref{thm:monotoneconv}.
+For example, the sequence $x_n=1 + \nicefrac{1}{2} + \cdots + \nicefrac{1}{n}$ is a monotone increasing sequence that grows very slowly.
+We will see latter in \exampleref{example:harmonicseries}, that this sequence has no upper bound and so does not converge.
+It is not at all obvious that this sequence has no upper bound.
+\end{example}
+
+\begin{exercise}
+Show that the sequence
+$\left\{ \dfrac{1}{\sqrt[3]{n}} \right\}$ is monotone, bounded, and use \thmref{thm:monotoneconv} to find the limit.
+%???\sqrt[3]{n} is not yet defined
+\end{exercise}
+
+\begin{exercise}
+Show that the sequence
+$\left\{ \dfrac{n+1}{n} \right\}$
+is monotone, bounded, and use
+\thmref{thm:monotoneconv} to find the limit.
+\end{exercise}
+
+Here is a common example of where monotone sequences arise.
+
+\begin{prop} \label{prop:supinfseq}
+Let $S \subset \R$ be a nonempty bounded set.
+Then there exist monotone sequences
+$\{ x_n \}$ and $\{ y_n \}$ such that $x_n, y_n \in S$ and
+\begin{equation*}
+\sup\,S = \lim_{n\to \infty} x_n \qquad \text{and} \qquad \inf\,S =
+\lim_{n\to\infty} y_n .
+\end{equation*}
+\end{prop}
+
+\begin{exercise}
+Prove the proposition above.
+\end{exercise}
+
+\begin{exercise}
+Let $\{ x_n \}$ be a convergent monotone sequence.
+Suppose 
+\begin{equation*}
+\lim_{n\to \infty} x_n = x_k 
+\end{equation*}
+for some $k\in\N$.
+Show that $x_n = x_k$ for all $n \geq k$.
+\end{exercise}
+
+
+\subsection*{Upper and lower limits}\label{sec:bw}
 
 There are ways of creating monotone sequences out of any sequence, and
 in this fashion we
-get the so-called \emph{\myindex{limit superior}} and
+get the so-called \emph{upper} and \emph{lower limits}, 
+also known as \emph{\myindex{limit superior}} and
 \emph{\myindex{limit inferior}}.
 These limits always exist for bounded
 sequences.
@@ -4382,7 +3935,7 @@ It is not hard to generalize the following results to
 include unbounded sequences, however, we first restrict our attention to
 bounded ones.
 
-\begin{prop}
+\begin{prop}\label{prop:limsup}
 Let $\{ x_n \}$ be a bounded sequence.
 Let $a_n$ and $b_n$ be as in
 the definition above.
@@ -4404,24 +3957,28 @@ $\displaystyle \liminf_{n \to \infty} \, x_n \leq
 \end{prop}
 
 \begin{proof}
-Let us see why $\{ a_n \}$ is a decreasing sequence.
-As $a_n$ is the least upper
+Sine $a_n$ is the least upper
 bound for $\{ x_k : k \geq n \}$, it is also
 an upper bound for the subset $\{ x_k : k \geq (n+1) \}$.
 Therefore
 $a_{n+1}$, the least upper bound for
 $\{ x_k : k \geq (n+1) \}$, has to be less than or equal to $a_n$,
 that is,
-$a_n \geq a_{n+1}$.
-Similarly (an exercise), $b_n$ is an increasing
-sequence.
-It is left as an exercise to show that
-if $x_n$ is bounded, then $a_n$ and $b_n$ must be bounded.
+$a_n \geq a_{n+1}$ for any $n$.
+That is,  $\{ a_n \}$ is a decreasing sequence.
+
+\begin{exercise} 
+Show that $b_n$ is an increasing sequence.
+\end{exercise}
+
+\begin{exercise}
+Show that if $x_n$ is bounded, then $a_n$ and $b_n$ must be bounded.
+\end{exercise}
 
 The second item in the proposition follows as the sequences
 $\{ a_n \}$ and $\{ b_n \}$ are monotone.
 
-For the third item, we note that $b_n \leq a_n$, as the $\inf$ of a set
+For the third item, we note that $b_n \leq a_n$, as the $\inf$ of a nonempty set
 is less than or equal to its $\sup$.
 We know that $\{ a_n \}$ and $\{ b_n \}$
 converge to the limsup and the liminf (respectively).
@@ -4461,7 +4018,7 @@ x_n :=
 \end{equation*}
 Let us compute the $\liminf$ and $\limsup$ of this sequence.
 First  the
-limit inferior:
+lower limit:
 \begin{equation*}
 \liminf_{n\to\infty} \, x_n = 
 \lim_{n\to\infty}
@@ -4471,7 +4028,7 @@ limit inferior:
 =
 \lim_{n\to\infty} 0 = 0 .
 \end{equation*}
-For the limit superior we write
+For the upper limit we write
 \begin{equation*}
 \limsup_{n\to\infty} \, x_n = 
 \lim_{n\to\infty}
@@ -4495,6 +4052,15 @@ That is,
 Do note that the sequence $\{ x_n \}$ is not a convergent sequence.
 \end{example}
 
+\begin{exercise}
+\begin{enumerate}[a)]
+\item
+Let $x_n := \tfrac{{(-1)}^n}{n}$, find $\limsup \, x_n$ and $\liminf \, x_n$.
+\item
+Let $x_n := \tfrac{(n-1){(-1)}^n}{n}$, find $\limsup \, x_n$ and $\liminf \, x_n$.
+\end{enumerate}
+\end{exercise}
+
 We associate with $\limsup$ and $\liminf$ certain subsequences.
 
 \begin{thm} \label{subseqlimsupinf:thm}
@@ -4512,75 +4078,48 @@ $\{ x_{m_k} \}$ such that
 
 \begin{proof}
 Define $a_n := \sup \{ x_k : k \geq n \}$.
-Write
+By \propref{prop:limsup}, $\limsup \, x_n$ is defined and we can write 
 $x := \limsup \, x_n = \lim\, a_n$.
+
 Define the subsequence as follows.
 Pick $n_1 := 1$ and work inductively.
 Suppose we have
-defined the subsequence until $n_k$ for some $k$.
-Now pick some $m > n_k$
+defined $x_{n_1},\dots,x_{n_{k-1}}$.
+Now pick some $m > n_{k-1}$
 such that
 \begin{equation*}
-a_{(n_k+1)} - x_m < \frac{1}{k+1} .
+a_{(n_{k-1}+1)} - x_m < \nicefrac1k .
 \end{equation*}
-We can do this as $a_{(n_k+1)}$ is a supremum of the
-set $\{ x_n : n \geq n_k + 1 \}$ and hence there are elements
-of the sequence arbitrarily close (or even possibly equal) to the supremum.
-Set $n_{k+1} :=  m$.
+We can do this as $a_{(n_{k-1}+1)}$ is a supremum of the
+set $\{ x_n : n \geq n_{k-1} + 1 \}$ and hence there are elements
+of the sequence arbitrarily close (or even possibly equal) to the supremum; see \propref{prop:existsxepsfromsup}.
+
+Set $n_k :=  m$.
 The subsequence $\{ x_{n_k} \}$ is defined.
-Next we
-need to prove that it converges and has the right limit.
 
-Note that
-$a_{(n_{k-1}+1)} \geq a_{n_k}$ (why?) and that $a_{n_{k}} \geq x_{n_k}$.
-Therefore, for every $k > 1$ we have
-\begin{equation*}
-\begin{split}
-\abs{a_{n_k} - x_{n_k}} & = 
-a_{n_k} - x_{n_k}
-\\
-& \leq
-a_{(n_{k-1}+1)} - x_{n_k}
-\\
-& < \frac{1}{k} .
-\end{split}
-\end{equation*}
+Next we need to prove that it converges and has the right limit.
 
-Let us show that $\{ x_{n_k} \}$ converges to $x$.
-Note that the subsequence need not be monotone.
-Let $\epsilon > 0$ be given.
-As $\{ a_n \}$ converges to $x$, then the subsequence
-$\{ a_{n_k} \}$ converges to $x$.
-Thus there exists an $M_1 \in \N$
-such that for all $k \geq M_1$ we have
-\begin{equation*}
-\abs{a_{n_k} - x} < \frac{\epsilon}{2} .
-\end{equation*}
-Find an $M_2 \in \N$ such that
-\begin{equation*}
-\frac{1}{M_2} \leq \frac{\epsilon}{2}.
-\end{equation*}
-Take $M := \max \{M_1 , M_2 \}$ and compute.
-For all $k \geq M$
-we have
-\begin{equation*}
-\begin{split}
-\abs{x- x_{n_k}} & =
-\abs{a_{n_k} - x_{n_k} + x - a_{n_k}}
-\\
-& \leq \abs{a_{n_k} - x_{n_k}} + \abs{x - a_{n_k}}
-\\
-& < \frac{1}{k} + \frac{\epsilon}{2}
-\\
-& \leq \frac{1}{M_2} + \frac{\epsilon}{2} \leq \frac{\epsilon}{2} +
-\frac{\epsilon}{2} = \epsilon .
-\end{split}
-\end{equation*}
+Note that $n_{k-1}+1\le n_k$ for any $k$.
+Since $\{a_n\}$ is monotonically decreasing, we get
+\[a_{n_k}-\nicefrac1k\le a_{(n_{k-1}+1)}-\nicefrac1k\le x_{n_k}\le a_{(n_{k-1}+1)} \le a_{n_k}.\]
+for any $k$.
+In particular 
+\[a_{n_k}-\nicefrac1k\le x_{n_k}\le a_{n_k}\]
+for any $k$.
 
-We leave the statement for $\liminf$ as an exercise.
+Since  $a_n\to x$ as $n\to \infty$, 
+its subsequence $\{a_{n_k}\}$ also convereges to $x$.
+Further, since $\nicefrac1k\to0$ as $k\to\infty$ we get that $(a_{n_k}-\nicefrac1k)\to x$ as $k\to\infty$.
+By the squeeze lemma \ref{squeeze:lemma}, $x_{n_k}\to x$ as $k\to \infty$.
+
+The second statement left as an exercise below.
 \end{proof}
 
-\subsection*{Using limit inferior and limit superior}
+\begin{exercise}
+Prove the statement for $\liminf$.
+\end{exercise}
+
+\subsection*{Properties of upper and lower limits}
 
 The advantage of $\liminf$ and $\limsup$ is that we can always write them
 down for any (bounded) sequence.
@@ -4635,7 +4174,7 @@ therefore $\limsup \, x_n = \lim\, x_{n_k} = x$.
 Similarly $\liminf \, x_n = x$.
 \end{proof}
 
-Limit superior and limit inferior behave nicely
+Upper limit and lower limit behave nicely
 with subsequences.
 
 \begin{prop} \label{prop:subseqslimsupinf}
@@ -4677,12 +4216,20 @@ We apply \lemmaref{limandineq:lemma} to conclude
 which is the desired conclusion.
 \end{proof}
 
-Limit superior and limit inferior
-are the largest and smallest
-subsequential limits.
-If the subsequence in the previous
-proposition is convergent, then we have that
-$\liminf \, x_{n_k} = \lim\, x_{n_k} = \limsup \, x_{n_k}$.  Therefore,
+\begin{exercise}
+Finish the proof of \propref{prop:subseqslimsupinf}.
+That is,
+suppose $\{ x_n \}$ is a bounded sequence and
+$\{ x_{n_k} \}$ is a subsequence.
+Prove
+$\displaystyle \liminf_{n\to\infty}\, x_n \leq
+\liminf_{k\to\infty}\, x_{n_k}$.
+\end{exercise}
+
+Upper limit and lower limit are the largest and smallest subsequential limits.
+If the subsequence in the previous proposition is convergent, then we have that
+\[\liminf_{k\to\infty} \, x_{n_k} = \lim_{k\to\infty}\, x_{n_k} = \limsup_{k\to\infty} \, x_{n_k}.\]  
+Therefore,
 \begin{equation*}
 \liminf_{n\to\infty} \, x_n \leq
 \lim_{k\to\infty} x_{n_k} \leq
@@ -4699,6 +4246,10 @@ if and only if
 every convergent subsequence
 $\{ x_{n_k} \}$ converges to $x$.
 \end{thm}
+
+\begin{exercise}
+Prove \thmref{seqconvsubseqconv:thm}.
+\end{exercise}
 
 \subsection*{Bolzano--Weierstrass theorem}
 
@@ -4858,45 +4409,19 @@ then
 \end{equation*}
 \end{example}
 
-\subsection*{Exercises}
-
-\begin{exercise}
-Suppose $\{ x_n \}$ is a bounded sequence.
-Define $a_n$ and
-$b_n$ as in \defnref{liminflimsup:def}.
-Show that $\{ a_n \}$
-and $\{ b_n \}$ are bounded.
-\end{exercise}
-
-\begin{exercise}
-Suppose $\{ x_n \}$ is a bounded sequence.
-Define $b_n$ as in \defnref{liminflimsup:def}.
-Show that
-$\{ b_n \}$ is an increasing sequence.
-\end{exercise}
-
-\begin{exercise}
-Finish the proof of \propref{prop:subseqslimsupinf}.
-That is,
-suppose $\{ x_n \}$ is a bounded sequence and
-$\{ x_{n_k} \}$ is a subsequence.
-Prove
-$\displaystyle \liminf_{n\to\infty}\, x_n \leq
-\liminf_{k\to\infty}\, x_{n_k}$.
-\end{exercise}
-
-\begin{exercise}
-Prove \thmref{seqconvsubseqconv:thm}.
-\end{exercise}
-
-\begin{exercise}
+\begin{exercise} \label{exercise:infseqlimlims}
+Given a sequence $\{ x_n \}$.  
 \begin{enumerate}[a)]
-\item
-Let $x_n := \dfrac{{(-1)}^n}{n}$, find $\limsup \, x_n$ and $\liminf \, x_n$.
-\item
-Let $x_n := \dfrac{(n-1){(-1)}^n}{n}$, find $\limsup \, x_n$ and $\liminf \, x_n$.
+ \item Show that
+$\lim \, x_n = \infty$ if and only if $\liminf \, x_n = \infty$.
+\item Then show that $\lim \, x_n = - \infty$ if and only if $\limsup \, x_n = -\infty$.
+\item If $\{ x_n \}$ is monotone increasing, show that either
+$\lim \, x_n$ exists and is finite or $\lim \, x_n = \infty$.
 \end{enumerate}
 \end{exercise}
+
+\subsection*{Exercises}
+
 
 \begin{exercise}
 Let $\{ x_n \}$ and $\{ y_n \}$ be bounded sequences such that
@@ -5031,28 +4556,6 @@ $\limsup \, x_n = \inf \, S$.
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}[Easy] \label{exercise:infseqlimex}
-Suppose $\{ x_n \}$ is such that $\liminf \, x_n = -\infty$, $\limsup \, x_n
-= \infty$.
-\begin{enumerate}[a)]
- \item Show that $\{ x_n \}$ is not convergent, and also
-that neither $\lim \, x_n = \infty$ nor $\lim \, x_n =
--\infty$
-is true.
- \item Find an example of such a sequence.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise} \label{exercise:infseqlimlims}
-Given a sequence $\{ x_n \}$.  
-\begin{enumerate}[a)]
- \item Show that
-$\lim \, x_n = \infty$ if and only if $\liminf \, x_n = \infty$.
-\item Then show that $\lim \, x_n = - \infty$ if and only if $\limsup \, x_n = -\infty$.
-\item If $\{ x_n \}$ is monotone increasing, show that either
-$\lim \, x_n$ exists and is finite or $\lim \, x_n = \infty$.
-\end{enumerate}
-\end{exercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -5060,18 +4563,12 @@ $\lim \, x_n$ exists and is finite or $\lim \, x_n = \infty$.
 \section{Cauchy sequences}
 \label{sec:cauchy}
 
-\sectionnotes{0.5--1 lecture}
-
-Often we wish to describe a certain number 
-by a sequence that converges to it.
-In this case, it is impossible to use the
-number itself in the proof that the sequence converges.
-It would be nice if we could check for convergence without knowing
-the limit.
+The following definition becomes useful if we need to check for convergence without knowing the limit.
 
 \begin{defn}
 A sequence $\{ x_n \}$ is a \emph{\myindex{Cauchy sequence}}%
 \footnote{%
+Also known as \emph{fundamental sequence} or \emph{sequence converging in it self}. 
 Named after the French mathematician
 \href{http://en.wikipedia.org/wiki/Cauchy}{Augustin-Louis Cauchy} (1789--1857).} if
 for every $\epsilon > 0$ there exists an $M \in \N$ such that
@@ -5109,40 +4606,40 @@ we have
 \end{proof}
 \end{example}
 
-\begin{example}
-The sequence $\{ \frac{n+1}{n} \}$ is a Cauchy sequence.
+\begin{exercise}
+Prove that $\{ \frac{n^2-1}{n^2} \}$ is Cauchy using directly the definition
+of Cauchy sequences.
+\end{exercise}
 
-\begin{proof}  Given $\epsilon > 0$, find $M$ such that
-$M > \nicefrac{2}{\epsilon}$.
-Then for $n,k \geq M$
-we have that $\nicefrac{1}{n} < \nicefrac{\epsilon}{2}$
-and
-$\nicefrac{1}{k} < \nicefrac{\epsilon}{2}$.
-Therefore for $n, k \geq M$
-we have
+\begin{exercise}
+Let $\{ x_n \}$ be a sequence such that
+there exists a $0 < C < 1$ such that
 \begin{equation*}
-\begin{split}
-\abs{\frac{n+1}{n} - \frac{k+1}{k}}
-& =
-\abs{\frac{k(n+1)-n(k+1)}{nk}}
-\\
-& =
-\abs{\frac{kn+k-nk-n}{nk}}
-\\
-& =
-\abs{\frac{k-n}{nk}}
-\\
-& \leq
-\abs{\frac{k}{nk}}
-+
-\abs{\frac{-n}{nk}}
-\\
-& = \frac{1}{n} + \frac{1}{k}
-< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
-\end{split}
+\abs{x_{n+1} - x_n} \leq C \abs{x_{n}-x_{n-1}} .
 \end{equation*}
-\end{proof}
-\end{example}
+Prove that $\{ x_n \}$ is Cauchy.
+Hint:  You can freely use the formula (for $C \not= 1$)
+\begin{equation*}
+1+ C+ C^2 + \cdots + C^n = \frac{1-C^{n+1}}{1-C}.
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose $\abs{x_n-x_k} \leq \nicefrac{n}{k^2}$ for all $n$ and $k$.
+Show that $\{ x_n \}$ is Cauchy.
+\end{exercise}
+
+\begin{exercise}
+Let $\{ x_n \}$ and $\{ y_n \}$ be sequences such
+that $\lim\, y_n =0$.
+Suppose that for all $k \in \N$
+and
+for all $m \geq k$ we have
+\begin{equation*}
+\abs{x_m-x_k} \leq y_k .
+\end{equation*}
+Show that $\{ x_n \}$ is Cauchy.
+\end{exercise}
 
 \begin{prop}
 A Cauchy sequence is bounded.
@@ -5256,7 +4753,9 @@ if every Cauchy sequence converges.
 Above we proved that
 as $\R$ has the \hyperref[defn:lub]{least-upper-bound property}, then $\R$ is 
 Cauchy-complete.
-We can ``complete'' $\Q$ by ``throwing in'' just enough points to make all
+
+In fact one can construct $\R$ by ``completing'' $\Q$;
+that is by ``throwing in'' just enough points to make all
 Cauchy sequences converge (we omit the details).
 The resulting field has the
 least-upper-bound property.
@@ -5266,7 +4765,7 @@ more abstract settings.
 \end{remark}
 
 It should be noted that the Cauchy criterion is stronger than just
-$\abs{x_{n+1}-x_n}$ (or $\abs{x_{n+j}-x_n}$ for a fixed $j$) going to zero as $n$ goes to infinity.
+$\abs{x_{n+1}-x_n}\to0$ as $n\to\infty$.
 In fact, when we get to the partial sums of the harmonic series
 (see \exampleref{example:harmonicseries} in the next section), we will have
 a sequence such that $x_{n+1}-x_n = \nicefrac{1}{n}$, yet $\{ x_n \}$ is
@@ -5277,81 +4776,9 @@ any $j \in \N$ (confer \exerciseref{exercise:badnocauchy}).
 The key point in the definition of Cauchy is that $n$ and $k$
 vary independently and can be arbitrarily far apart.
 
-%The Cauchy criterion for convergence becomes very useful for series, which
-%we will discuss in the next section.
 
-\subsection*{Exercises}
 
-\begin{exercise}
-Prove that $\{ \frac{n^2-1}{n^2} \}$ is Cauchy using directly the definition
-of Cauchy sequences.
-\end{exercise}
 
-\begin{exercise}
-Let $\{ x_n \}$ be a sequence such that
-there exists a $0 < C < 1$ such that
-\begin{equation*}
-\abs{x_{n+1} - x_n} \leq C \abs{x_{n}-x_{n-1}} .
-\end{equation*}
-Prove that $\{ x_n \}$ is Cauchy.
-Hint:  You can freely use the formula (for $C \not= 1$)
-\begin{equation*}
-1+ C+ C^2 + \cdots + C^n = \frac{1-C^{n+1}}{1-C}.
-\end{equation*}
-\end{exercise}
-
-\begin{exercise}[Challenging]
-Suppose $F$ is an ordered field that contains the rational numbers
-$\Q$, such that $\Q$ is dense,
-that is: whenever $x,y \in F$ are such that $x < y$,
-then there exists a $q \in \Q$ such that $x < q < y$.
-Say a sequence $\{ x_n \}_{n=1}^\infty$ of rational numbers is Cauchy
-if given any $\epsilon \in \Q$ with $\epsilon > 0$, there exists
-an $M$ such that for all $n,k \geq M$ we have $\abs{x_n-x_k} < \epsilon$.
-Suppose any Cauchy sequence of rational numbers has a limit in $F$.
-Prove that $F$ has the \hyperref[defn:lub]{least-upper-bound property}.
-\end{exercise}
-
-\begin{exercise}
-Let $\{ x_n \}$ and $\{ y_n \}$ be sequences such
-that $\lim\, y_n =0$.
-Suppose that for all $k \in \N$
-and
-for all $m \geq k$ we have
-\begin{equation*}
-\abs{x_m-x_k} \leq y_k .
-\end{equation*}
-Show that $\{ x_n \}$ is Cauchy.
-\end{exercise}
-
-\begin{exercise}
-Suppose a Cauchy sequence $\{ x_n \}$ is such that for every $M \in \N$,
-there exists a $k \geq M$ and an $n \geq M$ such that
-$x_k < 0$ and $x_n > 0$.
-Using simply the definition of a Cauchy sequence
-and of a convergent sequence, show that
-the sequence converges to $0$.
-\end{exercise}
-
-\begin{exercise}
-Suppose $\abs{x_n-x_k} \leq \nicefrac{n}{k^2}$ for all $n$ and $k$.
-Show that $\{ x_n \}$ is Cauchy.
-\end{exercise}
-
-\begin{exercise}
-Suppose $\{ x_n \}$ is a Cauchy sequence such that for infinitely many
-$n$, $x_n = c$.
-Using only the definition of Cauchy sequence prove 
-that $\lim\, x_n = c$.
-\end{exercise}
-
-\begin{exercise}
-True/False prove or find a counterexample:  If $\{ x_n \}$ is a Cauchy sequence then there exists an $M$
-such that for all $n \geq M$ we have
-$\abs{x_{n+1}-x_n}
-\leq
-\abs{x_{n}-x_{n-1}}$.
-\end{exercise}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7278,7 +6705,7 @@ Ces{\`a}ro summable to 0 (seems a little paradoxical at first sight).
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}[Challenging]
+\begin{exercise}
 Show that the monotonicity in the alternating series test
 is necessary.
 That is, find a sequence of positive real numbers
@@ -20831,6 +20258,447 @@ Suppose $f \colon D \to \R$ and $g \colon D \to \R$ are bounded functions.
 \inf_{x\in D} g(x) .
 \end{equation*}
 \item Find examples where we obtain strict inequalities.
+\end{enumerate}
+\end{exercise}
+
+\subsection*{Recursively defined sequences}
+
+Now that we know we can interchange limits and algebraic operations, we can
+compute the limits of many sequences.
+One such class are recursively defined sequences, that is, sequences where
+the next number in the sequence computed using a formula from a fixed number
+of preceding elements in the sequence.
+
+\begin{example}
+Let $\{ x_n \}$ be defined by $x_1 := 2$ and
+\begin{equation*}
+x_{n+1} := x_n - \frac{x_n^2-2}{2x_n} .
+\end{equation*}
+We must first find out if this sequence is well defined; we must show we never
+divide by zero.
+Then we must find out if the sequence converges.
+Only then
+can we attempt to find the limit.
+
+First let us prove 
+$x_n$ exists and $x_n > 0$ for all $n$ (so the sequence is well defined
+and bounded below).
+Let us show this by \hyperref[induction:thm]{induction}.
+We know that
+$x_1 = 2 > 0$.
+For the induction step, suppose $x_n > 0$.
+Then
+\begin{equation*}
+x_{n+1} = x_n - \frac{x_n^2-2}{2x_n} =
+\frac{2x_n^2 - x_n^2+2}{2x_n} =
+\frac{x_n^2+2}{2x_n} .
+\end{equation*}
+If $x_n > 0$, then $x_n^2+2 > 0$ and hence $x_{n+1} > 0$.
+
+Next let us
+show that the sequence is monotone decreasing.
+If we show that
+$x_n^2-2 \geq 0$ for all $n$, then $x_{n+1} \leq x_n$ for all $n$.
+Obviously $x_1^2-2 = 4-2 = 2 > 0$.
+For an arbitrary $n$ we have 
+\begin{equation*}
+x_{n+1}^2-2 =
+{\left( \frac{x_n^2+2}{2x_n} \right)}^2 - 2
+=
+\frac{x_n^4+4x_n^2+4 - 8x_n^2}{4x_n^2}
+=
+\frac{x_n^4-4x_n^2+4}{4x_n^2}
+=
+\frac{{\left( x_n^2-2 \right)}^2}{4x_n^2} .
+\end{equation*}
+Since any number squared is nonnegative, we have
+that $x_{n+1}^2-2 \geq 0$ for all $n$.
+Therefore,
+$\{ x_n \}$ is monotone decreasing and bounded ($x_n > 0$ for all $n$), and 
+the limit exists.
+It remains to find the limit.
+
+Let us write
+\begin{equation*}
+2x_nx_{n+1} = x_n^2+2 .
+\end{equation*}
+Since $\{ x_{n+1} \}$ is the 1-tail of $\{ x_n \}$, it converges to the
+same limit.
+Let us define $x := \lim\, x_n$.
+We take the limit of
+both sides to obtain
+\begin{equation*}
+2x^2 = x^2+2 ,
+\end{equation*}
+or $x^2 = 2$.
+As $x_n > 0$ for all $n$ we get $x \geq 0$, and therefore $x = \sqrt{2}$.
+\end{example}
+
+You may have seen the above sequence before.
+It is the
+\emph{Newton's method}%
+\footnote{%
+Named after the English physicist and mathematician
+\href{http://en.wikipedia.org/wiki/Isaac_Newton}{Isaac Newton} (1642 --
+1726/7).}
+for finding the square root of 2.
+This method comes up very often in
+practice and converges very rapidly.
+Notice that we have used the fact that
+$x_1^2 -2 >0$, although it was not strictly needed to show convergence by
+considering a tail of the sequence.
+In fact the sequence converges as long as $x_1 \not= 0$, although with a negative $x_1$
+we would arrive at $x=-\sqrt{2}$.
+By replacing the 2 in the numerator we 
+obtain the square root of any positive number.
+These statements are left as
+an exercise.
+
+You should, however, be careful.
+Before taking any limits, you must
+make sure the sequence converges.
+Let us see an example.
+
+\begin{example}
+Suppose $x_1 := 1$ and $x_{n+1} := x_n^2+x_n$.
+If we blindly assumed that the limit exists (call it $x$), then we
+would get the equation $x = x^2+x$, from which we might
+conclude $x=0$.
+However, it is not hard
+to show that $\{ x_n \}$ is unbounded and therefore does not converge.
+
+The thing to notice in this example is that the method still works, but
+it depends on the initial value $x_1$.
+If we set $x_1 := 0$,
+then the sequence converges and the limit really is 0.
+An entire branch of mathematics, called dynamics, deals precisely with these
+issues.
+\end{example}
+
+\subsection*{Some convergence tests}
+
+It is not always necessary to go back to the definition of convergence
+to prove that a sequence is convergent.
+We first give a simple convergence test.
+The main idea is that 
+$\{ x_n \}$ converges to $x$ if and only if 
+$\{ \abs{ x_n - x } \}$ converges to zero.
+
+\begin{prop} \label{convzero:prop}
+Let $\{ x_n \}$ be a sequence. 
+Suppose there is an $x \in \R$
+and a convergent sequence $\{ a_n \}$
+such that
+\begin{equation*}
+\lim_{n\to\infty} a_n = 0
+\end{equation*}
+and 
+\begin{equation*}
+\abs{x_n - x} \leq a_n
+\end{equation*}
+for all $n$.
+Then $\{ x_n \}$ converges and $\lim\, x_n = x$.
+\end{prop}
+
+\begin{proof}
+Let $\epsilon > 0$ be given.
+Note that $a_n \geq 0$
+for all $n$.
+Find an $M \in \N$ such that for
+all $n \geq M$ we have
+$a_n = \abs{a_n - 0} < \epsilon$.
+Then, for all $n \geq M$
+we have
+\begin{equation*}
+\abs{x_n - x} \leq a_n < \epsilon . \qedhere
+\end{equation*}
+\end{proof}
+
+As the proposition shows, to study when a sequence has a limit is 
+the same as studying when another sequence goes to zero.
+%However, it may not give us an easily applicable test for convergence.
+In general it may be hard to decide if a sequence converges, but
+for certain sequences there exist easy to apply tests that tell us
+if the sequence converges or not.
+Let us see one such test.
+%For some special sequences we can test the convergence easily.
+First let
+us compute the limit of a very specific sequence.
+\begin{prop}
+Let $c > 0$.
+\begin{enumerate}[(i)]
+\item
+If $c < 1$, then
+\begin{equation*}
+\lim_{n\to\infty} c^n = 0.
+\end{equation*}
+\item
+If $c > 1$, then $\{ c^n \}$ is unbounded.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+First let us suppose $c > 1$.
+We write
+$c = 1+r$ for some $r > 0$.
+By \hyperref[induction:thm]{induction} (or using the binomial theorem
+if you know it) we have Bernoulli's inequality (see also
+\exerciseref{exercise:bernoulliineq}):
+\begin{equation*}
+c^n = {(1+r)}^n \geq 1+nr .
+\end{equation*}
+By the \hyperref[thm:arch:i]{Archimedean property}
+of the real numbers, the sequence $\{ 1+nr \}$
+is unbounded (for any number $B$, we find an $n \in \N$ such that $nr \geq
+B-1$).
+Therefore $c^n$ is unbounded.
+
+Now let $c < 1$.
+Write $c = \frac{1}{1+r}$, where $r > 0$.
+Then
+\begin{equation*}
+c^n = \frac{1}{{(1+r)}^n} \leq
+\frac{1}{1+nr} \leq \frac{1}{r} \frac{1}{n} .
+\end{equation*}
+As $\{ \frac{1}{n} \}$ converges to zero, so does
+$\{ \frac{1}{r} \frac{1}{n} \}$.
+Hence, $\{ c^n \}$ converges to zero.
+\end{proof}
+
+If we look at the above proposition, we note that the
+ratio of the $(n+1)$th term and the $n$th term is $c$.
+We 
+generalize this simple result to a larger class of sequences.
+The following lemma will come up again once we get to series.
+
+\begin{lemma}[Ratio test for sequences]\index{ratio test for sequences}
+\label{seq:ratiotest}
+Let $\{ x_n \}$ be a sequence such that $x_n \not= 0$ for all $n$ and such that
+the limit
+\begin{equation*}
+L := \lim_{n\to\infty} \frac{\abs{x_{n+1}}}{\abs{x_n}}
+\end{equation*}
+exists.
+\begin{enumerate}[(i)]
+\item
+If $L < 1$, then $\{ x_n \}$ converges and $\lim\, x_n = 0$.
+\item
+If $L > 1$, then $\{ x_n \}$ is unbounded (hence diverges).
+\end{enumerate}
+\end{lemma}
+
+If $L$ exists, but $L=1$, the lemma says nothing.
+We cannot make any
+conclusion based on that information alone.
+For example,
+the sequence $\{ \nicefrac{1}{n} \}$ converges to zero, but $L=1$.
+The constant sequence $\{ 1 \}$ converges to 1, not zero, and also
+$L=1$.
+The sequence $\{ {(-1)}^n \}$ does not converge at all, and $L=1$.
+Finally the sequence $\{ \ln n \}$ is unbounded, yet again $L=1$.
+
+\begin{proof}
+Suppose $L < 1$.
+As
+$\frac{\abs{x_{n+1}}}{\abs{x_n}} \geq 0$, we have that $L \geq 0$.
+Pick $r$ such that $L < r < 1$.
+We wish to compare the sequence to the sequence $r^n$.
+The idea is that
+while the sequence is not going to be less than $L$ eventually,
+it will eventually be less than $r$, which is still less than 1.
+The intuitive idea of the proof is illustrated in \figureref{figratseq}.
+\begin{figure}[h!t]
+\begin{center}
+\input figratseq.pdf_t
+\caption{Proof of ratio test in picture.
+The short lines represent the
+ratios 
+$\frac{\abs{x_{n+1}}}{\abs{x_n}}$
+approaching $L$.\label{figratseq}}
+\end{center}
+\end{figure}
+
+As $r-L > 0$, there exists an $M \in \N$ such that for
+all $n \geq M$ we have
+\begin{equation*}
+\abs{\frac{\abs{x_{n+1}}}{\abs{x_n}} - L} < r-L .
+\end{equation*}
+Therefore,
+\begin{equation*}
+\frac{\abs{x_{n+1}}}{\abs{x_n}} < r .
+\end{equation*}
+For $n > M$ (that is for $n \geq M+1$)
+we write
+\begin{equation*}
+\abs{x_n} =
+\abs{x_M}
+\frac{\abs{x_{M+1}}}{\abs{x_{M}}}
+\frac{\abs{x_{M+2}}}{\abs{x_{M+1}}}
+\cdots
+\frac{\abs{x_{n}}}{\abs{x_{n-1}}}
+<
+\abs{x_M}
+r r \cdots r = \abs{x_M} r^{n-M} = (\abs{x_M} r^{-M}) r^n .
+\end{equation*}
+The sequence $\{ r^n \}$ converges to zero and hence 
+$\abs{x_M} r^{-M} r^n$ converges to zero.
+By \propref{convzero:prop},
+the $M$-tail of 
+$\{x_n\}$ converges to zero and therefore $\{x_n\}$ converges to zero.
+
+Now suppose $L > 1$.
+Pick
+$r$ such that $1 < r < L$.
+As $L-r > 0$,
+there exists an $M \in \N$ such that for
+all $n \geq M$ we have
+\begin{equation*}
+\abs{\frac{\abs{x_{n+1}}}{\abs{x_n}} - L} < L-r .
+\end{equation*}
+Therefore,
+\begin{equation*}
+\frac{\abs{x_{n+1}}}{\abs{x_n}} > r .
+\end{equation*}
+Again for $n > M$
+we write
+\begin{equation*}
+\abs{x_n} =
+\abs{x_M}
+\frac{\abs{x_{M+1}}}{\abs{x_{M}}}
+\frac{\abs{x_{M+2}}}{\abs{x_{M+1}}}
+\cdots
+\frac{\abs{x_{n}}}{\abs{x_{n-1}}}
+>
+\abs{x_M}
+r r \cdots r = \abs{x_M} r^{n-M} = (\abs{x_M} r^{-M}) r^n .
+\end{equation*}
+The sequence $\{ r^n \}$ is unbounded (since $r > 1$), and therefore
+$\{x_n\}$ cannot be bounded (if $\abs{x_n} \leq B$ for all $n$, then
+$r^n < \frac{B}{\abs{x_M}} r^{M}$ for all $n$, which is impossible).
+Consequently, $\{ x_n \}$ cannot converge.
+\end{proof}
+
+\begin{example}
+A simple application of the above lemma is to prove that
+\begin{equation*}
+\lim_{n\to\infty} \frac{2^n}{n!} = 0 .
+\end{equation*}
+
+\begin{proof}
+We find that
+\begin{equation*}
+\frac{2^{n+1} / (n+1)!}{2^n/n!}
+=
+\frac{2^{n+1}}{2^n}\frac{n!}{(n+1)!}
+=
+\frac{2}{n+1} .
+\end{equation*}
+It is not hard to see that $\{ \frac{2}{n+1} \}$ converges to zero.
+The conclusion follows by the lemma.
+\end{proof}
+\end{example}
+
+\subsection*{Exercises}
+
+\begin{exercise}
+Prove \corref{limandineq:cor}.
+Hint: Use constant sequences
+and \lemmaref{limandineq:lemma}.
+\end{exercise}
+
+\begin{exercise}
+Prove part \ref{prop:contalg:ii} of \propref{prop:contalg}.
+\end{exercise}
+
+\begin{exercise}
+Prove that if $\{ x_n \}$ is a convergent sequence, $k \in \N$, then
+\begin{equation*}
+\lim_{n\to\infty} x_n^k = 
+{\left( \lim_{n\to\infty} x_n \right)}^k .
+\end{equation*}
+Hint: Use \hyperref[induction:thm]{induction}.
+\end{exercise}
+
+\begin{exercise}
+Suppose $x_1 := \frac{1}{2}$ and $x_{n+1} := x_n^2$.
+Show that
+$\{ x_n \}$ converges and find
+$\lim\, x_n$.
+Hint: You cannot divide by zero!
+\end{exercise}
+
+\begin{exercise}
+Let $x_n := \frac{n-\cos(n)}{n}$.
+Use the
+\hyperref[squeeze:lemma]{squeeze lemma} to show that
+$\{ x_n \}$ converges and find the limit.
+\end{exercise}
+
+\begin{exercise}
+Let $x_n := \frac{1}{n^2}$ and $y_n := \frac{1}{n}$.
+Define
+$z_n := \frac{x_n}{y_n}$ and 
+$w_n := \frac{y_n}{x_n}$.
+Do $\{ z_n \}$ and $\{ w_n \}$
+converge?
+What are the limits?
+Can you apply \propref{prop:contalg}?
+Why or why not?
+\end{exercise}
+
+\begin{exercise}
+True or false, prove or find a counterexample.
+If $\{ x_n \}$ is a sequence
+such that $\{ x_n^2 \}$ converges, then $\{ x_n \}$ converges.
+\end{exercise}
+
+\begin{exercise}
+Show that
+\begin{equation*}
+\lim_{n\to\infty} \frac{n^2}{2^n} = 0 .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose $\{ x_n \}$ is a sequence and suppose for
+some $x \in \R$, the limit
+\begin{equation*}
+L := \lim_{n \to \infty} \frac{\abs{x_{n+1}-x}}{\abs{x_n-x}}
+\end{equation*}
+exists and $L < 1$.
+Show that $\{ x_n \}$ converges to $x$.
+\end{exercise}
+
+\begin{exercise}[Challenging]
+Let $\{ x_n \}$ be a convergent sequence such
+that $x_n \geq 0$ and $k \in \N$.
+Then
+\begin{equation*}
+\lim_{n\to\infty} x_n^{1/k} =
+{\left( \lim_{n\to\infty} x_n \right)}^{1/k} .
+\end{equation*}
+Hint: Find an expression $q$ such that $\frac{x_n^{1/k}-x^{1/k}}{x_n-x} =
+\frac{1}{q}$.
+\end{exercise}
+
+\begin{exercise}
+Let $r > 0$.
+Show that starting with any $x_1 \not= 0$, the sequence
+defined by
+\begin{equation*}
+x_{n+1} := x_n - \frac{x_n^2-r}{2x_n}
+\end{equation*}
+converges to $\sqrt{r}$ if $x_1 > 0$ and $-\sqrt{r}$ if $x_1 < 0$.
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[a)]
+ \item Suppose $\{ a_n \}$ is a bounded sequence and $\{ b_n \}$ is a sequence
+converging to 0. Show that $\{ a_n b_n \}$ converges to 0.
+ \item Find an example where $\{ a_n \}$ is unbounded, $\{ b_n \}$ converges to
+0, and $\{ a_n b_n \}$ is not convergent.
+  \item Find an example where $\{ a_n \}$ is bounded, $\{ b_n \}$ converges to
+some $x \not= 0$, and $\{ a_n b_n \}$ is not convergent.
 \end{enumerate}
 \end{exercise}
 
