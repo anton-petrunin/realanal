@@ -1192,16 +1192,14 @@ Show that ``$\sim$'' is an equivalence relation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Real Numbers} \label{rn:chapter}
+\chapter{Definition of real numbers} \label{rn:chapter}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Definition} \label{sec:basicpropsrn}
 
 \sectionnotes{1.5 lectures}
 
-In this section we review definitions from abstract algebra 
-which will be needed to define real numbers.
+In this section we review definitions from abstract algebra and define real numbers.
 
 \subsection*{Ordered sets}
 
@@ -1580,8 +1578,10 @@ standard ordering is an ordered field.
 Moreover, by the following proposition, we can (and will) assume that ordered contains $\Q$.
 
 \begin{prop}\label{prop:QinF}
-Any ordered field $F$ contains a \emph{copy} of $\Q$;
-that is, there is a injection $\Q\to F$ which respects multiplication and addition. 
+Any ordered field $F$ contains a \emph{copy} of $\Q$.
+
+More precisely, there is a injection $i\colon\Q\to F$ which respects multiplication and addition;
+that is, $i(x\cdot y)=i(x)\cdot i(y)$ and $i(x+ y)=i(x)+i(y)$ for any $x,y\in\Q$.
 \end{prop}
 
 We will present an informal proof --- a formal proof will take us too far into the field of abstract algebra.
@@ -1786,8 +1786,10 @@ In Section~\ref{sec:intandsizeR} we will see that is the set of irrational numbe
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\sectionnewpage
-\section{Basic constructions}
+\chapter{Properties of real numbers} \label{rn:properties}
+
+In this chapter we introduce the standard constructions in the field of real numbers.
+Most of them work in any ordered field.
 
 \subsection*{Extended real numbers}
 
@@ -1874,7 +1876,7 @@ or a closed interval.
 \end{exercise}
 
 
-\subsection*{On supremum and infimum}
+\subsection*{Supremum and infimum}
 
 The following fact about supremum and infimum is often useful.
 It follow directly from the definitions of least upper bound and greatest lower bound \ref{def:sup-inf}.
@@ -1994,7 +1996,7 @@ Show that $C$ is a bounded set and that
 Hint: Use Proposition~\ref{prop:existsxepsfromsup}.
 \end{exercise}
 
-\subsection*{On maximum and minimum}
+\subsection*{Maximum and minimum}
 
 By \exerciseref{exercise:finitesethasminmax} we know 
 a finite set of numbers always has a supremum or an infimum that is contained
@@ -2242,14 +2244,6 @@ Find $\epsilon>0$ such that $x^2-x^4>\epsilon$ for all  $\nicefrac13<x<\nicefrac
 \end{exercise}
 
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\sectionnewpage
-\section{Fundamental properties} \label{sec:Archimedean property}
-
 \subsection*{Archimedean property}
 
 The following is one of the fundamental facts about the real numbers.
@@ -2359,11 +2353,8 @@ Hint: Apply Theorem~\ref{thm:arch:ii} to the interval $(x+\sqrt{2},y+\sqrt{2})$.
 \end{exercise}
 
 
+\chapter{Countable sets}\label{rn:counable}
 
-\subsection*{Countable sets}
-\label{sec:intandsizeR}
-
-\sectionnotes{0.5--1 lecture (proof of uncountability of $\R$ can be optional)}
 
 The set $A$ is called countable if it can be counted;
 that is, each element of $A$ can be labeled by unique natural number. 
@@ -3612,6 +3603,8 @@ That is, we can take limits
 past powers.
 Let us see if we can do the same with roots.
 
+%???$\sqrt{x}$ is not defined???
+
 \begin{prop}
 Let $\{ x_n \}$ be a convergent sequence such
 that $x_n \geq 0$.
@@ -4546,13 +4539,13 @@ $\{ x_{n_{m_i}} \}$ that converges to $x$.
 
 \begin{exercise}
 Let $\{x_n\}$ be a bounded sequence.
-\begin{enumerate}[a)]
- \item Prove that there exists an $s$ such that for any $r > s$ there exists 
+Consider the set $S$ of all numbers $s$ such that for any $r > s$ there exists 
 an $M \in \N$ such that for all $n \geq M$ we have
 $x_n < r$.
- \item If $s$ is a number as in a), then prove $\limsup \, x_n \leq s$.
-  \item Show that if $S$ is the set of all $s$ as in a), then
-$\limsup \, x_n = \inf \, S$.
+
+\begin{enumerate}[a)]
+ \item Show that $S$ is nonempty and bounded below.
+ \item Prove that \[\limsup_{n\to\infty} \, x_n =\inf \, S.\]
 \end{enumerate}
 \end{exercise}
 
@@ -4802,22 +4795,13 @@ almost all of modern science.
 \subsection*{Definition}
 
 \begin{defn}
-Given a sequence $\{ x_n \}$, we write the formal object
+A sequence $\{ x_n \}$,
+considered together with an other sequence $\{ s_k \}$ defined by
 \begin{equation*}
-\sum_{n=1}^\infty x_n
-\qquad
-\text{or sometimes just}
-\qquad
-\sum x_n
+s_k := \sum_{n=1}^k x_n = x_1 + x_2 + \cdots + x_k.
 \end{equation*}
-and call it a \emph{\myindex{series}}.
-A series
-\emph{converges}\index{convergent series}, if the sequence $\{ s_k \}$
-defined by
-\begin{equation*}
-s_k := \sum_{n=1}^k x_n = x_1 + x_2 + \cdots + x_k ,
-\end{equation*}
-converges.
+is called series;
+it will be denoted as $\sum x_n$ to emphasize that we are working with series, not a sequence.
 The numbers $s_k$ are called
 \emph{\myindex{partial sums}}.
 If $x := \lim\, s_k$, we write
@@ -4828,14 +4812,13 @@ In this case, we cheat a little and treat
 $\sum_{n=1}^\infty x_n$ as a number.
 
 On the other hand, if the sequence $\{ s_k \}$ diverges,
-we say the series is \emph{divergent}\index{divergent series}.
-In this case, $\sum x_n$ is simply a formal object and not a number.
+we say the series $\sum x_n$ is \emph{divergent}\index{divergent series}.
 \end{defn}
 
-In other words, for a convergent series we have
+In other words, the notation 
+\[\sum_{n=1}^\infty x_n\]
+can be used for the series $\{x_n\}$ and as a shortcut for 
 \begin{equation*}
-\sum_{n=1}^\infty x_n
-=
 \lim_{k\to\infty} 
 \sum_{n=1}^k x_n .
 \end{equation*}
@@ -6637,7 +6620,7 @@ Suppose $\sum a_n x^n$ converges for $x=1$.
 Expand
 $\dfrac{x}{4-x^2}$ as a power series around $x_0 = 0$ and compute its radius
 of convergence.
-\end{exercise}
+\end{exercise}%???too early???
 
 \begin{exercise}
 \begin{enumerate}[a)]
@@ -7580,6 +7563,21 @@ It may or may not converge, but it definitely
 does not converge to $f(c)$.  
 \end{proof}
 
+From \propref{contbasic:prop} and \propref{prop:onesidedlimits} we also get the following useful characterization. 
+
+\begin{cor}
+Let $S \subset \R$ be a set such that $c$ is a cluster point
+of both $S \cap (-\infty,c)$ and $S \cap (c,\infty)$, and let
+$f \colon S \to \R$ be a function.
+Then $f$ is continuous at $c$ if and only if 
+\begin{equation*}
+\lim_{x \to c^-} f(x) =
+\lim_{x \to c^+} f(x)
+\end{equation*}
+That is, both one-sided limits exist and are equal.
+\end{cor}
+
+
 The last item in the proposition is particularly powerful.
 It allows us to
 quickly apply what we know about limits of sequences to continuous functions
@@ -8242,6 +8240,33 @@ The problem is that
 the function is not continuous at 0.
 \end{example}
 
+\begin{exercise}
+Find an example of a \emph{bounded} discontinuous function $f \colon [0,1]
+\to \R$ that has neither an absolute minimum nor an absolute maximum.
+\end{exercise}
+
+\begin{exercise}
+Find an example of a bounded function $f \colon \R \to \R$ that does
+not achieve an absolute minimum nor an absolute maximum on $\R$.
+\end{exercise}
+
+\begin{exercise}
+Let $f \colon (0,1) \to \R$ be a continuous function such that
+$\displaystyle \lim_{x\to 0} f(x) =
+\displaystyle \lim_{x\to 1} f(x) = 0$.
+Show that
+$f$ achieves either an absolute minimum or an absolute maximum on $(0,1)$
+(but perhaps not both).
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \R \to \R$ is continuous and periodic with period $P > 0$.
+That is, $f(x+P) = f(x)$ for all $x \in \R$.
+Show that $f$ achieves an absolute minimum and an absolute maximum.
+\end{exercise}
+
+
+
 \subsection*{Intermediate value theorem}
 
 Intermediate value theorem is one of the cornerstones of analysis.
@@ -8256,10 +8281,9 @@ such that $f(c) = 0$.
 \end{lemma}
 
 \begin{proof}
-We define two sequences $\{ a_n \}$
-and $\{ b_n \}$ inductively:
+We define two sequences $\{ a_n \}$ and $\{ b_n \}$ inductively:
 \begin{enumerate}[(i)]
-\item Let $a_1 := a$ and $b_1 := b$.
+\item Let $a_0 := a$ and $b_0 := b$.
 \item If $f\left(\frac{a_n+b_n}{2}\right) \geq 0$, let $a_{n+1} := a_n$ and
 $b_{n+1} := \frac{a_n+b_n}{2}$.
 \item If $f\left(\frac{a_n+b_n}{2}\right) < 0$, let $a_{n+1} := \frac{a_n+b_n}{2}$ and
@@ -8284,31 +8308,20 @@ the sequences are also bounded.
 Therefore, the
 sequences converge.
 Let $c := \lim\, a_n$ and $d := \lim\, b_n$.
-We now
-want to show that $c=d$.
-We notice
+
+We now want to show that $c=d$.
+Notice
 \begin{equation*}
 b_{n+1} - a_{n+1} = \frac{b_n-a_n}{2}.
 \end{equation*}
 By \hyperref[induction:thm]{induction} we see that
 \begin{equation*}
-b_n - a_n = \frac{b_1-a_1}{2^{n-1}} = 2^{1-n} (b-a) .
+b_n - a_n = \frac{b-a}{2^n}.
 \end{equation*}
-%  As $a_n < b_n$ for all
-%$n$, then $c \leq d$.  Furthermore, as $a_n$ is increasing and $b_n$
-%is decreasing, $c$ is the supremum of $a_n$ and $d$ is the infimum
-%of the $b_n$.  Thus $d-c \leq b_n - a_n$ for all $n$.  So
-%\begin{equation*}
-%\abs{d-c} =
-%d-c \leq b_n - a_n = 2^{1-n} (b-a) 
-%\end{equation*}
-%for all $n$.  As $2^{1-n}(b-a) \to 0$ as $n \to \infty$, we see that
-%$c = d$.
-As $2^{1-n}(b-a)$ converges to zero, we take the limit as $n$ goes to
-infinity to get
+As $\tfrac{b-a}{2^n}$ converges to zero, we take the limit as $n$ goes to infinity to get
 \begin{equation*}
 d-c = \lim_{n\to\infty} (b_n - a_n) =
-\lim_{n\to\infty} 2^{1-n} (b-a) = 0.
+\lim_{n\to\infty} \frac{b-a}{2^n} = 0.
 \end{equation*}
 In other words $d=c$.
 
@@ -8351,7 +8364,7 @@ such that $f(c) = y$.
 \end{thm}
 
 The theorem says that a continuous function on a closed interval
-achieves all the values between the values at the endpoints.
+achieves all the values between the values at the endpoints; see the example~\ref{bisection method} below.
 
 \begin{proof}
 If $f(a) < y < f(b)$, then define $g(x) := f(x)-y$.
@@ -8366,15 +8379,51 @@ again $g(a) < 0$ and $g(b) > 0$ and we can apply \lemmaref{IVT:lemma}.
 Again if $g(c) = 0$, then $f(c) = y$.
 \end{proof}
 
-If a function is continuous, then the restriction
-to a subset is continuous.
+\begin{exercise}
+Find an example of a discontinuous function $f \colon [0,1] \to \R$
+where the intermediate value theorem fails.
+\end{exercise}
+
+\begin{exercise}
+Let
+\begin{equation*}
+f(x) :=
+\begin{cases}
+\sin(\nicefrac{1}{x}) & \text{ if $x \not= 0$,} \\
+0 & \text{ if $x=0$.}
+\end{cases}
+\end{equation*}
+Show that $f$ has the intermediate value property.
+That is, for any $a < b$, if there exists a $y$ such that $f(a) < y < f(b)$
+or $f(a) > y > f(b)$, then
+there exists a $c \in (a,b)$ such that $f(c) = y$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:imageofinterval}
+Suppose $f \colon [a,b] \to \R$ is a continuous function.
+Prove that the direct image $f([a,b])$ is a closed and bounded interval or a single number.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \R \to \R$ is a continuous function such that $x \leq f(x) \leq x+1$ for all $x \in \R$.
+Show that $f(\R)=\R$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon [0,1] \to [0,1]$ is continuous.
+Show that $f$
+has a fixed point, in other words, show that there exists an $x \in [0,1]$ such that
+$f(x) = x$.
+\end{exercise}
+
+If a function is continuous, then its restriction to any subset is continuous.
 So if $f \colon S \to \R$ is continuous and
 $[a,b] \subset S$, then $f|_{[a,b]}$ is also continuous.
 Hence, we generally
 apply the theorem to a function continuous on some large set $S$,
 but we restrict attention to an interval.
 
-\begin{example}[Bisection method]\index{bisection method}
+\begin{example}[Bisection method]\index{bisection method}\label{bisection method}
 The polynomial $f(x) := x^3-2x^2+x-1$ has a real root in $(1,2)$.
 We simply
 notice that $f(1) = -1$ and $f(2) = 1$.
@@ -8498,72 +8547,6 @@ As $g(x) = \frac{f(x)}{a_d}$,
 we see that $f(c) = 0$, and the proof is done.
 \end{proof}
 
-\begin{example}
-An interesting fact is that there do exist discontinuous functions that have
-the intermediate value property.
-The function
-\begin{equation*}
-f(x) :=
-\begin{cases}
-\sin(\nicefrac{1}{x}) & \text{ if $x \not= 0$,} \\
-0 & \text{ if $x=0$,}
-\end{cases}
-\end{equation*}
-is not continuous at 0, however, it has the intermediate value property.
-That is, for any $a < b$, and any $y$ such that $f(a) < y < f(b)$
-or $f(a) > y > f(b)$,
-there exists a $c$ such that $f(y) = c$.
-Proof is left as an exercise.
-\end{example}
-
-\subsection*{Exercises}
-
-\begin{exercise}
-Find an example of a discontinuous function $f \colon [0,1] \to \R$
-where the intermediate value theorem fails.
-\end{exercise}
-
-\begin{exercise}
-Find an example of a \emph{bounded} discontinuous function $f \colon [0,1]
-\to \R$ that has neither an absolute minimum nor an absolute maximum.
-\end{exercise}
-
-\begin{exercise}
-Let $f \colon (0,1) \to \R$ be a continuous function such that
-$\displaystyle \lim_{x\to 0} f(x) =
-\displaystyle \lim_{x\to 1} f(x) = 0$.
-Show that
-$f$ achieves either an absolute minimum or an absolute maximum on $(0,1)$
-(but perhaps not both).
-\end{exercise}
-
-\begin{exercise}
-Let
-\begin{equation*}
-f(x) :=
-\begin{cases}
-\sin(\nicefrac{1}{x}) & \text{ if $x \not= 0$,} \\
-0 & \text{ if $x=0$.}
-\end{cases}
-\end{equation*}
-Show that $f$ has the intermediate value property.
-That is, for any $a < b$, if there exists a $y$ such that $f(a) < y < f(b)$
-or $f(a) > y > f(b)$, then
-there exists a $c \in (a,b)$ such that $f(c) = y$.
-\end{exercise}
-
-\begin{exercise}
-Suppose $g(x)$ is a polynomial of odd degree $d$ such that
-\begin{equation*}
-g(x) = x^d + b_{d-1} x^{d-1} + \cdots + b_1 x + b_0 ,
-\end{equation*}
-for some real numbers $b_{0}, b_1, \ldots, b_{d-1}$.
-Show that there exists
-a $K \in \N$ such that $g(-K) < 0$.
-Hint: Make sure to use the fact that
-$d$ is odd.
-You will have to use that ${(-n)}^d = -(n^d)$.
-\end{exercise}
 
 \begin{exercise}
 Suppose $g(x)$ is a polynomial of positive even degree $d$ such that
@@ -8576,21 +8559,6 @@ $g(0) < 0$.
 Show that $g$ has at least two distinct real roots.
 \end{exercise}
 
-\begin{exercise} \label{exercise:imageofinterval}
-Suppose $f \colon [a,b] \to \R$ is a continuous function.
-Prove
-that the direct image $f([a,b])$ is a closed and bounded interval or
-a single number.
-\end{exercise}
-
-\begin{exercise}
-Suppose $f \colon \R \to \R$ is continuous and periodic with period
-$P > 0$.
-That is, $f(x+P) = f(x)$ for all $x \in \R$.
-Show that $f$
-achieves an absolute minimum and an absolute maximum.
-\end{exercise}
-
 \begin{exercise}[Challenging]
 Suppose $f(x)$ is a bounded polynomial,
 in other words, there is an $M$ such that $\abs{f(x)} \leq M$
@@ -8598,30 +8566,7 @@ for all $x \in \R$.
 Prove that $f$ must be a constant.
 \end{exercise}
 
-\begin{exercise}
-Suppose $f \colon [0,1] \to [0,1]$ is continuous.
-Show that $f$
-has a fixed point, in other words, show that there exists an $x \in [0,1]$ such that
-$f(x) = x$.
-\end{exercise}
 
-\begin{exercise}
-Find an example of a bounded function $f \colon \R \to \R$ that does
-not achieve an absolute minimum nor an absolute maximum on $\R$.
-\end{exercise}
-
-\begin{exercise}
-Suppose $f \colon \R \to \R$ is a continuous function such that
-$x \leq f(x) \leq x+1$ for all $x \in \R$.
-Find $f(\R)$.
-\end{exercise}
-
-\begin{exercise}
-True/False, prove or find a counterexample.
-If $f \colon \R \to
-\R$ is a continuous function such that $f|_{\Z}$ is bounded, then $f$
-is bounded.
-\end{exercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
