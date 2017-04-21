@@ -1784,6 +1784,65 @@ In particular it implies that $\Q$ does not have an upper bound property.
 In Chapter~\ref{rn:counable} we will see that is the set of irrational numbers is very large --- most of real numbers are irrational.
 
 
+\subsection*{Archimedean property}
+
+The following is one of the fundamental facts about the real numbers.
+
+\begin{thm}\label{thm:arch:i}
+The set of natural numbers $\N$ is unbounded in $\R$.
+
+In particular, if $x, y \in \R$ and
+$x > 0$, then there exists an $n \in \N$ such that $nx>y$.
+\end{thm}
+
+The second statement in the theorem is called \myindex{Archimedean property}.%
+\footnote{It appears as Axiom V of Archimedes' ``On the Sphere and Cylinder'' 225 BC.}
+
+
+\begin{proof}
+Arguing by contradiction, suppose that $\N$ is bounded above.
+
+Let $b := \sup \N$.
+The number $b-1$ cannot possibly be an upper bound for $\N$ as it is strictly less than $b$ (the supremum).
+
+Thus there exists an $m \in \N$ such that $m > b-1$.
+We add one to obtain $m+1 > b$, which contradicts $b$ being an upper bound.
+
+In particular there is a natural number $n$ such that $n>\nicefrac{y}{x}$.
+Since $x>0$, we get $nx>y$.
+\end{proof}
+
+\begin{exercise}
+Prove that
+if $t \geq 0$ ($t \in \R$), then there exists an $n \in \N$ such that $n-1 \leq t < n$.
+\end{exercise}
+
+Let us state and prove a simple but useful corollary of the
+\hyperref[thm:arch:i]{Archimedean property}.
+
+\begin{cor}
+$\inf \{ \nicefrac{1}{n} : n \in \N \} = 0$.
+\end{cor}
+
+\begin{proof}
+Let $A := \{ \nicefrac{1}{n} : n \in \N \}$.  
+Obviously $A$ is not empty.
+Furthermore, $\nicefrac{1}{n} > 0$ and so 0 is a lower bound, and $b := \inf\, A$ exists.
+As 0 is a lower bound, then $b \geq 0$.
+Now take an arbitrary $a > 0$.  
+By the \hyperref[thm:arch:i]{Archimedean property} there exists an $n$ such that
+$na > 1$, or in other words $a > \nicefrac{1}{n} \in A$.
+Therefore
+$a$ cannot be a lower bound for $A$.
+Hence $b=0$.
+\end{proof}
+
+\begin{exercise}
+Assume $t$ is nonnegative real number such that $t\le \tfrac{1+n^2}{1+n^4}$ for any $n\in \N$.
+Show that $t=0$.
+\end{exercise}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Properties of real numbers} \label{rn:properties}
@@ -2241,373 +2300,6 @@ Find a number $M$ such that $\sabs{x^3-x^2+8x} \leq M$ for all $-2 \leq x \leq
 
 \begin{exercise}
 Find $\epsilon>0$ such that $x^2-x^4>\epsilon$ for all  $\nicefrac13<x<\nicefrac23$.
-\end{exercise}
-
-
-\subsection*{Archimedean property}
-
-The following is one of the fundamental facts about the real numbers.
-
-\begin{thm}\label{thm:arch:i}
-The set of natural numbers $\N$ is unbounded in $\R$.
-
-In particular, if $x, y \in \R$ and
-$x > 0$, then there exists an $n \in \N$ such that $nx>y$.
-\end{thm}
-
-The second statement in the theorem is called \myindex{Archimedean property}.%
-\footnote{It appears as Axiom V of Archimedes' ``On the Sphere and Cylinder'' 225 BC.}
-
-
-\begin{proof}
-Arguing by contradiction, suppose that $\N$ is bounded above.
-
-Let $b := \sup \N$.
-The number $b-1$ cannot possibly be an upper bound for $\N$ as it is strictly less than $b$ (the supremum).
-
-Thus there exists an $m \in \N$ such that $m > b-1$.
-We add one to obtain $m+1 > b$, which contradicts $b$ being an upper bound.
-
-In particular there is a natural number $n$ such that $n>\nicefrac{y}{x}$.
-Since $x>0$, we get $nx>y$.
-\end{proof}
-
-\begin{exercise}
-Prove that
-if $t \geq 0$ ($t \in \R$), then there exists an $n \in \N$ such that $n-1 \leq t < n$.
-\end{exercise}
-
-Let us state and prove a simple but useful corollary of the
-\hyperref[thm:arch:i]{Archimedean property}.
-
-\begin{cor}
-$\inf \{ \nicefrac{1}{n} : n \in \N \} = 0$.
-\end{cor}
-
-\begin{proof}
-Let $A := \{ \nicefrac{1}{n} : n \in \N \}$.  
-Obviously $A$ is not empty.
-Furthermore, $\nicefrac{1}{n} > 0$ and so 0 is a lower bound, and $b := \inf\, A$ exists.
-As 0 is a lower bound, then $b \geq 0$.
-Now take an arbitrary $a > 0$.  
-By the \hyperref[thm:arch:i]{Archimedean property} there exists an $n$ such that
-$na > 1$, or in other words $a > \nicefrac{1}{n} \in A$.
-Therefore
-$a$ cannot be a lower bound for $A$.
-Hence $b=0$.
-\end{proof}
-
-\begin{exercise}
-Assume $t$ is nonnegative real number such that $t\le \tfrac{1+n^2}{1+n^4}$ for any $n\in \N$.
-Show that $t=0$.
-\end{exercise}
-
-\subsection*{Density of rational numbers}
-
-The proof of the following theorem relies on Archimedean property.
-
-\begin{thm}\label{thm:arch:ii} \emph{($\Q$ is dense in $\R$\index{density of
-rational numbers})} Any real interval contains a rational number.
-
-Equivalently, given a real numbers $x$ and $\epsilon>0$ there is a rational number $r$ such that $\abs{x-r}<\epsilon$.
-\end{thm}
-
-\begin{proof} 
-Note that it is sufficient to consider the case of bounded open inteval $(x,y)$.
-That is, assuming for any $x, y \in \R$ such that
-$x < y$, we need to find $r \in \Q$ such that
-$x < r < y$.
-
-Note that $y-x > 0$.
-By \ref{thm:arch:i}, there exists an $n \in \N$ such that $n(y-x) > 1$,
-or equivalently
-\begin{equation*}
-x<y-\nicefrac1n.
-\end{equation*}
-
-Consider the set of integers $A=\{k\in\N : k>nx \}$.
-Notice that $A$ is bounded below therefore it has the minimal element $m=\min A$;
-that is $m$ is the minimal integer such that $m>nx$.
-
-Note that $m-1\le nx$,
-or equivalently 
-$$\nicefrac{m}{n}-\nicefrac1{n}\le x<\nicefrac{m}{n}.$$
-Since $x<y-\nicefrac1n$, the first inequality implies 
-$\nicefrac{m}{n}<y$.
-That is 
-$$x<\nicefrac{m}{n}<y.$$
-So let $r = \nicefrac{m}{n}$.
-
-The last statement follows since $\abs{x-r}<\epsilon$ if and only if $r$ lies in the interval $(x-\epsilon,x+\epsilon)$.
-\end{proof}
-
-\begin{exercise}
-Show that any interval contains a \emph{dyadic rational number};
-that is, a rational number whose denominator is a power of two
-(for example, 1/2 or 3/8, but not 1/3).
-\end{exercise}
-
-\begin{exercise}\label{ex:irrationals-are-dense}
-Show that for any interval $(x,y)$ contains an irrational number.
-Hint: Apply Theorem~\ref{thm:arch:ii} to the interval $(x+\sqrt{2},y+\sqrt{2})$.
-\end{exercise}
-
-
-\chapter{Countable sets}\label{rn:counable}
-
-
-The set $A$ is called countable if it can be counted;
-that is, each element of $A$ can be labeled by unique natural number. 
-Here is a formal definition.
-
-\begin{defn}\label{def:countabe-simple}
-The set $A$ called \emph{\myindex{countable}} if there is a bijecection from a subset of $\N$ to $A$.
-
-A countable infinite set is called \emph{\myindex{infinite countable}}.
-
-If $A$ is not countable, then $A$ is said to be \emph{\myindex{uncountable}}.
-\end{defn}
-
-The following proposition follow directly from the definition.
-Intuitively, it states that countable sets are ``small'' and uncountable sets are ``big''.
-
-\begin{prop}\label{prop:countable-subset}
-Assume $A$ and $B$ are two sets such that $A\subset B$.
-
-If $B$ is countable then so is $A$; 
-equivalently, 
-if $A$ is uncountable then so is $B$.
-\end{prop}
-
-Note that all finite sets are countable.
-The infinite countable sets admit a bijection from $\N$;
-this easily follow from well ordering property.
-In other words $A$ is countable if it is finite or can be written as a sequence $A=\{x_1,x_2\dots\}$;
-in the later case the function $n\mapsto x_n$ gives a bijection from $\N\to A$.
-
-The set of natural numbers is the first example of countable set.
-Since set of integers can be written as 
-$\Z=\{0,1,-1,2,-2,3,\dots\},$
-it is also countable.
-The following example is more advanced.
-
-\begin{example}\label{example:NxN}
-There is a bijection
-$$\N\to \N\times \N.$$
-In particular, the set of all pairs of natural numbers $\N\times \N$ is a countably infinite set.
-
-\begin{proof}
-Arrange the elements of $\N \times \N$ as follows
-$$\N \times \N= \{(1,1), (1,2), (2,1), (1,3), (2,2), (3,1),\dots\}$$
-That is, always write down first all the elements whose two entries sum to $k$, then write down all the elements whose entries sum to $k+1$ and so on.
-Note that this list includes all the pairs.
-
-It remains to define the needed bijection as $1\mapsto(1,1)$, $2\mapsto(1,2)$, $3\mapsto(2,1)$, and so on.
-\end{proof}
-\end{example}%???+PIC
-
-\begin{exercise}
-Assume $f(a,b)$ is a bijection $f\colon\N\times \N\to \N$. 
-Show that 
-$$h(a,b,c):=f(f(a,b),c)$$ 
-defines a bijection $h\colon\N\times\N\times\N\to \N$.
-\end{exercise}
-
-This example above implies the following.
-
-\begin{prop}\label{prop:countable-union}
-Union of countable collection of countable set is countable.
-
-That is, assume $A_1,A_2,\dots$ be finite or infinite sequence of countable sets then the union
-$$A=\bigcup_n A_n$$
-is countable.
-\end{prop}
-
-\begin{proof}[Informal proof]
-Note that the elements of $A$ can be enumerated by $\N\times \N$.
-Indeed, each set $A_m$ is countable therefore it can be written as a sequence $A=\{x_{m,n}\}$, where $n$ runs in a subset of $\N$.
-The function 
-defined by $(m,n)\mapsto x_{m,n}$ maps a subset of $\N\times \N$ to $A$;
-it covers all the elements of $A$, possibly with repetitions.
-Removing the repetition gives a bijection from a subset of $\N\times \N$ to $A$.
-
-By \exampleref{example:NxN}, there is a bijection $\N\to \N\times\N$.
-Hence the statement follows.
-\end{proof}
-
-\begin{example}\label{Q-countable}
-The set of rational numbers $\Q$ is infinite countable.
-
-\begin{proof}
-Note that the set of rational numbers is a union of sets 
-$$A_n=\{\dots,-\nicefrac2n,-\nicefrac1n,\nicefrac0n,\nicefrac1n,\nicefrac2n,\dots\}$$
-for $n\in \N$.
-It remains to apply Proposition~\ref{prop:countable-union}.
-\end{proof}
-\end{example}
-
-As it stated in the next theorem, 
-the set of real numbers is uncountable.
-It means that countable sets of real numbers are ``small'' compared to the set of real numbers. 
-In particular, from \exampleref{Q-countable}, existence of irational numbers follow. 
-
-\begin{exercise}\label{ex:sentences}
-Show that the set of all sentences in English is countable.
-\end{exercise}
-
-\begin{exercise}[Challenging]
-A number $x$ is \emph{algebraic}\index{algebraic number} if $x$ is a root of a polynomial with
-integer coefficients, in other words, $a_n x^n + a_{n-1} x^{n-1}  + \ldots
-+ a_1 x + a_0 = 0$ where all $a_n \in \Z$. 
-\begin{enumerate}[a)]
- \item Show that there are only countably many algebraic numbers.
- \item Show that there exist non-algebraic
-numbers (follow in the footsteps of Cantor, use uncountability of $\R$).
-\end{enumerate}
-Hint: Feel free to use the fact that a polynomial of degree $n$ has finite number of real roots.
-\end{exercise}
-
-\begin{exercise}
-Suppose $S$ is a set of disjoint open intervals in $\R$.
-That is, 
-if $(a,b) \in S$ and $(c,d) \in S$, then either $(a,b) = (c,d)$
-or $(a,b) \cap (c,d) = \emptyset$.
-Prove $S$ is a countable set. 
-Hint: use \exampleref{Q-countable} and Theorem~\ref{thm:arch:ii}.
-\end{exercise}
-
-\begin{exercise}
-Show that the set $S$ is countable if and only if one can introduce an order ``$<$'' on $S$ such that for any $s\in S$ the set $\{\,x\in S: x<s\,\}$ is finite.
-\end{exercise}
-
-\begin{thm}[Cantor]\index{Cantor's theorem}\label{thm:Cantor}
-The set of real numbers is uncountable.
-\end{thm}
-
-We give a modified version of
-Cantor's original proof from
-1874.  
-
-\begin{proof}
-Let $X \subset \R$ be a countably infinite
-subset such that for any two real numbers
-$a < b$, there is an $x \in X$ such that $a < x < b$.
-Were $\R$ countable,
-then we could take $X = \R$.
-If we show that $X$ is necessarily
-a proper subset, then $X$ cannot equal $\R$, and $\R$ must be
-uncountable.
-
-As $X$ is countably infinite, 
-there is a bijection from $\N$ to $X$.
-Consequently, we write $X$ as
-a sequence of real numbers $x_1, x_2, x_3,\ldots$, such that
-each number in $X$
-is given by $x_j$ for some $j \in \N$.
-
-Let us inductively
-construct two sequences of real numbers $a_1,a_2,a_3,\ldots$ and
-$b_1,b_2,b_3,\ldots$.
-Let
-$a_1 := x_1$ and $b_1 := x_1+1$.
-Note that $a_1 < b_1$ and
-$x_1 \notin (a_1,b_1)$.
-For $k > 1$, suppose $a_{k-1}$ and $b_{k-1}$ has been defined.
-Let us also suppose $(a_{k-1},b_{k-1})$ does not contain any $x_j$
-for any $j=1,\ldots,k-1$.
-\begin{enumerate}[(i)]
-\item Define $a_k := x_j$, where $j$ is the smallest $j \in \N$
-such that $x_j \in (a_{k-1},b_{k-1})$.
-Such an $x_j$ exists by our
-assumption on $X$.  
-\item Next, define $b_k := x_j$ where $j$ is the smallest $j \in \N$
-such that $x_j \in (a_{k},b_{k-1})$.
-\end{enumerate}
-Notice that $a_k < b_k$ and $a_{k-1} < a_k < b_k < b_{k-1}$.
-Also notice that $(a_{k},b_{k})$ does not contain $x_k$ and hence
-does not contain any $x_j$ for $j=1,\ldots,k$.
-
-Claim: $a_j < b_k$ for all $j$ and $k$ in $\N$.
-Let us first
-assume $j < k$.
-Then $a_j < a_{j+1} < \cdots < a_{k-1} < a_k < b_k$.
-Similarly for $j > k$.
-The claim follows.
-
-Let $A = \{ a_j : j \in \N \}$ and $B = \{ b_j : j \in \N \}$.
-By \propref{infsupineq:prop} and the claim above we have
-\begin{equation*}
-\sup\, A \leq \inf\, B .
-\end{equation*}
-Define $y := \sup\, A$.
-The number $y$ cannot be a member of $A$.
-If $y = a_j$
-for some $j$, then $y < a_{j+1}$, which is impossible.
-Similarly $y$ cannot be a member of $B$.
-Therefore,
-$a_j < y$ for all $j\in \N$
-and $y < b_j$ for all $j\in \N$.
-In other words $y \in (a_j,b_j)$ for all $j\in \N$.
-
-Finally we must show that $y \notin X$.
-If we do so, then we will have
-constructed a real number not in $X$ showing that $X$ must have been a
-proper subset.
-Take any $x_k \in X$.
-By the above construction
-$x_k \notin (a_k,b_k)$, so $x_k \not= y$ as $y \in (a_k,b_k)$.
-
-Therefore, the sequence $x_1,x_2,\ldots$ cannot contain all elements of $\R$.
-Since the sequence is arbitrary, it implies that $\R$ is uncountable.
-\end{proof}
-
-Summarizing, the sets of real numbers can be divided into two categories: 
-the countable sets --- these sets might be infinite but they are  ``small'' in some sense --- and uncountable sets which are ``big'' infinite sets.
-The latter includes the set of all reals $\R$ and the former the set of all rational $\Q$.
-
-Note that the function $f(x) := \tan(x)$ is a bijective map from $(-\nicefrac{\pi}{2},\nicefrac{\pi}{2})$ to $\R$.  
-Since $\R$ is uncountable, so is $(-\nicefrac{\pi}{2},\nicefrac{\pi}{2})$.  
-A linear function provides a bijection between any pair of real intervals.
-Since any interval contains an open interval the discussion above leads to the following.
-
-\begin{prop}\label{prop:uncountable-intervals}
-The real intervals are all uncountable.
-\end{prop}
-
-We have seen that there exist irrational numbers, that is
-$\R \setminus \Q$ is nonempty. 
-Now let us show that there are a lot more irrational numbers than rational
-numbers.
-
-\begin{exercise} Use Proposition~\ref{prop:uncountable-intervals} to build an other solution of \exerciseref{ex:irrationals-are-dense}.
-\end{exercise}
-
-
-\begin{prop}
-The set of irrational numbers is uncountable
-\end{prop}
-
-\begin{proof}
-The set $\R$ can be presented as a union of two sets --- the set of rationals $\Q$ and irrational numbers $\R\backslash \Q$.
-
-Arguing by contradiction, assume $\R\backslash \Q$ is countable.
-Then by Proposition~\ref{prop:countable-union} and \exampleref{Q-countable}, so is $\R$.
-The later contradicts Cantor's theorem (\ref{thm:Cantor}).
-\end{proof}
-
-The following exercise is closely related to \exerciseref{ex:sentences}.
-
-\begin{exercise}
-Some real numbers can be uniquely described by a written sentence in English.
-For example the number $\pi$ can be described as
-``The ratio of a circle's circumference to its diameter.''
-
-Show that there are real numbers which do not admit such a description.
-\end{exercise}
-
-\begin{exercise}
-Assume $A\subset \R$ is a set such that any real number can be presented as a sum of two elements in $A$. 
-Show that $A$ is uncountable.
 \end{exercise}
 
 
@@ -6693,6 +6385,624 @@ is necessary.
 That is, find a sequence of positive real numbers
 $\{ x_n \}$ with $\lim\, x_n = 0$ but such that
 $\sum {(-1)}^n x_n$ diverges.
+\end{exercise}
+
+\chapter{Sets of real numbers}
+
+\section{Countable sets}\label{rn:counable}
+
+
+The set $A$ is called countable if it can be counted;
+that is, each element of $A$ can be labeled by unique natural number. 
+Here is a formal definition.
+
+\begin{defn}\label{def:countabe-simple}
+The set $A$ called \emph{\myindex{countable}} if there is a bijecection from a subset of $\N$ to $A$.
+
+A countable infinite set is called \emph{\myindex{infinite countable}}.
+
+If $A$ is not countable, then $A$ is said to be \emph{\myindex{uncountable}}.
+\end{defn}
+
+The following proposition follow directly from the definition.
+Intuitively, it states that countable sets are ``small'' and uncountable sets are ``big''.
+
+\begin{prop}\label{prop:countable-subset}
+Assume $A$ and $B$ are two sets such that $A\subset B$.
+
+If $B$ is countable then so is $A$; 
+equivalently, 
+if $A$ is uncountable then so is $B$.
+\end{prop}
+
+Note that all finite sets are countable.
+The infinite countable sets admit a bijection from $\N$;
+this easily follow from well ordering property.
+In other words $A$ is countable if it is finite or can be written as a sequence $A=\{x_1,x_2\dots\}$;
+in the later case the function $n\mapsto x_n$ gives a bijection from $\N\to A$.
+
+The set of natural numbers is the first example of countable set.
+Since set of integers can be written as 
+$\Z=\{0,1,-1,2,-2,3,\dots\},$
+it is also countable.
+The following example is more advanced.
+
+\begin{example}\label{example:NxN}
+There is a bijection
+$$\N\to \N\times \N.$$
+In particular, the set of all pairs of natural numbers $\N\times \N$ is a countably infinite set.
+
+\begin{proof}
+Arrange the elements of $\N \times \N$ as follows
+$$\N \times \N= \{(1,1), (1,2), (2,1), (1,3), (2,2), (3,1),\dots\}$$
+That is, always write down first all the elements whose two entries sum to $k$, then write down all the elements whose entries sum to $k+1$ and so on.
+Note that this list includes all the pairs.
+
+It remains to define the needed bijection as $1\mapsto(1,1)$, $2\mapsto(1,2)$, $3\mapsto(2,1)$, and so on.
+\end{proof}
+\end{example}%???+PIC
+
+\begin{exercise}
+Assume $f(a,b)$ is a bijection $f\colon\N\times \N\to \N$. 
+Show that 
+$$h(a,b,c):=f(f(a,b),c)$$ 
+defines a bijection $h\colon\N\times\N\times\N\to \N$.
+\end{exercise}
+
+This example above implies the following.
+
+\begin{prop}\label{prop:countable-union}
+Union of countable collection of countable set is countable.
+
+That is, assume $A_1,A_2,\dots$ be finite or infinite sequence of countable sets then the union
+$$A=\bigcup_n A_n$$
+is countable.
+\end{prop}
+
+\begin{proof}[Informal proof]
+Note that the elements of $A$ can be enumerated by $\N\times \N$.
+Indeed, each set $A_m$ is countable therefore it can be written as a sequence $A=\{x_{m,n}\}$, where $n$ runs in a subset of $\N$.
+The function 
+defined by $(m,n)\mapsto x_{m,n}$ maps a subset of $\N\times \N$ to $A$;
+it covers all the elements of $A$, possibly with repetitions.
+Removing the repetition gives a bijection from a subset of $\N\times \N$ to $A$.
+
+By \exampleref{example:NxN}, there is a bijection $\N\to \N\times\N$.
+Hence the statement follows.
+\end{proof}
+
+\begin{example}\label{Q-countable}
+The set of rational numbers $\Q$ is infinite countable.
+
+\begin{proof}
+Note that the set of rational numbers is a union of sets 
+$$A_n=\{\dots,-\nicefrac2n,-\nicefrac1n,\nicefrac0n,\nicefrac1n,\nicefrac2n,\dots\}$$
+for $n\in \N$.
+It remains to apply Proposition~\ref{prop:countable-union}.
+\end{proof}
+\end{example}
+
+As it stated in the next theorem, 
+the set of real numbers is uncountable.
+It means that countable sets of real numbers are ``small'' compared to the set of real numbers. 
+In particular, from \exampleref{Q-countable}, existence of irational numbers follow. 
+
+\begin{exercise}\label{ex:sentences}
+Show that the set of all sentences in English is countable.
+\end{exercise}
+
+\begin{exercise}[Challenging]
+A number $x$ is \emph{algebraic}\index{algebraic number} if $x$ is a root of a polynomial with
+integer coefficients, in other words, $a_n x^n + a_{n-1} x^{n-1}  + \ldots
++ a_1 x + a_0 = 0$ where all $a_n \in \Z$. 
+\begin{enumerate}[a)]
+ \item Show that there are only countably many algebraic numbers.
+ \item Show that there exist non-algebraic
+numbers (follow in the footsteps of Cantor, use uncountability of $\R$).
+\end{enumerate}
+Hint: Feel free to use the fact that a polynomial of degree $n$ has finite number of real roots.
+\end{exercise}
+
+\begin{exercise}
+Suppose $S$ is a set of disjoint open intervals in $\R$.
+That is, 
+if $(a,b) \in S$ and $(c,d) \in S$, then either $(a,b) = (c,d)$
+or $(a,b) \cap (c,d) = \emptyset$.
+Prove $S$ is a countable set. 
+Hint: use \exampleref{Q-countable} and Theorem~\ref{thm:arch:ii}.
+\end{exercise}
+
+\begin{exercise}
+Show that the set $S$ is countable if and only if one can introduce an order ``$<$'' on $S$ such that for any $s\in S$ the set $\{\,x\in S: x<s\,\}$ is finite.
+\end{exercise}
+
+\begin{thm}[Cantor]\index{Cantor's theorem}\label{thm:Cantor}
+The set of real numbers is uncountable.
+\end{thm}
+
+We give a modified version of
+Cantor's original proof from
+1874.  
+
+\begin{proof}
+Let $X \subset \R$ be a countably infinite
+subset such that for any two real numbers
+$a < b$, there is an $x \in X$ such that $a < x < b$.
+Were $\R$ countable,
+then we could take $X = \R$.
+If we show that $X$ is necessarily
+a proper subset, then $X$ cannot equal $\R$, and $\R$ must be
+uncountable.
+
+As $X$ is countably infinite, 
+there is a bijection from $\N$ to $X$.
+Consequently, we write $X$ as
+a sequence of real numbers $x_1, x_2, x_3,\ldots$, such that
+each number in $X$
+is given by $x_j$ for some $j \in \N$.
+
+Let us inductively
+construct two sequences of real numbers $a_1,a_2,a_3,\ldots$ and
+$b_1,b_2,b_3,\ldots$.
+Let
+$a_1 := x_1$ and $b_1 := x_1+1$.
+Note that $a_1 < b_1$ and
+$x_1 \notin (a_1,b_1)$.
+For $k > 1$, suppose $a_{k-1}$ and $b_{k-1}$ has been defined.
+Let us also suppose $(a_{k-1},b_{k-1})$ does not contain any $x_j$
+for any $j=1,\ldots,k-1$.
+\begin{enumerate}[(i)]
+\item Define $a_k := x_j$, where $j$ is the smallest $j \in \N$
+such that $x_j \in (a_{k-1},b_{k-1})$.
+Such an $x_j$ exists by our
+assumption on $X$.  
+\item Next, define $b_k := x_j$ where $j$ is the smallest $j \in \N$
+such that $x_j \in (a_{k},b_{k-1})$.
+\end{enumerate}
+Notice that $a_k < b_k$ and $a_{k-1} < a_k < b_k < b_{k-1}$.
+Also notice that $(a_{k},b_{k})$ does not contain $x_k$ and hence
+does not contain any $x_j$ for $j=1,\ldots,k$.
+
+Claim: $a_j < b_k$ for all $j$ and $k$ in $\N$.
+Let us first
+assume $j < k$.
+Then $a_j < a_{j+1} < \cdots < a_{k-1} < a_k < b_k$.
+Similarly for $j > k$.
+The claim follows.
+
+Let $A = \{ a_j : j \in \N \}$ and $B = \{ b_j : j \in \N \}$.
+By \propref{infsupineq:prop} and the claim above we have
+\begin{equation*}
+\sup\, A \leq \inf\, B .
+\end{equation*}
+Define $y := \sup\, A$.
+The number $y$ cannot be a member of $A$.
+If $y = a_j$
+for some $j$, then $y < a_{j+1}$, which is impossible.
+Similarly $y$ cannot be a member of $B$.
+Therefore,
+$a_j < y$ for all $j\in \N$
+and $y < b_j$ for all $j\in \N$.
+In other words $y \in (a_j,b_j)$ for all $j\in \N$.
+
+Finally we must show that $y \notin X$.
+If we do so, then we will have
+constructed a real number not in $X$ showing that $X$ must have been a
+proper subset.
+Take any $x_k \in X$.
+By the above construction
+$x_k \notin (a_k,b_k)$, so $x_k \not= y$ as $y \in (a_k,b_k)$.
+
+Therefore, the sequence $x_1,x_2,\ldots$ cannot contain all elements of $\R$.
+Since the sequence is arbitrary, it implies that $\R$ is uncountable.
+\end{proof}
+
+Summarizing, the sets of real numbers can be divided into two categories: 
+the countable sets --- these sets might be infinite but they are  ``small'' in some sense --- and uncountable sets which are ``big'' infinite sets.
+The latter includes the set of all reals $\R$ and the former the set of all rational $\Q$.
+
+Note that the function $f(x) := \tan(x)$ is a bijective map from $(-\nicefrac{\pi}{2},\nicefrac{\pi}{2})$ to $\R$.  
+Since $\R$ is uncountable, so is $(-\nicefrac{\pi}{2},\nicefrac{\pi}{2})$.  
+A linear function provides a bijection between any pair of real intervals.
+Since any interval contains an open interval the discussion above leads to the following.
+
+\begin{prop}\label{prop:uncountable-intervals}
+The real intervals are all uncountable.
+\end{prop}
+
+We have seen that there exist irrational numbers, that is
+$\R \setminus \Q$ is nonempty. 
+Now let us show that there are a lot more irrational numbers than rational
+numbers.
+
+\begin{exercise} Use Proposition~\ref{prop:uncountable-intervals} to build an other solution of \exerciseref{ex:irrationals-are-dense}.
+\end{exercise}
+
+
+\begin{prop}
+The set of irrational numbers is uncountable
+\end{prop}
+
+\begin{proof}
+The set $\R$ can be presented as a union of two sets --- the set of rationals $\Q$ and irrational numbers $\R\backslash \Q$.
+
+Arguing by contradiction, assume $\R\backslash \Q$ is countable.
+Then by Proposition~\ref{prop:countable-union} and \exampleref{Q-countable}, so is $\R$.
+The later contradicts Cantor's theorem (\ref{thm:Cantor}).
+\end{proof}
+
+The following exercise is closely related to \exerciseref{ex:sentences}.
+
+\begin{exercise}
+Some real numbers can be uniquely described by a written sentence in English.
+For example the number $\pi$ can be described as
+``The ratio of a circle's circumference to its diameter.''
+
+Show that there are real numbers which do not admit such a description.
+\end{exercise}
+
+\begin{exercise}
+Assume $A\subset \R$ is a set such that any real number can be presented as a sum of two elements in $A$. 
+Show that $A$ is uncountable.
+\end{exercise}
+
+
+\subsection{Density of rational numbers}
+
+The proof of the following theorem relies on Archimedean property.
+
+\begin{thm}\label{thm:arch:ii} \emph{($\Q$ is dense in $\R$\index{density of
+rational numbers})} Any real interval contains a rational number.
+
+Equivalently, given a real numbers $x$ and $\epsilon>0$ there is a rational number $r$ such that $\abs{x-r}<\epsilon$.
+\end{thm}
+
+\begin{proof} 
+Note that it is sufficient to consider the case of bounded open inteval $(x,y)$.
+That is, assuming for any $x, y \in \R$ such that
+$x < y$, we need to find $r \in \Q$ such that
+$x < r < y$.
+
+Note that $y-x > 0$.
+By \ref{thm:arch:i}, there exists an $n \in \N$ such that $n(y-x) > 1$,
+or equivalently
+\begin{equation*}
+x<y-\nicefrac1n.
+\end{equation*}
+
+Consider the set of integers $A=\{k\in\N : k>nx \}$.
+Notice that $A$ is bounded below therefore it has the minimal element $m=\min A$;
+that is $m$ is the minimal integer such that $m>nx$.
+
+Note that $m-1\le nx$,
+or equivalently 
+$$\nicefrac{m}{n}-\nicefrac1{n}\le x<\nicefrac{m}{n}.$$
+Since $x<y-\nicefrac1n$, the first inequality implies 
+$\nicefrac{m}{n}<y$.
+That is 
+$$x<\nicefrac{m}{n}<y.$$
+So let $r = \nicefrac{m}{n}$.
+
+The last statement follows since $\abs{x-r}<\epsilon$ if and only if $r$ lies in the interval $(x-\epsilon,x+\epsilon)$.
+\end{proof}
+
+\begin{exercise}
+Show that any interval contains a \emph{dyadic rational number};
+that is, a rational number whose denominator is a power of two
+(for example, 1/2 or 3/8, but not 1/3).
+\end{exercise}
+
+\begin{exercise}\label{ex:irrationals-are-dense}
+Show that for any interval $(x,y)$ contains an irrational number.
+Hint: Apply Theorem~\ref{thm:arch:ii} to the interval $(x+\sqrt{2},y+\sqrt{2})$.
+\end{exercise}
+
+\sectionnewpage
+\section{Decimal representation}
+\label{sec:decimals}
+
+\sectionnotes{1 lecture (optional)}
+
+We often think of real numbers as their
+\emph{\myindex{decimal representation}}.
+For
+a positive integer $n$, we find the digits $d_K,d_{K-1},\ldots,d_2,d_1,d_0$ for some
+$K$,
+where each $d_j$ is an integer between $0$ and $9$, then
+\begin{equation*}
+n = d_K {10}^K + d_{K-1} {10}^{K-1} + \cdots + d_2 {10}^2 + d_1 10 + d_0 .
+\end{equation*}
+We often assume $d_K \not= 0$.
+To represent $n$ we write the sequence of
+digits: $n = d_K d_{K-1} \cdots d_2 d_1 d_0$.
+By a (decimal)
+\emph{\myindex{digit}}\index{decimal digit}, we mean an integer
+between $0$ and $9$.
+
+Similarly we
+represent some rational numbers.
+That is, for certain
+numbers $x$, we can find
+negative integer $-M$, a positive integer $K$, and digits
+$d_K,d_{K-1},\ldots,d_1,d_0,d_{-1},\ldots,d_{-M}$, such that
+\begin{equation*}
+x = d_K {10}^K + d_{K-1} {10}^{K-1} + \cdots + d_2 {10}^2 + d_1 10 + d_0 
++ d_{-1} {10}^{-1} + d_{-2} {10}^{-2} + \cdots + d_{-M} {10}^{-M} .
+\end{equation*}
+We write $x = d_K d_{K-1} \cdots d_1 d_0 \, . \, d_{-1} d_{-2} \cdots d_{-M}$.
+
+Not every real number has such a representation, even the simple
+rational number $\nicefrac{1}{3}$ does not.
+The irrational number $\sqrt{2}$ 
+does not have such a representation either.
+To get a representation for
+all real numbers we must allow infinitely many digits.
+
+Let us from now on consider only real numbers in the interval $(0,1]$.
+If
+we find a representation for these, we simply add
+integers to them to obtain a representation for all real numbers.
+Suppose we take an infinite sequence of decimal digits:
+\begin{equation*}
+0.d_1d_2d_3\ldots.
+\end{equation*}
+That is, we have a digit $d_j$ for every $j \in \N$.
+We have renumbered the digits to avoid the negative signs.
+We say this
+sequence of digits represents a real number $x$ if
+\begin{equation*}
+x =
+\sup_{n \in \N} \left(
+\frac{d_1}{10} + 
+\frac{d_2}{{10}^2} + 
+\frac{d_3}{{10}^3} + 
+\cdots +
+\frac{d_n}{{10}^n}
+\right),
+\end{equation*}
+or equivalently
+\begin{equation*}
+x =
+\sum_{n=1}^\infty\frac{d_n}{{10}^n}.
+\end{equation*}
+We call
+\begin{equation*}
+D_n := 
+\frac{d_1}{10} + 
+\frac{d_2}{{10}^2} + 
+\frac{d_3}{{10}^3} + 
+\cdots +
+\frac{d_n}{{10}^n} 
+\end{equation*}
+the truncation of $x$ to $n$ decimal digits.
+
+\begin{prop} \label{prop:decimalprop}
+{~}
+\begin{enumerate}[(i)]
+\item
+Every infinite sequence of digits
+$0.d_1d_2d_3\ldots$ represents a unique real number $x \in [0,1]$.
+\item
+For every $x \in (0,1]$ there exists an infinite sequence of digits
+$0.d_1d_2d_3\ldots$ that represents $x$.
+There exists a unique representation such that
+\begin{equation*}
+D_n < x \leq D_n+\frac{1}{{10}^n} \qquad \text{for all $n \in \N$}.
+\end{equation*}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Let us start with the first item.
+Suppose there is an infinite sequence of
+digits $0.d_1d_2d_3\ldots$.
+We use the geometric sum formula to write
+\begin{equation*}
+\begin{split}
+D_n =
+\frac{d_1}{10} + 
+\frac{d_2}{{10}^2} + 
+\frac{d_3}{{10}^3} + 
+\cdots +
+\frac{d_n}{{10}^n} 
+& \leq
+\frac{9}{10} + 
+\frac{9}{{10}^2} + 
+\frac{9}{{10}^3} + 
+\cdots +
+\frac{9}{{10}^n} 
+\\
+& =
+\frac{9}{10}
+\bigl( 1 + \nicefrac{1}{10} + 
+{(\nicefrac{1}{10})}^2 + \cdots + 
+{(\nicefrac{1}{10})}^{n-1} \bigr)
+\\
+& =
+\frac{9}{10}
+\left(
+\frac{1-{(\nicefrac{1}{10})}^{n}}{1-\nicefrac{1}{10}}
+\right)
+= 1-{(\nicefrac{1}{10})}^{n}
+< 1 .
+\end{split}
+\end{equation*}
+In particular, $D_n < 1$ for all $n$.
+As $D_n \geq 0$ is obvious, we obtain
+\begin{equation*}
+0 \leq \sup_{n\in \N} \, D_n \leq 1 ,
+\end{equation*}
+and therefore $0.d_1d_2d_3\ldots$ represents a unique number $x \in [0,1]$.
+
+We move on to the
+second item.
+Take $x \in (0,1]$.
+First let us tackle the existence.
+By convention define $D_0 := 0$,
+then automatically we obtain
+$D_0 < x \leq D_0 + {10}^{-0}$.
+Suppose for induction that we defined all the digits $d_1,d_2,\ldots,d_n$,
+and that 
+$D_n < x \leq D_n + {10}^{-n}$.
+We need to define $d_{n+1}$.
+
+By the 
+\hyperref[thm:arch:i]{Archimedean property} of the real numbers
+we find an integer $j$ such that
+$x-D_n \leq j {10}^{-(n+1)}$.
+We take the least such $j$ and obtain 
+\begin{equation} \label{eq:theDnjineq}
+(j-1){10}^{-(n+1)} < x-D_n \leq j {10}^{-(n+1)} .
+\end{equation}
+Let $d_{n+1} := j-1$.
+As $D_n < x$,
+then $d_{n+1} = j-1 \geq 0$.
+On the other hand since
+$x-D_n \leq {10}^{-n}$ we have that
+$j$ is at most 10, and therefore $d_{n+1} \leq 9$.
+So $d_{n+1}$ is a
+decimal digit.
+Since $D_{n+1} = D_n + d_{n+1} {10}^{-(n+1)}$
+we add $D_n$ to the inequality
+\eqref{eq:theDnjineq} above:
+\begin{equation*}
+D_{n+1} = D_n + (j-1){10}^{-(n+1)} < x \leq
+%D_n + j {10}^{-(n+1)} =
+D_n + (j-1) {10}^{-(n+1)} +
+{10}^{-(n+1)} = D_{n+1} + {10}^{-(n+1)} .
+\end{equation*}
+And so
+$D_{n+1} < x \leq D_{n+1} + {10}^{-(n+1)}$ holds.
+We have inductively
+defined an infinite sequence of digits $0.d_1d_2d_3\ldots$.
+As $D_n < x$ for all $n$, then
+$\sup \{ D_n : n \in \N \} \leq x$.
+As $x-{10}^{-n} \leq D_n$, then
+$x-{10}^{-n} \leq \sup \{ D_m : m \in \N \}$ for all $n$.  
+The two inequalities together imply
+$\sup \{ D_n : n \in \N \} = x$.
+
+What is left to show is the uniqueness.
+Suppose $0.e_1e_2e_3\ldots$ is another representation of $x$.
+Let $E_n$ be the $n$-digit truncation of $0.e_1e_2e_3\ldots$, and suppose
+$E_n < x \leq E_n + {10}^{-n}$ for all $n \in \N$.
+Suppose for some $K \in \N$, $e_n = d_n$ for all $n < K$, so
+$D_{K-1} = E_{K-1}$.
+Then
+\begin{equation*}
+E_K = D_{K-1} + e_K{10}^{-K} < x \leq E_K + {10}^{-K} = D_{K-1} +
+e_K{10}^{-K} + {10}^{-K} .
+\end{equation*}
+Subtracting $D_{K-1}$ and multiplying by ${10}^{K}$ we get
+\begin{equation*}
+e_K < (x - D_{K-1}){10}^K \leq e_K + 1 .
+\end{equation*}
+Similarly we obtain
+\begin{equation*}
+d_K < (x - D_{K-1}){10}^K \leq d_K + 1 .
+\end{equation*}
+Hence, both $e_K$ and $d_K$ are the largest integer $j$
+such that $j < (x - D_{K-1}){10}^K$, and therefore $e_K = d_K$.
+That is,
+the representation is unique.
+\end{proof}
+
+\begin{exercise}[Easy]
+What is the decimal representation of $1$ guaranteed by
+\propref{prop:decimalprop}?
+  Make sure to show that it does satisfy
+the condition.
+\end{exercise}
+
+\begin{exercise}
+Show that real numbers $x \in (0,1)$ with nonunique decimal representation
+are exactly the rational numbers that can be written
+as $\frac{m}{10^n}$ for some integers $m$ and $n$.
+In this case show that
+there exist exactly two representations of $x$.
+\end{exercise}
+
+\begin{exercise}\label{ex:binary}
+Let $b \geq 2$ be an integer.
+Define a representation of a real number in
+$[0,1]$ in terms of base $b$ rather than base 10 and prove
+\propref{prop:decimalprop} for base $b$.
+\end{exercise}
+
+The representation is not unique if we do not require
+the extra condition in the proposition.
+For example, for the
+number $\nicefrac{1}{2}$ the method in the proof obtains the representation
+\begin{equation*}
+0.49999\ldots .
+\end{equation*}
+However, we also have the representation $0.5000\ldots$.
+The key requirement that makes the representation unique is
+$D_n < x$ for all $n$.
+The inequality
+$x \leq D_n + {10}^{-n}$ is true for every representation
+by the computation in the beginning of the proof.
+
+The only numbers that have nonunique
+representations are ones that end either in an infinite sequence of $0$s
+or $9$s, because the only representation for which
+$D_n = x$ is one where all digits past $n$th one are zero.
+In this case
+there are exactly two representations of $x$ (see the exercises).
+
+Using decimal digits we can also find lots of numbers that are not rational.
+The following proposition is true for every
+rational number, but we give it only for $x \in (0,1]$ for simplicity.
+
+\begin{prop} \label{prop:rationaldecimal}
+If $x \in (0,1]$ is a rational number and $x = 0.d_1d_2d_3\ldots$,
+then the decimal digits eventually start repeating.
+That is, there are 
+positive integers $N$ and $P$, such that for all $n \geq N$, $d_n = d_{n+P}$.
+\end{prop}
+
+\begin{proof}
+Let $x = \nicefrac{p}{q}$ for positive integers $p$ and $q$.
+Let us suppose $x$ is a number with a unique representation, as
+otherwise we have seen above that both its representations are repeating.
+
+To compute the first digit we take $10 p$ and divide by
+$q$.
+The quotient is the first digit $d_1$ and the remainder $r$ is some integer
+between 0 and $q-1$.
+That is, $d_1$ is the largest integer
+such that $d_1 q \leq 10p$ and then $r = 10p - d_1q$.
+
+The next digit is computed by dividing $10 r$ by $q$, and so on.
+We notice that at each step there are at most $q$ possible remainders
+and hence at some point the process must start repeating.
+In fact we see that $P$ is at most $q$.
+\end{proof}
+
+\begin{example}
+The number
+\begin{equation*}
+x = 0.101001000100001000001\ldots,
+\end{equation*}
+is irrational.
+That is, the digits are $n$ zeros, then a one, then $n+1$
+zeros, then a one, and so on and so forth.
+The fact that $x$ is irrational follows from the
+proposition; the digits never start repeating.
+For every $P$,
+if we go far enough, we find a 1 that is followed by at least $P+1$ zeros.
+\end{example}
+
+\begin{exercise}
+Prove the converse of \propref{prop:rationaldecimal}, that is,
+if the digits in the decimal representation of $x$ are eventually repeating, then 
+$x$ must be rational.
+\end{exercise}
+
+\begin{exercise}\label{exercise:RxR}
+Construct a bijection between $[0,1]$ and $[0,1] \times [0,1]$.  Hint:
+consider even and odd digits, and be careful about the uniqueness of
+representation.
 \end{exercise}
 
 
@@ -19710,313 +20020,6 @@ Show that $\abs{\mathcal{C}}=\abs{\R}$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\sectionnewpage
-\section{Decimal representation}
-\label{sec:decimals}
-
-\sectionnotes{1 lecture (optional)}
-
-We often think of real numbers as their
-\emph{\myindex{decimal representation}}.
-For
-a positive integer $n$, we find the digits $d_K,d_{K-1},\ldots,d_2,d_1,d_0$ for some
-$K$,
-where each $d_j$ is an integer between $0$ and $9$, then
-\begin{equation*}
-n = d_K {10}^K + d_{K-1} {10}^{K-1} + \cdots + d_2 {10}^2 + d_1 10 + d_0 .
-\end{equation*}
-We often assume $d_K \not= 0$.
-To represent $n$ we write the sequence of
-digits: $n = d_K d_{K-1} \cdots d_2 d_1 d_0$.
-By a (decimal)
-\emph{\myindex{digit}}\index{decimal digit}, we mean an integer
-between $0$ and $9$.
-
-Similarly we
-represent some rational numbers.
-That is, for certain
-numbers $x$, we can find
-negative integer $-M$, a positive integer $K$, and digits
-$d_K,d_{K-1},\ldots,d_1,d_0,d_{-1},\ldots,d_{-M}$, such that
-\begin{equation*}
-x = d_K {10}^K + d_{K-1} {10}^{K-1} + \cdots + d_2 {10}^2 + d_1 10 + d_0 
-+ d_{-1} {10}^{-1} + d_{-2} {10}^{-2} + \cdots + d_{-M} {10}^{-M} .
-\end{equation*}
-We write $x = d_K d_{K-1} \cdots d_1 d_0 \, . \, d_{-1} d_{-2} \cdots d_{-M}$.
-
-Not every real number has such a representation, even the simple
-rational number $\nicefrac{1}{3}$ does not.
-The irrational number $\sqrt{2}$ 
-does not have such a representation either.
-To get a representation for
-all real numbers we must allow infinitely many digits.
-
-Let us from now on consider only real numbers in the interval $(0,1]$.
-If
-we find a representation for these, we simply add
-integers to them to obtain a representation for all real numbers.
-Suppose we take an infinite sequence of decimal digits:
-\begin{equation*}
-0.d_1d_2d_3\ldots.
-\end{equation*}
-That is, we have a digit $d_j$ for every $j \in \N$.
-We have renumbered the digits to avoid the negative signs.
-We say this
-sequence of digits represents a real number $x$ if
-\begin{equation*}
-x =
-\sup_{n \in \N} \left(
-\frac{d_1}{10} + 
-\frac{d_2}{{10}^2} + 
-\frac{d_3}{{10}^3} + 
-\cdots +
-\frac{d_n}{{10}^n}
-\right) .
-\end{equation*}
-We call
-\begin{equation*}
-D_n := 
-\frac{d_1}{10} + 
-\frac{d_2}{{10}^2} + 
-\frac{d_3}{{10}^3} + 
-\cdots +
-\frac{d_n}{{10}^n} 
-\end{equation*}
-the truncation of $x$ to $n$ decimal digits.
-
-\begin{prop} \label{prop:decimalprop}
-{~}
-\begin{enumerate}[(i)]
-\item
-Every infinite sequence of digits
-$0.d_1d_2d_3\ldots$ represents a unique real number $x \in [0,1]$.
-\item
-For every $x \in (0,1]$ there exists an infinite sequence of digits
-$0.d_1d_2d_3\ldots$ that represents $x$.
-There exists a unique representation such that
-\begin{equation*}
-D_n < x \leq D_n+\frac{1}{{10}^n} \qquad \text{for all $n \in \N$}.
-\end{equation*}
-\end{enumerate}
-\end{prop}
-
-\begin{proof}
-Let us start with the first item.
-Suppose there is an infinite sequence of
-digits $0.d_1d_2d_3\ldots$.
-We use the geometric sum formula to write
-\begin{equation*}
-\begin{split}
-D_n =
-\frac{d_1}{10} + 
-\frac{d_2}{{10}^2} + 
-\frac{d_3}{{10}^3} + 
-\cdots +
-\frac{d_n}{{10}^n} 
-& \leq
-\frac{9}{10} + 
-\frac{9}{{10}^2} + 
-\frac{9}{{10}^3} + 
-\cdots +
-\frac{9}{{10}^n} 
-\\
-& =
-\frac{9}{10}
-\bigl( 1 + \nicefrac{1}{10} + 
-{(\nicefrac{1}{10})}^2 + \cdots + 
-{(\nicefrac{1}{10})}^{n-1} \bigr)
-\\
-& =
-\frac{9}{10}
-\left(
-\frac{1-{(\nicefrac{1}{10})}^{n}}{1-\nicefrac{1}{10}}
-\right)
-= 1-{(\nicefrac{1}{10})}^{n}
-< 1 .
-\end{split}
-\end{equation*}
-In particular, $D_n < 1$ for all $n$.
-As $D_n \geq 0$ is obvious, we obtain
-\begin{equation*}
-0 \leq \sup_{n\in \N} \, D_n \leq 1 ,
-\end{equation*}
-and therefore $0.d_1d_2d_3\ldots$ represents a unique number $x \in [0,1]$.
-
-We move on to the
-second item.
-Take $x \in (0,1]$.
-First let us tackle the existence.
-By convention define $D_0 := 0$,
-then automatically we obtain
-$D_0 < x \leq D_0 + {10}^{-0}$.
-Suppose for induction that we defined all the digits $d_1,d_2,\ldots,d_n$,
-and that 
-$D_n < x \leq D_n + {10}^{-n}$.
-We need to define $d_{n+1}$.
-
-By the 
-\hyperref[thm:arch:i]{Archimedean property} of the real numbers
-we find an integer $j$ such that
-$x-D_n \leq j {10}^{-(n+1)}$.
-We take the least such $j$ and obtain 
-\begin{equation} \label{eq:theDnjineq}
-(j-1){10}^{-(n+1)} < x-D_n \leq j {10}^{-(n+1)} .
-\end{equation}
-Let $d_{n+1} := j-1$.
-As $D_n < x$,
-then $d_{n+1} = j-1 \geq 0$.
-On the other hand since
-$x-D_n \leq {10}^{-n}$ we have that
-$j$ is at most 10, and therefore $d_{n+1} \leq 9$.
-So $d_{n+1}$ is a
-decimal digit.
-Since $D_{n+1} = D_n + d_{n+1} {10}^{-(n+1)}$
-we add $D_n$ to the inequality
-\eqref{eq:theDnjineq} above:
-\begin{equation*}
-D_{n+1} = D_n + (j-1){10}^{-(n+1)} < x \leq
-%D_n + j {10}^{-(n+1)} =
-D_n + (j-1) {10}^{-(n+1)} +
-{10}^{-(n+1)} = D_{n+1} + {10}^{-(n+1)} .
-\end{equation*}
-And so
-$D_{n+1} < x \leq D_{n+1} + {10}^{-(n+1)}$ holds.
-We have inductively
-defined an infinite sequence of digits $0.d_1d_2d_3\ldots$.
-As $D_n < x$ for all $n$, then
-$\sup \{ D_n : n \in \N \} \leq x$.
-As $x-{10}^{-n} \leq D_n$, then
-$x-{10}^{-n} \leq \sup \{ D_m : m \in \N \}$ for all $n$.  
-The two inequalities together imply
-$\sup \{ D_n : n \in \N \} = x$.
-
-What is left to show is the uniqueness.
-Suppose $0.e_1e_2e_3\ldots$ is another representation of $x$.
-Let $E_n$ be the $n$-digit truncation of $0.e_1e_2e_3\ldots$, and suppose
-$E_n < x \leq E_n + {10}^{-n}$ for all $n \in \N$.
-Suppose for some $K \in \N$, $e_n = d_n$ for all $n < K$, so
-$D_{K-1} = E_{K-1}$.
-Then
-\begin{equation*}
-E_K = D_{K-1} + e_K{10}^{-K} < x \leq E_K + {10}^{-K} = D_{K-1} +
-e_K{10}^{-K} + {10}^{-K} .
-\end{equation*}
-Subtracting $D_{K-1}$ and multiplying by ${10}^{K}$ we get
-\begin{equation*}
-e_K < (x - D_{K-1}){10}^K \leq e_K + 1 .
-\end{equation*}
-Similarly we obtain
-\begin{equation*}
-d_K < (x - D_{K-1}){10}^K \leq d_K + 1 .
-\end{equation*}
-Hence, both $e_K$ and $d_K$ are the largest integer $j$
-such that $j < (x - D_{K-1}){10}^K$, and therefore $e_K = d_K$.
-That is,
-the representation is unique.
-\end{proof}
-
-The representation is not unique if we do not require
-the extra condition in the proposition.
-For example, for the
-number $\nicefrac{1}{2}$ the method in the proof obtains the representation
-\begin{equation*}
-0.49999\ldots .
-\end{equation*}
-However, we also have the representation $0.5000\ldots$.
-The key requirement that makes the representation unique is
-$D_n < x$ for all $n$.
-The inequality
-$x \leq D_n + {10}^{-n}$ is true for every representation
-by the computation in the beginning of the proof.
-
-The only numbers that have nonunique
-representations are ones that end either in an infinite sequence of $0$s
-or $9$s, because the only representation for which
-$D_n = x$ is one where all digits past $n$th one are zero.
-In this case
-there are exactly two representations of $x$ (see the exercises).
-
-Using decimal digits we can also find lots of numbers that are not rational.
-The following proposition is true for every
-rational number, but we give it only for $x \in (0,1]$ for simplicity.
-
-\begin{prop} \label{prop:rationaldecimal}
-If $x \in (0,1]$ is a rational number and $x = 0.d_1d_2d_3\ldots$,
-then the decimal digits eventually start repeating.
-That is, there are 
-positive integers $N$ and $P$, such that for all $n \geq N$, $d_n = d_{n+P}$.
-\end{prop}
-
-\begin{proof}
-Let $x = \nicefrac{p}{q}$ for positive integers $p$ and $q$.
-Let us suppose $x$ is a number with a unique representation, as
-otherwise we have seen above that both its representations are repeating.
-
-To compute the first digit we take $10 p$ and divide by
-$q$.
-The quotient is the first digit $d_1$ and the remainder $r$ is some integer
-between 0 and $q-1$.
-That is, $d_1$ is the largest integer
-such that $d_1 q \leq 10p$ and then $r = 10p - d_1q$.
-
-The next digit is computed by dividing $10 r$ by $q$, and so on.
-We notice that at each step there are at most $q$ possible remainders
-and hence at some point the process must start repeating.
-In fact we see that $P$ is at most $q$.
-\end{proof}
-
-The converse of the proposition is also true and is left as an exercise.
-
-\begin{example}
-The number
-\begin{equation*}
-x = 0.101001000100001000001\ldots,
-\end{equation*}
-is irrational.
-That is, the digits are $n$ zeros, then a one, then $n+1$
-zeros, then a one, and so on and so forth.
-The fact that $x$ is irrational follows from the
-proposition; the digits never start repeating.
-For every $P$,
-if we go far enough, we find a 1 that is followed by at least $P+1$ zeros.
-\end{example}
-
-\subsection*{Exercises}
-
-\begin{exercise}[Easy]
-What is the decimal representation of $1$ guaranteed by
-\propref{prop:decimalprop}?
-  Make sure to show that it does satisfy
-the condition.
-\end{exercise}
-
-\begin{exercise}
-Prove the converse of \propref{prop:rationaldecimal}, that is,
-if the digits in the decimal representation of $x$ are eventually repeating, then 
-$x$ must be rational.
-\end{exercise}
-
-\begin{exercise}
-Show that real numbers $x \in (0,1)$ with nonunique decimal representation
-are exactly the rational numbers that can be written
-as $\frac{m}{10^n}$ for some integers $m$ and $n$.
-In this case show that
-there exist exactly two representations of $x$.
-\end{exercise}
-
-\begin{exercise}\label{ex:binary}
-Let $b \geq 2$ be an integer.
-Define a representation of a real number in
-$[0,1]$ in terms of base $b$ rather than base 10 and prove
-\propref{prop:decimalprop} for base $b$.
-\end{exercise}
-
-\begin{exercise}\label{exercise:RxR}
-Construct a bijection between $[0,1]$ and $[0,1] \times [0,1]$.  Hint:
-consider even and odd digits, and be careful about the uniqueness of
-representation.
-\end{exercise}
 
 \chapter{I do not think it is needed}
 
