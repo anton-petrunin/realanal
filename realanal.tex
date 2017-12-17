@@ -95,9 +95,9 @@ Attribution-Non\-commercial-Share Alike 3.0 United States License. To view a cop
 You can use, print, duplicate, share these notes as much as you want.
 You can base your own notes on these and reuse parts if you keep the license the
 same.
- If you plan to use these commercially (sell them for more than just duplicating cost), then you need to contact me and we will work something out.
+If you plan to use these commercially (sell them for more than just duplicating cost), then you need to contact me and we will work something out.
 If you are printing a course pack for your students, then it is fine if the  duplication service is charging a fee for printing and selling the printed copy.
- I consider that duplicating cost.
+I consider that duplicating cost.
 
 \bigskip
 
@@ -1201,7 +1201,7 @@ Show that ``$\sim$'' is an equivalence relation.
 
 In this section we review definitions from abstract algebra and define real numbers.
 
-\subsection*{Ordered sets}
+\section{Ordered sets}
 
 The main object we work with in analysis is the set of
 \myindex{real numbers}.
@@ -1299,9 +1299,16 @@ all strings of letters of arbitrary length)
 using the Latin alphabet using only lower case letters.
 The order is the
 lexicographic order as in a dictionary (e.g.\ \emph{aa} $<$ \emph{aaa} $<$ \emph{dog} $<$ \emph{door}).
-Let $A$ be the subset of $D$ containing the words whose
-first letter is `a' (e.g.\ \emph{a} $\in A$, \emph{abcd} $\in A$).
+\begin{enumerate}[a)]
+\item Let $A$ be the subset of $D$ containing the words whose
+first letter is `\emph{a}' (for example, \emph{a} $\in A$, \emph{abcd} $\in A$).
 Show that $A$ has a supremum and find what it is.
+\item Let $X$ be the subset of $D$ containing the words alternating `\emph{a}' and `\emph{b}' whose
+first letter is `\emph{a}' (so $X=\{$\emph{a}, \emph{ab}, \emph{aba}, \emph{abab}, $\dots\}$).
+Show that $X$ does not have a supremum.
+\end{enumerate}
+
+
 \end{exercise}
 
 \begin{exercise}
@@ -1352,7 +1359,7 @@ is sometimes called the \emph{\myindex{completeness property}} or the
 \emph{\myindex{Dedekind completeness property}}.
 
 
-\subsection*{Fields}
+\section{Fields}
 
 As you will see in the next section, the set of rational numbers $\Q$ with standard order does not have the least-upper-bound property.
 This is one of the most important reasons why we work with real numbers $\R$ in analysis.
@@ -1439,7 +1446,7 @@ Show that for any elements $x$, $y$ and $z$ in a fild the following conditions h
 \end{enumerate}
 \end{exercise}
 
-\subsection*{Ordered fields}
+\section{Ordered fields}
 
 Now let us marry ordered sets with fields.
 
@@ -1617,7 +1624,7 @@ Show that $F$ does not admit an order.
 \end{exercise}
 
 
-\subsection*{Real numbers} \label{sec:setofreals}
+\section{Real numbers} \label{sec:setofreals}
 
 \sectionnotes{2 lectures, the extended real numbers are optional}
  
@@ -1653,7 +1660,7 @@ Essentially, in analysts we want $\Q$, but we also want to take suprema (and inf
 So what we do is to throw in enough numbers to obtain $\R$.
 In the next section you will see the first application of the \hyperref[defn:lub]{least-upper-bound property}
 
-\subsection*{On square root of two}
+\section{On square root of two}
 
 Here we will show that reals contain $\sqrt{2}$, but rationals do not.
 
@@ -1784,7 +1791,7 @@ In particular it implies that $\Q$ does not have an upper bound property.
 In Chapter~\ref{rn:counable} we will see that is the set of irrational numbers is very large --- most of real numbers are irrational.
 
 
-\subsection*{Archimedean property}
+\section{Archimedean property}
 
 The following is one of the fundamental facts about the real numbers.
 
@@ -1845,12 +1852,12 @@ Show that $t=0$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Properties of real numbers} \label{rn:properties}
+\chapter{Constructions} \label{rn:properties}
 
 In this chapter we introduce the standard constructions in the field of real numbers.
 Most of them work in any ordered field.
 
-\subsection*{Extended real numbers}
+\section{Extended real numbers}
 
 To make using suprema and infima even easier, we may want to
 write $\sup\, A$ and $\inf\, A$ without worrying about $A$ being
@@ -1889,7 +1896,7 @@ Now we can take suprema and infima without fear of emptiness or
 unboundedness.  
 In this book we mostly avoid using $\R^*$ outside of exercises, and leave such generalizations to the interested reader.
 
-\subsection*{Intervals}
+\section{Intervals}
 
 You surely saw the notation for intervals\index{interval}
 before, but let us give a formal
@@ -1935,7 +1942,7 @@ or a closed interval.
 \end{exercise}
 
 
-\subsection*{Supremum and infimum}
+\section{Supremum and infimum}
 
 The following fact about supremum and infimum is often useful.
 It follow directly from the definitions of least upper bound and greatest lower bound \ref{def:sup-inf}.
@@ -2055,7 +2062,7 @@ Show that $C$ is a bounded set and that
 Hint: Use Proposition~\ref{prop:existsxepsfromsup}.
 \end{exercise}
 
-\subsection*{Maximum and minimum}
+\section{Maximum and minimum}
 
 By \exerciseref{exercise:finitesethasminmax} we know 
 a finite set of numbers always has a supremum or an infimum that is contained
@@ -2084,9 +2091,8 @@ Notice that any set of integers bounded below has well defined  minimum.
 The same way any set of integers bounded above has maximum.
 These properties maybe considered as a reformulation of \hyperref[wop]{well ordering property of $\N$}. 
 
-\subsection*{Absolute value} \label{sec:absval}
+\section{Absolute value} \label{sec:absval}
 
-\sectionnotes{0.5--1 lecture}
 
 A concept we will encounter over and over is the concept of
 \emph{\myindex{absolute value}}.
@@ -2317,7 +2323,6 @@ Find $\epsilon>0$ such that $x^2-x^4>\epsilon$ for all  $\nicefrac13<x<\nicefrac
 \section{Sequences}
 \label{sec:seqsandlims}
 
-\sectionnotes{2.5 lectures}
 
 Analysis is essentially about taking limits.
 The most basic type of a limit
@@ -2873,19 +2878,12 @@ $\{ x_{3n} \}$ all converge.
 Show that $\{ x_n \}$ is convergent.
 \end{exercise}
 
-\begin{exercise}
-Find a sequence $\{ x_n \}$ such that for any $y \in \R$, there exists a
-subsequence $\{ x_{n_i} \}$ converging to $y$.
-\end{exercise}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectionnewpage
 \section{Properties of limit}
 \label{sec:factslimsseqs}
 
-\sectionnotes{2--2.5 lectures, recursively defined sequences can safely be
-skipped}
 
 In this section we go over some basic results about the limits of
 sequences.
@@ -2974,26 +2972,6 @@ Armed with this information we estimate
 \end{equation*}
 And we are done.
 \end{proof}
-
-\begin{example}
-One application of
-the \hyperref[squeeze:lemma]{squeeze lemma} is to compute limits of 
-sequences using limits that are already known.
-For example, suppose 
-we have the sequence $\{ \frac{1}{n\sqrt{n}} \}$.
-Since $\sqrt{n} \geq 1$ for all $n \in \N$, we have
-\begin{equation*}
-0 \leq \frac{1}{n\sqrt{n}} \leq \frac{1}{n}
-\end{equation*}
-for all $n \in \N$.
-We already know $\lim \nicefrac{1}{n} = 0$. 
-Hence, using
-the constant sequence $\{ 0 \}$ and the sequence $\{ \nicefrac{1}{n} \}$ in the
-squeeze lemma, we conclude
-\begin{equation*}
-\lim_{n\to\infty} \frac{1}{n\sqrt{n}} = 0 .
-\end{equation*}
-\end{example}
 
 Limits also preserve inequalities.
 
@@ -3293,61 +3271,7 @@ As we can take limits past multiplication we can show (exercise)
 that $\lim\, x_n^k = {(\lim\, x_n)}^k$ for all $k \in \N$.
 That is, we can take limits
 past powers.
-Let us see if we can do the same with roots.
 
-%???$\sqrt{x}$ is not defined???
-
-\begin{prop}
-Let $\{ x_n \}$ be a convergent sequence such
-that $x_n \geq 0$.
-Then
-\begin{equation*}
-\lim_{n\to\infty} \sqrt{x_n} =
-\sqrt{ \lim_{n\to\infty} x_n } .
-\end{equation*}
-\end{prop}
-
-Of course to even make this statement, we need to apply
-\corref{limandineq:cor} to show
-that
-$\lim\, x_n \geq 0$, so that we can take the square root without
-worry.
-
-\begin{proof}
-Let $\{ x_n \}$ be a convergent sequence and let $x := \lim\, x_n$.
-
-First suppose $x=0$.
-Let $\epsilon > 0$ be given.
-Then there is an $M$ such that for all $n \geq M$ we have
-$x_n = \abs{x_n} < \epsilon^2$, or in other words $\sqrt{x_n} < \epsilon$.
-Hence
-\begin{equation*}
-\abs{\sqrt{x_n} - \sqrt{x}} =
-\sqrt{x_n} < \epsilon.
-\end{equation*}
-
-Now suppose $x > 0$ (and hence $\sqrt{x} > 0$).
-\begin{equation*}
-\begin{split}
-\abs{\sqrt{x_n}-\sqrt{x}} &= 
-\abs{\frac{x_n-x}{\sqrt{x_n}+\sqrt{x}}} \\
-&=
-\frac{1}{\sqrt{x_n}+\sqrt{x}}
-\abs{x_n-x} \\
-& \leq
-\frac{1}{\sqrt{x}}
-\abs{x_n-x} .
-\end{split}
-\end{equation*}
-We leave the rest of the proof to the reader.
-\end{proof}
-
-A similar proof works for the $k$th root.
-That is, we also
-obtain
-$\lim\, x_n^{1/k} = {( \lim\, x_n )}^{1/k}$.
-We leave this to the reader
-as a challenging exercise.
 
 We may also want to take the limit past the absolute value sign.
 The converse of this proposition is not true, see
@@ -3371,20 +3295,6 @@ Hence if $\abs{x_n -x}$ can be made arbitrarily small, so can
 $\big\lvert \abs{x_n} - \abs{x} \big\rvert$.
 Details are left to the reader.
 \end{proof}
-
-Let us see an example putting the above propositions together.  Since
-we know that $\lim \nicefrac{1}{n} = 0$, then
-\begin{equation*}
-\lim_{n\to \infty}
-\abs{\sqrt{1 + \nicefrac{1}{n}} - \nicefrac{100}{n^2}} =  
-\abs{\sqrt{1 + (\lim \nicefrac{1}{n})} - 100 (\lim \nicefrac{1}{n})(\lim
-\nicefrac{1}{n})} = 1.
-\end{equation*}
-That is, the limit on the left hand side exists because the right hand
-side exists.
-You really should read the above equality from right to left.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \sectionnewpage
@@ -3494,46 +3404,6 @@ Prove the theorem for monotone decreasing sequences.
 \end{exercise}
 \end{proof}
 
-%???formally speaking we did not defined \sqrt{x}???
-
-\begin{example}
-Take the sequence $\{ \frac{1}{\sqrt{n}} \}$.
-
-First $\frac{1}{\sqrt{n}} > 0$ for all $n \in \N$, and hence the sequence is
-bounded from below.
-Let us show that it is monotone decreasing.
-We start with
-$\sqrt{n+1} \geq \sqrt{n}$ (why is that true?).
-From this inequality
-we obtain
-\begin{equation*}
-\frac{1}{\sqrt{n+1}} \leq \frac{1}{\sqrt{n}} .
-\end{equation*}
-So the sequence is monotone decreasing and bounded from below (hence
-bounded).
-We apply the theorem to note that the sequence is
-convergent and in fact
-\begin{equation*}
-\lim_{n\to \infty} \frac{1}{\sqrt{n}}
-=
-\inf \left\{ \frac{1}{\sqrt{n}} : n \in \N \right\} .
-\end{equation*}
-We already know that the infimum is greater than or equal to 0, as
-0 is a lower bound.
-Take a number $b \geq 0$ such
-that $b \leq \frac{1}{\sqrt{n}}$ for all $n$.
-We square both sides to
-obtain
-\begin{equation*}
-b^2 \leq \frac{1}{n} \qquad \text{for all $n \in \N$}.
-\end{equation*}
-We have seen before that this implies that $b^2 \leq 0$ (a consequence
-of the \hyperref[thm:arch:i]{Archimedean property}).
-As we also have $b^2 \geq 0$, then $b^2 = 0$
-and so $b = 0$.
-Hence $b=0$ is the greatest lower bound, and $\lim \frac{1}{\sqrt{n}} = 0$.
-\end{example}
-
 \begin{example}
 A word of caution:  
 We must show that a monotone sequence is bounded in order to use \thmref{thm:monotoneconv}.
@@ -3541,12 +3411,6 @@ For example, the sequence $x_n=1 + \nicefrac{1}{2} + \cdots + \nicefrac{1}{n}$ i
 We will see latter in \exampleref{example:harmonicseries}, that this sequence has no upper bound and so does not converge.
 It is not at all obvious that this sequence has no upper bound.
 \end{example}
-
-\begin{exercise}
-Show that the sequence
-$\left\{ \dfrac{1}{\sqrt[3]{n}} \right\}$ is monotone, bounded, and use \thmref{thm:monotoneconv} to find the limit.
-%???\sqrt[3]{n} is not yet defined
-\end{exercise}
 
 \begin{exercise}
 Show that the sequence
@@ -4467,11 +4331,9 @@ vary independently and can be arbitrarily far apart.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\sectionnewpage
-\section{Series}
+\chapter{Series}
 \label{sec:series}
 
-\sectionnotes{2 lectures}
 
 A fundamental object in mathematics is that of a series.
 In fact, when
@@ -4483,7 +4345,7 @@ For example, solving differential equations often includes
 series, and differential equations are the basis for understanding
 almost all of modern science.
 
-\subsection*{Definition}
+\section{Definition}
 
 \begin{defn}
 A sequence $\{ x_n \}$,
@@ -4630,7 +4492,7 @@ Now use
 \propref{prop:contalg} to finish the proof.
 \end{proof}
 
-\subsection*{Cauchy series}
+\section{Cauchy series}
 
 \begin{defn}
 A series $\sum x_n$ is said to be \emph{Cauchy} or a
@@ -4825,7 +4687,7 @@ It is not true, of course, that we can multiply
 term by term, since that strategy does not work even for finite sums.
 For example, $(a+b)(c+d) \not= ac+bd$.
 
-\subsection*{Absolute convergence}
+\section{Absolute convergence}
 
 Since monotone sequences are easier to work with than arbitrary sequences, it
 is generally easier to work with series $\sum x_n$ where $x_n \geq 0$ for
@@ -4911,7 +4773,7 @@ diverges.
 Therefore 
 $\sum \frac{{(-1)}^n}{n}$ is a conditionally convergent subsequence.
 
-\subsection*{Comparison test and the \texorpdfstring{$p$}{p}-series}
+\section{Comparison test and the \texorpdfstring{$p$}{p}-series}
 
 We have noted above that for a series to converge
 the terms not only have to go to zero, but they have to go to zero ``fast
@@ -5110,7 +4972,7 @@ Therefore, by the comparison test, $\sum \frac{1}{n^2+1}$ converges.
 \end{proof}
 \end{example}
 
-\subsection*{Ratio test}
+\section{Ratio test}
 
 \begin{prop}[Ratio test]\index{ratio test for series}
 Let $\sum x_n$ be a series such that
@@ -5388,85 +5250,7 @@ but $\sum x_n$ still diverges
 \end{enumerate}
 \end{exercise}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\sectionnewpage
-\section{More on series}
-\label{sec:moreonseries}
-
-\sectionnotes{up to 2--3 lectures (optional, can safely be skipped or covered partially)}
-
-\subsection*{Root test}
-
-We have seen the ratio test before.
-There is one more similar
-test called the \emph{\myindex{root test}}.
-In fact, the 
-proof of this test is similar and somewhat easier.
-
-\begin{prop}[Root test]
-Let $\sum x_n$ be a series and let
-\begin{equation*}
-L := \limsup_{n\to\infty} \, {\abs{x_n}}^{1/n} .
-\end{equation*}
-Then
-\begin{enumerate}[(i)]
-\item If $L < 1$ then $\sum x_n$ converges absolutely.
-\item If $L > 1$ then $\sum x_n$ diverges.
-\end{enumerate}
-\end{prop}
-
-\begin{proof}
-If $L > 1$, then there exists a subsequence $\{ x_{n_k} \}$ such that
-$L = \lim_{k\to\infty} \, {\abs{x_{n_k}}}^{1/n_k}$.
-Let
-$r$ be such that $L > r > 1$.
-There exists an $M$ such
-that for all $k \geq M$, we have 
-${\abs{x_{n_k}}}^{1/n_k} > r > 1$, or in other words
-$\abs{x_{n_k}} > r^{n_k} > 1$.
-The
-subsequence 
-$\{ \abs{x_{n_k}} \}$, and therefore also
-$\{ \abs{x_{n}} \}$, cannot possibly converge to zero, and so the series
-diverges.
-
-Now suppose $L < 1$.
-Pick $r$ such that $L < r < 1$.
-By definition of limit supremum,
-pick $M$ such that for all $n \geq M$ we have 
-\begin{equation*}
-\sup \{ {\abs{x_k}}^{1/k} : k \geq n \} < r .
-\end{equation*}
-Therefore, for all $n \geq M$ we have
-\begin{equation*}
-{\abs{x_n}}^{1/n} < r , \qquad \text{or in other words} \qquad \abs{x_n} < r^n .
-\end{equation*}
-Let $k > M$ and let us estimate the $k$th partial sum
-\begin{equation*}
-\sum_{n=1}^k \abs{x_n} = 
-\left( \sum_{n=1}^M \abs{x_n} \right) + 
-\left( \sum_{n=M+1}^k \abs{x_n} \right)
-\leq
-\left( \sum_{n=1}^M \abs{x_n} \right) + 
-\left( \sum_{n=M+1}^k r^n \right) .
-\end{equation*}
-As $0 < r < 1$,
-the geometric series $\sum_{n=M+1}^\infty r^n$ converges to
-$\frac{r^{M+1}}{1-r}$.
-As everything is positive we have
-\begin{equation*}
-\sum_{n=1}^k \abs{x_n} 
-\leq
-\left( \sum_{n=1}^M \abs{x_n} \right) + 
-\frac{r^{M+1}}{1-r} .
-\end{equation*}
-Thus the sequence of partial sums of $\sum \abs{x_n}$ is bounded, and
-so the series converges.
-Therefore $\sum x_n$ converges absolutely.
-\end{proof}
-
-\subsection*{Alternating series test}
+\section{Alternating series test}
 
 The tests we have so far only addressed absolute convergence.
 The
@@ -5537,7 +5321,7 @@ For example,
 converges for arbitrarily small $p > 0$, but it does not converge
 absolutely when $p \leq 1$.
 
-\subsection*{Rearrangements}
+\section{Rearrangements}
 
 Generally,
 absolutely convergent series behave as we imagine they should.
@@ -5677,554 +5461,6 @@ is
 At this point we are no more than $\nicefrac{1}{8}$ from the limit.
 \end{example}
 
-\subsection*{Multiplication of series}
-
-As we have
-already mentioned,
-multiplication of series is somewhat harder than addition.
-If we have that at least one of the series converges
-absolutely, than we can use the following theorem.
-For this result it is
-convenient to start the series at 0, rather than at 1.
-
-\begin{thm}[\myindex{Mertens' theorem}\footnote{Proved by
-the German mathematician
-\href{http://en.wikipedia.org/wiki/Franz_Mertens}{Franz Mertens}
-(1840 -- 1927).}]
-Suppose $\sum_{n=0}^\infty a_n$ and $\sum_{n=0}^\infty b_n$ are two convergent series, converging
-to $A$ and $B$ respectively.
-If at least one of the series
-converges absolutely, then the series $\sum_{n=0}^\infty c_n$ where
-\begin{equation*}
-c_n = a_0 b_n + a_1 b_{n-1} + \cdots + a_n b_0 = \sum_{j=0}^n a_j b_{n-j} ,
-\end{equation*}
-converges to $AB$.
-\end{thm}
-
-The series $\sum c_n$ is called the \emph{\myindex{Cauchy product}} of
-$\sum a_n$ and $\sum b_n$.
-
-\begin{proof}
-Suppose $\sum a_n$ converges absolutely, and let $\epsilon > 0$ be
-given.
-In this proof instead of picking complicated estimates just to make
-the final estimate come out as less than $\epsilon$,
-let us simply obtain an estimate that depends on $\epsilon$
-and can be made arbitrarily small.
-
-Write
-\begin{equation*}
-A_m := \sum_{n=0}^m a_n , \qquad B_m := \sum_{n=0}^m b_n .
-\end{equation*}
-We rearrange the $m$th partial sum of $\sum c_n$:
-\begin{equation*}
-\begin{split}
-\abs{\left(\sum_{n=0}^m c_n \right) - AB}
-& =
-\abs{\left( \sum_{n=0}^m \sum_{j=0}^n a_j b_{n-j} \right) - AB}
-\\
-& =
-\abs{\left( \sum_{n=0}^m
-  B_n a_{m-n} \right) - AB}
-\\
-& =
-\abs{\left( \sum_{n=0}^m
-  ( B_n -  B ) a_{m-n} \right)
-    + B A_m - AB}
-\\
-& \leq
-\left(
-\sum_{n=0}^m
-  \abs{ B_n -  B } \abs{a_{m-n}}
-\right)
-+
-\abs{B}\abs{A_m - A}
-\end{split}
-\end{equation*}
-We can surely make the second term on the right hand side go to zero.
-The trick is to handle the first term.
-Pick $K$ such that for all $m \geq K$ we have 
-$\abs{A_m - A} < \epsilon$ and
-also
-$\abs{B_m - B} < \epsilon$.
-Finally,
-as $\sum a_n$ converges absolutely,
-make sure that $K$ is large enough such that
-for all $m \geq K$, % we have
-%Take $K$ large enough such that for all $n \geq K$
-%we have
-\begin{equation*}
-\sum_{n=K}^m \abs{a_n} < \epsilon .
-\end{equation*}
-As $\sum b_n$ converges, then
-we have that
-$B_{\text{max}} := \sup \{ \abs{ B_n - B } : n = 0,1,2,\ldots \}$
-is finite.
-Take $m \geq 2K$, then in particular $m-K+1 > K$.
-So
-\begin{equation*}
-\begin{split}
-%\left(
-\sum_{n=0}^m
-  \abs{ B_n -  B } \abs{a_{m-n}}
-%\right)
-& =
-\left(
-\sum_{n=0}^{m-K}
-  \abs{ B_n -  B } \abs{a_{m-n}}
-\right)
-+
-\left(
-\sum_{n=m-K+1}^m
-  \abs{ B_n -  B } \abs{a_{m-n}}
-\right)
-\\
-& <
-\left(
-\sum_{n=K}^m
-\abs{a_{n}}
-\right)
-B_{\text{max}}
-+
-\left(
-\sum_{n=0}^{K-1}
-  \epsilon \abs{a_{n}}
-\right)
-\\
-& <
-\epsilon
-B_{\text{max}}
-+
-\epsilon
-\left(
-\sum_{n=0}^\infty \abs{a_{n}}
-\right) .
-\end{split}
-\end{equation*}
-Therefore, for $m \geq 2K$ we have
-\begin{equation*}
-\begin{split}
-\abs{\left(\sum_{n=0}^m c_n \right) - AB}
-& \leq
-\left(
-\sum_{n=0}^m
-  \abs{ B_n -  B } \abs{a_{m-n}}
-\right)
-+
-\abs{B}\abs{A_m - A}
-\\
-& <
-\epsilon
-B_{\text{max}}
-+
-\epsilon
-\left(
-\sum_{n=0}^\infty \abs{a_{n}}
-\right)
-+
-\abs{B}\epsilon
-=
-\epsilon 
-\left(
-B_{\text{max}}
-+
-\left(
-\sum_{n=0}^\infty \abs{a_{n}}
-\right)
-+
-\abs{B}
-\right) .
-\end{split}
-\end{equation*}
-The expression in the parenthesis on the right hand side
-is a fixed number.
-Hence,
-we can make the right hand side arbitrarily small by picking a small enough
-$\epsilon> 0$.
-So $\sum_{n=0}^\infty c_n$ converges to $AB$.
-\end{proof}
-
-\begin{example}
-If both series are only conditionally convergent, the Cauchy product series
-need not even converge.
-Suppose we take $a_n = b_n = {(-1)}^n \frac{1}{\sqrt{n+1}}$.
-The series $\sum_{n=0}^\infty a_n = \sum_{n=0}^\infty b_n$
-converges
-by the alternating series test, however, it does not converge
-absolutely as can be seen from the $p$-test.
-Let us look
-at the Cauchy product.
-\begin{equation*}
-c_n = 
-{(-1)}^n
-\left(
-\frac{1}{\sqrt{n+1}} + 
-\frac{1}{\sqrt{2n}} + 
-\frac{1}{\sqrt{3(n-1)}} + \cdots +
-%\frac{1}{\sqrt{2n}} + 
-\frac{1}{\sqrt{n+1}}
-\right)
-=
-{(-1)}^n
-\sum_{j=0}^n \frac{1}{\sqrt{(j+1)(n-j+1)}} .
-\end{equation*}
-Therefore
-\begin{equation*}
-\abs{c_n} 
-=
-\sum_{j=0}^n \frac{1}{\sqrt{(j+1)(n-j+1)}} 
-\geq
-\sum_{j=0}^n \frac{1}{\sqrt{(n+1)(n+1)}} 
-= 1 .
-\end{equation*}
-The terms do not go to zero and hence $\sum c_n$ cannot converge.
-\end{example}
-
-\subsection*{Power series}
-
-Fix $x_0 \in \R$.
-A \emph{\myindex{power series}} about $x_0$
-is a series of the form
-\begin{equation*}
-\sum_{n=0}^\infty a_n {(x-x_0)}^n .
-\end{equation*}
-A power series is really a function of $x$, and
-many important functions in analysis can be written
-as a power series.
-%That is, given $x$, $f(x)$ is given by a series of the form
-%Of course if we wish to define $f \colon U \subset \R \to \R$ using
-%such a series, we must have that the series converges for all $x \in U$.
-
-We say that a power series is
-\emph{convergent}\index{convergent power series} if
-there is at least one $x \not= x_0$ that makes the series converge.
-Note that it is trivial to see that if $x=x_0$ then the series always
-converges since all terms except the first are zero.
-If the series does not converge for any point $x \not= x_0$, we say that
-the series is \emph{divergent}\index{divergent power series}.
-
-\begin{example} \label{ps:expex}
-The series
-\begin{equation*}
-\sum_{n=0}^\infty \frac{1}{n!} x^n
-\end{equation*}
-is absolutely convergent for all $x \in \R$.
-This can be seen using the ratio test:
-For any $x$ notice that
-\begin{equation*}
-\lim_{n \to \infty}
-\frac{\bigl(1/(n+1)!\bigr) \, x^{n+1}}{(1/n!) \, x^{n}}
-=
-\lim_{n \to \infty}
-\frac{x}{n+1}
-=
-0.
-\end{equation*}
-In fact, you may recall from calculus that this series converges to $e^x$.
-\end{example}
-
-\begin{example} \label{ps:1kex}
-The series
-\begin{equation*}
-\sum_{n=1}^\infty \frac{1}{n} x^n
-\end{equation*}
-converges absolutely for all $x \in (-1,1)$ via the ratio test:
-\begin{equation*}
-\lim_{n \to \infty}
-\abs{
-\frac{\bigl(1/(n+1) \bigr) \, x^{n+1}}{(1/n) \, x^{n}}
-}
-=
-\lim_{n \to \infty}
-\abs{x} \frac{n}{n+1}
-=
-\abs{x} < 1 .
-\end{equation*}
-It converges at $x=-1$,
-as
-$\sum_{n=1}^\infty \frac{{(-1)}^n}{n}$ converges
-by the alternating series
-test.
-But the power series does not converge absolutely at $x=-1$, because
-$\sum_{n=1}^\infty \frac{1}{n}$ does not converge.
-The series
-diverges at $x=1$.
-When $\abs{x} > 1$, then the series diverges via the ratio test.
-\end{example}
-
-\begin{example} \label{ps:divergeex}
-The series
-\begin{equation*}
-\sum_{n=1}^\infty n^n x^n
-\end{equation*}
-diverges for all $x \not= 0$.
-Let us apply the root test
-\begin{equation*}
-\limsup_{n\to\infty}
-\,
-\abs{n^n x^n}^{1/n}
-=
-\limsup_{n\to\infty}
-\,
-n \abs{x}
-= \infty .
-\end{equation*}
-Therefore the series diverges for all $x \not= 0$.
-\end{example}
-
-In fact, convergence of power series in general always works analogously to
-one of the three examples above.
-%The three examples show what happens for power series in general.
-
-\begin{prop}
-Let $\sum a_n {(x-x_0)}^n$ be a power series.
-If the series is convergent, then either it converges at
-all $x \in \R$, or
-there exists a number $\rho$, such that
-the series converges absolutely on the interval
-$(x_0-\rho,x_0+\rho)$ and diverges when $x < x_0-\rho$ or $x > x_0+\rho$.
-\end{prop}
-
-The number $\rho$ is called the \emph{\myindex{radius of convergence}} of the
-power series.
-We write $\rho = \infty$ if the series converges for
-all $x$, and we write $\rho = 0$ if the series is divergent.
-See \figureref{ps:convfig}.
-In \exampleref{ps:1kex}
-the radius of convergence is $\rho=1$.
-In \exampleref{ps:expex} the radius of convergence is $\rho=\infty$,
-and in \exampleref{ps:divergeex} the radius of convergence is $\rho=0$.
-
-\begin{figure}[h!t]
-\begin{center}
-\input ps-conv.pdf_t
-\caption{Convergence of a power series.\label{ps:convfig}}
-\end{center}
-\end{figure}
-
-\begin{proof}
-Write
-\begin{equation*}
-R := \limsup_{n\to\infty} \, {\abs{a_n}}^{1/n} .
-\end{equation*}
-We use the root test to prove the proposition:
-\begin{equation*}
-L = \limsup_{n\to\infty} \, {\abs{a_n {(x-x_0)}^n}}^{1/n} 
-=
-\abs{x-x_0} \limsup_{n\to\infty} \, {\abs{a_n}}^{1/n}
-=
-\abs{x-x_0} R .
-\end{equation*}
-In particular if $R = \infty$, then $L=\infty$ for any $x \not= x_0$, and
-the series diverges by the root test.
-On the
-other hand if $R = 0$, then $L=0$ for any $x$, and the series 
-converges absolutely for all $x$.
-
-Suppose $0 < R < \infty$.
-The series
-converges absolutely if
-$1 > L = R \abs{x-x_0}$,
-or in other words when
-\begin{equation*}
-\abs{x-x_0} < \nicefrac{1}{R} .
-\end{equation*}
-The series diverges when
-$1 < L = R \abs{x-x_0}$,
-or
-\begin{equation*}
-\abs{x-x_0} > \nicefrac{1}{R} .
-\end{equation*}
-Letting $\rho = \nicefrac{1}{R}$ completes the proof.
-\end{proof}
-
-It may be useful to restate what we have learned in the proof
-as a separate proposition.
-
-\begin{prop}
-Let $\sum a_n {(x-x_0)}^n$ be a power series, and let
-\begin{equation*}
-R := \limsup_{n\to\infty} \, {\abs{a_n}}^{1/n} .
-\end{equation*}
-If $R = \infty$, the power series is divergent.
-If
-$R=0$, then the power series converges everywhere.
- Otherwise
-the radius of convergence $\rho = \nicefrac{1}{R}$.
-\end{prop}
-
-Often, radius of convergence is written as $\rho = \nicefrac{1}{R}$ in all
-three cases, with
-the obvious understanding of what $\rho$ should be if $R = 0$ or $R =
-\infty$.
-
-Convergent power series can be added and multiplied together, and multiplied
-by constants.
-The proposition has an easy proof using what we know about series
-in general, and power series in particular.
-We leave the proof to the reader.
-
-\begin{prop}
-Let $\sum_{n=0}^\infty a_n {(x-x_0)}^n$ and
-$\sum_{n=0}^\infty b_n {(x-x_0)}^n$ be two convergent power series
-with radius of convergence at least $\rho > 0$ and $\alpha \in \R$.
-Then
-for all $x$ such that $\abs{x-x_0} < \rho$, we have 
-\begin{equation*}
-\left(\sum_{n=0}^\infty a_n {(x-x_0)}^n\right)
-+
-\left(\sum_{n=0}^\infty b_n {(x-x_0)}^n\right)
-=
-\sum_{n=0}^\infty (a_n+b_n) {(x-x_0)}^n ,
-\end{equation*}
-\begin{equation*}
-\alpha
-\left(\sum_{n=0}^\infty a_n {(x-x_0)}^n\right)
-=
-\sum_{n=0}^\infty \alpha a_n {(x-x_0)}^n ,
-\end{equation*}
-and
-\begin{equation*}
-\left(\sum_{n=0}^\infty a_n {(x-x_0)}^n\right)
-\,
-\left(\sum_{n=0}^\infty b_n {(x-x_0)}^n\right)
-=
-\sum_{n=0}^\infty c_n {(x-x_0)}^n ,
-\end{equation*}
-where
-$c_n = a_0b_n + a_1 b_{n-1} + \cdots + a_n b_0$.
-\end{prop}
-
-That is, after performing the algebraic operations, the
-radius of convergence of the resulting series is at least $\rho$.
-For all $x$ with $\abs{x-x_0} < \rho$, we have two convergent series so
-their term by term addition and multiplication by constants
-follows by what we learned in the last section.
-For multiplication of two power series,
-the series are absolutely convergent inside
-the radius of convergence and that is why for those $x$
-we can apply Mertens' theorem.
-Note that after applying an algebraic operation the radius of convergence
-could increase.
-See the exercises.
-
-Let us look at some examples of power series.
-Polynomials are simply finite power series.
-That is, a polynomial
-is a power series where
-the $a_n$ are zero for all $n$ large enough.
-We expand
-a polynomial as a power series about any point $x_0$ by writing
-the polynomial as a polynomial in $(x-x_0)$.
-For example,
-$2x^2-3x+4$ as a power series around $x_0 = 1$ is
-\begin{equation*}
-2x^2-3x+4 = 3 + (x-1) + 2{(x-1)}^2 .
-\end{equation*}
-
-We can also expand
-\emph{\myindex{rational functions}}, that is, ratios of polynomials
-as power series, although we will not completely prove this fact here.
-Notice that a series for a rational function only defines the function
-on an interval even if the function is defined elsewhere.
-For example, for
-the \emph{\myindex{geometric series}} we have that for
-$x \in (-1,1)$
-\begin{equation*}
-\frac{1}{1-x} =
-\sum_{n=0}^\infty x^n .
-\end{equation*}
-The series diverges when $\abs{x} > 1$, even though $\frac{1}{1-x}$ is
-defined for all $x \not= 1$.
-
-We can use the geometric series together with rules for addition and
-multiplication of power series to expand rational functions as power
-series around $x_0$,
-as long as the denominator is not zero at $x_0$.
-We state without
-proof that this is always possible, and we give an example of such
-a computation using the geometric series.
-
-\begin{example}
-Let us expand $\frac{x}{1+2x+x^2}$ as a power series around the origin ($x_0 = 0$) and
-find the radius of convergence.
-
-Write $1+2x+x^2 = {(1+x)}^2 = {\bigl(1-(-x)\bigr)}^2$, and suppose
-$\abs{x} < 1$.
-Compute
-\begin{equation*}
-\begin{split}
-\frac{x}{1+2x+x^2}
-&=
-x \,
-{\left(
-\frac{1}{1-(-x)}
-\right)}^2
-\\
-&=
-x \,
-{\left( 
-\sum_{n=0}^\infty {(-1)}^n x^n 
-\right)}^2
-\\
-&=
-x \,
-\left(
-\sum_{n=0}^\infty c_n x^n 
-\right)
-\\
-&=
-\sum_{n=0}^\infty c_n x^{n+1} ,
-\end{split}
-\end{equation*}
-where using the formula for the product of series
-we obtain, $c_0 = 1$, $c_1 = -1 -1 = -2$, $c_2 = 1+1+1 = 3$, etc\ldots.
-Therefore we get that for $\abs{x} < 1$, 
-\begin{equation*}
-\frac{x}{1+2x+x^2}
-=
-\sum_{n=1}^\infty {(-1)}^{n+1} n x^n .
-\end{equation*}
-The radius of convergence is at least 1.
-We leave it to the reader to
-verify that the radius of convergence is exactly equal to 1.
-%We use the ratio test
-%\begin{equation*}
-%\lim_{n\to\infty}
-%\left\lvert \frac{a_{k+1}}{a_k} \right\rvert
-%=
-%\lim_{k\to\infty}
-%\left\lvert \frac{{(-1)}^{k+2} (k+1)}{{(-1)}^{k+1}k} \right\rvert
-%=
-%\lim_{k\to\infty}
-%\frac{k+1}{k}
-%= 1 .
-%\end{equation*}
-%So the radius of convergence is actually equal to 1.
-\end{example}
-
-You can use the method of partial fractions you know from calculus.
-For example, to find the power series for $\frac{x^3+x}{x^2-1}$ at 0, write
-\begin{equation*}
-\frac{x^3+x}{x^2-1}
-=
-x + \frac{1}{1+x} - \frac{1}{1-x}
-=
-x + \sum_{n=0}^\infty {(-1)}^n x^n - \sum_{n=0}^\infty x^n .
-\end{equation*}
-
-\subsection*{Exercises}
-
-%This kind of sucks as an exercise ....
-%\begin{exercise}
-%Strengthen the root test.  Suppose that
-%$\limsup_{n\to\infty} \, {\abs{x_n}}^{1/n} = 1$.
-%Find an easy condition
-%
-%but
-%that ${\abs{x_n}}^{1/n} \geq 1$ infinitely often, then show that
-%the series diverges.
-%\end{exercise}
 
 \begin{exercise}
 Decide the convergence or divergence of the following series.
@@ -6388,6 +5624,8 @@ $\sum {(-1)}^n x_n$ diverges.
 \end{exercise}
 
 \chapter{Sets of real numbers}
+
+
 
 \section{Countable sets}\label{rn:counable}
 
@@ -6697,11 +5935,16 @@ Show that for any interval $(x,y)$ contains an irrational number.
 Hint: Apply Theorem~\ref{thm:arch:ii} to the interval $(x+\sqrt{2},y+\sqrt{2})$.
 \end{exercise}
 
+\begin{exercise}
+Find a sequence $\{ x_n \}$ such that for any $y \in \R$, there exists a
+subsequence $\{ x_{n_i} \}$ converging to $y$.
+\end{exercise}
+
 \sectionnewpage
 \section{Decimal representation}
 \label{sec:decimals}
 
-\sectionnotes{1 lecture (optional)}
+%???REDO
 
 We often think of real numbers as their
 \emph{\myindex{decimal representation}}.
@@ -6717,7 +5960,20 @@ To represent $n$ we write the sequence of
 digits: $n = d_K d_{K-1} \cdots d_2 d_1 d_0$.
 By a (decimal)
 \emph{\myindex{digit}}\index{decimal digit}, we mean an integer
-between $0$ and $9$.
+between $0$ and $9$;
+formally speaking 
+\begin{align*}
+2&:=1+1,
+&3&:=2+1,
+&4&:=3+1,
+&5&:=4+1,
+\\
+6&:=5+1,
+&7&:=6+1,
+&7&:=6+1,
+&9&:=8+1.
+\end{align*}
+ 
 
 Similarly we
 represent some rational numbers.
@@ -6746,7 +6002,7 @@ Suppose we take an infinite sequence of decimal digits:
 \begin{equation*}
 0.d_1d_2d_3\ldots.
 \end{equation*}
-That is, we have a digit $d_j$ for every $j \in \N$.
+That is, we have a sequence of digits $d_j$ where $j \in \N$.
 We have renumbered the digits to avoid the negative signs.
 We say this
 sequence of digits represents a real number $x$ if
@@ -7005,6 +6261,113 @@ consider even and odd digits, and be careful about the uniqueness of
 representation.
 \end{exercise}
 
+Lets us use the idea in the above proof together with decimal representation or reals to prove Theorem~\ref{thm:Cantor}.
+This is Cantor's second proof, and is probably more well known.
+While this proof may seem shorter, it is because we have already done the hard part above and we are left with a slick trick to prove that $\R$ is uncountable.  
+This trick is called \emph{\myindex{Cantor diagonalization}}\index{diagonalization} and finds use in other proofs as well.
+
+\begin{proof}[Alternative proof of Theorem~\ref{thm:Cantor}]
+We will show that the set $(0,1]$ is uncountable;
+it is stronger than required.
+
+Let $X := \{ x_1,x_2,x_3,\ldots \}$ be any countable subset of real numbers in $(0,1]$.
+We will construct a real number $y\in (0,1]$ which is not in $X$.
+Let
+\begin{equation*}
+x_n = 0.d_1^nd_2^nd_3^n\ldots
+\end{equation*}
+be the unique representation from the proposition, that is $d_j^n$ is the
+$j$th digit of the $n$th number.
+Let
+$e_n := 1$ if $d_n^n \not= 1$, and 
+let $e_n := 2$ if $d_n^n = 1$.
+Let $E_n$ be the $n$-digit truncation of $y = 0.e_1e_2e_3\ldots$.
+Because
+all the digits are nonzero we get that $E_n < E_{n+1} \leq y$.
+Therefore
+\begin{equation*}
+E_n < y \leq E_n + {10}^{-n} 
+\end{equation*}
+for all $n$, and the representation is the unique one for $y$ from 
+the proposition.
+But for every $n$, the $n$th digit
+of $y$ is different from the $n$th digit of $x_n$, so $y \not= x_n$.
+Therefore $y \notin X$, and as $X$ was an arbitrary countable subset,
+$(0,1]$ must be uncountable.
+\end{proof}
+
+\section{Closed and open sets}
+
+\begin{defn}
+A set $S$ of real numbers is called \emph{closed} if it satisfies the following condition:
+if $\{x_n\}$ is a converging sequence such that $x_n\in S$ for any $n$ then $\lim x_n\in S$.
+\end{defn}
+
+\begin{exercise}
+Show that any intervals of the form $[a,b]$, $[a,\infty)$, $(-\infty,b]$ are closed sets.
+\end{exercise}
+
+\begin{exercise}
+Show that any finite set of real numbers is a closed set.
+\end{exercise}
+
+\begin{exercise}\label{ex:closed-intersection}
+Show that intersection of arbitrary collection of closed sets in $\R$ is closed.
+\end{exercise}
+
+\begin{exercise}
+Use \exerciseref{ex:closed-intersection} to show that all the real numbers in $[0,1]$ which decimal expansion contains only 1 and 2 is a closed set.
+\end{exercise}
+
+\begin{exercise}
+Show that any bounded closed set admits minimum and maximum;
+that is,
+$$\inf S\in S\quad\text{and}\quad \sup S\in S$$
+for any closed bounded set $S$
+\end{exercise}
+
+\begin{defn}
+A set $U$ of real numbers is called \emph{open} if for any $x\in U$ there is $\epsilon>0$ such that 
+$(x-\epsilon,x+\epsilon)\subset U$.
+\end{defn}
+
+\begin{exercise}
+Shoow that intervals of the form $(a,b)$, $(a,\infty)$ and $(-\infty,b)$ are an open sets. 
+\end{exercise}
+
+
+\begin{thm}
+A set $S$ is closed if and only if its complement $U=\R\backslash S$ is open. 
+\end{thm}
+
+\begin{proof}
+Assume $S$ is closed. 
+Fix $x\in U=\R\backslash S$.
+
+If there is no $\epsilon>0$ such that 
+$(x-\epsilon,x+\epsilon)\subset U$ then we can choose a sequence of $x_n\in S$ such that $|x_n-x|<\tfrac1n$ for any $n$.
+In particular $x_n\to x$ as $n\to \infty$, but since $S$ is closed $x\in S$, a contradiction.
+
+That is, if $S$ is closed then $U$ is open.
+
+Next suppose $U$ is open.
+Fix a converging sequence $x_n\in S=\R\backslash U$ for each $n$ and denote by $x$ its limit.
+If $x\notin S$ then $x\in U$.
+Since $U$ is open, there is $\epsilon>0$ such that 
+$(x-\epsilon,x+\epsilon)\subset U$.
+On the other hand since $x_n\to x$ we have that $|x_n-x|<\epsilon$ for all large $n$.
+In particular there is $x_n\in (x-\epsilon,x+\epsilon)\subset U$;
+the latter contradicts that $x_n\in S$.
+\end{proof}
+
+\begin{exercise}
+Let $U$ be an open set in $\R$.
+\begin{enumerate}[a)]
+\item Show that for any $x\in U$ the union of all intervals $I$ such that $x\in I\subset U$ is an open interval.
+\item Conclude that any open set in $\R$ is a union of a countable collection of disjoint open intervals. 
+\end{enumerate}
+\end{exercise}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7017,7 +6380,8 @@ representation.
 \section{Limits of functions}
 \label{sec:limoffunc}
 
-\sectionnotes{2--3 lectures}
+%???REDO with intervals
+
 
 Before we define continuity of functions, we need to visit a somewhat
 more general notion of a limit.
@@ -7035,6 +6399,9 @@ A number $x \in \R$ is called
 a \emph{\myindex{cluster point}} of $S$
 if for every $\epsilon > 0$, the set $(x-\epsilon,x+\epsilon) \cap S
 \setminus \{ x \}$ is not empty.
+
+If $x\in S$ and  $(x-\epsilon,x+\epsilon) \cap S
+\setminus \{ x \}$ is empty for some $\epsilon>0$ then $x$ is called \emph{\myindex{isolated point}} of $S$.
 \end{defn}
 
 That is, $x$ is a cluster point of $S$ if there are points of $S$
@@ -7047,7 +6414,7 @@ Note that a cluster point of $S$ need not lie in $S$.
 Let us see some examples.
 \begin{enumerate}[(i)]
 \item The set
-$\{ \nicefrac{1}{n} : n \in \N \}$ has a unique cluster point zero.
+$\{ \nicefrac{1}{n} : n \in \N \}$ has a unique cluster point zero and an infinite set isolated points.
 \item The cluster points of the open interval $(0,1)$ are
 all points in the closed interval $[0,1]$.
 \item For the set $\Q$, the set of
@@ -7734,8 +7101,6 @@ as $x \to c_1$.
 \section{Continuous functions}
 \label{sec:cont}
 
-\sectionnotes{2--2.5 lectures}
-
 You undoubtedly heard of continuous functions in your schooling.
 A
 high-school criterion for this concept is that a function is continuous if
@@ -8382,8 +7747,6 @@ Then show that $\nicefrac{f(x)}{x} = f(1)$ for all rational $x$.
 \section{Min-max and intermediate value theorems}
 \label{sec:minmaxint}
 
-\sectionnotes{1.5 lectures}
-
 Continuous functions defined on closed and bounded intervals
 have some interesting and very useful properties.
 %Let us now state and prove some very important results about continuous
@@ -8882,9 +8245,6 @@ Prove that $f$ must be a constant.
 \sectionnewpage
 \section{Uniform continuity}
 \label{sec:unifcont}
-
-\sectionnotes{1.5--2 lectures (Continuous extension and Lipschitz can be
-optional)}
 
 \subsection*{Uniform continuity}
 
@@ -9430,10 +8790,6 @@ for which $\abs{f(x)} = \nicefrac{K}{2}$ for some $x \in [0,1]$.
 \section{Limits at infinity}
 \label{sec:limitatinf}
 
-\sectionnotes{less than 1 lecture (optional, can safely be omitted unless
-\sectionref{sec:monotonefunc} or
-\sectionref{sec:impropriemann} is also covered)}
-
 \subsection*{Limits at infinity}
 
 As for sequences, a continuous variable can also approach infinity.
@@ -9768,8 +9124,6 @@ c$} .
 \section{Monotone functions and continuity}
 \label{sec:monotonefunc}
 
-\sectionnotes{1 lecture (optional, can safely be omitted unless
-\sectionref{sec:ift} is also covered, requires \sectionref{sec:limitatinf})}
 
 \begin{defn}
 Let $S \subset \R$.
@@ -10207,7 +9561,6 @@ the function with a series.
 \section{The derivative}
 \label{sec:der}
 
-\sectionnotes{1 lecture}
 
 The idea of a derivative is the following.
 Let us suppose a graph of a function looks locally like a straight line.
@@ -10643,8 +9996,6 @@ h'(c)$.
 \sectionnewpage
 \section{Mean value theorem}
 \label{sec:mvt}
-
-\sectionnotes{2 lectures (some applications may be skipped)}
 
 \subsection*{Relative minima and maxima}
 
@@ -11153,9 +10504,7 @@ Prove $f'(x) > 0$ for all $x \in (a,b)$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:samediffconst}
-Suppose $f \colon (a,b) \to \R$ and $g \colon (a,b) \to \R$ are
-differentiable functions such that $f'(x) = g'(x)$ for all $x \in (a,b)$,
-then show that there exists a constant $C$ such that $f(x) = g(x) + C$.
+Suppose $f \colon (a,b) \to \R$ and $g \colon (a,b) \to \R$ are differentiable functions such that $f'(x) = g'(x)$ for all $x \in (a,b)$, then show that there exists a constant $C$ such that $f(x) = g(x) + C$.
 \end{exercise}
 
 \begin{exercise}
@@ -11204,8 +10553,6 @@ it is the unique differentiable function with this property.
 \sectionnewpage
 \section{Taylor's theorem}
 \label{sec:taylor}
-
-\sectionnotes{half a lecture (optional section)}
 
 \subsection*{Derivatives of higher orders}
 
@@ -11430,10 +10777,6 @@ while $f'(0)$ exists, $f''(0)$ does not.
 \sectionnewpage
 \section{Inverse function theorem}
 \label{sec:ift}
-
-\sectionnotes{less than 1 lecture (optional section, needed for
-\sectionref{sec:logandexp}, requires 
-\sectionref{sec:monotonefunc})}
 
 \subsection*{Inverse function theorem}
 
@@ -11683,8 +11026,6 @@ Prove:
 
 \section{The Riemann integral}
 \label{sec:rint}
-
-\sectionnotes{1.5 lectures}
 
 We now get to the fundamental concept of integration.
 There is
@@ -12385,9 +11726,6 @@ such that the composition $f \circ g$ is not Riemann integrable.
 \sectionnewpage
 \section{Properties of the integral}
 \label{sec:rintprop}
-
-\sectionnotes{2 lectures, integrability of functions with 
-discontinuities can safely be skipped}
 
 \subsection*{Additivity}
 
@@ -13171,8 +12509,6 @@ integrable.
 \section{Fundamental theorem of calculus}
 \label{sec:ftc}
 
-\sectionnotes{1.5 lectures}
-
 In this chapter we discuss and prove the
 \emph{\myindex{fundamental theorem of calculus}}.
 The entirety of integral calculus is built upon this theorem,
@@ -13667,11 +13003,6 @@ continuous on $[0,1]$, but not differentiable at every $x \in [0,1] \cap \Q$.
 \section{The logarithm and the exponential}
 \label{sec:logandexp}
 
-\sectionnotes{1 lecture (optional, requires the optional sections 
-\sectionref{sec:limitatinf},
-\sectionref{sec:monotonefunc},
-\sectionref{sec:ift})}
-
 We now have all that is required to finally properly define the exponential
 and the
 logarithm that you know from calculus so well.
@@ -14125,9 +13456,6 @@ and $L(e) = 1$.
 \sectionnewpage
 \section{Improper integrals}
 \label{sec:impropriemann}
-
-\sectionnotes{2--3 lectures (optional section, can safely be skipped, 
-requires the optional \sectionref{sec:limitatinf})}
 
 Often it is necessary to integrate over the
 entire real line, or a infinite interval of the form $[a,\infty)$ or
@@ -15219,8 +14547,6 @@ Prove that
 \section{Pointwise and uniform convergence}
 \label{sec:puconv}
 
-\sectionnotes{1--1.5 lecture}
-
 Up till now when we talked about sequences we always talked about
 sequences of numbers.
 However, a very useful concept in analysis is to use a
@@ -15705,8 +15031,6 @@ f_n \}$ converges uniformly to $h$ on $[a,b]$.
 \sectionnewpage
 \section{Interchange of limits}
 \label{sec:liminter}
-
-\sectionnotes{1--1.5 lectures}
 
 Large parts of modern analysis deal mainly with the question of the
 interchange of two limiting operations.
@@ -16279,8 +15603,6 @@ at all.
 \section{Picard's theorem}
 \label{sec:picard}
 
-\sectionnotes{1--2 lectures (can be safely skipped)}
-
 A first semester course in analysis should have
 a \emph{pi\`ece de r\'esistance} caliber
 theorem.
@@ -16832,8 +16154,6 @@ q(t) ~dt + y_0 \right).
 \section{Metric spaces}
 \label{sec:metric}
 
-\sectionnotes{1.5 lectures}
-
 As mentioned in the introduction, the main idea in analysis is to take
 limits.
 In \chapterref{seq:chapter} we learned to take limits of sequences of
@@ -17348,8 +16668,6 @@ nonempty bounded subsets $A$ and $B$ such that $d_H(A,B) = 0$.
 \sectionnewpage
 \section{Open and closed sets}
 \label{sec:mettop}
-
-\sectionnotes{2 lectures}
 
 \subsection*{Topology}
 
@@ -18014,7 +17332,6 @@ $A^\circ = \bigcup \{ V : V \subset A \text{ is open} \}$.
 \section{Sequences and convergence}
 \label{sec:metseqs}
 
-\sectionnotes{1 lecture}
 
 \subsection*{Sequences}
 
@@ -18392,8 +17709,6 @@ Prove \propref{prop:mssubseq}.
 \sectionnewpage
 \section{Completeness and compactness}
 \label{sec:metcompact}
-
-\sectionnotes{2 lectures}
 
 \subsection*{Cauchy sequences and completeness}
 
@@ -18950,8 +18265,6 @@ Show that $E$ with the subspace metric is a complete metric space.
 \section{Continuous functions}
 \label{sec:metcont}
 
-\sectionnotes{1 lecture}
-
 \subsection*{Continuity}
 
 \begin{defn}
@@ -19375,8 +18688,6 @@ that is, $d(p,q) = \inf \{ (x,y) \colon x \in K_1, y \in K_2 \}$.
 \sectionnewpage
 \section{Fixed point theorem and Picard's theorem again}
 \label{sec:metpicard}
-
-\sectionnotes{1 lecture (optional, does not require \sectionref{sec:picard})}
 
 In this section we prove the fixed point theorem for contraction
 mappings.
@@ -19915,40 +19226,7 @@ If $x_0 \in B$, then $x_0 \notin f(x_0) = B$, which is a contradiction.
 If $x_0 \notin B$, then $x_0 \in f(x_0) = B$, which is again a contradiction.
 \end{proof}
 
-Lets us use the idea in the above proof together with decimal representation or reals to prove Theorem~\ref{thm:Cantor}.
-This is Cantor's second proof, and is probably more well known.
-While this proof may seem shorter, it is because we have already done the hard part above and we are left with a slick trick to prove that $\R$ is uncountable.  
-This trick is called \emph{\myindex{Cantor diagonalization}}\index{diagonalization} and finds use in other proofs as well.
 
-\begin{proof}[Alternative proof of Theorem~\ref{thm:Cantor}]
-We will show that the set $(0,1]$ is uncountable;
-it is stronger than required.
-
-Let $X := \{ x_1,x_2,x_3,\ldots \}$ be any countable subset of real numbers in $(0,1]$.
-We will construct a real number not in $X$.
-Let
-\begin{equation*}
-x_n = 0.d_1^nd_2^nd_3^n\ldots
-\end{equation*}
-be the unique representation from the proposition, that is $d_j^n$ is the
-$j$th digit of the $n$th number.
-Let
-$e_n := 1$ if $d_n^n \not= 1$, and 
-let $e_n := 2$ if $d_n^n = 1$.
-Let $E_n$ be the $n$-digit truncation of $y = 0.e_1e_2e_3\ldots$.
-Because
-all the digits are nonzero we get that $E_n < E_{n+1} \leq y$.
-Therefore
-\begin{equation*}
-E_n < y \leq E_n + {10}^{-n} 
-\end{equation*}
-for all $n$, and the representation is the unique one for $y$ from 
-the proposition.
-But for every $n$, the $n$th digit
-of $y$ is different from the $n$th digit of $x_n$, so $y \not= x_n$.
-Therefore $y \notin X$, and as $X$ was an arbitrary countable subset,
-$(0,1]$ must be uncountable.
-\end{proof}
 
 \subsection*{Exercises}
 
